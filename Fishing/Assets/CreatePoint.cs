@@ -4,8 +4,8 @@ using UnityEngine;
 public class CreatePoint : MonoBehaviour
 {
     [Header("Area Settings")]
-    [SerializeField] private float minWith;
-    [SerializeField] private float maxWith;
+    [SerializeField] private float minWidth;
+    [SerializeField] private float maxWidth;
 
     [SerializeField] private float minHeight;
     [SerializeField] private float maxHeigth;
@@ -24,7 +24,7 @@ public class CreatePoint : MonoBehaviour
         startPoint = andPoint;
         andPoint = Vector3.zero;
 
-        float x = Random.Range(minWith, maxWith);
+        float x = Random.Range(minWidth, maxWidth);
         float z = Random.Range(minHeight, maxHeigth);
 
         andPoint = new Vector3(x, 0, z);
