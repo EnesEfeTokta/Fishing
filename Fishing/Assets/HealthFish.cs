@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class HealthFish : MonoBehaviour
@@ -11,6 +12,7 @@ public class HealthFish : MonoBehaviour
     [Header("Health")]
     [SerializeField] private float health = 100;
     private float healthValue;
+    [SerializeField] private Image healthBarValue;
 
     void Start()
     {
@@ -31,6 +33,7 @@ public class HealthFish : MonoBehaviour
     public void CauseDamage(float damage)
     {
         healthValue -= damage;
+        healthBarValue.fillAmount = healthValue / 100f;
         if (healthValue <= 0)
         {
             Death();
@@ -41,12 +44,20 @@ public class HealthFish : MonoBehaviour
     IEnumerator MaterialChange()
     {
         rdr.material = damageMaterial;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         rdr.material = originalMaterial;
     }
 
     void Death()
     {
         Destroy(this.gameObject);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Spear"))
+        {
+            CauseDamage(20);
+        }
     }
 }

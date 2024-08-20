@@ -3,25 +3,31 @@ using UnityEngine;
 public class Fish : MonoBehaviour
 {
     private CreatePoint createPoint;
-    private float journeyTime = 2f;
+    [SerializeField] private float journeyTime = 2f;
     private float startTime;
+
+    [SerializeField] private float minRepeatTime = 1f;
+    [SerializeField] private float maxRepeatTime = 5f;
+    private float repeatTime;
 
     void Start()
     {
-        createPoint = GameObject.Find("CreatePoint").GetComponent<CreatePoint>();
+        createPoint = GetComponent<CreatePoint>();
         startTime = Time.time; 
     }
 
     void Update()
     {
         float t = (Time.time - startTime) / journeyTime;
-        if (t <= 1.0f)
+        if (t <= repeatTime)
         {
             Vector3 currentPos = ParabolicMovement(createPoint.startPoint, createPoint.andPoint, t);
             transform.position = currentPos;
         }
         else
         {
+            repeatTime = Random.Range(minRepeatTime, maxRepeatTime);
+
             startTime = Time.time;
             createPoint.PointMaker();
         }
