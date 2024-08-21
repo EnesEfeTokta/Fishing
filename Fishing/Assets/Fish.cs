@@ -6,13 +6,24 @@ public class Fish : MonoBehaviour
     [SerializeField] private float journeyTime = 2f;
     private float startTime;
 
+    [Header("Times")]
     [SerializeField] private float minRepeatTime = 1f;
     [SerializeField] private float maxRepeatTime = 5f;
     private float repeatTime;
 
+    [Header("Particles/VFX")]
+    [SerializeField] private ParticleSystem info;
+    [SerializeField] private Color infoColor;
+
+    private bool hasTriggeredInfo = false;
+
     void Start()
     {
         createPoint = GetComponent<CreatePoint>();
+
+        var main = info.main;
+        main.startColor = infoColor;
+        
         startTime = Time.time; 
     }
 
@@ -23,13 +34,19 @@ public class Fish : MonoBehaviour
         {
             Vector3 currentPos = ParabolicMovement(createPoint.startPoint, createPoint.andPoint, t);
             transform.position = currentPos;
+
+            if (t >= 0.3f && !hasTriggeredInfo)
+            {
+                info.Play();
+                hasTriggeredInfo = true;
+            }
         }
         else
         {
             repeatTime = Random.Range(minRepeatTime, maxRepeatTime);
-
             startTime = Time.time;
             createPoint.PointMaker();
+            hasTriggeredInfo = false;
         }
 
         transform.LookAt(createPoint.andPoint);
