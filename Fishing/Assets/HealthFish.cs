@@ -14,6 +14,9 @@ public class HealthFish : MonoBehaviour
     private float healthValue;
     [SerializeField] private Image healthBarValue;
 
+    [Header("Particles/VFX")]
+    [SerializeField] private ParticleSystem blood;
+
     void Start()
     {
         healthValue = health;
@@ -34,16 +37,17 @@ public class HealthFish : MonoBehaviour
     {
         healthValue -= damage;
         healthBarValue.fillAmount = healthValue / 100f;
+        StartCoroutine(MaterialChange());
         if (healthValue <= 0)
         {
             Death();
         }
-        StartCoroutine(MaterialChange());
     }
 
     IEnumerator MaterialChange()
     {
         rdr.material = damageMaterial;
+        blood.Play();
         yield return new WaitForSeconds(0.2f);
         rdr.material = originalMaterial;
     }
