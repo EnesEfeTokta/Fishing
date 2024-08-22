@@ -29,6 +29,7 @@ public class HealthFish : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //Test
             CauseDamage(50);
         }
     }
@@ -40,6 +41,7 @@ public class HealthFish : MonoBehaviour
         StartCoroutine(MaterialChange());
         if (healthValue <= 0)
         {
+            FindFirstObjectByType<FishSuccess>().ShowSuccessIcon(transform.position);
             Death();
         }
     }

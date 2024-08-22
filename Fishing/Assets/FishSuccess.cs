@@ -1,26 +1,39 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FishSuccess : MonoBehaviour
 {
-    [Header("Position")]
-    [SerializeField] private Transform andPoint;
+    [SerializeField] private RectTransform scoreBar;
+    [SerializeField] private GameObject successIconPrefab;
+    [SerializeField] private Canvas canvas;
 
-    [Header("Scale")]
-    [SerializeField] private Vector3 startScale;
-    [SerializeField] private Vector3 andScale;
-
-    void Start()
+    public void ShowSuccessIcon(Vector3 worldPosition)
     {
-        transform.localScale = startScale;
+        Vector2 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
+
+        GameObject successIcon = Instantiate(successIconPrefab, screenPosition, Quaternion.identity, canvas.transform);
+
+        StartCoroutine(MoveIconToXPBar(successIcon.GetComponent<RectTransform>()));
     }
 
-    void Update()
+    private IEnumerator MoveIconToXPBar(RectTransform icon)
     {
-        ScaleLerp();
-    }
+        float duration = 1f;
+        Vector3 startPosition = icon.position;
+        Vector3 endPosition = scoreBar.position;
 
-    void ScaleLerp()
-    {
-        transform.position = Vector3.Lerp(transform.position, andPoint.position, 2 * Time.deltaTime);
+        float elapsedTime = 0;
+
+        while (elapsedTime < duration)
+        {
+            icon.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        icon.position = endPosition;
+
+        Destroy(icon.gameObject);
     }
 }
