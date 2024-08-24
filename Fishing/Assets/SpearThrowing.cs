@@ -17,7 +17,6 @@ public class SpearThrowing : MonoBehaviour
         playerControls = new PlayerControls();
         playerControls.Player.Enable();
 
-        // Yeni Input Sistemi'nden Mouse Click Input Action'a abone olma
         playerControls.Player.SpearThrowing.performed += SpearThrowingInput;
     }
 
@@ -27,11 +26,7 @@ public class SpearThrowing : MonoBehaviour
         InitializeSpearPool();
     }
 
-    // Update fonksiyonu artık gerek yok çünkü input eventi dinliyoruz
-    //void Update() { }
-
-    // SpearThrowingInput metodu, fare tıklamasını işler
-    private void SpearThrowingInput(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    private void SpearThrowingInput(InputAction.CallbackContext context)
     {
         Vector3 mousePos = playerControls.Player.MousePosition.ReadValue<Vector2>();
         Ray ray = mainCamera.ScreenPointToRay(mousePos);

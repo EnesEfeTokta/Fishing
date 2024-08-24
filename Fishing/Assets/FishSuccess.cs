@@ -21,18 +21,18 @@ public class FishSuccess : MonoBehaviour
     {
         float duration = 1f;
         Vector3 startPosition = icon.position;
-        Vector3 endPosition = scoreBar.position;
+        Vector3 andPosition = scoreBar.position;
 
         float elapsedTime = 0;
 
         while (elapsedTime < duration)
         {
-            icon.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
+            icon.position = Vector3.Lerp(startPosition, andPosition, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        icon.position = endPosition;
+        icon.position = andPosition;
 
         Destroy(icon.gameObject);
     }
