@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SpearThrowing : MonoBehaviour
 {
@@ -9,6 +10,16 @@ public class SpearThrowing : MonoBehaviour
     [SerializeField] private float speed = 10f;
     private Camera mainCamera;
     private List<Transform> spearPool;
+    private PlayerControls playerControls;
+
+    void Awake()
+    {
+        playerControls = new PlayerControls();
+        playerControls.Player.Enable();
+
+        // Yeni Input Sistemi'nden Mouse Click Input Action'a abone olma
+        playerControls.Player.SpearThrowing.performed += SpearThrowingInput;
+    }
 
     void Start()
     {
@@ -16,33 +27,34 @@ public class SpearThrowing : MonoBehaviour
         InitializeSpearPool();
     }
 
-    void Update()
+    // Update fonksiyonu artık gerek yok çünkü input eventi dinliyoruz
+    //void Update() { }
+
+    // SpearThrowingInput metodu, fare tıklamasını işler
+    private void SpearThrowingInput(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        if (Input.GetMouseButtonDown(0))
+        Vector3 mousePos = playerControls.Player.MousePosition.ReadValue<Vector2>();
+        Ray ray = mainCamera.ScreenPointToRay(mousePos);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
         {
-            Vector3 mousePos = Input.mousePosition;
-            Ray ray = mainCamera.ScreenPointToRay(mousePos);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+            Transform spear = GetAvailableSpear();
+            if (spear != null)
             {
-                Transform spear = GetAvailableSpear();
-                if (spear != null)
+                if (mousePos.x < 960)
                 {
-                    if (Input.mousePosition.x < 960)
-                    {
-                        spear.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
-                    }
-                    else
-                    {
-                        spear.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
-                    }
-
-                    spear.gameObject.SetActive(true);
-
-                    Vector3 targetPosition = hit.point;
-                    StartCoroutine(SpearThrow(spear, targetPosition));
+                    spear.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
                 }
+                else
+                {
+                    spear.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
+                }
+
+                spear.gameObject.SetActive(true);
+
+                Vector3 targetPosition = hit.point;
+                StartCoroutine(SpearThrow(spear, targetPosition));
             }
         }
     }
