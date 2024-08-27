@@ -10,8 +10,8 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 4085542410863037973}
-    m_Position: {x: 168, y: 217, z: 0}
+    m_State: {fileID: 7198623524732592521}
+    m_Position: {x: 331.94052, y: 152.46727, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -21,7 +21,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 4085542410863037973}
+  m_DefaultState: {fileID: 7198623524732592521}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -44,14 +44,14 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &4085542410863037973
+--- !u!1102 &7198623524732592521
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fish_4_Swim_clip
+  m_Name: Armature|TailWagging
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -64,7 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2caca7013a876864294f46fc7bcd26b2, type: 2}
+  m_Motion: {fileID: -4006320167322274846, guid: d12e71447f7b73040a0b0fbe2df69453, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
