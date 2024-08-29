@@ -11,6 +11,8 @@ public class SpearThrowing : MonoBehaviour
     private Camera mainCamera;
     private List<Transform> spearPool;
     private PlayerControls playerControls;
+    private Waiting waiting;
+    private bool throwing = false;
 
     void Awake()
     {
@@ -23,6 +25,9 @@ public class SpearThrowing : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+
+        waiting = FindAnyObjectByType<Waiting>();
+
         InitializeSpearPool();
     }
 
@@ -32,7 +37,7 @@ public class SpearThrowing : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(mousePos);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit) && !throwing)
         {
             Transform spear = GetAvailableSpear();
             if (spear != null)
@@ -50,6 +55,11 @@ public class SpearThrowing : MonoBehaviour
 
                 Vector3 targetPosition = hit.point;
                 StartCoroutine(SpearThrow(spear, targetPosition));
+
+                waiting.TriggerWait(1, 1);
+                throwing = true;
+
+                Invoke("ThrowingPreparation", 1);
             }
         }
     }
@@ -88,5 +98,10 @@ public class SpearThrowing : MonoBehaviour
         }
 
         spear.gameObject.SetActive(false);
+    }
+
+    void ThrowingPreparation()
+    {
+        throwing = false;
     }
 }
