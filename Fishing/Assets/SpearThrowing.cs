@@ -8,6 +8,7 @@ public class SpearThrowing : MonoBehaviour
     [SerializeField] private Transform spearPrefab;
     [SerializeField] private int poolSize = 10;
     [SerializeField] private float speed = 10f;
+    [SerializeField] private float throwingTime = 1;
     private Camera mainCamera;
     private List<Transform> spearPool;
     private PlayerControls playerControls;
@@ -56,10 +57,10 @@ public class SpearThrowing : MonoBehaviour
                 Vector3 targetPosition = hit.point;
                 StartCoroutine(SpearThrow(spear, targetPosition));
 
-                waiting.TriggerWait(1, 1);
+                waiting.TriggerWait(1, throwingTime);
                 throwing = true;
 
-                Invoke("ThrowingPreparation", 1);
+                Invoke("ThrowingPreparation", throwingTime);
             }
         }
     }

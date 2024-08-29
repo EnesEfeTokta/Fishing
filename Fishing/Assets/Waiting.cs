@@ -15,6 +15,7 @@ public class Waiting : MonoBehaviour
     void Start()
     {
         waitBar.gameObject.SetActive(false);
+        waitTime.text = "";
     }
 
     public void TriggerWait(float value, float duration)
