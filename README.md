@@ -1,6 +1,7 @@
 ![Logo](https://github.com/EnesEfeTokta/Fishing/blob/main/FishingLogo1.png)
 # Fishing
-*Bir gölde balık avlamayı konu alan eğlenceli bir mızrak atma oyunu.*
+> *Bir gölde balık avlamayı konu alan eğlenceli bir mızrak atma oyunu.*
+
 ## Genel 🙌
 Fishing, 15/08/2024 tarihinde Unity v2022.3.25f1 kullanılarak başlatılan bir oyun projesidir. Oynanış, oyuncunun bir gölde görünen balıklara mızrak atmasını içerir. Temel mekanikler arasında mızrak atma, balık yumurtlama, XP sistemi ve ses ayarları bulunur. Kullanılan varlıklar arasında taş devri hayvanlarının ve silahlarının 3D modelleri, gündelik müzik, ses efektleri ve kullanıcı ara yüzü bulunur. Projenin bir GitHub deposu var, itch.io 'da yayınlanacak ve Android, Web ve Windows platformları için belirtilmemiş bazı sistem gereksinimleri var. Sayfada ayrıca geliştiricinin iletişim bilgileri, ekran görüntüleri, görev listesi, kullanılan kod ve geliştirici notları da yer alıyor.
 
