@@ -1,4 +1,5 @@
-![Logo](https://github.com/EnesEfeTokta/Fishing/blob/main/FishingLogo1.png)
+![Jet Demo Image](https://github.com/EnesEfeTokta/Fishing/blob/main/FishingLogo1.png)
+
 # Fishing
 > *Bir gölde balık avlamayı konu alan eğlenceli bir mızrak atma oyunu.*
 
@@ -51,19 +52,19 @@ Bu Alan Daha Doldurulmadı !!!
 
 ## Gereksinimler ⚠️
 - Android
-	Sürüm: 7
-	Depolama: 1 GB
-	Ram: 4 GB
+	- Sürüm: 7
+	- Depolama: 1 GB
+	- Ram: 4 GB
 
 - Web
-	Sürüm: 7
-	Depolama: 1 GB
-	Ram: 4 GB
+	- Sürüm: 7
+	- Depolama: 1 GB
+	- Ram: 4 GB
 
 - Windows
-	Sürüm: 7
-	Depolama: 1 GB
-	Ram: 4 GB
+	- Sürüm: 7
+	- Depolama: 1 GB
+	- Ram: 4 GB
 
 ## Uyarılar ⚠️
 Logo, Banner, Arka plan görselleri ChatGPT 4.0 ile oluşturulmuştur.
