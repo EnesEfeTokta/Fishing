@@ -1,8 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class FishSuccess : MonoBehaviour
+public class FishIconMovement : MonoBehaviour
 {
     [SerializeField] private RectTransform scoreBar;
     [SerializeField] private GameObject successIconPrefab;

@@ -41,7 +41,7 @@ public class HealthFish : MonoBehaviour
         StartCoroutine(MaterialChange());
         if (healthValue <= 0)
         {
-            FindFirstObjectByType<FishSuccess>().ShowSuccessIcon(transform.position);
+            FindFirstObjectByType<FishIconMovement>().ShowSuccessIcon(transform.position);
             Death();
         }
     }
