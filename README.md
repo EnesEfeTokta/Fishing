@@ -1,4 +1,4 @@
-[![Logo](https://photos.app.goo.gl/nmCKeDdqdxFm7MoF8 "Logo")](https://photos.app.goo.gl/nmCKeDdqdxFm7MoF8 "Logo")
+![Logo](https://github.com/EnesEfeTokta/Fishing/blob/main/FishingLogo1.png)
 # Fishing
 *Bir gölde balık avlamayı konu alan eğlenceli bir mızrak atma oyunu.*
 ## Genel 🙌
