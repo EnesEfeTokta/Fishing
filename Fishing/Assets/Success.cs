@@ -15,6 +15,11 @@ public class Success : MonoBehaviour
     [Header("Object")]
     [SerializeField] private GameObject successPanel;
 
+    void Start()
+    {
+        successPanel.SetActive(false);
+    }
+
     public void SuccessShow(SuccessData successData)
     {
         successPanel.SetActive(true);

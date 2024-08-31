@@ -882,7 +882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &308088080
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1848,6 +1848,7 @@ GameObject:
   - component: {fileID: 1328667936}
   - component: {fileID: 1328667937}
   - component: {fileID: 1328667938}
+  - component: {fileID: 1328667939}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1887,7 +1888,6 @@ MonoBehaviour:
   successImage: {fileID: 168431616}
   animator: {fileID: 308088081}
   successPanel: {fileID: 308088079}
-  successData: {fileID: 11400000, guid: f8c76d9b0fc3e874bae417d271b24332, type: 2}
 --- !u!114 &1328667938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1903,6 +1903,19 @@ MonoBehaviour:
   scoreBar: {fileID: 23401426}
   successIconPrefab: {fileID: 3683168073118117181, guid: 8905ecaece23ebc48aa808e2ed19bff4, type: 3}
   canvas: {fileID: 1455462352}
+--- !u!114 &1328667939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328667934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44f402e38622f64899cf61debe42452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: {fileID: 347205231}
 --- !u!1 &1328984269
 GameObject:
   m_ObjectHideFlags: 0
