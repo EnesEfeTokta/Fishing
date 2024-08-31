@@ -740,6 +740,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1032877073299835783, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
+      propertyPath: rdr
+      value: 
+      objectReference: {fileID: 1699921370}
+    - target: {fileID: 3254048697208051739, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4468429476366506478, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -758,15 +766,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4468429476366506478, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4468429476366506478, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4468429476366506478, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4468429476366506478, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1906,6 +1914,7 @@ GameObject:
   - component: {fileID: 1328667937}
   - component: {fileID: 1328667938}
   - component: {fileID: 1328667939}
+  - component: {fileID: 1328667940}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1973,6 +1982,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 347205231}
+--- !u!114 &1328667940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328667934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8494bd039ffbeac4da7ee207720acec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 23401427}
 --- !u!1 &1328984269
 GameObject:
   m_ObjectHideFlags: 0
@@ -2693,6 +2715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMaterial: {fileID: 2100000, guid: 0ea082acd3b46904580e2559be0245d9, type: 2}
   originalMaterial: {fileID: 2100000, guid: 3d123e9519590c64fa544c45c8f6c21a, type: 2}
+  rdr: {fileID: 0}
   health: 100
   healthBarValue: {fileID: 785795315}
   blood: {fileID: 2086390895}
@@ -2741,6 +2764,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!137 &1699921370 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3254048697208051739, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
+  m_PrefabInstance: {fileID: 172741105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1858791832
 GameObject:
   m_ObjectHideFlags: 0
@@ -3107,5 +3135,5 @@ SceneRoots:
   - {fileID: 2009214709}
   - {fileID: 1858791835}
   - {fileID: 1328667936}
-  - {fileID: 1648781915}
   - {fileID: 172741105}
+  - {fileID: 1648781915}

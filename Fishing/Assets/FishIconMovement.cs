@@ -7,6 +7,13 @@ public class FishIconMovement : MonoBehaviour
     [SerializeField] private GameObject successIconPrefab;
     [SerializeField] private Canvas canvas;
 
+    private Score score;
+
+    void Start()
+    {
+        score = GetComponent<Score>();
+    }
+
     public void ShowSuccessIcon(Vector3 worldPosition)
     {
         Vector2 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
@@ -32,6 +39,8 @@ public class FishIconMovement : MonoBehaviour
         }
 
         icon.position = andPosition;
+
+        score.ScoreIncrease(1);
 
         Destroy(icon.gameObject);
     }

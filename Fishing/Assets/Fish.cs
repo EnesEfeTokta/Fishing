@@ -1,5 +1,10 @@
 using UnityEngine;
 
+[RequireComponent(typeof(HealthFish))]
+[RequireComponent(typeof(CreatePoint))]
+[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Rigidbody))]
+
 public class Fish : MonoBehaviour
 {
     private CreatePoint createPoint;

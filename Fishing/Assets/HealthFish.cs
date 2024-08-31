@@ -21,7 +21,6 @@ public class HealthFish : MonoBehaviour
     {
         healthValue = health;
 
-        //rdr = GetComponent<SkinnedMeshRenderer>();
         rdr.material = originalMaterial;
     }
 
