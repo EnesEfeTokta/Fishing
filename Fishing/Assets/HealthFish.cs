@@ -7,7 +7,7 @@ public class HealthFish : MonoBehaviour
     [Header("Materials")]
     [SerializeField] private Material damageMaterial;
     [SerializeField] private Material originalMaterial;
-    private Renderer rdr;
+    [SerializeField] private SkinnedMeshRenderer rdr;
 
     [Header("Health")]
     [SerializeField] private float health = 100;
@@ -21,7 +21,7 @@ public class HealthFish : MonoBehaviour
     {
         healthValue = health;
 
-        rdr = GetComponent<Renderer>();
+        //rdr = GetComponent<SkinnedMeshRenderer>();
         rdr.material = originalMaterial;
     }
 
