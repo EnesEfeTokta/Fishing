@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(CreatePoint))]
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Emoji))]
 
 public class Fish : MonoBehaviour
 {
