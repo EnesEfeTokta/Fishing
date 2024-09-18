@@ -14,6 +14,7 @@ public class SpearThrowing : MonoBehaviour
     private PlayerControls playerControls;
     private Waiting waiting;
     private bool throwing = false;
+    private CameraShake cameraShake;
 
     void Awake()
     {
@@ -28,11 +29,12 @@ public class SpearThrowing : MonoBehaviour
         mainCamera = Camera.main;
 
         waiting = FindAnyObjectByType<Waiting>();
+        cameraShake = GetComponent<CameraShake>();
 
         InitializeSpearPool();
     }
 
-    private void SpearThrowingInput(InputAction.CallbackContext context)
+    void SpearThrowingInput(InputAction.CallbackContext context)
     {
         Vector3 mousePos = playerControls.Player.MousePosition.ReadValue<Vector2>();
         Ray ray = mainCamera.ScreenPointToRay(mousePos);
@@ -95,6 +97,9 @@ public class SpearThrowing : MonoBehaviour
         {
             spear.position = Vector3.MoveTowards(spear.position, targetPosition, speed * Time.deltaTime);
             spear.LookAt(targetPosition);
+
+            cameraShake.CameraShakeStart(0.01f, 0.01f, 0.04f);
+
             yield return null;
         }
 
