@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,6 +16,7 @@ public class SpearThrowing : MonoBehaviour
     private Waiting waiting;
     private bool throwing = false;
     private CameraShake cameraShake;
+    private List<Emoji> fishs = new List<Emoji>();
 
     void Awake()
     {
@@ -32,6 +34,8 @@ public class SpearThrowing : MonoBehaviour
         cameraShake = GetComponent<CameraShake>();
 
         InitializeSpearPool();
+
+        fishs = FindObjectsOfType<Emoji>().ToList();
     }
 
     void SpearThrowingInput(InputAction.CallbackContext context)
@@ -45,6 +49,8 @@ public class SpearThrowing : MonoBehaviour
             Transform spear = GetAvailableSpear();
             if (spear != null)
             {
+                spear.gameObject.SetActive(true);
+
                 if (mousePos.x < 960)
                 {
                     spear.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
@@ -54,10 +60,8 @@ public class SpearThrowing : MonoBehaviour
                     spear.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
                 }
 
-                spear.gameObject.SetActive(true);
-
                 Vector3 targetPosition = hit.point;
-                StartCoroutine(SpearThrow(spear, targetPosition));
+                StartCoroutine(SpearThrow(spear, targetPosition, hit));
 
                 waiting.TriggerWait(1, throwingTime);
                 throwing = true;
@@ -91,7 +95,7 @@ public class SpearThrowing : MonoBehaviour
         return null;
     }
 
-    IEnumerator SpearThrow(Transform spear, Vector3 targetPosition)
+    IEnumerator SpearThrow(Transform spear, Vector3 targetPosition, RaycastHit hit)
     {
         while (Vector3.Distance(spear.position, targetPosition) > 0.1f)
         {
@@ -101,6 +105,20 @@ public class SpearThrowing : MonoBehaviour
             cameraShake.CameraShakeStart(0.01f, 0.01f, 0.04f);
 
             yield return null;
+        }
+
+        GameObject hitObject = hit.collider.gameObject;
+        if (hitObject != null)
+        {
+            Debug.Log($"hish: {hitObject}");
+
+            foreach (Emoji emoji in fishs)
+            {
+                if (emoji != null)
+                {
+                    emoji.ShowEmoji();
+                }
+            }
         }
 
         spear.gameObject.SetActive(false);

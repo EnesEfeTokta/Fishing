@@ -2689,7 +2689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9201218017685433863, guid: aa224299edb2e6b40b2389eebad3c9b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.681
+      value: 1.762
       objectReference: {fileID: 0}
     - target: {fileID: 9201218017685433863, guid: aa224299edb2e6b40b2389eebad3c9b7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4753,6 +4753,7 @@ MonoBehaviour:
   poolSize: 10
   speed: 25
   throwingTime: 1
+  fishs: []
 --- !u!114 &963194232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4795,9 +4796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa753021a4189a94d9dad06e8c59f83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeDuration: 1
-  shakeAmount: 1
-  decreaseFactor: 2
 --- !u!4 &970800964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9196997286306163896, guid: 481f0dfd9ab82f54cb28efbcf0e47f34, type: 3}
@@ -6119,6 +6117,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1173324989}
     m_Modifications:
+    - target: {fileID: 289209636041008205, guid: e39ff66429756d445bea3a4f8e4a5284, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2578443230789546251, guid: e39ff66429756d445bea3a4f8e4a5284, type: 3}
       propertyPath: m_Name
       value: Island001
@@ -9848,7 +9850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3238844431110083698, guid: 2e4d7ef2743a629458f9b1db8484861c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.679
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 3238844431110083698, guid: 2e4d7ef2743a629458f9b1db8484861c, type: 3}
       propertyPath: m_LocalPosition.z

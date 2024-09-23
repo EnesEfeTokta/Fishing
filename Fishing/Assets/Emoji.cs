@@ -8,6 +8,11 @@ public class Emoji : MonoBehaviour
     [SerializeField] private Image emojiUI;
     [SerializeField] private GameObject emojiPanel;
 
+    void Start()
+    {
+        CloseEmojiPanel();
+    }
+
     public void ShowEmoji()
     {
         emojiPanel.SetActive(true);
@@ -17,6 +22,8 @@ public class Emoji : MonoBehaviour
         Sprite selectEmoji = emojis[randomIndex];
 
         emojiUI.sprite = selectEmoji;
+
+        Invoke("CloseEmojiPanel", 2f);
     }
 
     void CloseEmojiPanel()
