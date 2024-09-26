@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b65a5436a011104b86a9c9614d83236, type: 3}
   m_Name: PastPlaysData
   m_EditorClassIdentifier: 
+  pastPlayDatas: []
