@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b65a5436a011104b86a9c9614d83236, type: 3}
   m_Name: PastPlaysData
   m_EditorClassIdentifier: 
-  pastPlayDatas: []
+  pastPlayDatas:
+  - icon: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    name: Deneme
+    levelIndex: 1
+    scoreValue: 53
+    fishValue: 45
+    moneyValue: 35
+    maxScoreValue: 100
+    maxFishValue: 100
+    maxMoneyValue: 100
+  - icon: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    name: Deneme_
+    levelIndex: 8
+    scoreValue: 75
+    fishValue: 45
+    moneyValue: 90
+    maxScoreValue: 100
+    maxFishValue: 100
+    maxMoneyValue: 100
