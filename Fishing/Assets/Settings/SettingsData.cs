@@ -8,11 +8,11 @@ public class SettingsData : ScriptableObject
     public OptionLanguages optionLanguages; // Enum to select the language of the game. Adding new languages in the OptionLanguages enum will reflect here.
 
     [Header("Audio")]
-    [Range(0, 1f)] public float soundValue = 0.5f; // Control for sound effects volume, can be adjusted in the range of 0 (mute) to 1 (full volume).
-    [Range(0, 1f)] public float musicValue = 0.5f; // Control for music volume, similarly adjustable from 0 to 1.
+    [Range(0, 100f)] public float soundValue = 50f; // Control for sound effects volume, can be adjusted in the range of 0 (mute) to 100 (full volume).
+    [Range(0, 100f)] public float musicValue = 50f; // Control for music volume, similarly adjustable from 0 to 100.
 
     [Header("Renderer Settings")]
-    public bool postProcessing = true; // Toggle to enable or disable post-processing effects.
+    public bool isPostProcessing = true; // Toggle to enable or disable post-processing effects.
     public RendererQualityOptions rendererQualityOptions = RendererQualityOptions.Medium; // Dropdown to select the quality of the renderer from predefined options.
 }
 

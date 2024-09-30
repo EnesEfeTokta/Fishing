@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4da424232dadf4db37671ee3679998, type: 3}
   m_Name: SettingsData
   m_EditorClassIdentifier: 
-  optionLanguages: 0
-  soundValue: 0.5
-  musicValue: 0.5
+  optionLanguages: 2
+  soundValue: 24.1
+  musicValue: 55.6
   postProcessing: 1
-  rendererQualityOptions: 3
+  rendererQualityOptions: 1
