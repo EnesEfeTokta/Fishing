@@ -8,130 +8,153 @@ using UnityEngine.UI;
 public class SettingPanel : MonoBehaviour
 {
     [Header("Ambient Music")]
-    [SerializeField] private Slider ambientMusicBar; // Slider for controlling the ambient music volume.
-    [SerializeField] private TMP_Text ambientMusicPercentage; // Text displaying the percentage of ambient music volume.
-    private float ambientMusicValue; // Internal value to store the ambient music volume.
+    [SerializeField] private Slider ambientMusicBar; // Slider used for adjusting ambient music volume.
+    [SerializeField] private TMP_Text ambientMusicPercentage; // Text showing the current ambient music volume in percentage.
+    private float ambientMusicValue; // Internal variable to store the ambient music volume value.
 
     [Header("Ambient Sounds")]
-    [SerializeField] private Slider ambientSoundsBar; // Slider for controlling the ambient sounds volume.
-    [SerializeField] private TMP_Text ambientSoundsPercentage; // Text displaying the percentage of ambient sounds volume.
-    private float ambientSoundsValue; // Internal value to store the ambient sounds volume.
+    [SerializeField] private Slider ambientSoundsBar; // Slider used for adjusting ambient sound effects volume.
+    [SerializeField] private TMP_Text ambientSoundsPercentage; // Text showing the current ambient sound effects volume in percentage.
+    private float ambientSoundsValue; // Internal variable to store the ambient sound effects volume value.
 
     [Header("Post-Processing")]
-    [SerializeField] private Image postProcessingStatusButton; // UI element that visually represents the post-processing status (on/off).
-    [SerializeField] private Color activeColor; // Color to represent active post-processing status.
-    [SerializeField] private Color passiveColor; // Color to represent inactive post-processing status.
-    [SerializeField] private TMP_Text postProcessingStatus; // Text that displays whether post-processing is "On" or "Off".
+    [SerializeField] private Image postProcessingStatusButton; // UI button to toggle post-processing effects (visual effects).
+    [SerializeField] private Color activeColor; // Color for the button when post-processing is active.
+    [SerializeField] private Color passiveColor; // Color for the button when post-processing is inactive.
+    [SerializeField] private TMP_Text postProcessingStatus; // Text indicating whether post-processing is "On" or "Off".
 
     [Header("Languages")]
-    [SerializeField] private TMP_Dropdown languagesOptions; // Dropdown menu for language selection.
+    [SerializeField] private TMP_Dropdown languagesOptions; // Dropdown to select the game language.
 
     [Header("Quality")]
-    [SerializeField] private TMP_Dropdown qualityOptions; // Dropdown menu for graphics quality selection.
+    [SerializeField] private TMP_Dropdown qualityOptions; // Dropdown to select the graphics quality level.
 
     [Header("Settings Data")]
-    [SerializeField] private SettingsData settingsData; // ScriptableObject that holds the user preferences and settings.
+    [SerializeField] private SettingsData settingsData; // Stores user settings like sound volume, quality, language, etc.
 
     [Header("Panel")]
-    [SerializeField] private GameObject settingsPanel; // GameObject representing the settings panel.
+    [SerializeField] private GameObject settingsPanel; // The settings panel GameObject to show/hide settings UI.
+    private bool isOpenPanel = false; // Tracks whether the settings panel is open or closed.
 
-    // Opens or closes the settings panel and applies the settings values when the panel is opened.
+    // Function to open or close the settings panel.
     public void PanelOpenClose(bool isOpen)
     {
-        Debug.Log($"Panel status: {isOpen}"); // Logs the panel's open/close status.
-
-        settingsPanel.SetActive(isOpen); // Show or hide the settings panel.
+        settingsPanel.SetActive(isOpen); // Toggles the visibility of the settings panel.
+        isOpenPanel = isOpen; // Updates the internal flag based on the panel state (open/close).
 
         if (isOpen)
         {
-            // Fill sliders with values from settingsData and update the text display.
+            // Load and display the current values of music and sound sliders from settingsData.
             SliderDataFilling(
                 new Slider[] { ambientMusicBar, ambientSoundsBar }, 
                 new TMP_Text[] { ambientMusicPercentage, ambientSoundsPercentage }, 
                 new float[] { settingsData.musicValue, settingsData.soundValue }
             );
             
-            SetDropdowns(); // Initialize the dropdown menus for language and quality.
-
-            SetPostProcessing(); // Set the post-processing button's visual state.
+            SetDropdowns(); // Initialize dropdowns for language and quality settings.
+            SetPostProcessing(); // Apply the post-processing status to the UI.
         }
         else
         {
-            // Save settings when closing the panel (logic for saving to be implemented).
+            // Save the settings when the panel is closed.
+            SaveSlidersData(); // Save the current slider values (music/sound) to the settingsData.
         }
     }
 
-    // Fills the sliders and percentage text based on provided values.
-    void SliderDataFilling(Slider[] slider, TMP_Text[] texts, float[] value)
+    // Update is called once per frame. It's used here to continuously update the percentage texts for sliders.
+    void Update()
     {
-        for (int i = 0; i < slider.Length; i++)
+        if (isOpenPanel) // Only update when the settings panel is open.
         {
-            value[i] = Mathf.RoundToInt(value[i]); // Round the slider value to the nearest integer.
-            slider[i].value = value[i] / 100; // Convert to a normalized value between 0 and 1.
-            texts[i].text = $"%{value[i]}"; // Update the percentage text display.
+            // Update the text for the ambient music slider to show the rounded value in percentage.
+            ambientMusicPercentage.text = $"%{Mathf.RoundToInt(ambientMusicBar.value * 100)}";
+            
+            // Update the text for the ambient sounds slider to show the rounded value in percentage.
+            ambientSoundsPercentage.text = $"%{Mathf.RoundToInt(ambientSoundsBar.value * 100)}";
         }
     }
 
-    // Sets up and initializes the dropdown menus for language and quality settings.
+    // Save the current slider values (music and sound) into the settings data when the panel is closed.
+    void SaveSlidersData()
+    {
+        settingsData.musicValue = ambientMusicBar.value * 100; // Convert the normalized slider value (0-1) to percentage (0-100).
+        settingsData.soundValue = ambientSoundsBar.value * 100; // Same conversion for sound effects volume.
+    }
+
+    // Function to fill slider and text UI elements with values from settingsData.
+    void SliderDataFilling(Slider[] sliders, TMP_Text[] texts, float[] values)
+    {
+        for (int i = 0; i < sliders.Length; i++)
+        {
+            values[i] = Mathf.RoundToInt(values[i]); // Round the values to the nearest integer.
+            sliders[i].value = values[i] / 100; // Set the slider's value as a normalized number (between 0 and 1).
+            texts[i].text = $"%{values[i]}"; // Display the rounded value as a percentage in the associated text element.
+        }
+    }
+
+    // Initializes the dropdown options for languages and graphics quality.
     void SetDropdowns()
     {
-        // Add listeners to handle dropdown value changes.
+        // Add event listeners to handle changes in dropdown values.
         languagesOptions.onValueChanged.AddListener(LanguagesOptionsValueChanged);
         qualityOptions.onValueChanged.AddListener(QualityOptionsValueChanged);
 
         languagesOptions.ClearOptions(); // Clear any existing options in the language dropdown.
         qualityOptions.ClearOptions(); // Clear any existing options in the quality dropdown.
 
-        // Retrieve available options for languages and quality from enumerations.
+        // Get the list of language options from the OptionLanguages enum.
         List<string> languagesOptionsList = Enum.GetNames(typeof(OptionLanguages)).ToList();
+        
+        // Get the list of quality options from the RendererQualityOptions enum.
         List<string> qualityOptionsList = Enum.GetNames(typeof(RendererQualityOptions)).ToList();
 
-        // Add these options to the respective dropdowns.
+        // Add the language and quality options to their respective dropdowns.
         languagesOptions.AddOptions(languagesOptionsList);
         qualityOptions.AddOptions(qualityOptionsList);
 
-        // Set the dropdowns to reflect the current settings.
-        languagesOptions.value = (int)settingsData.optionLanguages;
-        qualityOptions.value = (int)settingsData.rendererQualityOptions;
+        // Set the dropdown values based on the current settings stored in settingsData.
+        languagesOptions.value = (int)settingsData.optionLanguages; // Set the language dropdown to the current language.
+        qualityOptions.value = (int)settingsData.rendererQualityOptions; // Set the quality dropdown to the current quality level.
     }
 
-    // Updates the language setting when the language dropdown value is changed.
+    // Called when the language dropdown value is changed by the user.
     void LanguagesOptionsValueChanged(int index)
     {
-        settingsData.optionLanguages = (OptionLanguages)index; // Save the selected language to the settings data.
+        settingsData.optionLanguages = (OptionLanguages)index; // Save the selected language in settingsData.
     }
 
-    // Updates the quality setting when the quality dropdown value is changed.
+    // Called when the quality dropdown value is changed by the user.
     void QualityOptionsValueChanged(int index)
     {
-        settingsData.rendererQualityOptions = (RendererQualityOptions)index; // Save the selected quality to the settings data.
+        settingsData.rendererQualityOptions = (RendererQualityOptions)index; // Save the selected quality level in settingsData.
     }
 
-    // Updates the post-processing button to reflect whether post-processing is active or not.
+    // Updates the post-processing button to reflect the current state (on/off).
     void SetPostProcessing()
     {
         if (settingsData.isPostProcessing)
         {
-            postProcessingStatusButton.color = activeColor; // Set button color to active state.
-            postProcessingStatus.text = "On"; // Set post-processing text to "On".
+            postProcessingStatusButton.color = activeColor; // Change the button color to indicate post-processing is active.
+            postProcessingStatus.text = "On"; // Update the text to indicate post-processing is on.
         }
         else
         {
-            postProcessingStatusButton.color = passiveColor; // Set button color to passive state.
-            postProcessingStatus.text = "Off"; // Set post-processing text to "Off".
+            postProcessingStatusButton.color = passiveColor; // Change the button color to indicate post-processing is inactive.
+            postProcessingStatus.text = "Off"; // Update the text to indicate post-processing is off.
         }
     }
 
-    // Toggles post-processing on/off when the user interacts with the relevant button.
+    // Toggles the post-processing effect when the user presses the button.
     public void ChangePostProcessing()
     {
-        settingsData.isPostProcessing = !settingsData.isPostProcessing; // Toggle the post-processing status in the settings.
+        settingsData.isPostProcessing = !settingsData.isPostProcessing; // Toggle the post-processing state.
+        SetPostProcessing(); // Update the UI to reflect the new post-processing state.
     }
 
-    // Placeholder function for changing the game's language.
+    // Placeholder function for applying the selected language (implementation can be added).
     public void ApplyTheNewLanguage()
     {
-        Debug.Log("Game language is changing..."); // Log the language change (implementation pending).
-        // Actual language change logic to be implemented here.
+        Debug.Log("Game language is changing..."); // Log the action of changing the game language.
+        // Additional logic for changing the game's language can be implemented here.
     }
 }
