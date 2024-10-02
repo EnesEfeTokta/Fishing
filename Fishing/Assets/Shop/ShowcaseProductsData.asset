@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 855a8bdafdb46b24fa6e1353e5265e93, type: 3}
+  m_Name: ShowcaseProductsData
+  m_EditorClassIdentifier: 
+  showcaseProducts:
+  - productId: 0
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme1
+    productPrice: 50
+    productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 1
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme1
+    productPrice: 50
+    productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 2
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme1
+    productPrice: 50
+    productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme1
+    productPrice: 50
+    productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 4
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme1
+    productPrice: 50
+    productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 5
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme1
+    productPrice: 50
+    productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
+    isPurchased: 0
+    productReceivedDate: 

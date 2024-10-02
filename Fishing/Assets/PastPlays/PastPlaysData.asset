@@ -31,3 +31,30 @@ MonoBehaviour:
     maxScoreValue: 100
     maxFishValue: 100
     maxMoneyValue: 100
+  - icon: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    name: Deneme_
+    levelIndex: 8
+    scoreValue: 75
+    fishValue: 45
+    moneyValue: 90
+    maxScoreValue: 100
+    maxFishValue: 100
+    maxMoneyValue: 100
+  - icon: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    name: Deneme_
+    levelIndex: 8
+    scoreValue: 75
+    fishValue: 45
+    moneyValue: 90
+    maxScoreValue: 100
+    maxFishValue: 100
+    maxMoneyValue: 100
+  - icon: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    name: Deneme_
+    levelIndex: 8
+    scoreValue: 75
+    fishValue: 45
+    moneyValue: 90
+    maxScoreValue: 100
+    maxFishValue: 100
+    maxMoneyValue: 100
