@@ -9092,6 +9092,7 @@ GameObject:
   - component: {fileID: 1794401896}
   - component: {fileID: 1794401895}
   - component: {fileID: 1794401897}
+  - component: {fileID: 1794401898}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -9153,6 +9154,21 @@ MonoBehaviour:
   qualityOptions: {fileID: 357507676}
   settingsData: {fileID: 11400000, guid: 5c9cf82b0d39b5a4cab31c4d723cbd53, type: 2}
   settingsPanel: {fileID: 1897193757}
+--- !u!114 &1794401898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794401894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b203b5abd30079418c18e59ea991859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showcaseProductsData: {fileID: 11400000, guid: e78a1e0ab58e6bd4fb90dbde7b77aa67, type: 2}
+  productPrefab: {fileID: 8659034273666217867, guid: d53a718bae2390a42931ad501f3f37fc, type: 3}
+  parent: {fileID: 1509825574}
 --- !u!1 &1802138864
 GameObject:
   m_ObjectHideFlags: 0

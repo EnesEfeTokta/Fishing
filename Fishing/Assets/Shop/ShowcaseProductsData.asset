@@ -20,9 +20,9 @@ MonoBehaviour:
     productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
     isPurchased: 0
     productReceivedDate: 
-  - productId: 1
+  - productId: 5
     productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
-    productName: Deneme1
+    productName: Deneme8
     productPrice: 50
     productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
     isPurchased: 0
@@ -37,7 +37,7 @@ MonoBehaviour:
   - productId: 3
     productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
     productName: Deneme1
-    productPrice: 50
+    productPrice: 89
     productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
     isPurchased: 0
     productReceivedDate: 
