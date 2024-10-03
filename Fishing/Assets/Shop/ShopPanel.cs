@@ -11,8 +11,15 @@ public class ShopPanel : MonoBehaviour
     [Header("Parent")]
     [SerializeField] private Transform parent;
 
-    void Start()
+    [Header("Panel")]
+    [SerializeField] private GameObject settingsPanel;
+    private bool isOpenPanel = false;
+
+    public void PanelOpenClose(bool isOpen)
     {
+        settingsPanel.SetActive(isOpen);
+        isOpenPanel = isOpen;
+
         ShowProduct();
     }
 
