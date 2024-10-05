@@ -9150,6 +9150,8 @@ GameObject:
   - component: {fileID: 1794401895}
   - component: {fileID: 1794401897}
   - component: {fileID: 1794401898}
+  - component: {fileID: 1794401899}
+  - component: {fileID: 1794401900}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -9227,6 +9229,37 @@ MonoBehaviour:
   productPrefab: {fileID: 8659034273666217867, guid: d53a718bae2390a42931ad501f3f37fc, type: 3}
   parent: {fileID: 1509825574}
   settingsPanel: {fileID: 625497251}
+--- !u!114 &1794401899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794401894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4634d4892bd864ba08c45323302508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 913146450}
+  money: {fileID: 982744259}
+  fish: {fileID: 1207268096}
+--- !u!114 &1794401900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794401894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ec0abdb6abdcf4a9a19483e3f438c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerProgressData: {fileID: 11400000, guid: 82bc52d9f3b1a674dac17c31ef72344a, type: 2}
+  totalPlayerScore: 0
+  totalPlayerMoney: 0
+  totalPlayerFish: 0
 --- !u!1 &1802138864
 GameObject:
   m_ObjectHideFlags: 0

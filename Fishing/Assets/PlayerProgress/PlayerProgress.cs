@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerProgress : MonoBehaviour
@@ -17,6 +18,15 @@ public class PlayerProgress : MonoBehaviour
         totalPlayerScore = playerProgressData.totalPlayerScore;
         totalPlayerMoney = playerProgressData.totalPlayerMoney;
         totalPlayerFish = playerProgressData.totalPlayerFish;
+    }
+
+    // Method to print the player's data to TMP_Texts.
+    public void TextPrintPlayerProgressData(TMP_Text score, TMP_Text money, TMP_Text fish)
+    {
+        // The process of printing the player's data to TMP_Texts.
+        score.text = totalPlayerScore.ToString();
+        money.text = totalPlayerMoney.ToString();
+        fish.text = totalPlayerFish.ToString();
     }
 
     // Method to add money to the player's total money count.
