@@ -35,7 +35,7 @@ public class FishIconMovement : MonoBehaviour
     }
 
     // This coroutine smoothly moves the success icon towards the XP bar.
-    private IEnumerator MoveIconToXPBar(RectTransform icon)
+    IEnumerator MoveIconToXPBar(RectTransform icon)
     {
         // Duration of the movement animation.
         float duration = 1f;

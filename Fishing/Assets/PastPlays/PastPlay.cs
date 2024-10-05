@@ -5,21 +5,21 @@ using UnityEngine.UI;
 public class PastPlay : MonoBehaviour
 {
     [Header("Past Play Info")]
-    public Image icon; // Icon representing the past play
-    public new TMP_Text name; // Name of the past play
-    public TMP_Text level; // Level reached in the past play
+    [SerializeField] private Image icon; // Icon representing the past play
+    [SerializeField] private new TMP_Text name; // Name of the past play
+    [SerializeField] private TMP_Text level; // Level reached in the past play
 
     // Visual bars representing percentages.
     [Header("Value Bars")]
-    public Image scoreBarValue;
-    public Image fishBarValue;
-    public Image moneyBarValue;
+    [SerializeField] private Image scoreBarValue;
+    [SerializeField] private Image fishBarValue;
+    [SerializeField] private Image moneyBarValue;
 
     // Texts showing the data.
     [Header("Value Texts")]
-    public TMP_Text scoreTextValue;
-    public TMP_Text fishTextValue;
-    public TMP_Text moneyTextValue;
+    [SerializeField] private TMP_Text scoreTextValue;
+    [SerializeField] private TMP_Text fishTextValue;
+    [SerializeField] private TMP_Text moneyTextValue;
 
     // Method to display past play features on the UI.
     public void ShowPastPlayFeatures(PastPlayData showPastPlayParameter)

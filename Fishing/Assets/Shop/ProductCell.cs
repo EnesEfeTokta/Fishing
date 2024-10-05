@@ -12,13 +12,13 @@ public class ProductCell : MonoBehaviour
     [SerializeField] private TMP_Text productStatus;
     [SerializeField] private TMP_Text productReceivedDate;
 
-    [SerializeField] private Button button;
+    [SerializeField] private Button transactionButton;
 
     private ShowcaseProduct showcaseProduct;
 
     void Start()
     {
-        button.onClick.AddListener(() => ProductSelect());
+        transactionButton.onClick.AddListener(() => ProductSelect());
     }
 
     void ProductSelect()
