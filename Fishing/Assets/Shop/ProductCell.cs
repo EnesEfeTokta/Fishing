@@ -4,47 +4,52 @@ using UnityEngine.UI;
 
 public class ProductCell : MonoBehaviour
 {
+    [Header("Product Features UI")]
     [SerializeField] private Image productImage;
-
     [SerializeField] private TMP_Text productName;
     [SerializeField] private TMP_Text productPrice;
     [SerializeField] private TMP_Text productDescription;
     [SerializeField] private TMP_Text productStatus;
     [SerializeField] private TMP_Text productReceivedDate;
-
     [SerializeField] private Button transactionButton;
 
     private ShowcaseProduct showcaseProduct;
+    private PlayerProgressData playerProgressData;
+    private PlayerProgress playerProgress;
 
     void Start()
     {
-        transactionButton.onClick.AddListener(() => ProductSelect());
+        transactionButton.onClick.AddListener(ProductSelect);
     }
 
     void ProductSelect()
     {
         if (showcaseProduct.isPurchased)
         {
-            // The product will be used ...
+            ProductUse();
         }
         else
         {
             if (PaymentApproval())
             {
-                Debug.Log("Payment is successful.");
+                ShowDebugMessage("Ödeme başarılıdır.");
 
                 showcaseProduct.StartPurchased();
+
+                playerProgress.DecreasingMoney(showcaseProduct.productPrice);
             }
             else
             {
-                Debug.Log("The payment failed.");
+                ShowDebugMessage("Ödeme başarısız oldu.");
             }
         }
     }
 
-    public void ShowProductInformation(ShowcaseProduct showcaseProduct)
+    public void ShowProductInformation(ShowcaseProduct showcaseProduct, PlayerProgress playerProgress)
     {
         this.showcaseProduct = showcaseProduct;
+        this.playerProgress = playerProgress;
+        playerProgressData = playerProgress.playerProgressData;
 
         productImage.sprite = showcaseProduct.productImage;
 
@@ -68,8 +73,26 @@ public class ProductCell : MonoBehaviour
 
     bool PaymentApproval()
     {
-        // The payment process will be verified ...
+        int firstMoney = playerProgressData.totalPlayerMoney;
+        int productPrice = showcaseProduct.productPrice;
 
-        return true;
+        if (firstMoney >= productPrice)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void ProductUse()
+    {
+        // Ürün burada giyiliyor.
+    }
+
+    void ShowDebugMessage(string message)
+    {
+        Debug.Log(message);
     }
 }

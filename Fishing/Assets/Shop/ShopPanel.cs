@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class ShopPanel : MonoBehaviour
@@ -21,6 +22,17 @@ public class ShopPanel : MonoBehaviour
     // Boolean flag to track whether the panel is currently open or closed.
     private bool isOpenPanel = false;
 
+    [Header("Player's Money Management")]
+    [SerializeField] private PlayerProgressData playerProgressData;
+    private int totalPlayerMoney;
+    [SerializeField] private TMP_Text money;
+    private PlayerProgress playerProgress;
+
+    void Start()
+    {
+        playerProgress = GetComponent<PlayerProgress>();
+    }
+
     // Method to open or close the shop panel.
     public void PanelOpenClose(bool isOpen)
     {
@@ -30,6 +42,14 @@ public class ShopPanel : MonoBehaviour
 
         // Display the products in the shop when the panel is opened.
         ShowProduct();
+
+        totalPlayerMoney = ReadingMoney(playerProgressData);
+        money.text = totalPlayerMoney.ToString();
+    }
+
+    int ReadingMoney(PlayerProgressData playerProgressData)
+    {
+        return playerProgressData.totalPlayerMoney;
     }
 
     // Method to instantiate product UI elements and populate them with product data.
@@ -42,7 +62,7 @@ public class ShopPanel : MonoBehaviour
             ProductCell productCell = Instantiate(productPrefab, parent).GetComponent<ProductCell>();
 
             // Call the method on the product cell to populate the UI with product information.
-            productCell.ShowProductInformation(showcaseProduct);
+            productCell.ShowProductInformation(showcaseProduct, playerProgress);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerProgress : MonoBehaviour
 {
     // Reference to the PlayerProgressData ScriptableObject that holds player progress information.
-    [SerializeField] private PlayerProgressData playerProgressData;
+    public PlayerProgressData playerProgressData;
 
     // Variables to track player's total score, money, and fish count.
     [SerializeField] private int totalPlayerScore;
