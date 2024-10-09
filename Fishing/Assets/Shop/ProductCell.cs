@@ -30,19 +30,10 @@ public class ProductCell : MonoBehaviour
         }
         else
         {
-            if (PaymentApproval())
-            {
-                ShowDebugMessage("Ödeme başarılıdır.");
-
-                showcaseProduct.StartPurchased();
-
-                playerProgress.DecreasingMoney(showcaseProduct.productPrice);
-            }
-            else
-            {
-                ShowDebugMessage("Ödeme başarısız oldu.");
-            }
+            ProductBuy();
         }
+
+        ShowProductInformation(showcaseProduct, playerProgress);
     }
 
     public void ShowProductInformation(ShowcaseProduct showcaseProduct, PlayerProgress playerProgress)
@@ -89,6 +80,22 @@ public class ProductCell : MonoBehaviour
     void ProductUse()
     {
         // Ürün burada giyiliyor.
+    }
+
+    void ProductBuy()
+    {
+        if (PaymentApproval())
+        {
+            ShowDebugMessage("Ödeme Başarılı");
+
+            showcaseProduct.StartPurchased();
+
+            playerProgress.DecreasingMoney(showcaseProduct.productPrice);
+        }
+        else
+        {
+            ShowDebugMessage("Ödeme başarısız oldu.");
+        }
     }
 
     void ShowDebugMessage(string message)
