@@ -13,6 +13,12 @@ public class Profile : MonoBehaviour
 
     void Start()
     {
+        ReadAndPrintProfileData();
+    }
+
+    // Reads User Data and Prints the TMP_text Type Texts.
+    public void ReadAndPrintProfileData()
+    {
         // PlayerProgress compensate is assigned.
         playerProgress = GetComponent<PlayerProgress>();
 

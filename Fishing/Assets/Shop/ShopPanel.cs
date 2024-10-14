@@ -43,10 +43,20 @@ public class ShopPanel : MonoBehaviour
         // Display the products in the shop when the panel is opened.
         ShowProduct();
 
+        // Update the eye -catching of the money data in the shopping panel.
+        UpdateEconomicData();
+    }
+
+    // Economic data is updated.
+    public void UpdateEconomicData()
+    {
+        // The current amount of money is taken.
         totalPlayerMoney = ReadingMoney(playerProgressData);
+        // Current money is printed.
         money.text = totalPlayerMoney.ToString();
     }
 
+    // The total amount of money of the user is pulled and then returned.
     int ReadingMoney(PlayerProgressData playerProgressData)
     {
         return playerProgressData.totalPlayerMoney;

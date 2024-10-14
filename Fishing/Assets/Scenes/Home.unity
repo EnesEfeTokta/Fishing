@@ -4908,6 +4908,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1794401899}
+        m_TargetAssemblyTypeName: Profile, Assembly-CSharp
+        m_MethodName: ReadAndPrintProfileData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1004299813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9835,6 +9847,13 @@ MonoBehaviour:
   lessImportantSprite: {fileID: 21300000, guid: 320a01916d8cc7e45955ec6f87934e5b, type: 3}
   middleImportantSprite: {fileID: 21300000, guid: d61a4d22c8591ec4ba3e7ec55af40cbc, type: 3}
   veryImportantSprite: {fileID: 21300000, guid: 3d91e30e73fd26e409c8c4a6c07b5842, type: 3}
+  lessImportantColor:
+  - {r: 0.052386235, g: 0.6679245, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0.08459568, a: 1}
+  middleImportantColor: []
+  veryImportantColor:
+  - {r: 0.5686275, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1802138864
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,27 +6,13 @@ public class PlayerProgress : MonoBehaviour
     // Reference to the PlayerProgressData ScriptableObject that holds player progress information.
     public PlayerProgressData playerProgressData;
 
-    // Variables to track player's total score, money, and fish count.
-    [SerializeField] private int totalPlayerScore;
-    [SerializeField] private int totalPlayerMoney;
-    [SerializeField] private int totalPlayerFish;
-
-    // Initialize the player's progress data when the game starts.
-    void Start()
-    {
-        // Load the data from the ScriptableObject into the local variables.
-        totalPlayerScore = playerProgressData.totalPlayerScore;
-        totalPlayerMoney = playerProgressData.totalPlayerMoney;
-        totalPlayerFish = playerProgressData.totalPlayerFish;
-    }
-
     // Method to print the player's data to TMP_Texts.
     public void TextPrintPlayerProgressData(TMP_Text score, TMP_Text money, TMP_Text fish)
     {
         // The process of printing the player's data to TMP_Texts.
-        score.text = totalPlayerScore.ToString();
-        money.text = totalPlayerMoney.ToString();
-        fish.text = totalPlayerFish.ToString();
+        score.text = playerProgressData.totalPlayerScore.ToString();
+        money.text = playerProgressData.totalPlayerMoney.ToString();
+        fish.text = playerProgressData.totalPlayerFish.ToString();
     }
 
     // Method to add money to the player's total money count.
