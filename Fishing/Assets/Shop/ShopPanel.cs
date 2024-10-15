@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopPanel : MonoBehaviour
 {
@@ -28,9 +30,48 @@ public class ShopPanel : MonoBehaviour
     [SerializeField] private TMP_Text money;
     private PlayerProgress playerProgress;
 
+    [Header("Option Buttons")]
+    [SerializeField] private Button spearButton; // Button to display spear-related products.
+    [SerializeField] private Button coatingsButton; // Button to display coatings-related products.
+
+    private List<GameObject> showingProducts = new List<GameObject>(); // List to keep track of displayed products.
+
     void Start()
     {
+        // Initialize the player progress data component.
         playerProgress = GetComponent<PlayerProgress>();
+    }
+
+    public void OnSpearButtonClick()
+    {
+        // Destroy all currently displayed products to avoid duplication.
+        foreach (GameObject product in showingProducts)
+        {
+            Destroy(product);
+        }
+
+        // Show only the products that are of type "Spear".
+        ShowProduct(ProductType.Spear);
+
+        // Set button interactability: Disable the spear button to prevent multiple clicks.
+        spearButton.interactable = false;
+        coatingsButton.interactable = true;
+    }
+
+    public void OnCoatingsButtonClick()
+    {
+        // Destroy all currently displayed products to avoid duplication.
+        foreach (GameObject product in showingProducts)
+        {
+            Destroy(product);
+        }
+
+        // Show only the products that are of type "Coatings".
+        ShowProduct(ProductType.Coatings);
+
+        // Set button interactability: Disable the coatings button to prevent multiple clicks.
+        coatingsButton.interactable = false;
+        spearButton.interactable = true;
     }
 
     // Method to open or close the shop panel.
@@ -40,10 +81,10 @@ public class ShopPanel : MonoBehaviour
         settingsPanel.SetActive(isOpen);
         isOpenPanel = isOpen;
 
-        // Display the products in the shop when the panel is opened.
-        ShowProduct();
+        // Display spear-related products by default when the panel opens.
+        OnSpearButtonClick();
 
-        // Update the eye -catching of the money data in the shopping panel.
+        // Update the visual representation of the player's current money.
         UpdateEconomicData();
     }
 
@@ -63,16 +104,26 @@ public class ShopPanel : MonoBehaviour
     }
 
     // Method to instantiate product UI elements and populate them with product data.
-    void ShowProduct()
+    void ShowProduct(ProductType productType)
     {
+        // Pre-manufactured and listed products are cleaned.
+        showingProducts.Clear();
+
         // Loop through all products defined in the showcaseProductsData.
         foreach (ShowcaseProduct showcaseProduct in showcaseProductsData.showcaseProducts)
         {
-            // Instantiate a product prefab as a child of the parent transform.
-            ProductCell productCell = Instantiate(productPrefab, parent).GetComponent<ProductCell>();
-
-            // Call the method on the product cell to populate the UI with product information.
-            productCell.ShowProductInformation(showcaseProduct, playerProgress);
+            // Check if the product matches the selected product type.
+            if (showcaseProduct.productType == productType)
+            {
+                // Instantiate a product prefab as a child of the parent transform.
+                ProductCell productCell = Instantiate(productPrefab, parent).GetComponent<ProductCell>();
+                
+                // Call the method on the product cell to populate the UI with product information.
+                productCell.ShowProductInformation(showcaseProduct, playerProgress);
+                
+                // Produced products are listed.
+                showingProducts.Add(productCell.gameObject);
+            }
         }
     }
 }

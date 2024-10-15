@@ -17,6 +17,9 @@ public class ShowcaseProduct
     // Product ID for uniquely identifying each product.
     public int productId = 000;
 
+    // It holds the type of product.
+    public ProductType productType = ProductType.Spear;
+
     [Space]
 
     // Image of the product to be displayed in the UI.
@@ -51,4 +54,11 @@ public class ShowcaseProduct
         // Mark the product as purchased.
         isPurchased = true;
     }
+}
+
+// The type options of the product. The types of the product can be determined.
+public enum ProductType
+{
+    Spear,
+    Coatings
 }

@@ -3207,7 +3207,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 765508320}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1794401898}
+        m_TargetAssemblyTypeName: ShopPanel, Assembly-CSharp
+        m_MethodName: OnCoatingsButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &765508320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7705,7 +7717,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1471711728}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1794401898}
+        m_TargetAssemblyTypeName: ShopPanel, Assembly-CSharp
+        m_MethodName: OnSpearButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1471711728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9797,6 +9821,9 @@ MonoBehaviour:
   settingsPanel: {fileID: 625497251}
   playerProgressData: {fileID: 11400000, guid: 82bc52d9f3b1a674dac17c31ef72344a, type: 2}
   money: {fileID: 218234901}
+  spearButton: {fileID: 1471711727}
+  coatingsButton: {fileID: 765508319}
+  showingProducts: []
 --- !u!114 &1794401899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9825,9 +9852,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerProgressData: {fileID: 11400000, guid: 82bc52d9f3b1a674dac17c31ef72344a, type: 2}
-  totalPlayerScore: 0
-  totalPlayerMoney: 0
-  totalPlayerFish: 0
 --- !u!114 &1794401901
 MonoBehaviour:
   m_ObjectHideFlags: 0
