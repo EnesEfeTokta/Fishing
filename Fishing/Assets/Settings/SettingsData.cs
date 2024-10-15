@@ -29,10 +29,10 @@ public enum OptionLanguages
 // Enum to define renderer quality settings, can be used to adjust visual fidelity for performance optimization.
 public enum RendererQualityOptions
 {
-    Ultra, // Highest quality setting with maximum detail.
-    VeryHigh, // Very high-quality setting with high detail.
-    High, // High-quality setting with good balance of detail and performance.
-    Medium, // Medium quality for average performance.
+    VeryLow, // Lowest quality for maximum performance boost.
     Low, // Low quality for improved performance on less capable hardware.
-    VeryLow // Lowest quality for maximum performance boost.
+    Medium, // Medium quality for average performance.
+    High, // High-quality setting with good balance of detail and performance.
+    VeryHigh, // Very high-quality setting with high detail.
+    Ultra // Highest quality setting with maximum detail.
 }

@@ -15,5 +15,5 @@ MonoBehaviour:
   optionLanguages: 2
   soundValue: 24.1
   musicValue: 55.6
-  postProcessing: 1
-  rendererQualityOptions: 1
+  isPostProcessing: 1
+  rendererQualityOptions: 2

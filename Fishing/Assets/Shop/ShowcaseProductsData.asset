@@ -18,15 +18,15 @@ MonoBehaviour:
     productName: Deneme1
     productPrice: 50
     productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
-    isPurchased: 0
-    productReceivedDate: 
+    isPurchased: 1
+    productReceivedDate: 14.10.2024 23:46:57
   - productId: 5
     productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
     productName: Deneme8
     productPrice: 50
     productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
-    isPurchased: 0
-    productReceivedDate: 
+    isPurchased: 1
+    productReceivedDate: 14.10.2024 23:50:05
   - productId: 2
     productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
     productName: Deneme1
@@ -39,19 +39,19 @@ MonoBehaviour:
     productName: Deneme1
     productPrice: 89
     productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
-    isPurchased: 0
-    productReceivedDate: 
+    isPurchased: 1
+    productReceivedDate: 14.10.2024 23:20:05
   - productId: 4
     productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
     productName: Deneme1
     productPrice: 50
     productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
     isPurchased: 0
-    productReceivedDate: 
+    productReceivedDate: 14.10.2024 23:03:48
   - productId: 5
     productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
     productName: Deneme1
     productPrice: 50
     productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
     isPurchased: 0
-    productReceivedDate: 
+    productReceivedDate: 14.10.2024 23:44:55
