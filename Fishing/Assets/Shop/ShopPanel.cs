@@ -81,8 +81,12 @@ public class ShopPanel : MonoBehaviour
         settingsPanel.SetActive(isOpen);
         isOpenPanel = isOpen;
 
-        // Display spear-related products by default when the panel opens.
-        OnSpearButtonClick();
+        // It is inspected that the panel is open.
+        if(isOpen)
+        {
+            // Display spear-related products by default when the panel opens.
+            OnSpearButtonClick();
+        }
 
         // Update the visual representation of the player's current money.
         UpdateEconomicData();
