@@ -1,13 +1,13 @@
 <mxfile host="65bd71144e">
     <diagram id="LEUFvuBvIqz1YluHnLWP" name="Page-1">
-        <mxGraphModel dx="542" dy="330" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="691" dy="421" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="34" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.502;entryY=1.015;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="8" target="3" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="350" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="8" target="31">
+                <mxCell id="350" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="8" target="31" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="360" y="380"/>
@@ -183,7 +183,7 @@
                 <mxCell id="72" value="+ PastPlayData : List&lt;PastPlayData&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="71" vertex="1">
                     <mxGeometry y="26" width="240" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="352" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="115" source="74">
+                <mxCell id="352" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="115" source="74" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="150" y="108" as="targetPoint"/>
                         <Array as="points">
@@ -713,106 +713,199 @@
                 <mxCell id="316" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="294" target="311" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="1200" y="1826"/>
-                            <mxPoint x="1200" y="1917"/>
+                            <mxPoint x="670" y="2080"/>
+                            <mxPoint x="670" y="2171"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="294" value="MoneyLoadingData" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="920" y="1800" width="230" height="52" as="geometry"/>
+                    <mxGeometry x="390" y="2054" width="230" height="52" as="geometry"/>
                 </mxCell>
                 <mxCell id="333" value="+ moneyOption : List&lt;MoneyOption&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="294" vertex="1">
                     <mxGeometry y="26" width="230" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="304" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="302" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="1035.0270270270269" y="1852" as="targetPoint"/>
+                        <mxPoint x="505.02702702702686" y="2106" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="1035" y="1870"/>
-                            <mxPoint x="1035" y="1870"/>
+                            <mxPoint x="505" y="2124"/>
+                            <mxPoint x="505" y="2124"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="347" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="302" target="341">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="302" value="MoneyOption" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="920" y="1920" width="230" height="104" as="geometry"/>
-                </mxCell>
-                <mxCell id="303" value="+ moneyOptionImage: Sprite" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="302" vertex="1">
-                    <mxGeometry y="26" width="230" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="305" value="+ moneyOptionName: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="302" vertex="1">
-                    <mxGeometry y="52" width="230" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="306" value="+ moneyOptionPrice: Int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="302" vertex="1">
-                    <mxGeometry y="78" width="230" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="307" value="MoneyLoadingPanel" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="1260" y="1800" width="300" height="216" as="geometry"/>
-                </mxCell>
-                <mxCell id="308" value="+ playerProgressData: PlayerProgressData" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="307" vertex="1">
-                    <mxGeometry y="26" width="300" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="309" value="- generatedOptions: List&lt;MoneyOption&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="307" vertex="1">
-                    <mxGeometry y="52" width="300" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="310" value="+ totalPlayerMoney: Int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="307" vertex="1">
-                    <mxGeometry y="78" width="300" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="311" value="+ totalPlayerScore: Int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="307" vertex="1">
-                    <mxGeometry y="104" width="300" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="312" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="307" vertex="1">
-                    <mxGeometry y="130" width="300" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="313" value="- Start: Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="307" vertex="1">
-                    <mxGeometry y="138" width="300" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="314" value="+ ShowEmoji: Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="307" vertex="1">
-                    <mxGeometry y="164" width="300" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="315" value="-CloseEmojiPanel: Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="307" vertex="1">
-                    <mxGeometry y="190" width="300" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="317" value="&lt;span style=&quot;&quot;&gt;Google Money Loading System&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="880" y="1750" width="710" height="570" as="geometry"/>
-                </mxCell>
-                <mxCell id="334" value="MoneyOptionCell" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="317">
-                    <mxGeometry x="190" y="320" width="300" height="138" as="geometry"/>
-                </mxCell>
-                <mxCell id="344" value="+ moneyOptionImage: Image" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="334">
-                    <mxGeometry y="26" width="300" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="346" value="+ moneyOptionPrice: TMP_Text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="334">
-                    <mxGeometry y="52" width="300" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="345" value="+ moneyOptionName: TMP_Text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="334">
-                    <mxGeometry y="78" width="300" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="339" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="334">
-                    <mxGeometry y="104" width="300" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="341" value="+ ShowMoneyOption(MoneyOption): Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="334">
-                    <mxGeometry y="112" width="300" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="343" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="334" target="315">
+                <mxCell id="347" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="302" target="341" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="1220" y="2040"/>
-                            <mxPoint x="1410" y="2040"/>
+                            <mxPoint x="440" y="2535"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="349" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="14" target="35">
+                <mxCell id="377" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="302" target="360">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="660" y="2226"/>
+                            <mxPoint x="660" y="2787"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="302" value="MoneyOption" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+                    <mxGeometry x="310" y="2174" width="310" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="303" value="+ moneyOptionImage: Sprite" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="302" vertex="1">
+                    <mxGeometry y="26" width="310" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="305" value="+ moneyOptionName: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="302" vertex="1">
+                    <mxGeometry y="52" width="310" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="306" value="+ moneyOptionPrice: Int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="302" vertex="1">
+                    <mxGeometry y="78" width="310" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="379" value="+ moneyOptionFeature: List&lt;MoneyOptionFeature&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="302">
+                    <mxGeometry y="104" width="310" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="307" value="MoneyLoadingPanel" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="2054" width="300" height="268" as="geometry"/>
+                </mxCell>
+                <mxCell id="308" value="+ moneyLoadingData: MoneyLoadingData" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="307" vertex="1">
+                    <mxGeometry y="26" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="309" value="+ parentMoneyOptionCell: Transform" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="307" vertex="1">
+                    <mxGeometry y="52" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="310" value="+ moneyOptionCellPrefab: GameObject" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="307" vertex="1">
+                    <mxGeometry y="78" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="311" value="+ moneyLoadingPanel: GameObject" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="307" vertex="1">
+                    <mxGeometry y="104" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="380" value="- moneyOptionDetails: MoneyOptionDetails" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="307">
+                    <mxGeometry y="130" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="354" value="- showingMoneyOptionCells: Lisy&lt;MoneyOptionCell&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="307">
+                    <mxGeometry y="156" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="312" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="307" vertex="1">
+                    <mxGeometry y="182" width="300" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="313" value="- Start: Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="307" vertex="1">
+                    <mxGeometry y="190" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="314" value="+ PanelOpenClose(Bool): Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="307" vertex="1">
+                    <mxGeometry y="216" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="315" value="-SaleCorversAreProduced: Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="307" vertex="1">
+                    <mxGeometry y="242" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="317" value="&lt;span style=&quot;&quot;&gt;Google Money Loading System&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="85" y="2004" width="1005" height="866" as="geometry"/>
+                </mxCell>
+                <mxCell id="334" value="MoneyOptionCell" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="317" vertex="1">
+                    <mxGeometry x="410" y="406" width="370" height="164" as="geometry"/>
+                </mxCell>
+                <mxCell id="344" value="+ moneyOptionImage: Image" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="334" vertex="1">
+                    <mxGeometry y="26" width="370" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="346" value="+ moneyOptionPrice: TMP_Text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="334" vertex="1">
+                    <mxGeometry y="52" width="370" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="345" value="+ moneyOptionName: TMP_Text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="334" vertex="1">
+                    <mxGeometry y="78" width="370" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="339" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="334" vertex="1">
+                    <mxGeometry y="104" width="370" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="341" value="+ ShowMoneyOption(MoneyOption, MoneyOptionDetails): Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="334" vertex="1">
+                    <mxGeometry y="112" width="370" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="353" value="+ OpenYourProductDetails(): Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="334">
+                    <mxGeometry y="138" width="370" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="355" value="MoneyOptionDetails" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="317">
+                    <mxGeometry x="655" y="606" width="300" height="216" as="geometry"/>
+                </mxCell>
+                <mxCell id="356" value="+ parentMoneyFeatureCell: Tranform" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="355">
+                    <mxGeometry y="26" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="357" value="+ moneyOptionPrice: TMP_Text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="355">
+                    <mxGeometry y="52" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="358" value="+ moneyOptionName: TMP_Text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="355">
+                    <mxGeometry y="78" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="367" value="+ moneyOptionFeatureCellPrefab: GameObject" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="355">
+                    <mxGeometry y="104" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="368" value="- showingMoneyOptionDetails: List&lt;GameObject&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="355">
+                    <mxGeometry y="130" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="359" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="355">
+                    <mxGeometry y="156" width="300" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="360" value="+ ShowMoneyOptionDetails(MoneyOption): Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="355">
+                    <mxGeometry y="164" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="361" value="+ OpenYourProductDetails(): Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="355">
+                    <mxGeometry y="190" width="300" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="362" value="MoneyOptionFeature" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="317">
+                    <mxGeometry x="30" y="326" width="230" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="363" value="+ moneyOptionFeatureIcon: Sprite" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="362">
+                    <mxGeometry y="26" width="230" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="364" value="+ moneyOptionFeatureName: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="362">
+                    <mxGeometry y="52" width="230" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="378" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.009;entryY=1.198;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=1;" edge="1" parent="317" source="370" target="358">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="351" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2" target="38">
+                <mxCell id="370" value="MoneyOptionDetailsCell" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="317">
+                    <mxGeometry x="75" y="658" width="370" height="112" as="geometry"/>
+                </mxCell>
+                <mxCell id="371" value="+ moneyOptionDetailsImage: Image" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="370">
+                    <mxGeometry y="26" width="370" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="372" value="+ moneyOptionDetailsName: TMP_Text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="370">
+                    <mxGeometry y="52" width="370" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="374" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="370">
+                    <mxGeometry y="78" width="370" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="375" value="+ SetMoneyOptionDetails(String ,Sprite): Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="370">
+                    <mxGeometry y="86" width="370" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="343" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="334" target="315" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="890" y="2446"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="349" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="14" target="35" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="351" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="2" target="38" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="330" y="510"/>
                             <mxPoint x="170" y="510"/>
                             <mxPoint x="170" y="609"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="366" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="362" target="302">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="225" y="2226"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="369" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="355">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="955" y="2290" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="890" y="2550"/>
+                            <mxPoint x="955" y="2550"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>

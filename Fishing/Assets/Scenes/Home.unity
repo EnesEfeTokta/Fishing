@@ -434,7 +434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.21000001, y: 1}
-  m_AnchoredPosition: {x: 0.19708252, y: 0.24668503}
+  m_AnchoredPosition: {x: 0.19708252, y: 0.24668884}
   m_SizeDelta: {x: 0.39450073, y: -0.49399948}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &33857485
@@ -1263,7 +1263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.062000003, y: 0.15400001}
   m_AnchorMax: {x: 0.937761, y: 0.79711735}
-  m_AnchoredPosition: {x: 0.5, y: -0.6018982}
+  m_AnchoredPosition: {x: 0.5, y: -0.6019287}
   m_SizeDelta: {x: -1.0999756, y: 6.1878967}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &198544193
@@ -1986,7 +1986,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.669, y: 0.24482305}
   m_AnchorMax: {x: 0.7695219, y: 0.32047078}
-  m_AnchoredPosition: {x: 0.051971436, y: -1.2433777}
+  m_AnchoredPosition: {x: 0.052001953, y: -1.2433777}
   m_SizeDelta: {x: 0.5238037, y: -0.66680145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &347581169
@@ -2195,7 +2195,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.669, y: 0.680353}
   m_AnchorMax: {x: 0.82714146, y: 0.78900003}
-  m_AnchoredPosition: {x: 0.39300537, y: 0.88619995}
+  m_AnchoredPosition: {x: 0.39294434, y: 0.88619995}
   m_SizeDelta: {x: 0.7859001, y: -1.7723007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &356528939
@@ -2679,7 +2679,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.025380468, y: 0.08400001}
   m_AnchorMax: {x: 0.18400002, y: 0.14164704}
-  m_AnchoredPosition: {x: -0.100097656, y: -0.19998169}
+  m_AnchoredPosition: {x: -0.100097656, y: -0.19995117}
   m_SizeDelta: {x: -0.21411133, y: -0.6144104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &416569675
@@ -3223,7 +3223,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.669, y: 0.78900003}
   m_AnchorMax: {x: 0.82900006, y: 0.831823}
-  m_AnchoredPosition: {x: -1.1069946, y: 0.38778687}
+  m_AnchoredPosition: {x: -1.1070557, y: 0.38781738}
   m_SizeDelta: {x: -2.2141, y: 0.84529877}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &487955194
@@ -5910,7 +5910,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.014, y: 0.287}
   m_AnchorMax: {x: 0.19118747, y: 0.70914817}
-  m_AnchoredPosition: {x: -0.18005371, y: 1.9999695}
+  m_AnchoredPosition: {x: -0.17993164, y: 2}
   m_SizeDelta: {x: -0.11999512, y: -0.7055054}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &956986573
@@ -8174,7 +8174,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1768580200}
   m_HandleRect: {fileID: 1768580199}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8725,7 +8725,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.669, y: 0.5798826}
   m_AnchorMax: {x: 0.8803805, y: 0.624353}
-  m_AnchoredPosition: {x: -0.48342896, y: -0.16000366}
+  m_AnchoredPosition: {x: -0.48339844, y: -0.16000366}
   m_SizeDelta: {x: -0.9666977, y: -0.15470123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1326148290
@@ -11611,6 +11611,7 @@ GameObject:
   - component: {fileID: 1794401900}
   - component: {fileID: 1794401901}
   - component: {fileID: 1794401902}
+  - component: {fileID: 1794401903}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -11759,9 +11760,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyLoadingData: {fileID: 11400000, guid: bc41366fc171a5d489952e00ab19cf92, type: 2}
-  parent: {fileID: 144926330}
+  parentMoneyOptionCell: {fileID: 144926330}
   moneyOptionCellPrefab: {fileID: 4582278700347423685, guid: e41ba908bc6e9fb4ba10b0f58ea0a73b, type: 3}
   moneyLoadingPanel: {fileID: 2013763971}
+--- !u!114 &1794401903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794401894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9368b1cfa2b85a643bcd4aff3fcc59e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedProductName: {fileID: 356528939}
+  selectedProductPrice: {fileID: 29502351}
+  parentMoneyFeatureCell: {fileID: 1827132781}
+  moneyOptionFeatureCellPrefab: {fileID: 7804350137801613458, guid: 604a4a2ccbb2d9041aff4eecbe11fc0a, type: 3}
 --- !u!1 &1802138864
 GameObject:
   m_ObjectHideFlags: 0
