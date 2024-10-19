@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43daba1457009e0468d21cacb04e6cbd, type: 3}
+  m_Name: Fish1
+  m_EditorClassIdentifier: 
+  fishName: Fish 1
+  damageUnit: 60
+  maxHealth: 80
+  fishSpeed: 2
+  fishPrefabs:
+  - {fileID: 8866186585056055415, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
+  - {fileID: 2184379847967117940, guid: 5ee90f38c915cc34b8ac7562dcc57716, type: 3}
+  - {fileID: 7685113137132476028, guid: 408982f854827094dae94ec25f55f6c0, type: 3}
+  - {fileID: 1511323956645250779, guid: 59a7e274d6a78044aadf13671f79c8f6, type: 3}
+  - {fileID: 1715338328791844155, guid: bba16a1d8df645f4ca9469e166bddcf5, type: 3}

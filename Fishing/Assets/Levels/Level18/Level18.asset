@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd03e033a6210bf4496d4d0b38f27772, type: 3}
+  m_Name: Level18
+  m_EditorClassIdentifier: 
+  levelName: Level 18
+  levelStopTime: 180
+  fishTypeAndNumbers:
+  - fishData: {fileID: 11400000, guid: cc17f2beff67fc7459689acfaaf98f9b, type: 2}
+    fishCustom: 2
+  - fishData: {fileID: 11400000, guid: 6167efb36550efb46ba582c88e5cd881, type: 2}
+    fishCustom: 3
+  - fishData: {fileID: 11400000, guid: b8531375639d5684380c12e850949127, type: 2}
+    fishCustom: 5
+  - fishData: {fileID: 11400000, guid: b0ea4eb5c3990964491de8513b859f44, type: 2}
+    fishCustom: 5
+  - fishData: {fileID: 11400000, guid: 9ff61e7fef9cf584b92f33b1e4881bd1, type: 2}
+    fishCustom: 7
+  - fishData: {fileID: 11400000, guid: ccfc29c29a1ed99448f800332533d385, type: 2}
+    fishCustom: 5
+  - fishData: {fileID: 11400000, guid: f0b7973941ad960418ff32a12cc8036e, type: 2}
+    fishCustom: 1
