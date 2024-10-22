@@ -1606,6 +1606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fish_1v1
       objectReference: {fileID: 0}
+    - target: {fileID: 8866186585056055415, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -6270,6 +6274,7 @@ GameObject:
   - component: {fileID: 1328667939}
   - component: {fileID: 1328667940}
   - component: {fileID: 1328667941}
+  - component: {fileID: 1328667942}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6364,6 +6369,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsData: {fileID: 11400000, guid: 5c9cf82b0d39b5a4cab31c4d723cbd53, type: 2}
   postProcessingObject: {fileID: 392545809}
+  musicAudioSource: {fileID: 0}
+  soundAudioSources: []
+--- !u!114 &1328667942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328667934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e452d47aa74da409aa47dae07d4ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelInformationData: {fileID: 11400000, guid: 5f7b1ea3e8d5db645918c35bd87ddf26, type: 2}
+  createFishs: []
 --- !u!1 &1328984269
 GameObject:
   m_ObjectHideFlags: 0
@@ -8466,6 +8487,7 @@ GameObject:
   - component: {fileID: 1648781918}
   - component: {fileID: 1648781919}
   - component: {fileID: 1648781920}
+  - component: {fileID: 1648781921}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -8574,6 +8596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b581ef7cea23bdd419f9af2f6729413e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishData: {fileID: 0}
   journeyTime: 2
   minRepeatTime: 1
   maxRepeatTime: 5
@@ -8657,6 +8680,19 @@ MonoBehaviour:
   emojis: []
   emojiUI: {fileID: 0}
   emojiPanel: {fileID: 0}
+--- !u!114 &1648781921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648781911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2680c6297947e468783d900fd27944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!4 &1654219210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2755992516243043097, guid: 58d906a8c99c0b545bf0d5337539b695, type: 3}

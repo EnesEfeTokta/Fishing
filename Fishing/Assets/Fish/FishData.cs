@@ -6,10 +6,26 @@ using UnityEngine;
 public class FishData : ScriptableObject
 {
     public string fishName;  // Name of the fish species.
+
+    [Space]
+    
     public float damageUnit; // Damage the fish can deal to other objects/entities.
     public float maxHealth;  // Maximum health value of the fish.
     public FishSpeed fishSpeed;  // Speed category of the fish (Fast, Middle, or Slow).
+
+    [Space]
+
     public List<GameObject> fishPrefabs = new List<GameObject>();  // List of fish prefabs for instantiation.
+
+    [Space]
+    
+    // The minimum and maximum time intervals for the fish's movement repetition.
+    public float minRepeatTime = 1f;
+    public float maxRepeatTime = 5f;
+
+    [Space]
+
+    public float journeyTime = 2f; // The duration of the movement between two points for the fish.
 }
 
 // Enumeration for categorizing fish speeds.

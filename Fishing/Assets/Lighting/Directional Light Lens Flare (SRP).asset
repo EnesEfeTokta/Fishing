@@ -18,7 +18,7 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0}
     angularOffset: 0
     translationScale: {x: 1, y: 1}
-    m_LocalIntensity: 3.05
+    m_LocalIntensity: 1.86
     lensFlareTexture: {fileID: 0}
     uniformScale: 4.61
     sizeXY: {x: 1, y: 1}
@@ -179,7 +179,7 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0}
     angularOffset: 0
     translationScale: {x: 1, y: 1}
-    m_LocalIntensity: 1
+    m_LocalIntensity: 0.44
     lensFlareTexture: {fileID: 0}
     uniformScale: 1
     sizeXY: {x: 3.5, y: 3.5}
@@ -501,7 +501,7 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0}
     angularOffset: 0
     translationScale: {x: 1, y: 1}
-    m_LocalIntensity: 1
+    m_LocalIntensity: 1.49
     lensFlareTexture: {fileID: 2800000, guid: 199b0a2485f07ce4e963daff73856caf, type: 3}
     uniformScale: 1
     sizeXY: {x: 4, y: 4}
@@ -662,7 +662,7 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0}
     angularOffset: 0
     translationScale: {x: 1, y: 1}
-    m_LocalIntensity: 1
+    m_LocalIntensity: 1.13
     lensFlareTexture: {fileID: 2800000, guid: 90fd557ce7854e8459b2eaa3c0af43f5, type: 3}
     uniformScale: 9.03
     sizeXY: {x: 1, y: 1}

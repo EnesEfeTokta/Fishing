@@ -15,11 +15,8 @@ public class HealthFish : MonoBehaviour
     [SerializeField] private SkinnedMeshRenderer rdr;
 
     [Header("Health")]
-    // The fish's initial health value.
-    [SerializeField] private float health = 100;
-    
-    // Internal variable to track the current health value.
-    private float healthValue;
+    // It will be holding the value of the fish.
+    [SerializeField] private float health = 0;
 
     // Reference to the health bar UI element to visually represent health.
     [SerializeField] private Image healthBarValue;
@@ -28,39 +25,29 @@ public class HealthFish : MonoBehaviour
     // Particle system to simulate blood effects when the fish takes damage.
     [SerializeField] private ParticleSystem blood;
 
-    void Start()
+    public void HealthValueAssignment(float maxHealth)
     {
         // Initialize the current health to the default starting value.
-        healthValue = health;
+        health = maxHealth;
 
         // Set the fish's material to the original material at the start.
         rdr.material = originalMaterial;
-    }
-
-    void Update()
-    {
-        // Test code to simulate damage when the space key is pressed.
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // Cause 50 damage for "testing".
-            CauseDamage(50);
-        }
     }
 
     // Method to reduce the fish's health by a specified damage amount.
     public void CauseDamage(float damage)
     {
         // Decrease the health value.
-        healthValue -= damage;
+        health -= damage;
 
         // Update the health bar UI based on the new health value.
-        healthBarValue.fillAmount = healthValue / 100f;
+        healthBarValue.fillAmount = health / 100f;
 
         // Start the coroutine to briefly change the material and trigger particle effects.
         StartCoroutine(MaterialChange());
 
         // Check if the fish's health has dropped to zero or below.
-        if (healthValue <= 0)
+        if (health <= 0)
         {
             // Trigger the success icon animation when the fish dies.
             FindFirstObjectByType<FishIconMovement>().ShowSuccessIcon(transform.position);
@@ -90,16 +77,5 @@ public class HealthFish : MonoBehaviour
     void Death()
     {
         Destroy(this.gameObject);
-    }
-
-    // Detect collisions with other objects.
-    void OnCollisionEnter(Collision collision)
-    {
-        // If the fish collides with a spear (identified by the tag "Spear"), it takes damage.
-        if (collision.gameObject.CompareTag("Spear"))
-        {
-            // Cause 20 damage when hit by a spear.
-            CauseDamage(20);
-        }
     }
 }

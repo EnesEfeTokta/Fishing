@@ -7,9 +7,13 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Emoji))]
+[RequireComponent(typeof(FishDamage))]
 
 public class Fish : MonoBehaviour
 {
+    // The identity information of the fish will be received here.
+    [HideInInspector] public FishData fishData;
+
     // Assigning the CreatePoint component that generates the movement points for the fish.
     private CreatePoint createPoint;
 
@@ -34,8 +38,17 @@ public class Fish : MonoBehaviour
     // Controls whether the particle effect has been triggered or not.
     private bool hasTriggeredInfo = false;
 
-    void Start()
+    //The identity information of the fish will be run after entering.
+    public void StartFish(FishData fishData)
     {
+        // It is checked whether the identity information has been received.
+        if (fishData == null)
+        {
+            return;
+        }
+
+        this.fishData = fishData;
+
         // The CreatePoint component is retrieved, which determines the two points where the fish will move.
         createPoint = GetComponent<CreatePoint>();
 
@@ -45,6 +58,20 @@ public class Fish : MonoBehaviour
         
         // The start time of the movement is recorded.
         startTime = Time.time; 
+
+        GetFishMaxHealth(fishData.maxHealth);
+    }
+
+    void GetFishMaxHealth(float value)
+    {
+        HealthFish healthFish = GetComponent<HealthFish>();
+        healthFish.HealthValueAssignment(value);
+    }
+
+    // To read the identity of the fish.
+    public FishData ReadFishData()
+    {
+        return fishData;
     }
 
     void Update()
