@@ -6275,6 +6275,9 @@ GameObject:
   - component: {fileID: 1328667940}
   - component: {fileID: 1328667941}
   - component: {fileID: 1328667942}
+  - component: {fileID: 1328667944}
+  - component: {fileID: 1328667945}
+  - component: {fileID: 1328667943}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6367,7 +6370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bae8e4d438bf84fb6a1e1b728e86a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsData: {fileID: 11400000, guid: 5c9cf82b0d39b5a4cab31c4d723cbd53, type: 2}
   postProcessingObject: {fileID: 392545809}
   musicAudioSource: {fileID: 0}
   soundAudioSources: []
@@ -6383,8 +6385,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e452d47aa74da409aa47dae07d4ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelInformationData: {fileID: 11400000, guid: 5f7b1ea3e8d5db645918c35bd87ddf26, type: 2}
   createFishs: []
+  startPoint: {fileID: 1182808329}
+--- !u!114 &1328667943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328667934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f1eccc2b7daea48b19e912c5e5f6bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pastPlaysData: {fileID: 11400000, guid: 16331d3e61818a447a6a121a6243ee36, type: 2}
+  playerProgressData: {fileID: 11400000, guid: 82bc52d9f3b1a674dac17c31ef72344a, type: 2}
+  levelInformationData: {fileID: 11400000, guid: 5f7b1ea3e8d5db645918c35bd87ddf26, type: 2}
+  settingsData: {fileID: 11400000, guid: 5c9cf82b0d39b5a4cab31c4d723cbd53, type: 2}
+--- !u!114 &1328667944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328667934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd9d5018e8d0e6d48a7ed586df0c9bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pastPlayIcons: []
+--- !u!114 &1328667945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328667934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ec0abdb6abdcf4a9a19483e3f438c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerProgressData: {fileID: 0}
 --- !u!1 &1328984269
 GameObject:
   m_ObjectHideFlags: 0
