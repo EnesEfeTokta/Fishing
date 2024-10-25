@@ -26,6 +26,12 @@ public class FishData : ScriptableObject
     [Space]
 
     public float journeyTime = 2f; // The duration of the movement between two points for the fish.
+
+    [Space]
+
+    // Material exchange will be provided according to damage intake.
+    public Material damageMaterial;
+    public Material originalMaterial;
 }
 
 // Enumeration for categorizing fish speeds.

@@ -1578,6 +1578,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6293102470078831247, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
+      propertyPath: rdr
+      value: 
+      objectReference: {fileID: 1699921370}
+    - target: {fileID: 6293102470078831247, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 172741107}
     - target: {fileID: 8672326076096451745, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0.4
@@ -1621,6 +1629,11 @@ PrefabInstance:
 --- !u!224 &172741106 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8672326076096451745, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
+  m_PrefabInstance: {fileID: 172741105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &172741107 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8218275352961385628, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
   m_PrefabInstance: {fileID: 172741105}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &180485613
@@ -6415,7 +6428,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9d5018e8d0e6d48a7ed586df0c9bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pastPlayIcons: []
+  pastPlayIcons:
+  - {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+  - {fileID: 21300000, guid: 6e2d9255f66138b4faeb7953abf3f4f5, type: 3}
+  - {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
 --- !u!114 &1328667945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8532,6 +8548,7 @@ GameObject:
   - component: {fileID: 1648781919}
   - component: {fileID: 1648781920}
   - component: {fileID: 1648781921}
+  - component: {fileID: 1648781922}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -8640,7 +8657,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b581ef7cea23bdd419f9af2f6729413e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishData: {fileID: 0}
   journeyTime: 2
   minRepeatTime: 1
   maxRepeatTime: 5
@@ -8658,12 +8674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12c73b13d3fb4446b01e0dee1f47be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageMaterial: {fileID: 2100000, guid: 0ea082acd3b46904580e2559be0245d9, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 3d123e9519590c64fa544c45c8f6c21a, type: 2}
-  rdr: {fileID: 0}
-  health: 100
-  healthBarValue: {fileID: 785795315}
-  blood: {fileID: 2086390895}
 --- !u!114 &1648781918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8736,7 +8746,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2680c6297947e468783d900fd27944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damageMaterial: {fileID: 0}
+  originalMaterial: {fileID: 0}
+  rdr: {fileID: 0}
+  blood: {fileID: 0}
+--- !u!114 &1648781922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648781911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d41d779fc1c34b4b93d627cc02b81e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar: {fileID: 0}
 --- !u!4 &1654219210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2755992516243043097, guid: 58d906a8c99c0b545bf0d5337539b695, type: 3}
@@ -10657,11 +10683,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6531850886580731339, guid: 82bd60092ede4c24db1d8df98dce230f, type: 3}
   m_PrefabInstance: {fileID: 240470403}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2086390895 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8131447749151659257, guid: 9a6aa672d2af67a4a8ac3bc1e5b845a6, type: 3}
-  m_PrefabInstance: {fileID: 1466838404}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2094378559
 PrefabInstance:

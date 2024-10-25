@@ -593,6 +593,9 @@ GameObject:
   - component: {fileID: 3819166106513377749}
   - component: {fileID: 4434869901640433331}
   - component: {fileID: 1032877073299835783}
+  - component: {fileID: 995935301375537427}
+  - component: {fileID: 6293102470078831247}
+  - component: {fileID: 1671086216965253366}
   m_Layer: 0
   m_Name: fish_1v1
   m_TagString: Fish
@@ -736,11 +739,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12c73b13d3fb4446b01e0dee1f47be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageMaterial: {fileID: 2100000, guid: 0ea082acd3b46904580e2559be0245d9, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 54d777239d737444086b3af2b3fdc18b, type: 2}
-  health: 100
-  healthBarValue: {fileID: 4113344845940539681}
+--- !u!114 &995935301375537427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8866186585056055415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ce8cd12d56ca347bf5d2c928dfbd1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emojis: []
+  emojiUI: {fileID: 0}
+  emojiPanel: {fileID: 0}
+--- !u!114 &6293102470078831247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8866186585056055415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2680c6297947e468783d900fd27944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageMaterial: {fileID: 0}
+  originalMaterial: {fileID: 0}
+  rdr: {fileID: 3254048697208051739}
   blood: {fileID: 8218275352961385628}
+--- !u!114 &1671086216965253366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8866186585056055415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d41d779fc1c34b4b93d627cc02b81e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar: {fileID: 4113344845940539681}
 --- !u!1001 &204237864216105061
 PrefabInstance:
   m_ObjectHideFlags: 0

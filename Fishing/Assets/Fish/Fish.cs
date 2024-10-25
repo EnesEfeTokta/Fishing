@@ -8,11 +8,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Emoji))]
 [RequireComponent(typeof(FishDamage))]
+[RequireComponent(typeof(FishHealthBarUI))]
 
 public class Fish : MonoBehaviour
 {
     // The identity information of the fish will be received here.
-    [HideInInspector] public FishData fishData;
+    private FishData fishData;
 
     // Assigning the CreatePoint component that generates the movement points for the fish.
     private CreatePoint createPoint;
@@ -38,6 +39,10 @@ public class Fish : MonoBehaviour
     // Controls whether the particle effect has been triggered or not.
     private bool hasTriggeredInfo = false;
 
+
+    private HealthFish healthFish;
+
+
     //The identity information of the fish will be run after entering.
     public void StartFish(FishData fishData)
     {
@@ -59,19 +64,6 @@ public class Fish : MonoBehaviour
         // The start time of the movement is recorded.
         startTime = Time.time; 
 
-        GetFishMaxHealth(fishData.maxHealth);
-    }
-
-    void GetFishMaxHealth(float value)
-    {
-        HealthFish healthFish = GetComponent<HealthFish>();
-        healthFish.HealthValueAssignment(value);
-    }
-
-    // To read the identity of the fish.
-    public FishData ReadFishData()
-    {
-        return fishData;
     }
 
     void Update()
@@ -127,5 +119,27 @@ public class Fish : MonoBehaviour
 
         // The new position is returned.
         return newPos;
+    }
+
+    void Start()
+    {
+        healthFish = GetComponent<HealthFish>();
+    }
+
+    // To read the identity of the fish.
+    public FishData ReadFishData(FishData fishData)
+    {
+        return fishData = this.fishData;
+    }
+
+    public void ProcessDamageClaim(float damage)
+    {
+        healthFish.EditHealth(damage);
+    }
+
+    // Method to handle the fish's death by destroying the game object.
+    public void Death()
+    {
+        Destroy(this.gameObject);
     }
 }

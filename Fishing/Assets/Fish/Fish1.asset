@@ -18,3 +18,8 @@ MonoBehaviour:
   fishSpeed: 2
   fishPrefabs:
   - {fileID: 8866186585056055415, guid: d90066f4bf72e2441b9aed3b7c4f7fd1, type: 3}
+  minRepeatTime: 1
+  maxRepeatTime: 5
+  journeyTime: 2
+  damageMaterial: {fileID: 2100000, guid: 0ea082acd3b46904580e2559be0245d9, type: 2}
+  originalMaterial: {fileID: 2100000, guid: 54d777239d737444086b3af2b3fdc18b, type: 2}

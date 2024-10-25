@@ -1,50 +1,65 @@
-using System.Collections;
-using UnityEngine.UI;
 using UnityEngine;
 
 public class HealthFish : MonoBehaviour
 {
-    [Header("Materials")]
-    // Reference to the material that will be applied when the fish takes damage.
-    [SerializeField] private Material damageMaterial;
+    // Reference to the FishData ScriptableObject containing fish attributes.
+    private FishData fishData;
     
-    // Reference to the original material to revert after damage.
-    [SerializeField] private Material originalMaterial;
+    // Reference to the FishHealthBarUI component for updating the health bar UI.
+    private FishHealthBarUI fishHealthBarUI;
 
-    // Reference to the SkinnedMeshRenderer component to change the material.
-    [SerializeField] private SkinnedMeshRenderer rdr;
+    // Reference to the Fish component that handles fish behavior.
+    private Fish fish;
 
-    [Header("Health")]
-    // It will be holding the value of the fish.
-    [SerializeField] private float health = 0;
+    // Current and maximum health values for the fish.
+    private float health = 0;
+    private float maxHealth = 0;
 
-    // Reference to the health bar UI element to visually represent health.
-    [SerializeField] private Image healthBarValue;
-
-    [Header("Particles/VFX")]
-    // Particle system to simulate blood effects when the fish takes damage.
-    [SerializeField] private ParticleSystem blood;
-
-    public void HealthValueAssignment(float maxHealth)
+    // Called once at the start of the game to initialize the fish's data and health.
+    void Start()
     {
-        // Initialize the current health to the default starting value.
-        health = maxHealth;
+        // Get the Fish component from the GameObject.
+        fish = GetComponent<Fish>();
 
-        // Set the fish's material to the original material at the start.
-        rdr.material = originalMaterial;
+        // Get the FishHealthBarUI component for controlling the health bar.
+        fishHealthBarUI = GetComponent<FishHealthBarUI>();
+
+        // Set up the fish's data and health.
+        SetFishData();
     }
 
-    // Method to reduce the fish's health by a specified damage amount.
-    public void CauseDamage(float damage)
+    // Retrieves and sets the fish's data from the Fish component.
+    void SetFishData()
     {
-        // Decrease the health value.
+        // Retrieve the FishData from the Fish component.
+        fishData = fish.ReadFishData(fishData);
+
+        // Set the maximum health for the fish.
+        SetFishMaxHealth();
+    }
+
+    // Sets the fish's maximum health and initializes the current health.
+    void SetFishMaxHealth()
+    {
+        // Assign the maximum health from the FishData.
+        maxHealth = fishData.maxHealth;
+
+        // Initialize the current health to the maximum health.
+        health = maxHealth;
+    }
+
+    /// <summary>
+    /// Reduces the fish's health by a specified amount and updates the health bar. 
+    /// If the health drops to 0 or below, it triggers the death sequence.
+    /// </summary>
+    /// <param name="damage">The amount of damage to subtract from the fish's health.</param>
+    public void EditHealth(float damage)
+    {
+        // Subtract the specified damage from the current health.
         health -= damage;
 
-        // Update the health bar UI based on the new health value.
-        healthBarValue.fillAmount = health / 100f;
-
-        // Start the coroutine to briefly change the material and trigger particle effects.
-        StartCoroutine(MaterialChange());
+        // Update the health bar UI to reflect the new health value.
+        fishHealthBarUI.EditHealthBarValue(health, maxHealth);
 
         // Check if the fish's health has dropped to zero or below.
         if (health <= 0)
@@ -53,29 +68,7 @@ public class HealthFish : MonoBehaviour
             FindFirstObjectByType<FishIconMovement>().ShowSuccessIcon(transform.position);
 
             // Call the death method to destroy the fish object.
-            Death();
+            fish.Death();
         }
-    }
-
-    // Coroutine to temporarily change the fish's material and play the blood particle effect.
-    IEnumerator MaterialChange()
-    {
-        // Change the material to the damage material.
-        rdr.material = damageMaterial;
-
-        // Play the blood particle effect.
-        blood.Play();
-
-        // Wait for 0.2 seconds before changing the material back.
-        yield return new WaitForSeconds(0.2f);
-
-        // Revert the material back to the original.
-        rdr.material = originalMaterial;
-    }
-
-    // Method to handle the fish's death by destroying the game object.
-    void Death()
-    {
-        Destroy(this.gameObject);
     }
 }
