@@ -4,7 +4,10 @@ using System.Collections;
 public class FishDamage : MonoBehaviour
 {
     // Reference to the FishData ScriptableObject containing attributes of the fish (like health and materials).
-    private FishData fishData; 
+    private FishData fishData;
+
+    // Reference to the EmojiDetermination component associated with this GameObject.
+    private EmojiDetermination emojiDetermination;
     
     // Reference to the Fish component associated with this GameObject.
     private Fish fish;
@@ -31,6 +34,9 @@ public class FishDamage : MonoBehaviour
     {
         // Get the Fish component attached to this GameObject.
         fish = GetComponent<Fish>();
+
+        // Get the EmojiDetermination component attached to this GameObject.
+        emojiDetermination = GetComponent<EmojiDetermination>();
 
         // Set up the fish's data and initialize materials.
         SetFishData();
@@ -85,6 +91,8 @@ public class FishDamage : MonoBehaviour
 
         // Notify the Fish component to process the received damage.
         fish.ProcessDamageClaim(damage);
+
+        emojiDetermination.EmojiIdentify(EmojiType.Angry);
     }
 
     // Coroutine that temporarily changes the fish's material to indicate damage and plays the blood effect.

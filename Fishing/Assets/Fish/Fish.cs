@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Emoji))]
+[RequireComponent(typeof(EmojiDetermination))]
 [RequireComponent(typeof(FishDamage))]
 [RequireComponent(typeof(FishHealthBarUI))]
 

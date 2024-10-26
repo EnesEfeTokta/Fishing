@@ -144,7 +144,7 @@ public class SpearThrowing : MonoBehaviour
             {
                 if (emoji != null)
                 {
-                    emoji.ShowEmoji(); // Shows emoji for each fish.
+                    emoji.ShowEmoji(EmojiType.Happy); // Shows emoji for each fish.
                 }
             }
         }

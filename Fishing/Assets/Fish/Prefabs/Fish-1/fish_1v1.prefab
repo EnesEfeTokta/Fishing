@@ -34,9 +34,9 @@ RectTransform:
   m_Father: {fileID: 8672326076096451745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.25388935}
+  m_AnchoredPosition: {x: 0, y: 0.0025007725}
+  m_SizeDelta: {x: 0, y: 0.0050016325}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4898426966370742575
 CanvasRenderer:
@@ -141,6 +141,81 @@ Transform:
   - {fileID: 7490531053453031242}
   m_Father: {fileID: 4468429476366506478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1044433825625932189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3153531877030312567}
+  - component: {fileID: 5539252803662924796}
+  - component: {fileID: 1466626196076069055}
+  m_Layer: 0
+  m_Name: Emoji
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3153531877030312567
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044433825625932189}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8672326076096451745}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.18025999, y: 0.27732322}
+  m_AnchorMax: {x: 0.81973994, y: 1}
+  m_AnchoredPosition: {x: 0.0000218153, y: -0.0068300962}
+  m_SizeDelta: {x: -0.014027536, y: 0.013680177}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5539252803662924796
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044433825625932189}
+  m_CullTransparentMesh: 1
+--- !u!114 &1466626196076069055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044433825625932189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1263498796529486011
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,13 +386,14 @@ RectTransform:
   m_LocalScale: {x: 500, y: 500, z: 500}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3153531877030312567}
   - {fileID: 2918998319225553538}
   m_Father: {fileID: 4468429476366506478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 386.49997}
-  m_SizeDelta: {x: 1, y: 0.2}
+  m_AnchoredPosition: {x: 0, y: 539.4}
+  m_SizeDelta: {x: 1, y: 0.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8521768963371897315
 Canvas:
@@ -596,6 +672,7 @@ GameObject:
   - component: {fileID: 995935301375537427}
   - component: {fileID: 6293102470078831247}
   - component: {fileID: 1671086216965253366}
+  - component: {fileID: 5938588488913399188}
   m_Layer: 0
   m_Name: fish_1v1
   m_TagString: Fish
@@ -751,9 +828,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ce8cd12d56ca347bf5d2c928dfbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emojis: []
-  emojiUI: {fileID: 0}
-  emojiPanel: {fileID: 0}
+  emojiSpriteData: {fileID: 11400000, guid: b538010fb417cd3429a22e0218f0f17b, type: 2}
+  emojiUI: {fileID: 1466626196076069055}
+  emojiPanel: {fileID: 1044433825625932189}
 --- !u!114 &6293102470078831247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,6 +860,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 4113344845940539681}
+--- !u!114 &5938588488913399188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8866186585056055415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68563f181bdb08646b1a5067abd07b08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &204237864216105061
 PrefabInstance:
   m_ObjectHideFlags: 0
