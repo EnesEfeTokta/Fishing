@@ -17,3 +17,10 @@ MonoBehaviour:
   fishTypeAndNumbers:
   - fishData: {fileID: 11400000, guid: cc17f2beff67fc7459689acfaaf98f9b, type: 2}
     fishCustom: 1
+  totalFishCount: 0
+  maxMoneyCount: 0
+  maxScoreCount: 0
+  minWidth: -5
+  maxWidth: 5
+  minHeight: -5
+  maxHeigth: 5

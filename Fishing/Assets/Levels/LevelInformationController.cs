@@ -66,7 +66,7 @@ public class LevelInformationController : MonoBehaviour
                 ).GetComponent<Fish>();
 
                 // Initialize the fish with its associated data (e.g., stats, behaviors).
-                newFish.StartFish(fishTypeAndNumber.fishData);
+                newFish.StartFish(fishTypeAndNumber.fishData, levelInformationData);
 
                 // Add the newly created fish to the list of spawned fish.
                 createFishs.Add(newFish.gameObject);
