@@ -4,11 +4,25 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
+    public static Timer Instance;
+
     // Reference to the TextMeshPro text field that displays the timer value on the UI.
     [SerializeField] private TMP_Text timer;
 
     // Stores the elapsed time in seconds.
     private float time;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Update is called once per frame to keep track of the time and update the timer display.
     void Update()
