@@ -19,11 +19,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelInformationData levelInformationData;
     [SerializeField] private SettingsData settingsData;
 
+    public List<FishData> fishsDeath = new List<FishData>(); // List of fish data.
+    public List<GameObject> fishsCreated = new List<GameObject>(); // List of fish created.
+
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -71,8 +75,40 @@ public class GameManager : MonoBehaviour
         return settingsData = this.settingsData;
     }
 
-    public (List<GameObject>, List<FishData>) ReadFishCreatAndDeadList()
+    public void FishDeath(GameObject fishDeathObject)
     {
-        return (null, null);
+        FishData fishData = fishDeathObject.GetComponent<Fish>().ReadFishData();
+
+        // Remove fish object from created list and add its data to death list.
+        fishsCreated.Remove(fishDeathObject);
+        fishsDeath.Add(fishData);
+        Destroy(fishDeathObject);
+
+        IsLevelFinished();
+    }
+
+    public (List<GameObject>, List<FishData>) ReadFishCreatAndDeadList(List<GameObject> fishsCreated = null, List<FishData> fishsDeath = null)
+    {
+        this.fishsCreated = fishsCreated ?? this.fishsCreated;
+        this.fishsDeath = fishsDeath ?? this.fishsDeath;
+
+        return (this.fishsCreated, this.fishsDeath);
+    }
+
+    public bool IsLevelFinished()
+    {
+        int totalFishs = ReadLevelInformationData().fishTypeAndNumbers.Count;
+
+        float time = Timer.Instance.InstantTime();
+
+        if (totalFishs == fishsDeath.Count | time >= ReadLevelInformationData().levelTime)
+        {
+            AchievementScreen.Instance.StartAchievementScreen();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
