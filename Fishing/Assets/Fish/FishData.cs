@@ -15,6 +15,11 @@ public class FishData : ScriptableObject
 
     [Space]
 
+    public int defaultScore; // Default score for the fish.
+    public int defaultMoney; // Default money for the fish.
+
+    [Space]
+
     public List<GameObject> fishPrefabs = new List<GameObject>();  // List of fish prefabs for instantiation.
 
     [Space]
