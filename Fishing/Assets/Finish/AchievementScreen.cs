@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class AchievementScreen : MonoBehaviour
 {
@@ -10,16 +11,21 @@ public class AchievementScreen : MonoBehaviour
     public static AchievementScreen Instance;
 
     [Header("UI")]
-    [SerializeField] private TMP_Text totalScoreText;    // Text component for displaying total score
-    [SerializeField] private TMP_Text totalMoneyText;    // Text component for displaying total money
-    [SerializeField] private TMP_Text totalFishText;     // Text component for displaying total fish killed
-    [SerializeField] private TMP_Text levelNameText;     // Text component for displaying the level name
+    [SerializeField] private TMP_Text totalScoreText;    // Text component for displaying total score.
+    [SerializeField] private TMP_Text totalMoneyText;    // Text component for displaying total money.
+    [SerializeField] private TMP_Text totalFishText;     // Text component for displaying total fish killed.
+    [SerializeField] private TMP_Text totalTimeText;    // Text component for displaying total stars
+    [SerializeField] private TMP_Text levelNameText;     // Text component for displaying the level name.
 
     [Header("Image")]
     [SerializeField] private List<Image> starImages;     // List of star images used for achievement rating
 
     [Header("Panel")]
     [SerializeField] private GameObject achievementScreenPanel; // Panel for the achievement screen
+
+    [Header("Buttons")]
+    [SerializeField] private GameObject goToHomeButton;     // Button to close the achievement screen.
+    [SerializeField] private GameObject restartButton;    // Button to restart the current level.
 
     void Awake()
     {
@@ -41,7 +47,11 @@ public class AchievementScreen : MonoBehaviour
 
         // Display achievements and stars sequentially
         StartCoroutine(DisplayAchievementsSequentially());
-        StartCoroutine(StarEnlargement(starImages, ValueCalculation().Item4, 0.5f));
+        StartCoroutine(StarEnlargement(starImages, ValueCalculation().Item5, 0.5f));
+
+        // Animate the close button
+        GoToHomeAnimateButton(goToHomeButton);
+        PlayAgainAnimateButton(restartButton);
     }
 
     // Coroutine for displaying achievements one by one
@@ -49,14 +59,19 @@ public class AchievementScreen : MonoBehaviour
     {
         var results = ValueCalculation(); // Calculate score, money, and other metrics
 
-        // Show the score with a gradual increase
-        yield return StartCoroutine(SlowNumberIncrease(totalScoreText, results.Item1, 0.5f));
+        levelNameText.text = GameManager.Instance.ReadLevelInformationData().levelName; // Display level name.
 
-        // Show money with a gradual increase
-        yield return StartCoroutine(SlowNumberIncrease(totalMoneyText, results.Item2, 0.5f));
+        // Show the level name with a gradual increase.
+        yield return StartCoroutine(SlowNumberIncrease(totalTimeText, results.Item1, 0.5f));
 
-        // Show total fish killed with a gradual increase
+        // Show the score with a gradual increase.
+        yield return StartCoroutine(SlowNumberIncrease(totalScoreText, results.Item2, 0.5f));
+
+        // Show money with a gradual increase.
         yield return StartCoroutine(SlowNumberIncrease(totalFishText, results.Item3, 0.5f));
+
+        // Show total fish killed with a gradual increase.
+        yield return StartCoroutine(SlowNumberIncrease(totalMoneyText, results.Item4, 0.5f));
     }
 
     // Coroutine to smoothly increase a displayed number over time
@@ -78,7 +93,7 @@ public class AchievementScreen : MonoBehaviour
     }
 
     // Calculate score, money, total fish killed, and level success type
-    (int, int, int, LevelSuccessType) ValueCalculation()
+    (int, int, int, int, LevelSuccessType) ValueCalculation()
     {
         // Retrieve lists of created and dead fish from GameManager
         List<GameObject> createdFishs = GameManager.Instance.ReadFishCreatAndDeadList().Item1;
@@ -130,8 +145,10 @@ public class AchievementScreen : MonoBehaviour
             }
         }
 
-        // Return calculated values (score, money, fish count, level success type)
-        return (score, money, deadFishsCount, levelSuccessType);
+        int time = Mathf.RoundToInt(Timer.Instance.InstantTime()); // Calculate total time elapsed
+
+        // Return calculated values (time, score, fish count, money, level success type)
+        return (time, score, deadFishsCount, money, levelSuccessType);
     }
 
     // Coroutine to enlarge stars based on the level success type
@@ -176,6 +193,20 @@ public class AchievementScreen : MonoBehaviour
 
             image.transform.localScale = Vector3.one; // Set final scale after enlargement
         }
+    }
+
+    // Animate a button to grow, shrink, and rotate
+    void PlayAgainAnimateButton(GameObject button)
+    {
+        button.transform.DOScale(1.1f, 0.5f).SetLoops(-1, LoopType.Yoyo);
+        button.transform.DORotate(new Vector3(0, 0, -360), 2f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Restart);
+    }
+
+    void GoToHomeAnimateButton(GameObject button)
+    {
+        // Use DOMoveX with a relative movement
+        button.transform.DOMoveX(25f, 0.5f).SetRelative().SetLoops(-1, LoopType.Yoyo);
+        button.transform.DOScale(1.1f, 0.5f).SetLoops(-1, LoopType.Yoyo);
     }
 
     // Enum to represent level success categories
