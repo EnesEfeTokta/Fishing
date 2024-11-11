@@ -18,10 +18,10 @@ public class AchievementScreen : MonoBehaviour
     [SerializeField] private TMP_Text levelNameText;     // Text component for displaying the level name.
 
     [Header("Image")]
-    [SerializeField] private List<Image> starImages;     // List of star images used for achievement rating
+    [SerializeField] private List<Image> starImages;     // List of star images used for achievement rating.
 
     [Header("Panel")]
-    [SerializeField] private GameObject achievementScreenPanel; // Panel for the achievement screen
+    [SerializeField] private GameObject achievementScreenPanel; // Panel for the achievement screen.
 
     [Header("Buttons")]
     [SerializeField] private GameObject goToHomeButton;     // Button to close the achievement screen.
@@ -74,13 +74,13 @@ public class AchievementScreen : MonoBehaviour
         yield return StartCoroutine(SlowNumberIncrease(totalMoneyText, results.Item4, 0.5f));
     }
 
-    // Coroutine to smoothly increase a displayed number over time
+    // Coroutine to smoothly increase a displayed number over time.
     IEnumerator SlowNumberIncrease(TMP_Text text, int targetValue, float duration)
     {
         float elapsedTime = 0f;
         int startValue = 0;
 
-        // Increase value from 0 to target over specified duration
+        // Increase value from 0 to target over specified duration.
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
@@ -89,10 +89,10 @@ public class AchievementScreen : MonoBehaviour
             yield return null;
         }
 
-        text.text = targetValue.ToString(); // Set final value after reaching target
+        text.text = targetValue.ToString(); // Set final value after reaching target.
     }
 
-    // Calculate score, money, total fish killed, and level success type
+    // Calculate score, money, total fish killed, and level success type.
     (int, int, int, int, LevelSuccessType) ValueCalculation()
     {
         // Retrieve lists of created and dead fish from GameManager
@@ -105,7 +105,7 @@ public class AchievementScreen : MonoBehaviour
         int score = 0; // Initialize score
         int money = 0; // Initialize money
 
-        // Retrieve level time and elapsed time from the game manager and timer
+        // Retrieve level time and elapsed time from the game manager and timer.
         float levelTime = GameManager.Instance.ReadLevelInformationData().levelTime;
         float elapsedTime = Timer.Instance.InstantTime();
 
@@ -114,9 +114,9 @@ public class AchievementScreen : MonoBehaviour
         float secondQuarter = levelTime / 2;
         float thirdQuarter = 3 * levelTime / 4;
 
-        LevelSuccessType levelSuccessType = LevelSuccessType.Good; // Default success type
+        LevelSuccessType levelSuccessType = LevelSuccessType.Good; // Default success type.
 
-        // Calculate rewards based on fish killed and elapsed time
+        // Calculate rewards based on fish killed and elapsed time.
         foreach (FishData fishData in deadFishs)
         {
             if (elapsedTime <= firstQuarter)
@@ -145,18 +145,18 @@ public class AchievementScreen : MonoBehaviour
             }
         }
 
-        int time = Mathf.RoundToInt(Timer.Instance.InstantTime()); // Calculate total time elapsed
+        int time = Mathf.RoundToInt(Timer.Instance.InstantTime()); // Calculate total time elapsed.
 
-        // Return calculated values (time, score, fish count, money, level success type)
+        // Return calculated values (time, score, fish count, money, level success type).
         return (time, score, deadFishsCount, money, levelSuccessType);
     }
 
-    // Coroutine to enlarge stars based on the level success type
+    // Coroutine to enlarge stars based on the level success type.
     IEnumerator StarEnlargement(List<Image> images, LevelSuccessType levelSuccessType, float duration)
     {
         int starsToEnlarge = 0;
 
-        // Determine number of stars to enlarge based on level success type
+        // Determine number of stars to enlarge based on level success type.
         switch (levelSuccessType)
         {
             case LevelSuccessType.Good:
@@ -170,13 +170,13 @@ public class AchievementScreen : MonoBehaviour
                 break;
         }
 
-        // Set all star images to zero scale initially
+        // Set all star images to zero scale initially.
         foreach (Image image in images)
         {
             image.transform.localScale = Vector3.zero;
         }
 
-        // Gradually enlarge each star up to the required count
+        // Gradually enlarge each star up to the required count.
         for (int i = 0; i < starsToEnlarge; i++)
         {
             Image image = images[i];
@@ -191,11 +191,11 @@ public class AchievementScreen : MonoBehaviour
                 yield return null;
             }
 
-            image.transform.localScale = Vector3.one; // Set final scale after enlargement
+            image.transform.localScale = Vector3.one; // Set final scale after enlargement.
         }
     }
 
-    // Animate a button to grow, shrink, and rotate
+    // Animate a button to grow, shrink, and rotate.
     void PlayAgainAnimateButton(GameObject button)
     {
         button.transform.DOScale(1.1f, 0.5f).SetLoops(-1, LoopType.Yoyo);
@@ -209,7 +209,7 @@ public class AchievementScreen : MonoBehaviour
         button.transform.DOScale(1.1f, 0.5f).SetLoops(-1, LoopType.Yoyo);
     }
 
-    // Enum to represent level success categories
+    // Enum to represent level success categories.
     enum LevelSuccessType
     {
         Good,
