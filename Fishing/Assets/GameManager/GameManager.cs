@@ -117,4 +117,9 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(name);
     }
+
+    public void AgainButton()
+    {
+        Debug.LogError("The error, the game could not restart ...");
+    }
 }
