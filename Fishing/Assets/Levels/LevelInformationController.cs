@@ -7,7 +7,7 @@ public class LevelInformationController : MonoBehaviour
     private LevelInformationData levelInformationData;
 
     // Stores references to the fish GameObjects that are created during the level.
-    [HideInInspector] public List<GameObject> createFishs = new List<GameObject>();
+    [HideInInspector] public List<GameObject> fishsCreated = new List<GameObject>();
 
     // The position where fish will be instantiated.
     [SerializeField] private Transform startPoint;
@@ -69,8 +69,10 @@ public class LevelInformationController : MonoBehaviour
                 newFish.StartFish(fishTypeAndNumber.fishData, levelInformationData);
 
                 // Add the newly created fish to the list of spawned fish.
-                createFishs.Add(newFish.gameObject);
+                fishsCreated.Add(newFish.gameObject);
             }
         }
+
+        GameManager.Instance.ReadFishCreatAndDeadList(fishsCreated);
     }
 }

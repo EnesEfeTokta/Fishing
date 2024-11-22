@@ -48,7 +48,7 @@ public class FishDamage : MonoBehaviour
         // Test: If the space key is pressed, apply 10 damage to the fish (for debugging purposes).
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            DamageClaim(10);
+            DamageClaim(50);
         }
     }
 

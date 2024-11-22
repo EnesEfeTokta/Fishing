@@ -40,7 +40,7 @@ public class Fish : MonoBehaviour
     }
 
     // To read the identity of the fish.
-    public FishData ReadFishData(FishData fishData)
+    public FishData ReadFishData(FishData fishData = null)
     {
         return fishData = this.fishData;
     }
@@ -58,6 +58,6 @@ public class Fish : MonoBehaviour
     // Method to handle the fish's death by destroying the game object.
     public void Death()
     {
-        Destroy(this.gameObject);
+        GameManager.Instance.FishDeath(this.gameObject);
     }
 }

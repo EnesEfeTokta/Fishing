@@ -7,7 +7,7 @@ using UnityEngine;
 public class LevelInformationData : ScriptableObject
 {
     public string levelName;  // Name of the level.
-    public float levelStopTime;  // Time limit or stop time for the level.
+    public float levelTime;  // Time limit or stop time for the level.
     public List<FishTypeAndNumber> fishTypeAndNumbers = new List<FishTypeAndNumber>();  // List of fish types and their numbers for this level.
 
     [Space]
