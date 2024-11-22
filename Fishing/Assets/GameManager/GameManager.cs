@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
 
         if (totalFishs == fishsDeath.Count | time >= ReadLevelInformationData().levelTime)
         {
-            AchievementScreen.Instance.StartAchievementScreen();
+            AchievementScreen.Instance.StartAchievementScreen(2);
             return true;
         }
         else

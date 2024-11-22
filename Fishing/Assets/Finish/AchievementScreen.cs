@@ -23,6 +23,9 @@ public class AchievementScreen : MonoBehaviour
     [Header("Panel")]
     [SerializeField] private GameObject achievementScreenPanel; // Panel for the achievement screen.
 
+    [Header("Color Ribbon")]
+    [SerializeField] private GameObject colorRibbon; // Animation of color strips.
+
     [Header("Buttons")]
     [SerializeField] private GameObject goToHomeButton;     // Button to close the achievement screen.
     [SerializeField] private GameObject restartButton;    // Button to restart the current level.
@@ -40,18 +43,33 @@ public class AchievementScreen : MonoBehaviour
         }
     }
 
-    public void StartAchievementScreen()
+    void Start()
     {
+        achievementScreenPanel.SetActive(false);
+        colorRibbon.SetActive(false);
+    }
+
+    public void StartAchievementScreen(int startTime = 0)
+    {
+        colorRibbon.SetActive(true);
+
+        StartCoroutine(ShowAchievementScreen(startTime));
+    }
+
+    IEnumerator ShowAchievementScreen(int startTime)
+    {
+        // Animate the close button
+        GoToHomeAnimateButton(goToHomeButton);
+        PlayAgainAnimateButton(restartButton);
+
+        yield return new WaitForSeconds(startTime);
+
         // Show the achievement panel
         achievementScreenPanel.SetActive(true);
 
         // Display achievements and stars sequentially
-        StartCoroutine(DisplayAchievementsSequentially());
-        StartCoroutine(StarEnlargement(starImages, ValueCalculation().Item5, 0.5f));
-
-        // Animate the close button
-        GoToHomeAnimateButton(goToHomeButton);
-        PlayAgainAnimateButton(restartButton);
+        yield return StartCoroutine(DisplayAchievementsSequentially());
+        yield return StartCoroutine(StarEnlargement(starImages, ValueCalculation().Item5, 0.5f));
     }
 
     // Coroutine for displaying achievements one by one
@@ -60,6 +78,8 @@ public class AchievementScreen : MonoBehaviour
         var results = ValueCalculation(); // Calculate score, money, and other metrics
 
         levelNameText.text = GameManager.Instance.ReadLevelInformationData().levelName; // Display level name.
+
+        yield return new WaitForSeconds(8);
 
         // Show the level name with a gradual increase.
         yield return StartCoroutine(SlowNumberIncrease(totalTimeText, results.Item1, 0.5f));
