@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // Ensures that all necessary components are attached to the GameObject.
 [RequireComponent(typeof(PastPlayRecorder))]
@@ -103,12 +104,17 @@ public class GameManager : MonoBehaviour
 
         if (totalFishs == fishsDeath.Count | time >= ReadLevelInformationData().levelTime)
         {
-            AchievementScreen.Instance.StartAchievementScreen(2);
+            AchievementScreen.Instance.StartAchievementScreen();
             return true;
         }
         else
         {
             return false;
         }
+    }
+
+    public void SceneRouterButton(string name)
+    {
+        SceneManager.LoadScene(name);
     }
 }

@@ -3,11 +3,26 @@ using UnityEngine;
 
 public class PlayerProgress : MonoBehaviour
 {
+    public static PlayerProgress Instance;
+
     // Holds the player's progress data (e.g., score, money, fish count).
     [HideInInspector] public PlayerProgressData playerProgressData;
 
     // Reference to the GameManager to access and modify player data.
     private GameManager gameManager;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Called once at the start of the game to initialize player progress.
     void Start()

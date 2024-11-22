@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
 
 public class AchievementScreen : MonoBehaviour
 {
@@ -22,9 +23,11 @@ public class AchievementScreen : MonoBehaviour
 
     [Header("Panel")]
     [SerializeField] private GameObject achievementScreenPanel; // Panel for the achievement screen.
+    [SerializeField] private AnimationClip achievementScreenPanelClip; // Panel for the achievement screen clip animation.
 
     [Header("Color Ribbon")]
-    [SerializeField] private GameObject colorRibbon; // Animation of color strips.
+    [SerializeField] private GameObject colorRibbon; // Color stripes object.
+    [SerializeField] private AnimationClip colorRibbonClip; // Animation of color strips clip.
 
     [Header("Buttons")]
     [SerializeField] private GameObject goToHomeButton;     // Button to close the achievement screen.
@@ -45,15 +48,16 @@ public class AchievementScreen : MonoBehaviour
 
     void Start()
     {
+        // UI panels are being closed.
         achievementScreenPanel.SetActive(false);
         colorRibbon.SetActive(false);
     }
 
-    public void StartAchievementScreen(int startTime = 0)
+    public void StartAchievementScreen()
     {
         colorRibbon.SetActive(true);
 
-        StartCoroutine(ShowAchievementScreen(startTime));
+        StartCoroutine(ShowAchievementScreen(Convert.ToInt32(colorRibbonClip.length)));
     }
 
     IEnumerator ShowAchievementScreen(int startTime)
@@ -79,7 +83,7 @@ public class AchievementScreen : MonoBehaviour
 
         levelNameText.text = GameManager.Instance.ReadLevelInformationData().levelName; // Display level name.
 
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(achievementScreenPanelClip.length);
 
         // Show the level name with a gradual increase.
         yield return StartCoroutine(SlowNumberIncrease(totalTimeText, results.Item1, 0.5f));

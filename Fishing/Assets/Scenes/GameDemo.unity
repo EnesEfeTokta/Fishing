@@ -7278,7 +7278,9 @@ MonoBehaviour:
   - {fileID: 1951634834}
   - {fileID: 659557153}
   achievementScreenPanel: {fileID: 756519958}
+  achievementScreenPanelClip: {fileID: 7400000, guid: 102f23b9f78686840bdf6ceef8f731b4, type: 2}
   colorRibbon: {fileID: 1421745443}
+  colorRibbonClip: {fileID: 7400000, guid: a8ce59bce4d1ebd4cab96156be6d7b89, type: 2}
   goToHomeButton: {fileID: 1551417933}
   restartButton: {fileID: 1571662382}
 --- !u!1 &1328984269
@@ -17392,6 +17394,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1455462353}
     m_Modifications:
+    - target: {fileID: 2325040853409790703, guid: e0fd4841a2485ef4ca31f3007e500a6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325040853409790703, guid: e0fd4841a2485ef4ca31f3007e500a6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325040853409790703, guid: e0fd4841a2485ef4ca31f3007e500a6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1328667943}
+    - target: {fileID: 2325040853409790703, guid: e0fd4841a2485ef4ca31f3007e500a6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325040853409790703, guid: e0fd4841a2485ef4ca31f3007e500a6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SceneRouterButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325040853409790703, guid: e0fd4841a2485ef4ca31f3007e500a6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325040853409790703, guid: e0fd4841a2485ef4ca31f3007e500a6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Home
+      objectReference: {fileID: 0}
+    - target: {fileID: 2325040853409790703, guid: e0fd4841a2485ef4ca31f3007e500a6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4573803644507447244, guid: e0fd4841a2485ef4ca31f3007e500a6a, type: 3}
       propertyPath: m_Name
       value: AchievementScreen
