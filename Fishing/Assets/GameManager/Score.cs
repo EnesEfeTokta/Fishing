@@ -27,17 +27,5 @@ public class Score : MonoBehaviour
 
         // Update the score UI text to reflect the new score count.
         this.score.text = scoreCount.ToString();
-
-        // Update the player's progress with the new score.
-        AddFishData(score);
-    }
-
-    /// <summary>
-    /// Updates the PlayerProgress with the added score.
-    /// </summary>
-    /// <param name="score">The amount of score added.</param>
-    void AddFishData(int score)
-    {
-        PlayerProgress.Instance.AddScore(score);
     }
 }

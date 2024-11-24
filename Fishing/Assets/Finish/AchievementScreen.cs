@@ -117,7 +117,7 @@ public class AchievementScreen : MonoBehaviour
     }
 
     // Calculate score, money, total fish killed, and level success type.
-    (int, int, int, int, LevelSuccessType) ValueCalculation()
+    public (int, int, int, int, LevelSuccessType) ValueCalculation()
     {
         // Retrieve lists of created and dead fish from GameManager
         List<GameObject> createdFishs = GameManager.Instance.ReadFishCreatAndDeadList().Item1;
@@ -234,7 +234,7 @@ public class AchievementScreen : MonoBehaviour
     }
 
     // Enum to represent level success categories.
-    enum LevelSuccessType
+    public enum LevelSuccessType
     {
         Good,
         VeryGood,

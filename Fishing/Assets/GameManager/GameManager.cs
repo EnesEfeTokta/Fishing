@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 // Ensures that all required components are attached to the GameObject.
 [RequireComponent(typeof(PastPlayRecorder))] // Handles the recording of past plays.
@@ -125,7 +126,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void SceneRouterButton(string name)
     {
-        SceneManager.LoadScene(name); // Load the specified scene.
+        if (RecordTheProgress()) // Check if the progress can be recorded.
+        {
+            SceneManager.LoadScene(name); // Load the specified scene.
+        }
     }
 
     /// <summary>
@@ -134,5 +138,32 @@ public class GameManager : MonoBehaviour
     public void AgainButton()
     {
         Debug.LogError("The error, the game could not restart ..."); // Log an error if the restart fails.
+    }
+
+    /// <summary>
+    /// Records the player's progress by updating their score, money, and fish count.
+    /// </summary>
+    /// <returns>
+    /// Returns <c>true</c> if the progress is successfully recorded; otherwise, <c>false</c> if an error occurs.
+    /// </returns>
+    bool RecordTheProgress()
+    {
+        try
+        {
+            int score = AchievementScreen.Instance.ValueCalculation().Item2;
+            int money = AchievementScreen.Instance.ValueCalculation().Item4;
+            int fish = AchievementScreen.Instance.ValueCalculation().Item3;
+
+            PlayerProgress.Instance.AddFish(fish);
+            PlayerProgress.Instance.AddMoney(money);
+            PlayerProgress.Instance.AddScore(score);
+
+            return true; // Return true if all operations succeed.
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"An error occurred while recording progress: {ex.Message}");
+            return false; // Return false if any exception is caught.
+        }
     }
 }

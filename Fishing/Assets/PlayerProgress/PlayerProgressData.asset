@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9756b20e779450418abbb29add42a1b, type: 3}
   m_Name: PlayerProgressData
   m_EditorClassIdentifier: 
-  totalPlayerScore: 50
-  totalPlayerMoney: 172
-  totalPlayerFish: 456
+  totalPlayerScore: 0
+  totalPlayerMoney: 0
+  totalPlayerFish: 0
