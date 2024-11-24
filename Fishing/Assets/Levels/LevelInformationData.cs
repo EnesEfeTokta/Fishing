@@ -18,11 +18,15 @@ public class LevelInformationData : ScriptableObject
 
     [Space]
 
-    public float minWidth; // Minimum width for random point generation.
-    public float maxWidth; // Maximum width for random point generation.
+    public float minWidth = -5; // Minimum width for random point generation.
+    public float maxWidth = 5; // Maximum width for random point generation.
 
-    public float minHeight; // Minimum height for random point generation.
-    public float maxHeigth; // Maximum height for random point generation.
+    public float minHeight = -5; // Minimum height for random point generation.
+    public float maxHeigth = 5; // Maximum height for random point generation.
+
+    [Space]
+
+    public bool IslevelOver = false;
 }
 
 // A serializable class to store data about fish type and the number of fish to spawn.

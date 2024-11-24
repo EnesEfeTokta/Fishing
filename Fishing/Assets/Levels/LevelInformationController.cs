@@ -12,15 +12,9 @@ public class LevelInformationController : MonoBehaviour
     // The position where fish will be instantiated.
     [SerializeField] private Transform startPoint;
 
-    // Reference to the GameManager to access level data.
-    private GameManager gameManager;
-
     // Called once when the game starts, setting up the level.
     void Start()
     {
-        // Get the GameManager component attached to the same GameObject.
-        gameManager = GetComponent<GameManager>();
-
         // Load the level information data.
         SetLevelInformationData();
 
@@ -33,7 +27,7 @@ public class LevelInformationController : MonoBehaviour
     /// </summary>
     void SetLevelInformationData()
     {
-        levelInformationData = gameManager.ReadLevelInformationData(levelInformationData);
+        levelInformationData = GameManager.Instance.ReadLevelInformationData(levelInformationData);
     }
 
     /// <summary>
@@ -56,17 +50,17 @@ public class LevelInformationController : MonoBehaviour
             for (int i = 0; i < fishTypeAndNumber.fishCustom; i++)
             {
                 // Select a random fish prefab from the list of available prefabs.
-                int randomIndex = Random.Range(0, fishTypeAndNumber.fishData.fishPrefabs.Count);
+                int randomIndex = Random.Range(0, fishTypeAndNumber.fishData.spawnFishPrefabs.Count);
 
                 // Instantiate the selected fish at the designated starting point with default rotation.
                 Fish newFish = Instantiate(
-                    fishTypeAndNumber.fishData.fishPrefabs[randomIndex],
+                    fishTypeAndNumber.fishData.spawnFishPrefabs[randomIndex].spawnFishObject,
                     startPoint.position,
                     startPoint.rotation
                 ).GetComponent<Fish>();
 
                 // Initialize the fish with its associated data (e.g., stats, behaviors).
-                newFish.StartFish(fishTypeAndNumber.fishData, levelInformationData);
+                newFish.StartFish(fishTypeAndNumber.fishData, levelInformationData, fishTypeAndNumber.fishData.spawnFishPrefabs[randomIndex]);
 
                 // Add the newly created fish to the list of spawned fish.
                 fishsCreated.Add(newFish.gameObject);

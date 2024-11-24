@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd03e033a6210bf4496d4d0b38f27772, type: 3}
   m_Name: Level7
   m_EditorClassIdentifier: 
-  levelName: Level 6
-  levelStopTime: 110
+  levelName: Level 7
+  levelTime: 110
   fishTypeAndNumbers:
   - fishData: {fileID: 11400000, guid: cc17f2beff67fc7459689acfaaf98f9b, type: 2}
     fishCustom: 7
@@ -21,3 +21,11 @@ MonoBehaviour:
     fishCustom: 7
   - fishData: {fileID: 11400000, guid: b8531375639d5684380c12e850949127, type: 2}
     fishCustom: 7
+  totalFishCount: 21
+  maxMoneyCount: 693
+  maxScoreCount: 1050
+  minWidth: -5
+  maxWidth: 5
+  minHeight: -5
+  maxHeigth: 5
+  IslevelOver: 0

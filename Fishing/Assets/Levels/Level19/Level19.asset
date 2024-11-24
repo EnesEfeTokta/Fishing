@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level19
   m_EditorClassIdentifier: 
   levelName: Level 19
-  levelStopTime: 170
+  levelTime: 170
   fishTypeAndNumbers:
   - fishData: {fileID: 11400000, guid: cc17f2beff67fc7459689acfaaf98f9b, type: 2}
     fishCustom: 2
@@ -29,3 +29,11 @@ MonoBehaviour:
     fishCustom: 5
   - fishData: {fileID: 11400000, guid: f0b7973941ad960418ff32a12cc8036e, type: 2}
     fishCustom: 5
+  totalFishCount: 32
+  maxMoneyCount: 1582
+  maxScoreCount: 2390
+  minWidth: -5
+  maxWidth: 5
+  minHeight: -5
+  maxHeigth: 5
+  IslevelOver: 0

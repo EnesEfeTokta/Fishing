@@ -2,45 +2,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// Ensures that all necessary components are attached to the GameObject.
-[RequireComponent(typeof(PastPlayRecorder))]
-[RequireComponent(typeof(Score))]
-[RequireComponent(typeof(PlayerProgress))]
-[RequireComponent(typeof(SettingsFounder))]
-[RequireComponent(typeof(LevelInformationController))]
-[RequireComponent(typeof(FishIconMovement))]
+// Ensures that all required components are attached to the GameObject.
+[RequireComponent(typeof(PastPlayRecorder))] // Handles the recording of past plays.
+[RequireComponent(typeof(Score))] // Manages the scoring system.
+[RequireComponent(typeof(PlayerProgress))] // Tracks the player's progress.
+[RequireComponent(typeof(SettingsFounder))] // Handles settings management.
+[RequireComponent(typeof(LevelInformationController))] // Controls level-related information.
+[RequireComponent(typeof(FishIconMovement))] // Manages the movement of fish icons.
 
 public class GameManager : MonoBehaviour
 {
+    // Singleton instance of GameManager.
     public static GameManager Instance;
 
-    // Serialized fields to hold references to various data containers.
-    [SerializeField] private PastPlaysData pastPlaysData;
-    [SerializeField] private PlayerProgressData playerProgressData;
-    [SerializeField] private LevelInformationData levelInformationData;
-    [SerializeField] private SettingsData settingsData;
+    // Serialized fields to store references to data objects.
+    [SerializeField] private PastPlaysData pastPlaysData; // Data about past plays.
+    [SerializeField] private PlayerProgressData playerProgressData; // Data about player progress.
+    [SerializeField] private LevelInformationData levelInformationData; // Level-related data.
+    [SerializeField] private SettingsData settingsData; // Game settings data.
 
-    public List<FishData> fishsDeath = new List<FishData>(); // List of fish data.
-    public List<GameObject> fishsCreated = new List<GameObject>(); // List of fish created.
+    // Lists to track fish objects and their states.
+    public List<FishData> fishsDeath = new List<FishData>(); // List of data for fish that have died.
+    public List<GameObject> fishsCreated = new List<GameObject>(); // List of created fish GameObjects.
 
     void Awake()
     {
+        // Implementing the Singleton pattern to ensure only one instance of GameManager exists.
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject); // Prevent destruction when changing scenes.
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject); // Destroy duplicate instances.
         }
     }
 
     /// <summary>
     /// Provides access to the past plays data.
     /// </summary>
-    /// <param name="pastPlaysData">The data object to be populated.</param>
-    /// <returns>Returns the populated PastPlaysData object.</returns>
     public PastPlaysData ReadPastPlaysData(PastPlaysData pastPlaysData = null)
     {
         return pastPlaysData = this.pastPlaysData;
@@ -49,8 +50,6 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Provides access to the player progress data.
     /// </summary>
-    /// <param name="playerProgressData">The data object to be populated.</param>
-    /// <returns>Returns the populated PlayerProgressData object.</returns>
     public PlayerProgressData ReadPlayerProgressData(PlayerProgressData playerProgressData = null)
     {
         return playerProgressData = this.playerProgressData;
@@ -59,8 +58,6 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Provides access to the level information data.
     /// </summary>
-    /// <param name="levelInformationData">The data object to be populated.</param>
-    /// <returns>Returns the populated LevelInformationData object.</returns>
     public LevelInformationData ReadLevelInformationData(LevelInformationData levelInformationData = null)
     {
         return levelInformationData = this.levelInformationData;
@@ -69,25 +66,31 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Provides access to the settings data.
     /// </summary>
-    /// <param name="settingsData">The data object to be populated.</param>
-    /// <returns>Returns the populated SettingsData object.</returns>
     public SettingsData ReadSettingsData(SettingsData settingsData = null)
     {
         return settingsData = this.settingsData;
     }
 
+    /// <summary>
+    /// Handles the death of a fish in the game.
+    /// </summary>
     public void FishDeath(GameObject fishDeathObject)
     {
+        // Retrieve the data of the fish that has died.
         FishData fishData = fishDeathObject.GetComponent<Fish>().ReadFishData();
 
-        // Remove fish object from created list and add its data to death list.
+        // Remove the fish from the list of created fish and add it to the death list.
         fishsCreated.Remove(fishDeathObject);
         fishsDeath.Add(fishData);
-        Destroy(fishDeathObject);
+        Destroy(fishDeathObject); // Destroy the fish GameObject.
 
+        // Check if the level is completed after the fish is removed.
         IsLevelFinished();
     }
 
+    /// <summary>
+    /// Reads or updates the lists of created and dead fish.
+    /// </summary>
     public (List<GameObject>, List<FishData>) ReadFishCreatAndDeadList(List<GameObject> fishsCreated = null, List<FishData> fishsDeath = null)
     {
         this.fishsCreated = fishsCreated ?? this.fishsCreated;
@@ -96,30 +99,40 @@ public class GameManager : MonoBehaviour
         return (this.fishsCreated, this.fishsDeath);
     }
 
+    /// <summary>
+    /// Checks if the current level has been completed.
+    /// </summary>
     public bool IsLevelFinished()
     {
+        // Get the total number of fish in the level and the elapsed time.
         int totalFishs = ReadLevelInformationData().fishTypeAndNumbers.Count;
-
         float time = Timer.Instance.InstantTime();
 
-        if (totalFishs == fishsDeath.Count | time >= ReadLevelInformationData().levelTime)
+        // Check if all fish are dead or the level time has expired.
+        if (totalFishs == fishsDeath.Count || time >= ReadLevelInformationData().levelTime)
         {
-            AchievementScreen.Instance.StartAchievementScreen();
-            return true;
+            AchievementScreen.Instance.StartAchievementScreen(); // Trigger the achievement screen.
+            return true; // Level is completed.
         }
         else
         {
-            return false;
+            return false; // Level is not yet completed.
         }
     }
 
+    /// <summary>
+    /// Loads a scene with the given name.
+    /// </summary>
     public void SceneRouterButton(string name)
     {
-        SceneManager.LoadScene(name);
+        SceneManager.LoadScene(name); // Load the specified scene.
     }
 
+    /// <summary>
+    /// Attempts to restart the game.
+    /// </summary>
     public void AgainButton()
     {
-        Debug.LogError("The error, the game could not restart ...");
+        Debug.LogError("The error, the game could not restart ..."); // Log an error if the restart fails.
     }
 }

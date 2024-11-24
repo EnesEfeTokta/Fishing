@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   levelName: Level 1
-  levelStopTime: 60
+  levelTime: 60
   fishTypeAndNumbers:
   - fishData: {fileID: 11400000, guid: cc17f2beff67fc7459689acfaaf98f9b, type: 2}
     fishCustom: 1
-  totalFishCount: 0
-  maxMoneyCount: 0
-  maxScoreCount: 0
+  totalFishCount: 1
+  maxMoneyCount: 26
+  maxScoreCount: 40
   minWidth: -5
   maxWidth: 5
   minHeight: -5

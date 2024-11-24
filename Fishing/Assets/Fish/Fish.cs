@@ -20,13 +20,15 @@ public class Fish : MonoBehaviour
 
     private HealthFish healthFish;
 
+    private InstantiateFish instantiateFish;
+
     void Start()
     {
         healthFish = GetComponent<HealthFish>();
     }
 
     //The identity information of the fish will be run after entering.
-    public void StartFish(FishData fishData, LevelInformationData levelInformationData)
+    public void StartFish(FishData fishData, LevelInformationData levelInformationData, InstantiateFish instantiateFish)
     {
         // It is checked whether the identity information has been received.
         if (fishData == null && levelInformationData == null)
@@ -36,13 +38,18 @@ public class Fish : MonoBehaviour
 
         this.fishData = fishData;
         this.levelInformationData = levelInformationData;
-
+        this.instantiateFish = instantiateFish;
     }
 
     // To read the identity of the fish.
     public FishData ReadFishData(FishData fishData = null)
     {
         return fishData = this.fishData;
+    }
+
+    public InstantiateFish ReadInstantiateFish(InstantiateFish instantiateFish = null)
+    {
+        return instantiateFish = this.instantiateFish;;
     }
 
     public LevelInformationData ReadLevelInformationData(LevelInformationData levelInformationData)

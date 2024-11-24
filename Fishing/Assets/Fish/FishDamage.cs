@@ -12,6 +12,8 @@ public class FishDamage : MonoBehaviour
     // Reference to the Fish component associated with this GameObject.
     private Fish fish;
 
+    private InstantiateFish instantiateFish;
+
     // The amount of damage the fish can take when hit.
     private float damage;
 
@@ -58,6 +60,9 @@ public class FishDamage : MonoBehaviour
         // Retrieve the FishData ScriptableObject that contains the fish's attributes.
         fishData = fish.ReadFishData(fishData);
 
+        // The material information of the fish is being collected.
+        instantiateFish = fish.ReadInstantiateFish(instantiateFish);
+
         // Set the fish's damage value.
         SetDamage();
     }
@@ -76,8 +81,8 @@ public class FishDamage : MonoBehaviour
     void SetMaterials()
     {
         // Assign the materials from the FishData ScriptableObject.
-        damageMaterial = fishData.damageMaterial;
-        originalMaterial = fishData.originalMaterial;
+        damageMaterial = instantiateFish.damageMaterial;
+        originalMaterial = instantiateFish.originalMaterial;
 
         // Set the fish's material to the original material at the start.
         rdr.material = originalMaterial;

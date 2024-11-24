@@ -9,17 +9,11 @@ public class Score : MonoBehaviour
     // Keeps track of the player's current score.
     private int scoreCount;
 
-    // Reference to the PlayerProgress script to update the player's progress.
-    private PlayerProgress playerProgress;
-
     // Called once at the start of the game to initialize the score.
     void Start()
     {
         // Set the initial score text to "0".
         score.text = "0";
-
-        // Get the PlayerProgress component from the same GameObject.
-        playerProgress = GetComponent<PlayerProgress>();
     }
 
     /// <summary>
@@ -44,6 +38,6 @@ public class Score : MonoBehaviour
     /// <param name="score">The amount of score added.</param>
     void AddFishData(int score)
     {
-        playerProgress.AddScore(score);
+        PlayerProgress.Instance.AddScore(score);
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ public class FishData : ScriptableObject
 
     [Space]
 
-    public List<GameObject> fishPrefabs = new List<GameObject>();  // List of fish prefabs for instantiation.
+    public List<InstantiateFish> spawnFishPrefabs = new List<InstantiateFish>();  // List of fish prefabs for instantiation.
 
     [Space]
     
@@ -31,8 +32,12 @@ public class FishData : ScriptableObject
     [Space]
 
     public float journeyTime = 2f; // The duration of the movement between two points for the fish.
+}
 
-    [Space]
+[Serializable]
+public class InstantiateFish
+{
+    public GameObject spawnFishObject;
 
     // Material exchange will be provided according to damage intake.
     public Material damageMaterial;

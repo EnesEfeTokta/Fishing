@@ -16,9 +16,24 @@ MonoBehaviour:
   damageUnit: 45
   maxHealth: 120
   fishSpeed: 2
-  fishPrefabs:
-  - {fileID: 287250197650022728, guid: e053f68429a2fcd4db7d7592e99e8b0c, type: 3}
-  - {fileID: 4931167291017385979, guid: fb6fb20bacb31f64c947c4ff1fb2c1f4, type: 3}
-  - {fileID: 8278154169074596500, guid: f6c9be766018e034badec88afa698694, type: 3}
-  - {fileID: 9215054917466465919, guid: 6ef51d1d9bd34b5499d6a9b874a37540, type: 3}
-  - {fileID: 400023033011658816, guid: 4fb6ed0cd41429b4bac3306a55b7d82a, type: 3}
+  defaultScore: 60
+  defaultMoney: 40
+  spawnFishPrefabs:
+  - spawnFishObject: {fileID: 287250197650022728, guid: e053f68429a2fcd4db7d7592e99e8b0c, type: 3}
+    damageMaterial: {fileID: 2100000, guid: 0ea082acd3b46904580e2559be0245d9, type: 2}
+    originalMaterial: {fileID: 2100000, guid: 40eb0078f8a20e64688a3fd897e527b7, type: 2}
+  - spawnFishObject: {fileID: 3270941485185850189, guid: fb6fb20bacb31f64c947c4ff1fb2c1f4, type: 3}
+    damageMaterial: {fileID: 2100000, guid: 0ea082acd3b46904580e2559be0245d9, type: 2}
+    originalMaterial: {fileID: 2100000, guid: aded33f664afa2f4498119c6c45ad2c5, type: 2}
+  - spawnFishObject: {fileID: 478222090695740403, guid: f6c9be766018e034badec88afa698694, type: 3}
+    damageMaterial: {fileID: 2100000, guid: 0ea082acd3b46904580e2559be0245d9, type: 2}
+    originalMaterial: {fileID: 2100000, guid: 3b24c36d36683fd4dbf9c6d48c60b092, type: 2}
+  - spawnFishObject: {fileID: 7245236837501605200, guid: 6ef51d1d9bd34b5499d6a9b874a37540, type: 3}
+    damageMaterial: {fileID: 2100000, guid: 0ea082acd3b46904580e2559be0245d9, type: 2}
+    originalMaterial: {fileID: 2100000, guid: 16f08ceb8e0ad6044821f562248311c5, type: 2}
+  - spawnFishObject: {fileID: 7582282769210933385, guid: 4fb6ed0cd41429b4bac3306a55b7d82a, type: 3}
+    damageMaterial: {fileID: 2100000, guid: 0ea082acd3b46904580e2559be0245d9, type: 2}
+    originalMaterial: {fileID: 2100000, guid: a1dab3b08c0fb54468170915f7e965dd, type: 2}
+  minRepeatTime: 1
+  maxRepeatTime: 5
+  journeyTime: 2
