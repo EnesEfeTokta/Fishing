@@ -12036,6 +12036,7 @@ GameObject:
   - component: {fileID: 1794401902}
   - component: {fileID: 1794401903}
   - component: {fileID: 1794401904}
+  - component: {fileID: 1794401905}
   m_Layer: 0
   m_Name: HomeManager
   m_TagString: Untagged
@@ -12217,6 +12218,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishsCreated: []
   startPoint: {fileID: 0}
+--- !u!114 &1794401905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794401894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1995352e7514c8499705faa42a45173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelGroupDatas:
+  - {fileID: 11400000, guid: ff7a6c09a722b63409fb1f472d376bd1, type: 2}
+  - {fileID: 11400000, guid: 6f2dc8373c23ac54eb7d8cf59e3464e9, type: 2}
+  - {fileID: 11400000, guid: 51d7c6d64813c4a48aa1f379caa45516, type: 2}
+  levelGroupCellPrefab: {fileID: 8388778169773631995, guid: 0dff275db5d47944692ceed915496497, type: 3}
+  levelCellPrefab: {fileID: 7288778791634034647, guid: 44089fcc58a008449b1a38631e89b0d6, type: 3}
+  content: {fileID: 200607599}
 --- !u!1 &1802138864
 GameObject:
   m_ObjectHideFlags: 0

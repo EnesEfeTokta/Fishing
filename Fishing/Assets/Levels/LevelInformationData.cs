@@ -8,6 +8,10 @@ public class LevelInformationData : ScriptableObject
 {
     public string levelName;  // Name of the level.
     public float levelTime;  // Time limit or stop time for the level.
+    public int LevelIndex;  // Index of the level.
+
+    [Space]
+
     public List<FishTypeAndNumber> fishTypeAndNumbers = new List<FishTypeAndNumber>();  // List of fish types and their numbers for this level.
 
     [Space]
@@ -26,7 +30,8 @@ public class LevelInformationData : ScriptableObject
 
     [Space]
 
-    public bool IslevelOver = false;
+    public bool IsLevelOver = false;
+    public bool IsLevelFinished = false;
 }
 
 // A serializable class to store data about fish type and the number of fish to spawn.

@@ -9,4 +9,23 @@ public class LevelSorter : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] private GameObject levelGroupCellPrefab;
     [SerializeField] private GameObject levelCellPrefab;
+
+    [Header("Content")]
+    [SerializeField] private Transform content;
+
+    void Start()
+    {
+        SortLevels();
+    }
+
+    void SortLevels()
+    {
+        foreach (LevelGroupData levelGroupData in levelGroupDatas)
+        {
+            LevelGroupCell levelGroupCell = Instantiate(levelGroupCellPrefab, content).GetComponent<LevelGroupCell>();
+
+            levelGroupCell.SetLevelGroup(levelGroupData);
+            levelGroupCell.CreateLevelCell(levelCellPrefab);
+        }
+    }
 }

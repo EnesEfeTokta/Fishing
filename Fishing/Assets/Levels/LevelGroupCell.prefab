@@ -185,6 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5638811836330938302}
+  - component: {fileID: -2983699920989239394}
   m_Layer: 5
   m_Name: LevelGroupCell
   m_TagString: Untagged
@@ -213,6 +214,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 699.2932, y: 590.52}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &-2983699920989239394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8388778169773631995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c98c4040d478f849ac769f584a82604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelGroupData: {fileID: 0}
+  groupTitleText: {fileID: 5493264443287461434}
+  groupHeadBgImage: {fileID: 2061367282046125371}
+  groupBodyBgImage: {fileID: 5659236235728028840}
+  content: {fileID: 6311607025224063893}
 --- !u!1 &9185313319693579944
 GameObject:
   m_ObjectHideFlags: 0
