@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
         catch (Exception ex)
         {
             Debug.LogError($"An error occurred while recording progress: {ex.Message}");
-            return false; // Return false if any exception is caught.
+            return false; // Return false if any exception is caught. 
         }
     }
 }

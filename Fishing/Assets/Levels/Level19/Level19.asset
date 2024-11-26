@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level19
   m_EditorClassIdentifier: 
   levelName: Level 19
+  levelType: 2
   levelTime: 170
   fishTypeAndNumbers:
   - fishData: {fileID: 11400000, guid: cc17f2beff67fc7459689acfaaf98f9b, type: 2}
