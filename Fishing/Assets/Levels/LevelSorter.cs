@@ -13,9 +13,26 @@ public class LevelSorter : MonoBehaviour
     [Header("Content")]
     [SerializeField] private Transform content;
 
-    void Start()
+    [Header("Panel")]
+    [SerializeField] private GameObject levelsPanel;
+
+    // Function to open or close the settings panel.
+    public void PanelOpenClose(bool isOpen)
     {
-        SortLevels();
+        levelsPanel.SetActive(isOpen); // Toggles the visibility of the settings panel.
+
+        if (isOpen)
+        {
+            SortLevels(); // Sort the levels based on their difficulty levels.
+        }
+        else
+        {
+            // Clear the content of the panel.
+            foreach (Transform child in content)
+            {
+                Destroy(child.gameObject);
+            }
+        }
     }
 
     void SortLevels()

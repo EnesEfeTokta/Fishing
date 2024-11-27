@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PastPlaysData pastPlaysData; // Data about past plays.
     [SerializeField] private PlayerProgressData playerProgressData; // Data about player progress.
     [SerializeField] private LevelInformationData levelInformationData; // Level-related data.
+    [SerializeField] private List<LevelInformationData> levelInformationDatas = new List<LevelInformationData>(); // Level-related data.
     [SerializeField] private SettingsData settingsData; // Game settings data.
 
     // Lists to track fish objects and their states.
@@ -32,12 +33,34 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Prevent destruction when changing scenes.
         }
         else
         {
             Destroy(gameObject); // Destroy duplicate instances.
         }
+    }
+
+
+    void Start()
+    {
+        levelInformationData = LevelChanged(levelInformationDatas, PlayerPrefs.GetString("SelectedLevel"));
+
+        Debug.Log($"Starting level information data: {levelInformationData.levelName}");
+
+        LevelInformationController.Instance.StartLevelInformationController();
+    }
+
+    LevelInformationData LevelChanged(List<LevelInformationData> levelInformationDatas, string levelName)
+    {
+        foreach (LevelInformationData levelInformationData in levelInformationDatas)
+        {
+            if (levelInformationData.levelName == levelName)
+            {
+                return levelInformationData;
+            }
+        }
+
+        return null;
     }
 
     /// <summary>

@@ -1,7 +1,8 @@
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class LevelCell : MonoBehaviour
 {
@@ -14,6 +15,15 @@ public class LevelCell : MonoBehaviour
     [SerializeField] private GameObject levelLock; // GameObject to indicate if the level is locked.
     [SerializeField] private GameObject levelCompleted; // GameObject to indicate if the level is completed.
 
+    private RectTransform rectTransform;
+
+    private string levelName;
+
+    void Start()
+    {
+        rectTransform = GetComponent<RectTransform>();
+    }
+
     /// <summary>
     /// Sets up the level cell with the provided information.
     /// </summary>
@@ -24,12 +34,18 @@ public class LevelCell : MonoBehaviour
     /// <param name="isInteractable">Whether the level button is interactable.</param>
     public void SetLevelCell(int levelIndex, Color color, bool isLocked, bool isCompleted, bool isInteractable)
     {
+        rectTransform = GetComponent<RectTransform>();
+
+        levelName = $"Level {levelIndex}";
+
         SetLevelIndex(levelIndex);
         SetLevelIndexColor(color);
         SetLevelLocked(isLocked);
         SetLevelCompleted(isCompleted);
         SetButtonInteractable(isInteractable);
         SetButton();
+
+        LevelCellAnimation(1f, 0.5f, color, Color.white, isCompleted, isLocked);
     }
 
     /// <summary>
@@ -90,6 +106,45 @@ public class LevelCell : MonoBehaviour
     /// </summary>
     void OnLevelButtonClick()
     {
-        Debug.Log("Level button clicked!"); // Placeholder for level loading logic.
+        PlayerPrefs.SetString("SelectedLevel", levelName);
+        SceneManager.LoadScene("Game"); // Load scene...
+    }
+
+    /// <summary>
+    /// Animates the level cell with scaling and color transitions.
+    /// </summary>
+    /// <param name="scale">The target scale of the animation.</param>
+    /// <param name="duration">The duration of the animation.</param>
+    /// <param name="levelIndexTextColor">The target color for the level index text.</param>
+    /// <param name="levelBgColor">The target color for the level background.</param>
+    /// <param name="isCompleted">Whether the level is completed.</param>
+    /// <param name="isLocked">Whether the level is locked.</param>
+    void LevelCellAnimation(float scale, float duration, Color levelIndexTextColor, Color levelBgColor, bool isCompleted, bool isLocked)
+    {
+        // Adjust animation parameters based on level completion and locked status.
+        if (!isCompleted && !isLocked)
+        {
+            // Increase scale and duration for available levels.
+            scale = scale * 1.05f;
+            duration = duration * 1.05f;
+        }
+        else
+        {
+            // Slightly increase scale and duration for completed/locked levels.
+            scale = scale * 1.01f;
+            duration = duration * 1.01f;
+
+            // Set text color to white for completed/locked levels.
+            levelIndexTextColor = Color.white;
+        }
+
+        // Apply scaling animation with yoyo effect.
+        rectTransform.DOScale(scale, duration).SetLoops(-1, LoopType.Yoyo);
+
+        // Apply color transition animation to the level index text with yoyo effect.
+        levelIndexText.DOColor(levelIndexTextColor, duration).SetLoops(-1, LoopType.Yoyo);
+
+        // Apply color transition animation to the level background image with yoyo effect.
+        levelBgImage.DOColor(levelBgColor, duration).SetLoops(-1, LoopType.Yoyo);
     }
 }
