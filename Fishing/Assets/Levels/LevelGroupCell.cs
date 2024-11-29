@@ -62,15 +62,8 @@ public class LevelGroupCell : MonoBehaviour
             // Instantiate the level cell prefab and get its LevelCell component.
             LevelCell newLevelCell = Instantiate(levelCellPrefab, content).GetComponent<LevelCell>();
 
-            // Extract relevant data from the level information data.
-            int levelIndex = levelInformationData.LevelIndex;
-            Color color = levelGroupData.levelTypes.color;
-            bool isLocked = !levelInformationData.IsLevelOver;
-            bool isCompleted = levelInformationData.IsLevelFinished;
-            bool isInteractable = levelInformationData.IsLevelOver;
-
             // Set the properties of the new level cell.
-            newLevelCell.SetLevelCell(levelIndex, color, isLocked, isCompleted, isInteractable);
+            newLevelCell.SetLevelCell(levelInformationData, levelGroupData.levelTypes.color);
 
             // Add the level information data to the list of level cells.
             this.levelCells.Add(levelInformationData);

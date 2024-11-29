@@ -6,6 +6,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LevelInformationData", menuName = "ScriptableObject/LevelInformationData")]
 public class LevelInformationData : ScriptableObject
 {
+    public bool IsSelected = false; // Level is selected.
+
+    [Space]
+
+
     public string levelName;  // Name of the level.
     public float levelTime;  // Time limit or stop time for the level.
     public int LevelIndex;  // Index of the level.

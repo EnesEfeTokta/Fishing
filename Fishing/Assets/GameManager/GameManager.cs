@@ -43,18 +43,18 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        levelInformationData = LevelChanged(levelInformationDatas, PlayerPrefs.GetString("SelectedLevel"));
+        levelInformationData = LevelChanged(levelInformationDatas);
 
         Debug.Log($"Starting level information data: {levelInformationData.levelName}");
 
         LevelInformationController.Instance.StartLevelInformationController();
     }
 
-    LevelInformationData LevelChanged(List<LevelInformationData> levelInformationDatas, string levelName)
+    LevelInformationData LevelChanged(List<LevelInformationData> levelInformationDatas)
     {
         foreach (LevelInformationData levelInformationData in levelInformationDatas)
         {
-            if (levelInformationData.levelName == levelName)
+            if (levelInformationData.IsSelected)
             {
                 return levelInformationData;
             }
@@ -136,6 +136,7 @@ public class GameManager : MonoBehaviour
         if (totalFishs == fishsDeath.Count || time >= ReadLevelInformationData().levelTime)
         {
             AchievementScreen.Instance.StartAchievementScreen(); // Trigger the achievement screen.
+            levelInformationData.IsSelected = false;
             return true; // Level is completed.
         }
         else

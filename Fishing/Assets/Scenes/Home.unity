@@ -12742,7 +12742,6 @@ GameObject:
   - component: {fileID: 1794401897}
   - component: {fileID: 1794401898}
   - component: {fileID: 1794401899}
-  - component: {fileID: 1794401900}
   - component: {fileID: 1794401901}
   - component: {fileID: 1794401902}
   - component: {fileID: 1794401903}
@@ -12837,27 +12836,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794401894}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f4634d4892bd864ba08c45323302508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerProgressData: {fileID: 11400000, guid: 82bc52d9f3b1a674dac17c31ef72344a, type: 2}
   score: {fileID: 913146450}
   money: {fileID: 982744259}
   fish: {fileID: 1207268096}
---- !u!114 &1794401900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1794401894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ec0abdb6abdcf4a9a19483e3f438c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerProgressData: {fileID: 11400000, guid: 82bc52d9f3b1a674dac17c31ef72344a, type: 2}
 --- !u!114 &1794401901
 MonoBehaviour:
   m_ObjectHideFlags: 0

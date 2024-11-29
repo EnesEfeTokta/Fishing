@@ -13,16 +13,16 @@ public class Play : MonoBehaviour
     [SerializeField] private Button playButton;
 
     [Header("Animation Settings")]
-    [SerializeField] private float waveSpeed = 2f; // Dalga hızını kontrol eder
-    [SerializeField] private float waveAmplitude = 0.5f; // Renk dalgasının büyüklüğü
-    [SerializeField] private Color startColor = Color.red; // Başlangıç rengi
-    [SerializeField] private Color endColor = Color.blue; // Bitiş rengi
+    [SerializeField] private float waveSpeed = 2f; // It controls the wave speed.
+    [SerializeField] private float waveAmplitude = 0.5f; // The size of the color wave.
+    [SerializeField] private Color startColor = Color.red; // Initial color.
+    [SerializeField] private Color endColor = Color.blue; // Finish color.
 
     void Start()
     {
         playButton.onClick.AddListener(PlayButtonClicked);
 
-        string levelName = PlayerPrefs.GetString("SelectedLevel");
+        string levelName = PlayerPrefs.GetString("UnmashedLevel");
         playText.text = $"Play with {levelName}...";
 
         PlayButtonAnimation(1.05f, 0.5f, Color.green);
@@ -44,37 +44,37 @@ public class Play : MonoBehaviour
 
     IEnumerator AnimateTextColors()
     {
-        // TMP'nin karakter bilgilerini güncellemek için gerekli ayarlar
+        // Settings to update TMP's character information.
         playText.ForceMeshUpdate();
         TMP_TextInfo textInfo = playText.textInfo;
         Color32[] newVertexColors;
 
         while (true)
         {
-            playText.ForceMeshUpdate(); // TMP bilgilerini güncelle
+            playText.ForceMeshUpdate(); // Update TMP Information.
             textInfo = playText.textInfo;
 
-            // Her bir karakter için renk ayarlarını yap
+            // Make color settings for each character.
             for (int i = 0; i < textInfo.characterCount; i++)
             {
-                if (!textInfo.characterInfo[i].isVisible) continue; // Görünmeyen karakterleri atla
+                if (!textInfo.characterInfo[i].isVisible) continue; // Jump the invisible characters.
 
-                // Karakterin vertex (köşe) renklerini al
+                // Take the character's vertex colors.
                 int vertexIndex = textInfo.characterInfo[i].vertexIndex;
                 newVertexColors = textInfo.meshInfo[textInfo.characterInfo[i].materialReferenceIndex].colors32;
 
-                // Dalga etkisi için zamanla değişen renk
+                // The color changing over time for wave effect.
                 float wave = Mathf.Sin(Time.time * waveSpeed + i * waveAmplitude);
                 Color32 currentColor = Color32.Lerp(startColor, endColor, (wave + 1) / 2);
 
-                // Her bir köşe için rengi ayarla
+                // Set the color for each corner.
                 newVertexColors[vertexIndex + 0] = currentColor;
                 newVertexColors[vertexIndex + 1] = currentColor;
                 newVertexColors[vertexIndex + 2] = currentColor;
                 newVertexColors[vertexIndex + 3] = currentColor;
             }
 
-            // Mesh'i güncelle
+            // Update Mesh.
             for (int i = 0; i < textInfo.meshInfo.Length; i++)
             {
                 textInfo.meshInfo[i].mesh.colors32 = textInfo.meshInfo[i].colors32;

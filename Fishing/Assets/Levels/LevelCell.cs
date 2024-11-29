@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelCell : MonoBehaviour
 {
+    private LevelInformationData levelInformationData;
+
     [Header("UI")]
     [SerializeField] private TMP_Text levelIndexText; // Text to display the level index.
     [SerializeField] private Image levelBgImage; // Background image of the level cell.
@@ -16,8 +18,6 @@ public class LevelCell : MonoBehaviour
     [SerializeField] private GameObject levelCompleted; // GameObject to indicate if the level is completed.
 
     private RectTransform rectTransform;
-
-    private string levelName;
 
     void Start()
     {
@@ -32,11 +32,16 @@ public class LevelCell : MonoBehaviour
     /// <param name="isLocked">Whether the level is locked.</param>
     /// <param name="isCompleted">Whether the level is completed.</param>
     /// <param name="isInteractable">Whether the level button is interactable.</param>
-    public void SetLevelCell(int levelIndex, Color color, bool isLocked, bool isCompleted, bool isInteractable)
+    public void SetLevelCell(LevelInformationData levelInformationData, Color color)
     {
-        rectTransform = GetComponent<RectTransform>();
+        this.levelInformationData = levelInformationData;
 
-        levelName = $"Level {levelIndex}";
+        int levelIndex = levelInformationData.LevelIndex;
+        bool isLocked = !levelInformationData.IsLevelOver;
+        bool isCompleted = levelInformationData.IsLevelFinished;
+        bool isInteractable = levelInformationData.IsLevelOver;
+
+        rectTransform = GetComponent<RectTransform>();
 
         SetLevelIndex(levelIndex);
         SetLevelIndexColor(color);
@@ -106,7 +111,18 @@ public class LevelCell : MonoBehaviour
     /// </summary>
     void OnLevelButtonClick()
     {
-        PlayerPrefs.SetString("SelectedLevel", levelName);
+        if (levelInformationData.IsLevelFinished && levelInformationData.IsLevelOver)
+        {
+            levelInformationData.IsSelected = true;
+        }
+        else
+        {
+            levelInformationData.IsSelected = true;
+            string levelName = $"Level {levelInformationData.LevelIndex}";
+
+            PlayerPrefs.SetString("UnmashedLevel", levelName);
+        }
+
         SceneManager.LoadScene("Game"); // Load scene...
     }
 

@@ -132,6 +132,7 @@ public class AchievementScreen : MonoBehaviour
         // Retrieve level time and elapsed time from the game manager and timer.
         float levelTime = GameManager.Instance.ReadLevelInformationData().levelTime;
         float elapsedTime = Timer.Instance.InstantTime();
+        Timer.Instance.GameFinished();
 
         // Define time slices for scoring
         float firstQuarter = levelTime / 4;
