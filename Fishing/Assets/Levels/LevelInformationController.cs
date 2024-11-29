@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class LevelInformationController : MonoBehaviour
 {
+    public static LevelInformationController Instance;
+
     // Holds the level-specific data, including fish types and their counts.
     private LevelInformationData levelInformationData;
 
@@ -12,8 +14,21 @@ public class LevelInformationController : MonoBehaviour
     // The position where fish will be instantiated.
     [SerializeField] private Transform startPoint;
 
+    void Awake()
+    {
+        // Implementing the Singleton pattern to ensure only one instance of LevelInformationController exists.
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy duplicate instances.
+        }
+    }
+
     // Called once when the game starts, setting up the level.
-    void Start()
+    public void StartLevelInformationController()
     {
         // Load the level information data.
         SetLevelInformationData();

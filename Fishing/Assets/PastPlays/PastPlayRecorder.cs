@@ -15,9 +15,6 @@ public class PastPlayRecorder : MonoBehaviour
     // Initialize components and set up past play data.
     void Start()
     {
-        // Get the GameManager component attached to the same GameObject.
-        gameManager = GetComponent<GameManager>();
-
         // If the pastPlaysData or pastPlayIcons are not assigned, stop execution.
         if (pastPlaysData == null || pastPlayIcons == null) // Changed '&&' to '||' since either being null is problematic.
         {
@@ -32,7 +29,7 @@ public class PastPlayRecorder : MonoBehaviour
     // Loads past play data using the GameManager.
     void SetPastPlaysData()
     {
-        pastPlaysData = gameManager.ReadPastPlaysData(pastPlaysData);
+        pastPlaysData = GameManager.Instance.ReadPastPlaysData(pastPlaysData);
     }
 
     /// <summary>

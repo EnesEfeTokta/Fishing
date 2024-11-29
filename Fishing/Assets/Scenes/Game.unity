@@ -6744,7 +6744,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pastPlaysData: {fileID: 11400000, guid: 16331d3e61818a447a6a121a6243ee36, type: 2}
   playerProgressData: {fileID: 11400000, guid: 82bc52d9f3b1a674dac17c31ef72344a, type: 2}
-  levelInformationData: {fileID: 11400000, guid: 5f7b1ea3e8d5db645918c35bd87ddf26, type: 2}
+  levelInformationData: {fileID: 0}
+  levelInformationDatas:
+  - {fileID: 11400000, guid: 5f7b1ea3e8d5db645918c35bd87ddf26, type: 2}
+  - {fileID: 11400000, guid: 789ba71aa9218b141ab3b7f07da5d862, type: 2}
+  - {fileID: 11400000, guid: a1867c0108bd4894ab94e7b699080916, type: 2}
+  - {fileID: 11400000, guid: 021a47d009ed9454d897d1cea4a7bef8, type: 2}
+  - {fileID: 11400000, guid: a2b0faafb11506443aace0a8f3931690, type: 2}
+  - {fileID: 11400000, guid: bf38896250b5dfe4cb8733a72737a5b3, type: 2}
+  - {fileID: 11400000, guid: 5e2191fa6c09d274bb0848135a9e3f06, type: 2}
+  - {fileID: 11400000, guid: ec71117ad36638c408a3b19437084954, type: 2}
+  - {fileID: 11400000, guid: 9fca70bda01db3c4b8da872ede02d6e0, type: 2}
+  - {fileID: 11400000, guid: 1af1c4eddb405a34aaf7b21ee82fb6c5, type: 2}
+  - {fileID: 11400000, guid: 0a66c02b6a78a4141a5337c063118fc9, type: 2}
+  - {fileID: 11400000, guid: cda75916a3bf8c94fa664e5d0b56e149, type: 2}
+  - {fileID: 11400000, guid: 0cd3d3ebffd2b284490c5d8d646fe54f, type: 2}
+  - {fileID: 11400000, guid: 3fe9d7f901b312944b4ef53c095104ac, type: 2}
+  - {fileID: 11400000, guid: b53867dfbca71964fadbd68e7ab71fb9, type: 2}
+  - {fileID: 11400000, guid: 0e721294afd729c4798cc94ceab86581, type: 2}
+  - {fileID: 11400000, guid: 3f3b6ec66566f084fb2cc34b9cb76d3f, type: 2}
+  - {fileID: 11400000, guid: 325619bc73683f540903a74f791ce39b, type: 2}
+  - {fileID: 11400000, guid: 5a0ecbaff3a4a01488355d79f7eaecdc, type: 2}
+  - {fileID: 11400000, guid: 6ec7711ae054705448eed13802221612, type: 2}
   settingsData: {fileID: 11400000, guid: 5c9cf82b0d39b5a4cab31c4d723cbd53, type: 2}
   fishsDeath: []
   fishsCreated: []
