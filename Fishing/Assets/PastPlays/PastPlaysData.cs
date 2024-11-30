@@ -18,10 +18,14 @@ public class PastPlayData
     public string name;
     public int levelIndex;
 
+    [Space]
+
     // Achievements gained from playing the level.
     public float scoreValue;
     public float fishValue;
     public float moneyValue;
+
+    [Space]
 
     // Maximum possible values for score, fish collected, and money earned in the level.
     // These represent the highest possible achievements for the given level.

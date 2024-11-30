@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd03e033a6210bf4496d4d0b38f27772, type: 3}
   m_Name: Level3
   m_EditorClassIdentifier: 
+  IsSelected: 0
   levelName: Level 3
   levelTime: 90
   LevelIndex: 3
@@ -27,4 +28,10 @@ MonoBehaviour:
   maxWidth: 5
   minHeight: -5
   maxHeigth: 5
-  IslevelOver: 0
+  ToPassMinFish: 5
+  ToPassMinMoney: 150
+  ToPassMinScore: 225
+  formerLevelInformationData: {fileID: 11400000, guid: 789ba71aa9218b141ab3b7f07da5d862, type: 2}
+  nextLevelInformationData: {fileID: 11400000, guid: 021a47d009ed9454d897d1cea4a7bef8, type: 2}
+  IsLevelOver: 1
+  IsLevelFinished: 0

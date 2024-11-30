@@ -16451,6 +16451,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1328667943}
+    - target: {fileID: 2325040853409790703, guid: e0fd4841a2485ef4ca31f3007e500a6a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToHome
+      objectReference: {fileID: 0}
     - target: {fileID: 4573803644507447244, guid: e0fd4841a2485ef4ca31f3007e500a6a, type: 3}
       propertyPath: m_Name
       value: AchievementScreen

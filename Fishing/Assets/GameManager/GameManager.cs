@@ -132,11 +132,19 @@ public class GameManager : MonoBehaviour
         int totalFishs = ReadLevelInformationData().fishTypeAndNumbers.Count;
         float time = Timer.Instance.InstantTime();
 
+        if (time >= ReadLevelInformationData().levelTime)
+        {
+            Debug.Log("You have no time ...");
+        }
+
         // Check if all fish are dead or the level time has expired.
-        if (totalFishs == fishsDeath.Count || time >= ReadLevelInformationData().levelTime)
+        if (totalFishs == fishsDeath.Count)
         {
             AchievementScreen.Instance.StartAchievementScreen(); // Trigger the achievement screen.
             levelInformationData.IsSelected = false;
+
+            RegisterTheLevel();
+
             return true; // Level is completed.
         }
         else
@@ -145,15 +153,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void RegisterTheLevel()
+    {
+        LevelInformationData nextLevelInformationData = levelInformationData.nextLevelInformationData;
+        nextLevelInformationData.IsLevelOver = true;
+        levelInformationData.IsLevelFinished = true;
+    }
+
     /// <summary>
     /// Loads a scene with the given name.
     /// </summary>
-    public void SceneRouterButton(string name)
+    public void GoToHome(string name = "Home")
     {
         if (RecordTheProgress()) // Check if the progress can be recorded.
         {
+            AddPastPlayData(); // Add the past play data to the game manager.
             SceneManager.LoadScene(name); // Load the specified scene.
         }
+    }
+
+    void AddPastPlayData()
+    {
+        // Calculate the player's score, fish value, and money value.
+        float scoreValue = AchievementScreen.Instance.ValueCalculation().Item2;
+        float fishValue = AchievementScreen.Instance.ValueCalculation().Item3;
+        float moneyValue = AchievementScreen.Instance.ValueCalculation().Item4;
+
+        PastPlayRecorder.Instance.AddPastPlayData(scoreValue, fishValue, moneyValue, ReadLevelInformationData());
     }
 
     /// <summary>

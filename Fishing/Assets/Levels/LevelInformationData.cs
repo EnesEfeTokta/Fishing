@@ -10,7 +10,6 @@ public class LevelInformationData : ScriptableObject
 
     [Space]
 
-
     public string levelName;  // Name of the level.
     public float levelTime;  // Time limit or stop time for the level.
     public int LevelIndex;  // Index of the level.
@@ -32,6 +31,17 @@ public class LevelInformationData : ScriptableObject
 
     public float minHeight = -5; // Minimum height for random point generation.
     public float maxHeigth = 5; // Maximum height for random point generation.
+
+    [Space]
+
+    public float ToPassMinFish; // The number of minimum fish that should take to exceed the level.
+    public float ToPassMinMoney; // The number of minimum money that should take to exceed the level
+    public float ToPassMinScore; // The number of minimum score that should take to exceed the level
+
+    [Space]
+
+    public LevelInformationData formerLevelInformationData;
+    public LevelInformationData nextLevelInformationData;
 
     [Space]
 

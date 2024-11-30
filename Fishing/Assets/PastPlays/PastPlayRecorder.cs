@@ -3,27 +3,38 @@ using UnityEngine;
 
 public class PastPlayRecorder : MonoBehaviour
 {
+    public static PastPlayRecorder Instance;
     // Stores the data for past plays.
     private PastPlaysData pastPlaysData;
-
-    // Reference to the GameManager to access game-related functionalities.
-    private GameManager gameManager;
 
     // A list of icons to represent past plays.
     [SerializeField] private List<Sprite> pastPlayIcons = new List<Sprite>();
 
+    void Awake()
+    {
+        // Singleton pattern: Ensure only one instance of PastPlayRecorder exists.
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy any extra instances if already one exists
+        }
+    }
+
     // Initialize components and set up past play data.
     void Start()
     {
+        // Load the data for previous plays.
+        SetPastPlaysData();
+
         // If the pastPlaysData or pastPlayIcons are not assigned, stop execution.
         if (pastPlaysData == null || pastPlayIcons == null) // Changed '&&' to '||' since either being null is problematic.
         {
             Debug.LogWarning("PastPlaysData or pastPlayIcons is not assigned."); // Optional log for easier debugging.
             return;
         }
-
-        // Load the data for previous plays.
-        SetPastPlaysData();
     }
 
     // Loads past play data using the GameManager.
@@ -41,14 +52,17 @@ public class PastPlayRecorder : MonoBehaviour
     /// <param name="fishValue">Amount of fish caught in the level.</param>
     /// <param name="moneyValue">Money earned during the level.</param>
     /// <param name="levelInformationData">Data about the level's objectives.</param>
-    public void AddPastPlayData(
-        string name, 
-        int levelIndex, 
+    public void AddPastPlayData( 
         float scoreValue, 
         float fishValue, 
         float moneyValue, 
         LevelInformationData levelInformationData)
     {
+        // Get the name and level index from the level information data.
+        //string name = levelInformationData.levelName;
+        string name = "Player";
+        int levelIndex = levelInformationData.LevelIndex;
+
         // Create a new instance of PastPlayData.
         PastPlayData newPastPlay = new PastPlayData();
 
