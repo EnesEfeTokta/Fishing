@@ -10,6 +10,7 @@ using System;
 [RequireComponent(typeof(SettingsFounder))] // Handles settings management.
 [RequireComponent(typeof(LevelInformationController))] // Controls level-related information.
 [RequireComponent(typeof(FishIconMovement))] // Manages the movement of fish icons.
+[RequireComponent(typeof(AudioSource))] // Plays sound effects.
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class GameManager : MonoBehaviour
     public List<FishData> fishsDeath = new List<FishData>(); // List of data for fish that have died.
     public List<GameObject> fishsCreated = new List<GameObject>(); // List of created fish GameObjects.
 
+    private AudioSource audioSource; // Getting the AudioSource component attached to this GameObject.
+
     void Awake()
     {
         // Implementing the Singleton pattern to ensure only one instance of GameManager exists.
@@ -43,6 +46,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         levelInformationData = LevelChanged(levelInformationDatas);
 
         Debug.Log($"Starting level information data: {levelInformationData.levelName}");
@@ -215,5 +220,24 @@ public class GameManager : MonoBehaviour
             Debug.LogError($"An error occurred while recording progress: {ex.Message}");
             return false; // Return false if any exception is caught. 
         }
+    }
+
+
+    /// <summary>
+    /// Plays a sound using the specified audio clip and settings.
+    /// </summary>
+    /// <param name="clip">The audio clip to be played.</param>
+    /// <param name="volume">The volume level at which the clip should be played. Default is 1f.</param>
+    /// <param name="priority">The priority level of the audio source. Default is 128.</param>
+    /// <param name="pitch">The pitch level at which the clip should be played. Default is 1f.</param>
+    public void PlaySound(AudioClip clip, float volume = 1f, int priority = 128, float pitch = 1f)
+    {
+        audioSource.clip = clip;
+
+        audioSource.volume = volume;
+        audioSource.priority = priority;
+        audioSource.pitch = pitch;
+
+        audioSource.Play();
     }
 }
