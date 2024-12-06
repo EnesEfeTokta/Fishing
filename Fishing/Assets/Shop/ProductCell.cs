@@ -25,7 +25,7 @@ public class ProductCell : MonoBehaviour
         transactionButton.onClick.AddListener(ProductSelect);
 
         // GameManager finds the object and reaches the shoppel.cs compensation.
-        shopPanel = GameObject.Find("GameManager").GetComponent<ShopPanel>();
+        shopPanel = GameObject.Find("HomeManager").GetComponent<ShopPanel>();
     }
 
     // Method to handle what happens when the product is selected.

@@ -6,10 +6,12 @@ using UnityEngine.InputSystem;
 
 public class SpearThrowing : MonoBehaviour
 {
+    [Header("Spear Throwing")]
     [SerializeField] private Transform spearPrefab;
     [SerializeField] private int poolSize = 10;
     [SerializeField] private float speed = 10f;
     [SerializeField] private float throwingTime = 1;
+    [SerializeField] private List<AudioClip> throwingClips = new List<AudioClip>();
     private Camera mainCamera;
     private List<Transform> spearPool;
     private PlayerControls playerControls;
@@ -64,6 +66,9 @@ public class SpearThrowing : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit) && !throwing)
         {
+            int randomIndex = Random.Range(0, throwingClips.Count);
+            GameManager.Instance.PlaySound(throwingClips[randomIndex]);
+
             Transform spear = GetAvailableSpear();
             if (spear != null)
             {
