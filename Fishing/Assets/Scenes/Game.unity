@@ -6711,6 +6711,11 @@ MonoBehaviour:
   achievementSound: {fileID: 8300000, guid: 81857694012157b4d9f95d0fa5a64b6a, type: 3}
   starSound: {fileID: 8300000, guid: 62c4b81dfe97d3246a4e0d8857df7ede, type: 3}
   bubbleSound: {fileID: 8300000, guid: e46e69bd1dd38dd45a48ca71224994e5, type: 3}
+  coinSound: {fileID: 8300000, guid: e01458567266ce544bc5bfc8109bd47f, type: 3}
+  scoreSound: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
+  fishSound: {fileID: 8300000, guid: c5e2a73ad4706440f93bf05df0b465fe, type: 3}
+  timeSound: {fileID: 8300000, guid: c5e2a73ad4706440f93bf05df0b465fe, type: 3}
+  moneySound: {fileID: 8300000, guid: 7bd6b897eb5ca4b7d88a205c4a51640c, type: 3}
 --- !u!82 &1328667947
 AudioSource:
   m_ObjectHideFlags: 0
