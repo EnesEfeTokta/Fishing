@@ -15,6 +15,8 @@ public class FishIconMovement : MonoBehaviour
     // Reference to the Score script to increase the player's score.
     private Score score;
 
+    [SerializeField] private AudioClip coinClip;
+
     void Start()
     {
         // Getting the Score component attached to this GameObject.
@@ -48,6 +50,8 @@ public class FishIconMovement : MonoBehaviour
 
         // Elapsed time for the movement.
         float elapsedTime = 0;
+
+        GameManager.Instance.PlaySound(coinClip, 0.5f);
 
         // While the movement hasn't completed (elapsedTime < duration), continue moving the icon.
         while (elapsedTime < duration)

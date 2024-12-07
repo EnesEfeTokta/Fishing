@@ -33,6 +33,17 @@ public class AchievementScreen : MonoBehaviour
     [SerializeField] private GameObject goToHomeButton;     // Button to close the achievement screen.
     [SerializeField] private GameObject restartButton;    // Button to restart the current level.
 
+    [Header("Sounds")]
+    [SerializeField] private AudioClip achievementSound; // Sound effect for achievement completion.
+    [SerializeField] private AudioClip starSound; // Sound effect for achievement completion.
+    [SerializeField] private AudioClip bubbleSound; // Sound effect for achievement completion.
+    [SerializeField] private AudioClip scoreSound; // Sound effect for achievement completion.
+    [SerializeField] private AudioClip fishSound; // Sound effect for achievement completion.
+    [SerializeField] private AudioClip timeSound; // Sound effect for achievement completion.
+    [SerializeField] private AudioClip moneySound; // Sound effect for achievement completion.
+
+    private AudioSource audioSource; // Audio source for the achievement sound.
+
     void Awake()
     {
         // Singleton pattern: Ensure only one instance of AchievementScreen exists.
@@ -51,11 +62,16 @@ public class AchievementScreen : MonoBehaviour
         // UI panels are being closed.
         achievementScreenPanel.SetActive(false);
         colorRibbon.SetActive(false);
+
+        // Getting the AudioSource component attached to this GameObject.
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void StartAchievementScreen()
     {
         colorRibbon.SetActive(true);
+
+        GameManager.Instance.PlaySound(bubbleSound);
 
         StartCoroutine(ShowAchievementScreen(Convert.ToInt32(colorRibbonClip.length)));
     }
@@ -67,6 +83,8 @@ public class AchievementScreen : MonoBehaviour
         PlayAgainAnimateButton(restartButton);
 
         yield return new WaitForSeconds(startTime);
+
+        GameManager.Instance.PlaySound(achievementSound); // Play the achievement sound.
 
         // Show the achievement panel
         achievementScreenPanel.SetActive(true);
@@ -86,23 +104,25 @@ public class AchievementScreen : MonoBehaviour
         yield return new WaitForSeconds(achievementScreenPanelClip.length);
 
         // Show the level name with a gradual increase.
-        yield return StartCoroutine(SlowNumberIncrease(totalTimeText, results.Item1, 0.5f));
+        yield return StartCoroutine(SlowNumberIncrease(totalTimeText, results.Item1, 0.5f, timeSound));
 
         // Show the score with a gradual increase.
-        yield return StartCoroutine(SlowNumberIncrease(totalScoreText, results.Item2, 0.5f));
+        yield return StartCoroutine(SlowNumberIncrease(totalScoreText, results.Item2, 0.5f, scoreSound));
 
         // Show money with a gradual increase.
-        yield return StartCoroutine(SlowNumberIncrease(totalFishText, results.Item3, 0.5f));
+        yield return StartCoroutine(SlowNumberIncrease(totalFishText, results.Item3, 0.5f, fishSound));
 
         // Show total fish killed with a gradual increase.
-        yield return StartCoroutine(SlowNumberIncrease(totalMoneyText, results.Item4, 0.5f));
+        yield return StartCoroutine(SlowNumberIncrease(totalMoneyText, results.Item4, 0.5f, moneySound));
     }
 
     // Coroutine to smoothly increase a displayed number over time.
-    IEnumerator SlowNumberIncrease(TMP_Text text, int targetValue, float duration)
+    IEnumerator SlowNumberIncrease(TMP_Text text, int targetValue, float duration, AudioClip clip)
     {
         float elapsedTime = 0f;
         int startValue = 0;
+
+        GameManager.Instance.PlaySound(clip); // Play the sound effect.
 
         // Increase value from 0 to target over specified duration.
         while (elapsedTime < duration)
@@ -119,7 +139,7 @@ public class AchievementScreen : MonoBehaviour
     // Calculate score, money, total fish killed, and level success type.
     public (int, int, int, int, LevelSuccessType) ValueCalculation()
     {
-        // Retrieve lists of created and dead fish from GameManager
+        // Retrieve lists of created and dead fish from GameManager.
         List<GameObject> createdFishs = GameManager.Instance.ReadFishCreatAndDeadList().Item1;
         List<FishData> deadFishs = GameManager.Instance.ReadFishCreatAndDeadList().Item2;
 
@@ -208,11 +228,14 @@ public class AchievementScreen : MonoBehaviour
             float elapsedTime = 0f;
             float startValue = 0;
 
+            GameManager.Instance.PlaySound(starSound); // Oyant your star sound.
+
             while (elapsedTime < duration)
             {
                 elapsedTime += Time.deltaTime;
                 float currentValue = Mathf.Lerp(startValue, 1, elapsedTime / duration);
                 image.transform.localScale = Vector3.one * currentValue;
+
                 yield return null;
             }
 
