@@ -11,6 +11,7 @@ using System;
 [RequireComponent(typeof(LevelInformationController))] // Controls level-related information.
 [RequireComponent(typeof(FishIconMovement))] // Manages the movement of fish icons.
 [RequireComponent(typeof(AudioSource))] // Plays sound effects.
+[RequireComponent(typeof(PowerUpPanel))] // Manages the panel of power-up.
 
 public class GameManager : MonoBehaviour
 {

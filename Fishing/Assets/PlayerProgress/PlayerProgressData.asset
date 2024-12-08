@@ -15,3 +15,17 @@ MonoBehaviour:
   totalPlayerScore: 0
   totalPlayerMoney: 0
   totalPlayerFish: 0
+  powerUpsDatas:
+  - {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
+  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
+  - {fileID: 11400000, guid: 7a9c7f0bbae42e94096e1f13d67f374b, type: 2}
+  - {fileID: 11400000, guid: e760f1c5f8765fd40bb7c8c22f7d5285, type: 2}
+  - {fileID: 11400000, guid: ccf0232bd423ace43911c69339b02a16, type: 2}
+  - {fileID: 11400000, guid: 1f0748a4c00fa8046b2307959d7ec152, type: 2}
+  - {fileID: 11400000, guid: 5db33eb62a8f7c94bbb0153cfb4854a7, type: 2}
+  - {fileID: 11400000, guid: 3ea0214b2856cdd4696f99642a544f91, type: 2}
+  - {fileID: 11400000, guid: fd60be1649e32f64ab6789c0538ca5f2, type: 2}
+  - {fileID: 11400000, guid: da2ded81e3d2f8041ad76b73c0b22ee2, type: 2}
+  - {fileID: 11400000, guid: a43ffaa59d0c8cc40af6eda1b75530da, type: 2}
+  - {fileID: 11400000, guid: 58834b4dc91b4bc4f85d044d464165f0, type: 2}
+  - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
