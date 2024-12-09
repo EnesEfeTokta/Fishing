@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -54,6 +53,8 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Starting level information data: {levelInformationData.levelName}");
 
         LevelInformationController.Instance.StartLevelInformationController();
+
+        Timer.Instance.SetFinishTime(levelInformationData.levelTime);
     }
 
     LevelInformationData LevelChanged(List<LevelInformationData> levelInformationDatas)
@@ -140,7 +141,14 @@ public class GameManager : MonoBehaviour
 
         if (time >= ReadLevelInformationData().levelTime)
         {
+            // !!!!! Here, a separate screen should be designed according to time. !!!!!
             Debug.Log("You have no time ...");
+            AchievementScreen.Instance.StartAchievementScreen();
+            levelInformationData.IsSelected = false;
+
+            RegisterTheLevel();
+
+            return true;
         }
 
         // Check if all fish are dead or the level time has expired.

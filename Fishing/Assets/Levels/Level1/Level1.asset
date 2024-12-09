@@ -32,4 +32,4 @@ MonoBehaviour:
   formerLevelInformationData: {fileID: 11400000}
   nextLevelInformationData: {fileID: 11400000, guid: 789ba71aa9218b141ab3b7f07da5d862, type: 2}
   IsLevelOver: 1
-  IsLevelFinished: 0
+  IsLevelFinished: 1

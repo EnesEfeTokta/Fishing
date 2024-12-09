@@ -4848,7 +4848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spearPrefab: {fileID: 3084001714824969123, guid: 4aa5b90a5048f734380c2d6d3981c5c5, type: 3}
-  poolSize: 10
+  poolSize: 5
   speed: 25
   throwingTime: 1
   throwingClips:
