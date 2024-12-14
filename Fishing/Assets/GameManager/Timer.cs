@@ -9,10 +9,12 @@ public class Timer : MonoBehaviour
     // Reference to the TextMeshPro text field that displays the timer value on the UI.
     [SerializeField] private TMP_Text timer;
 
+    private float finishedTime = 0;
+
     private bool isGameFinished = false;
 
     // Stores the elapsed time in seconds.
-    float time;
+    private float time;
 
     void Awake()
     {
@@ -26,10 +28,21 @@ public class Timer : MonoBehaviour
         }
     }
 
+    public void SetFinishTime(float time)
+    {
+        finishedTime += time;
+    }
+
     // Update is called once per frame to keep track of the time and update the timer display.
     void Update()
     {
         if (isGameFinished) return;
+
+        if (finishedTime < time)
+        {
+            GameFinished();
+            return;
+        }
 
         // Increment the elapsed time by the time passed since the last frame (delta time).
         time += Time.deltaTime;
@@ -51,6 +64,7 @@ public class Timer : MonoBehaviour
     public void GameFinished()
     {
         isGameFinished = true;
+        GameManager.Instance.IsLevelFinished();
         timer.text = "Game Finished!";
         time = 0;
     }

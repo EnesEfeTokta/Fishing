@@ -15,7 +15,7 @@ public class FishDamage : MonoBehaviour
     private InstantiateFish instantiateFish;
 
     // The amount of damage the fish can take when hit.
-    private float damage;
+    private float damage = 0;
 
     [Header("Materials")]
     // Material to be applied when the fish takes damage.
@@ -44,16 +44,6 @@ public class FishDamage : MonoBehaviour
         SetFishData();
     }
 
-    // Called every frame to listen for test inputs (for debugging).
-    void Update()
-    {
-        // Test: If the space key is pressed, apply 10 damage to the fish (for debugging purposes).
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            DamageClaim(50);
-        }
-    }
-
     // Fetches the fish's data from the Fish component.
     void SetFishData()
     {
@@ -64,17 +54,21 @@ public class FishDamage : MonoBehaviour
         instantiateFish = fish.ReadInstantiateFish(instantiateFish);
 
         // Set the fish's damage value.
-        SetDamage();
-    }
-
-    // Sets the amount of damage the fish can take and initializes materials.
-    void SetDamage()
-    {
-        // Store the damage value from the fish's data.
-        damage = fishData.damageUnit;
+        SetDamage(fishData.damageUnit);
 
         // Set the materials for normal and damage states.
         SetMaterials();
+    }
+
+    public float GetDamage()
+    {
+        return damage;
+    }
+
+    public void SetDamage(float newDamage)
+    {
+        // Store the damage value from the fish's data.
+        damage = newDamage;
     }
 
     // Sets the original and damage materials for the fish.
