@@ -15,7 +15,7 @@ public class MoneyOption
 {
     public Sprite moneyOptionImage; // The image representing the money option.
     public string moneyOptionName;  // The name of the money option.
-    public int moneyOptionPrice;    // The price of the money option.
+    public int realMoneyPrice;    // The price of the money option.
 
     // List of features associated with the money option.
     public List<MoneyOptionFeature> moneyOptionFeature = new List<MoneyOptionFeature>();
@@ -26,4 +26,5 @@ public class MoneyOptionFeature
 {
     public Sprite moneyOptionFeatureIcon; // Icon representing the feature.
     public string moneyOptionFeatureName; // Name of the feature.
+    public int moneyOptionFeaturePrice; // Price of the feature.
 }

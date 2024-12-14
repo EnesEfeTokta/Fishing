@@ -13,31 +13,52 @@ MonoBehaviour:
   m_Name: MoneyLoadingData
   m_EditorClassIdentifier: 
   moneyOptions:
-  - moneyOptionImage: {fileID: 21300000, guid: 6e2d9255f66138b4faeb7953abf3f4f5, type: 3}
-    moneyOptionName: Para 1
-    moneyOptionPrice: 10
+  - moneyOptionImage: {fileID: 21300000, guid: 3cc08f6a5f18b164184b9854ffa642ba, type: 3}
+    moneyOptionName: Basic
+    realMoneyPrice: 10
     moneyOptionFeature:
-    - moneyOptionFeatureIcon: {fileID: 21300076, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
-      moneyOptionFeatureName: Ornek1
-    - moneyOptionFeatureIcon: {fileID: 21300088, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
-      moneyOptionFeatureName: Ornek2
-  - moneyOptionImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
-    moneyOptionName: Para 2
-    moneyOptionPrice: 50
+    - moneyOptionFeatureIcon: {fileID: 21300000, guid: 4424dda84344cd94489735f2f7bdfdbc, type: 3}
+      moneyOptionFeatureName: Accumulated Money
+      moneyOptionFeaturePrice: 500
+  - moneyOptionImage: {fileID: 21300000, guid: c303a323048e00843bc7289e4c055843, type: 3}
+    moneyOptionName: First Step
+    realMoneyPrice: 10
     moneyOptionFeature:
-    - moneyOptionFeatureIcon: {fileID: 21300000, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
-      moneyOptionFeatureName: Ornek1
-    - moneyOptionFeatureIcon: {fileID: 21300002, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
-      moneyOptionFeatureName: Ornek2
-    - moneyOptionFeatureIcon: {fileID: 21300002, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
-      moneyOptionFeatureName: Ornek2
-    - moneyOptionFeatureIcon: {fileID: 21300002, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
-      moneyOptionFeatureName: Ornek2
-    - moneyOptionFeatureIcon: {fileID: 21300002, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
-      moneyOptionFeatureName: Ornek2
-  - moneyOptionImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
-    moneyOptionName: Para 3
-    moneyOptionPrice: 150
+    - moneyOptionFeatureIcon: {fileID: 21300000, guid: 4424dda84344cd94489735f2f7bdfdbc, type: 3}
+      moneyOptionFeatureName: Gold
+      moneyOptionFeaturePrice: 1500
+  - moneyOptionImage: {fileID: 21300000, guid: e0f7d847defdb3444bbfe9684523f555, type: 3}
+    moneyOptionName: Good Money
+    realMoneyPrice: 20
     moneyOptionFeature:
-    - moneyOptionFeatureIcon: {fileID: 21300014, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
-      moneyOptionFeatureName: Ornek1
+    - moneyOptionFeatureIcon: {fileID: 21300000, guid: 4424dda84344cd94489735f2f7bdfdbc, type: 3}
+      moneyOptionFeatureName: Good Gold
+      moneyOptionFeaturePrice: 3000
+  - moneyOptionImage: {fileID: 21300000, guid: 5f406b6599ab5a243ba1489dbe125fa2, type: 3}
+    moneyOptionName: Great Money
+    realMoneyPrice: 30
+    moneyOptionFeature:
+    - moneyOptionFeatureIcon: {fileID: 21300000, guid: 4424dda84344cd94489735f2f7bdfdbc, type: 3}
+      moneyOptionFeatureName: Rich Money
+      moneyOptionFeaturePrice: 6000
+  - moneyOptionImage: {fileID: 21300000, guid: 653b15dfe14a0af4c9be3437cd9b95e8, type: 3}
+    moneyOptionName: The First Way to Riches
+    realMoneyPrice: 40
+    moneyOptionFeature:
+    - moneyOptionFeatureIcon: {fileID: 21300000, guid: 4424dda84344cd94489735f2f7bdfdbc, type: 3}
+      moneyOptionFeatureName: Rich Coin
+      moneyOptionFeaturePrice: 10000
+  - moneyOptionImage: {fileID: 21300000, guid: 076da9882ade8da4888b07890e56a4d0, type: 3}
+    moneyOptionName: Rich Person
+    realMoneyPrice: 70
+    moneyOptionFeature:
+    - moneyOptionFeatureIcon: {fileID: 21300000, guid: 4424dda84344cd94489735f2f7bdfdbc, type: 3}
+      moneyOptionFeatureName: Barrel Coins
+      moneyOptionFeaturePrice: 16000
+  - moneyOptionImage: {fileID: 21300000, guid: 9a0dcebc10c84d645908217906deb19a, type: 3}
+    moneyOptionName: Ultra Rich Person
+    realMoneyPrice: 90
+    moneyOptionFeature:
+    - moneyOptionFeatureIcon: {fileID: 21300000, guid: 4424dda84344cd94489735f2f7bdfdbc, type: 3}
+      moneyOptionFeatureName: Chest Coins
+      moneyOptionFeaturePrice: 25000

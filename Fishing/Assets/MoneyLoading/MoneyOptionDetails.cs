@@ -28,7 +28,7 @@ public class MoneyOptionDetails : MonoBehaviour
 
         // Set the name and price of the selected product.
         selectedProductName.text = moneyOption.moneyOptionName;
-        selectedProductPrice.text = $"Buy for ${moneyOption.moneyOptionPrice}";
+        selectedProductPrice.text = $"Buy for ${moneyOption.realMoneyPrice}";
 
         // Display each feature of the selected money option.
         foreach (MoneyOptionFeature moneyOptionFeature in moneyOption.moneyOptionFeature)
@@ -37,7 +37,7 @@ public class MoneyOptionDetails : MonoBehaviour
             MoneyOptionDetailsCell moneyOptionDetailsCell = Instantiate(moneyOptionFeatureCellPrefab, parentMoneyFeatureCell).GetComponent<MoneyOptionDetailsCell>();
 
             // Set the details of the feature on the instantiated cell.
-            moneyOptionDetailsCell.SetMoneyOptionDetails(moneyOptionFeature.moneyOptionFeatureName, moneyOptionFeature.moneyOptionFeatureIcon);
+            moneyOptionDetailsCell.SetMoneyOptionDetails(moneyOptionFeature.moneyOptionFeatureName, moneyOptionFeature.moneyOptionFeatureIcon, moneyOptionFeature.moneyOptionFeaturePrice);
 
             // Add the created cell to the tracking list.
             showingMoneyOptionDetails.Add(moneyOptionDetailsCell.gameObject);

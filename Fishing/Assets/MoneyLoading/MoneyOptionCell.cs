@@ -20,7 +20,7 @@ public class MoneyOptionCell : MonoBehaviour
         // Update the UI with the money option details.
         moneyOptionImage.sprite = moneyOption.moneyOptionImage;
         moneyOptionName.text = moneyOption.moneyOptionName;
-        moneyOptionPrice.text = moneyOption.moneyOptionPrice.ToString();
+        moneyOptionPrice.text = moneyOption.realMoneyPrice.ToString();
 
         // Store the MoneyOptionDetails reference for future use.
         this.moneyOptionDetails = moneyOptionDetails;
