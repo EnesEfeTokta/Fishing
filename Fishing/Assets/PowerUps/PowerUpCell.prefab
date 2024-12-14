@@ -140,6 +140,12 @@ MonoBehaviour:
   powerUpIconImage: {fileID: 1275683839340529094}
   powerUpLockIconImage: {fileID: 6247594423777450002}
   powerUpButton: {fileID: 5894841473767530376}
+  animationPrefab: {fileID: 5516262158787398923, guid: d3296f35267db2647bed770aa0077a3d, type: 3}
+  startPosition: {x: 0, y: 0, z: -8.05}
+  targetPosition: {x: 0, y: 3, z: 4}
+  targetScale: {x: 0.2, y: 0.2, z: 0.2}
+  animationDuration: 5
+  powerUpSound: {fileID: 8300000, guid: e9022328deeb3df479b9d8e0e8ea7b5e, type: 3}
 --- !u!1 &2724496056794670601
 GameObject:
   m_ObjectHideFlags: 0

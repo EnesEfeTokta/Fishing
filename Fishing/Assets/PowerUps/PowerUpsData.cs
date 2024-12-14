@@ -14,7 +14,6 @@ public class PowerUpsData : ScriptableObject
     // The type of power-up, selected from the PowerUpType enum.  Defaults to "Speed".
     public PowerUpType powerUpType = PowerUpType.Speed;
 
-    // Spacer in the Inspector for better organization.
     [Space]
 
     // The duration of the power-up's effect in seconds (likely integer seconds).
@@ -23,11 +22,14 @@ public class PowerUpsData : ScriptableObject
     // The numerical value associated with the power-up (e.g., speed increase, damage boost).
     public int powerUpValue;
 
-    // Another spacer in the Inspector.
     [Space]
 
     // The cost to purchase or acquire the power-up.
     public int powerUpPrice;
+
+    [Space]
+
+    public bool isAnimationEnabled = true;
 }
 
 // Defines the different types of power-ups available in the game.

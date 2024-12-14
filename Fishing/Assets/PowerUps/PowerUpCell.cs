@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 using System.Collections;
+using DG.Tweening;
 
 public class PowerUpCell : MonoBehaviour
 {
@@ -18,6 +19,16 @@ public class PowerUpCell : MonoBehaviour
     [SerializeField] private Image powerUpLockIconImage;
     // Reference to the Button component that triggers the power-up activation.
     [SerializeField] private Button powerUpButton;
+
+    [Header("Animation")]
+    [SerializeField] private GameObject animationPrefab;
+    [SerializeField] private Vector3 startPosition;
+    [SerializeField] private Vector3 targetPosition;
+    [SerializeField] private Vector3 targetScale = new Vector3(0.2f, 0.2f, 0.2f);
+    [SerializeField] private float animationDuration = 1f;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip powerUpSound;
 
     /// <summary>
     /// Initializes the power-up cell with the provided data and sprite.
@@ -56,6 +67,12 @@ public class PowerUpCell : MonoBehaviour
         // Check if any power-ups are available.
         if (powerUpDatas.Count > 0)
         {
+            if (powerUpDatas[0].isAnimationEnabled)
+            { 
+                // Play the animation to move the power-up cell to a target position.
+                StartCoroutine(PowerUpAnimation());
+            }
+
             if (powerUpDatas.Count == 1)
             {
                 // If only one power-up is left, remove it, update the count, and deactivate the button.
@@ -208,5 +225,39 @@ public class PowerUpCell : MonoBehaviour
 
         // Reset the throwing wait time to its default value.
         SpearThrowing.Instance.SetThrowingTime(defaultWaitTime);
+    }
+
+    IEnumerator PowerUpAnimation()
+    {
+        // Instantiate the power-up animation prefab at the cell's position.
+        GameObject animation = Instantiate(animationPrefab, startPosition, Quaternion.identity);
+
+        // Set the sprite of the animation object.
+        Sprite sprite = powerUpDatas[0].powerUpImage;
+        animation.GetComponent<SpriteRenderer>().sprite = sprite;
+
+        // Animate the movement to the center of the screen.
+        animation.transform.DOMove(targetPosition, animationDuration);
+
+        // Animate the scale from 0 to targetScale.
+        animation.transform.DOScale(targetScale, animationDuration * 1.5f);
+
+        // Play the sound effect for the power-up being collected.
+        GameManager.Instance.PlaySound(powerUpSound);
+
+        // Wait for the animation to complete.
+        yield return new WaitForSeconds(animationDuration * 1.5f);
+
+        // Animate the movement to the center of the screen.
+        animation.transform.DOMove(startPosition, animationDuration);
+
+        // Animate the scale from 0 to targetScale.
+        animation.transform.DOScale(Vector3.zero, animationDuration);
+
+        // Wait for the animation to complete.
+        yield return new WaitForSeconds(animationDuration * 1.5f);
+
+        // Destroy the animation object after it reaches the center.
+        Destroy(animation);
     }
 }

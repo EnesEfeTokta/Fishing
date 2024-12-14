@@ -18,3 +18,4 @@ MonoBehaviour:
   powerUpDuration: 0
   powerUpValue: 5
   powerUpPrice: 90
+  isAnimationEnabled: 0
