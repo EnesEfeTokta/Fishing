@@ -5,6 +5,7 @@ public class GiftCaseAnim : MonoBehaviour
 {
     [Header("Animation")]
     [SerializeField] private float animationTime = 5; // Total duration for the animation sequence.
+    private bool isAnimating = false; // Flag to check if the animation is currently running.
 
     [Header("Background")]
     [SerializeField] private MeshRenderer backgroundMeshRenderer; // Reference to the MeshRenderer for the animated background.
@@ -36,11 +37,17 @@ public class GiftCaseAnim : MonoBehaviour
     [SerializeField] private Vector3 tropicEndEffectScale = new Vector3(0.5f, 0.5f, 0.5f); // Final scale for the tropical effect.
     [SerializeField] private Vector3 ligthEndEffectScale = new Vector3(0.15f, 0.25f, 0.1f); // Final scale for the light effect.
 
+    [Header("Gift Case")]
+    private GiftCase giftCase; // Reference to the GiftCase script.
+
     // Start is called before the first frame update
     void Start()
     {
         // Begin the main animation sequence.
         StartCoroutine(AnimationManager());
+
+        // Get the GiftCase script component.
+        giftCase = GetComponent<GiftCase>();
     }
 
     // Update is called once per frame
@@ -59,6 +66,8 @@ public class GiftCaseAnim : MonoBehaviour
     // Main animation sequence manager.
     IEnumerator AnimationManager()
     {
+        isAnimating = true; // Set the animation flag to true.
+
         // Start rotating the gift case.
         StartCoroutine(CaseRotateAnimation());
 
@@ -111,6 +120,8 @@ public class GiftCaseAnim : MonoBehaviour
                 StartCoroutine(EffectScaleAnimation());
                 StartCoroutine(CaseLidOpenAnimation());
                 StartCoroutine(CaseLightAnimation());
+
+                giftCase.OpenGiftCase(); // Open the gift case after the animation ends.
             }
 
             yield return null;
@@ -186,5 +197,16 @@ public class GiftCaseAnim : MonoBehaviour
         tropicEffectTransform.gameObject.SetActive(false);
         ligthEffectTransform.gameObject.SetActive(false);
         starEffectTransform.gameObject.SetActive(false);
+
+        isAnimating = false; // Set the animation flag to false.
+
+        IsAnimating();
+    }
+
+    // Check if the animation is currently running.
+    public bool IsAnimating()
+    {
+        // Return the current animation state.
+        return isAnimating;
     }
 }

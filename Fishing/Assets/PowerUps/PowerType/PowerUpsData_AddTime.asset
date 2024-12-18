@@ -16,6 +16,6 @@ MonoBehaviour:
   powerUpImage: {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
   powerUpType: 2
   powerUpDuration: 0
-  powerUpValue: 5
+  powerUpValue: 20
   powerUpPrice: 90
   isAnimationEnabled: 0

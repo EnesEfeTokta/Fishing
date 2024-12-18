@@ -5,9 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GiftCaseItemData", menuName = "ScriptableObject/GiftCaseItemData")]
 public class GiftCaseItemData : ScriptableObject
 {   
-    [Header("Case Item")]
-    public new string name;
-    public Sprite sprite;
     public List<GiftItem> giftItems = new List<GiftItem>();
 }
 
@@ -19,6 +16,7 @@ public class GiftItem
     public Sprite sprite;
     public GiftCaseRarenessType giftCaseRarenessType;
     public GiftCaseType giftCaseType;
+    public int giftCount = 1;
 
     [Header("Gift Item Data")]
     public int moneyAmount;
