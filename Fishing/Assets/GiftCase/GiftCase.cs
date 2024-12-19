@@ -28,40 +28,50 @@ public class GiftCase : MonoBehaviour
         CreateGiftItemCell();
     }
 
-    void CreateGiftItemCell()
+void CreateGiftItemCell()
+{
+    // Runtime'da kullanılacak geçici bir liste oluştur
+    giftItems = new List<GiftItem>(giftCaseItemData.GiftItems);
+
+    for (int i = 0; i < giftCellCount; i++)
     {
-        giftItems.Clear();
-        giftItems = giftCaseItemData.giftItems;
+        // Yeni bir GiftCell oluştur
+        GameObject giftCell = Instantiate(giftCellPrefab, giftCellParent);
+        GiftItemCell giftItemCell = giftCell.GetComponent<GiftItemCell>();
 
-        for (int i = 0; i < giftCellCount; i++)
-        {
-            GameObject giftCell = Instantiate(giftCellPrefab, giftCellParent);
-            GiftItemCell giftItemCell = giftCell.GetComponent<GiftItemCell>();
+        // giftItems listesinden rastgele bir eleman seç
+        int index = Random.Range(0, giftItems.Count);
+        GiftItem giftItem = giftItems[index];
 
-            int index = Random.Range(0, giftItems.Count);
-            GiftItem giftItem = giftItems[index];
+        // GiftCell'e bu elemanı ata
+        giftItemCell.SetGiftItem(giftItem);
 
-            giftItemCell.SetGiftItem(giftItem);
-
-            giftCells.Add(giftCell.transform);
-        }
-
-        giftCaseItemData.giftItems = giftItems;
-        StartCoroutine(ReturnGiftCells());
+        // GiftCell'i listeye ekle
+        giftCells.Add(giftCell.transform);
     }
+
+    // Animasyonu başlat
+    StartCoroutine(ReturnGiftCells());
+}
 
     IEnumerator ReturnGiftCells()
     {
         foreach (Transform giftCell in giftCells)
         {
-
+            Quaternion startRotation = giftCell.rotation;
+            Quaternion endRotation = Quaternion.Euler(0, 0, 0);
             float elapsedTime = 0;
-            while (elapsedTime < 1)
+            float duration = 0.5f; // Animation duration in seconds
+
+            while (elapsedTime < duration)
             {
                 elapsedTime += Time.deltaTime;
-                giftCell.Rotate(Vector3.up * Time.deltaTime);
+                giftCell.rotation = Quaternion.Slerp(startRotation, endRotation, elapsedTime / duration);
                 yield return null;
             }
+
+            // Ensure the final rotation is set to the end rotation
+            giftCell.rotation = endRotation;
         }
     }
 }

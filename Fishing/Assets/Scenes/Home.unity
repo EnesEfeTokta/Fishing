@@ -4702,7 +4702,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.025380468, y: 0.08400001}
   m_AnchorMax: {x: 0.18400002, y: 0.14164704}
-  m_AnchoredPosition: {x: -0.100097656, y: -0.19995117}
+  m_AnchoredPosition: {x: -0.100097656, y: -0.19995141}
   m_SizeDelta: {x: -0.21411133, y: -0.6144104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &416569675
@@ -15686,7 +15686,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -20476,7 +20476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerProgressData: {fileID: 11400000, guid: 82bc52d9f3b1a674dac17c31ef72344a, type: 2}
   giftCaseItemData: {fileID: 11400000, guid: 3713b19d434e7ea4ebb07b01610cb7a9, type: 2}
-  giftCellPrefab: {fileID: 7062380505072183348, guid: c6ff5289c1306084d8fe2e7b1d4eebf7, type: 3}
+  giftCellPrefab: {fileID: 7617585128767484268, guid: c6ff5289c1306084d8fe2e7b1d4eebf7, type: 3}
   giftCellParent: {fileID: 1776263729}
   giftCellCount: 5
 --- !u!1 &1802138864

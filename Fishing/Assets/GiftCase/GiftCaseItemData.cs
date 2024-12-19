@@ -5,7 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GiftCaseItemData", menuName = "ScriptableObject/GiftCaseItemData")]
 public class GiftCaseItemData : ScriptableObject
 {   
-    public List<GiftItem> giftItems = new List<GiftItem>();
+    [SerializeField] private List<GiftItem> giftItems = new List<GiftItem>();
+
+    public IReadOnlyList<GiftItem> GiftItems => giftItems;
 }
 
 [Serializable]

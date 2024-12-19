@@ -120,12 +120,12 @@ public class GiftCaseAnim : MonoBehaviour
                 StartCoroutine(EffectScaleAnimation());
                 StartCoroutine(CaseLidOpenAnimation());
                 StartCoroutine(CaseLightAnimation());
-
-                giftCase.OpenGiftCase(); // Open the gift case after the animation ends.
             }
 
             yield return null;
         }
+
+        giftCase.OpenGiftCase(); // Open the gift case after the animation ends.
     }
 
     // Animate the scaling of the tropical effect.
