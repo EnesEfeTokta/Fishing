@@ -49,3 +49,21 @@ MonoBehaviour:
     powerUpsData: {fileID: 0}
     spearCoatingMaterial: {fileID: 0}
     spearObject: {fileID: 0}
+  - name: Money5
+    sprite: {fileID: 21300000, guid: 94ea43556dfb347439e67a9da6005b9a, type: 3}
+    giftCaseRarenessType: 2
+    giftCaseType: 0
+    giftCount: 5
+    moneyAmount: 100
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money5
+    sprite: {fileID: 21300000, guid: 7f221a2efb03036429b23e6e78fe52d5, type: 3}
+    giftCaseRarenessType: 3
+    giftCaseType: 0
+    giftCount: 5
+    moneyAmount: 100
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}

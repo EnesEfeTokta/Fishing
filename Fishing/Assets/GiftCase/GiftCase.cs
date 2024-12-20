@@ -27,16 +27,13 @@ public class GiftCase : MonoBehaviour
     private List<GiftItem> giftItems = new List<GiftItem>();
     private List<GameObject> giftCells = new List<GameObject>();
 
-    private GiftCaseAnim giftCaseAnim;
-
     private bool isQuickTransitionAnimation = false;
 
     void Start()
     {
-        giftCaseAnim = GetComponent<GiftCaseAnim>();
         giftPanel.SetActive(false);
-        saveAndcloseButton.onClick.AddListener(() => QuickTransitionAnimation());
         saveAndcloseButton.onClick.AddListener(() => SaveAndClose());
+        saveAndcloseButton.onClick.AddListener(() => QuickTransitionAnimation());
     }
 
     public void OpenGiftCase()
@@ -61,23 +58,51 @@ public class GiftCase : MonoBehaviour
 
         for (int i = 0; i < giftCellCount; i++)
         {
-            // Create a new Giftcell.
+            // Create a new GiftCell.
             GameObject giftCell = Instantiate(giftCellPrefab, giftCellParent);
             GiftItemCell giftItemCell = giftCell.GetComponent<GiftItemCell>();
 
-            // Select a random element from the gifTItems list.
-            int index = Random.Range(0, giftItems.Count);
-            GiftItem giftItem = giftItems[index];
+            // Select a random item based on rarity weight.
+            GiftItem giftItem = GetRandomGiftItemByRarity();
 
-            // Ata to Giftcell.
+            // Assign to the GiftCell.
             giftItemCell.SetGiftItem(giftItem);
 
-            // Add Giftcell to the list.
+            // Add GiftCell to the list.
             giftCells.Add(giftCell);
         }
 
         // Start the animation.
         StartCoroutine(TransparentGiftCells());
+    }
+
+    GiftItem GetRandomGiftItemByRarity()
+    {
+        // Assign weight values for each rarity type.
+        Dictionary<GiftCaseRarenessType, int> rarityWeights = new Dictionary<GiftCaseRarenessType, int>
+    {
+        { GiftCaseRarenessType.Basic, 60 },
+        { GiftCaseRarenessType.Rare, 25 },
+        { GiftCaseRarenessType.Epic, 10 },
+        { GiftCaseRarenessType.Legendary, 5 }
+    };
+
+        // Create a weighted list of items.
+        List<GiftItem> weightedList = new List<GiftItem>();
+        foreach (GiftItem giftItem in giftItems)
+        {
+            int weight = rarityWeights[giftItem.giftCaseRarenessType];
+            for (int j = 0; j < weight; j++)
+            {
+                weightedList.Add(giftItem);
+            }
+        }
+
+        // Randomly select an item from the weighted list.
+        int randomIndex = Random.Range(0, weightedList.Count);
+        GiftItem selectedItem = weightedList[randomIndex];
+
+        return selectedItem;
     }
 
     IEnumerator TransparentGiftCells()
@@ -88,7 +113,7 @@ public class GiftCase : MonoBehaviour
             CanvasGroup canvasGroup = giftFrontImage.GetComponent<CanvasGroup>();
             canvasGroup.alpha = 1;
             float elapsedTime = 0;
-            float duration = giftCardAudio.length; // Animation duration in seconds
+            float duration = giftCardAudio.length; // Animation duration in seconds.
 
             HomeManager.Instance.PlaySound(giftCardAudio);
 
