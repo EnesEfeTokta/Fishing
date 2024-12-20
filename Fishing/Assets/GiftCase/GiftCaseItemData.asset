@@ -44,7 +44,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: e0f7d847defdb3444bbfe9684523f555, type: 3}
     giftCaseRarenessType: 1
     giftCaseType: 0
-    giftCount: 505
+    giftCount: 5
     moneyAmount: 100
     powerUpsData: {fileID: 0}
     spearCoatingMaterial: {fileID: 0}
