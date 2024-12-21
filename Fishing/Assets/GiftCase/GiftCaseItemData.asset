@@ -15,55 +15,21 @@ MonoBehaviour:
   giftItems:
   - name: Money1_1
     sprite: {fileID: 21300000, guid: 3cc08f6a5f18b164184b9854ffa642ba, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
     giftCaseRarenessType: 0
     giftCaseType: 0
-    giftCount: 1
-    moneyAmount: 50
+    giftCount: 2
+    moneyAmount: 1
     powerUpsData: {fileID: 0}
     spearCoatingMaterial: {fileID: 0}
     spearObject: {fileID: 0}
   - name: Money1_2
     sprite: {fileID: 21300000, guid: 3cc08f6a5f18b164184b9854ffa642ba, type: 3}
-    giftCaseRarenessType: 0
-    giftCaseType: 0
-    giftCount: 2
-    moneyAmount: 100
-    powerUpsData: {fileID: 0}
-    spearCoatingMaterial: {fileID: 0}
-    spearObject: {fileID: 0}
-  - name: Money2
-    sprite: {fileID: 21300000, guid: c303a323048e00843bc7289e4c055843, type: 3}
+    giftTypeIcon: {fileID: 21300040, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
     giftCaseRarenessType: 0
     giftCaseType: 0
     giftCount: 1
-    moneyAmount: 100
-    powerUpsData: {fileID: 0}
-    spearCoatingMaterial: {fileID: 0}
-    spearObject: {fileID: 0}
-  - name: Money3
-    sprite: {fileID: 21300000, guid: e0f7d847defdb3444bbfe9684523f555, type: 3}
-    giftCaseRarenessType: 1
-    giftCaseType: 0
-    giftCount: 5
-    moneyAmount: 100
-    powerUpsData: {fileID: 0}
-    spearCoatingMaterial: {fileID: 0}
-    spearObject: {fileID: 0}
-  - name: Money5
-    sprite: {fileID: 21300000, guid: 94ea43556dfb347439e67a9da6005b9a, type: 3}
-    giftCaseRarenessType: 2
-    giftCaseType: 0
-    giftCount: 5
-    moneyAmount: 100
-    powerUpsData: {fileID: 0}
-    spearCoatingMaterial: {fileID: 0}
-    spearObject: {fileID: 0}
-  - name: Money5
-    sprite: {fileID: 21300000, guid: 7f221a2efb03036429b23e6e78fe52d5, type: 3}
-    giftCaseRarenessType: 3
-    giftCaseType: 0
-    giftCount: 5
-    moneyAmount: 100
+    moneyAmount: 1
     powerUpsData: {fileID: 0}
     spearCoatingMaterial: {fileID: 0}
     spearObject: {fileID: 0}

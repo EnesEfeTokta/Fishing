@@ -11,5 +11,7 @@ public class PlayerProgressData : ScriptableObject
     public int totalPlayerMoney; // Total money collected by the player
     public int totalPlayerFish;  // Total fish caught by the player
     public List<PowerUpsData> powerUpsDatas = new List<PowerUpsData>(); // The player's in -game upgrade assets are listed.
-    public int totalGiftCase = 0;
+    public List<GiftCaseItemData> giftCaseItemDatas = new List<GiftCaseItemData>();
+    public List<Material> materialDatas = new List<Material>();
+    public List<GameObject> spearObjectDatas = new List<GameObject>();
 }

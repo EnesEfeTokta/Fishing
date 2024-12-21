@@ -16,6 +16,7 @@ public class GiftItem
     [Header("Gift Item")]
     public string name;
     public Sprite sprite;
+    public Sprite giftTypeIcon;
     public GiftCaseRarenessType giftCaseRarenessType;
     public GiftCaseType giftCaseType;
     public int giftCount = 1;

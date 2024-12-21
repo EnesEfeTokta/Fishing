@@ -38,6 +38,8 @@ public class HomeManager : MonoBehaviour
     /// <param name="pitch">The pitch level at which the clip should be played. Default is 1f.</param>
     public void PlaySound(AudioClip clip, float volume = 1f, int priority = 128, float pitch = 1f)
     {
+        audioSource.Stop();
+
         audioSource.clip = clip;
 
         audioSource.volume = volume;

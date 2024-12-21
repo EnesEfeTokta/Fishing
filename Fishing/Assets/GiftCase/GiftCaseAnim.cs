@@ -3,210 +3,230 @@ using System.Collections;
 
 public class GiftCaseAnim : MonoBehaviour
 {
+    // Summary: Handles the gift case animation, including rotation, shaking, lid opening/closing, and visual effects.
+
+    [Header("GameObjects")]
+    [SerializeField] private GameObject animationObject; // The parent object of the animation, activated during the animation.
+
     [Header("Animation")]
-    [SerializeField] private float animationTime = 5; // Total duration for the animation sequence.
-    private bool isAnimating = false; // Flag to check if the animation is currently running.
+    [SerializeField] private float animationTime = 5; // Total time the animation runs.
+    private bool isAnimating = false; // Tracks whether the animation is currently running.
 
     [Header("Background")]
-    [SerializeField] private MeshRenderer backgroundMeshRenderer; // Reference to the MeshRenderer for the animated background.
-    [SerializeField] private float backgroundSpeed = 0.5f; // Speed at which the background scrolls.
+    [SerializeField] private MeshRenderer backgroundMeshRenderer; // Renderer for the background to enable scrolling texture animation.
+    [SerializeField] private float backgroundSpeed = 0.5f; // Speed of the background texture scrolling.
 
     [Header("Case")]
-    [SerializeField] private Transform caseTransform; // Reference to the gift case Transform.
-    [SerializeField] private Transform caseLidTranform; // Reference to the gift case lid Transform.
-    [SerializeField] private float caseRotateDuration = 0; // Duration for rotating the case.
-    [SerializeField] private float numberCaseRotations = 3; // Number of full rotations the case will perform.
-    [SerializeField] private float caseLidOpenDuration = 0; // Duration for opening the case lid.
-    [SerializeField] private float caseLidClosedDuration = 0; // Duration for closing the case lid.
-    [SerializeField] private float actionTime; // Time at which effects and lid open animation start.
+    [SerializeField] private Transform caseTransform; // Transform of the case object.
+    [SerializeField] private Transform caseLidTransform; // Transform of the case lid object.
+
+    [Space]
+
+    [SerializeField] private float caseRotateDuration = 0; // Duration of the case rotation animation.
+    [SerializeField] private float numberCaseRotations = 3; // Number of full rotations during the animation.
+
+    [Space]
+
+    [SerializeField] private float caseLidOpenDuration = 0; // Duration of the lid opening animation.
+    [SerializeField] private float caseLidClosedDuration = 0; // Duration of the lid closing animation.
+    [SerializeField] private float actionTime; // Time within the shake animation to trigger effects.
 
     [Header("Shake")]
-    [SerializeField] private float caseShakeDuration = 0; // Duration for the case shaking animation.
-    [SerializeField] private float shakeValue = 0; // Magnitude of the shaking effect.
+    [SerializeField] private float caseShakeDuration = 0; // Duration of the case shaking animation.
+    [SerializeField] private float shakeValue = 0; // Magnitude of the case shake.
 
     [Header("Effects")]
-    [SerializeField] private Transform tropicEffectTransform; // Transform for the tropical effect scaling animation.
-    [SerializeField] private Transform ligthEffectTransform; // Transform for the light effect scaling animation.
     [SerializeField] private Transform starEffectTransform; // Transform for the star effect.
+    [SerializeField] private Transform redFireEffectTransform; // Transform for the red fire effect.
 
     [Space]
-    [SerializeField] private float tropicEffectDuration = 0; // Duration for the tropical effect scaling.
-    [SerializeField] private float lightEffectDuration = 0; // Duration for the light effect scaling.
+    [SerializeField] private float starEffectDuration = 1; // Duration of the star effect animation.
+    [SerializeField] private float redFireEffectDuration = 1; // Duration of the red fire effect animation.
 
     [Space]
-    [SerializeField] private Vector3 tropicEndEffectScale = new Vector3(0.5f, 0.5f, 0.5f); // Final scale for the tropical effect.
-    [SerializeField] private Vector3 ligthEndEffectScale = new Vector3(0.15f, 0.25f, 0.1f); // Final scale for the light effect.
+    [SerializeField] private Vector3 starEndEffectScale = new Vector3(0.4f, 0.4f, 0.4f); // Final scale of the star effect.
+    [SerializeField] private Vector3 redFireEndEffectScale = new Vector3(1.25f, 1.25f, 1.25f); // Final scale of the red fire effect.
 
-    [Header("Gift Case")]
-    private GiftCase giftCase; // Reference to the GiftCase script.
+    [Header("Audio")]
+    [SerializeField] private AudioClip effectSound;
+    [SerializeField] private AudioClip giftCaseOpenCloseSound;
 
-    // Start is called before the first frame update
+    private GiftCase giftCase; // Reference to the gift case object being animated.
+
     void Start()
     {
-        // Begin the main animation sequence.
-        StartCoroutine(AnimationManager());
-
-        // Get the GiftCase script component.
-        giftCase = GetComponent<GiftCase>();
+        // Initialize by deactivating the animation object.
+        animationObject.SetActive(false);
     }
 
-    // Update is called once per frame
+    public void StartAnimation(GiftCase giftCase)
+    {
+        // Starts the animation sequence for the gift case.
+        if (isAnimating)
+        {
+            Debug.LogWarning("Animation is already running!");
+            return;
+        }
+
+        animationObject.SetActive(true); // Enable animation object.
+        ResetAnimation(); // Reset transforms and effects to initial states.
+        StartCoroutine(AnimationManager()); // Begin the animation sequence.
+        this.giftCase = giftCase; // Assign the gift case reference.
+    }
+
+    void ResetAnimation()
+    {
+        // Resets all animated elements to their initial states for reuse.
+        caseTransform.rotation = Quaternion.Euler(0, 180, 0);
+        caseLidTransform.localRotation = Quaternion.Euler(0, 0, 0);
+        starEffectTransform.localScale = Vector3.zero;
+        redFireEffectTransform.localScale = Vector3.zero;
+        caseTransform.localPosition = Vector3.zero;
+
+        starEffectTransform.gameObject.SetActive(true);
+        redFireEffectTransform.gameObject.SetActive(true);
+    }
+
     void Update()
     {
-        // Continuously animate the background.
+        // Handles background texture animation.
         BackgroundAnimation();
     }
-    
-    // Animate the background texture to scroll upwards.
+
     void BackgroundAnimation()
     {
+        // Scrolls the background texture vertically.
         backgroundMeshRenderer.material.mainTextureOffset += Vector2.up * Time.deltaTime * backgroundSpeed;
     }
 
-    // Main animation sequence manager.
     IEnumerator AnimationManager()
     {
-        isAnimating = true; // Set the animation flag to true.
+        // Manages the sequence of animations for the gift case.
+        isAnimating = true;
 
-        // Start rotating the gift case.
-        StartCoroutine(CaseRotateAnimation());
+        yield return StartCoroutine(CaseRotateAnimation()); // Rotate the case.
 
-        // Wait for the total animation time.
-        yield return new WaitForSeconds(animationTime);
+        yield return new WaitForSeconds(animationTime); // Wait for the animation duration.
 
-        // Start closing the gift case lid.
-        StartCoroutine(CaseCloseAnimation());
+        yield return StartCoroutine(CaseLidCloseAnimation()); // Close the case lid.
+
+        isAnimating = false;
     }
-    
-    // Animate the gift case rotation.
+
     IEnumerator CaseRotateAnimation()
     {
-        float totalRotationAngle = 360f * numberCaseRotations; // Calculate the total rotation angle.
+        // Rotates the case for a specified duration and number of rotations.
+        float totalRotationAngle = 360f * numberCaseRotations;
         float elapsedTime = 0;
 
         while (elapsedTime < caseRotateDuration)
         {
             elapsedTime += Time.deltaTime;
-
-            // Rotate the case smoothly over time.
             float rotationAmountThisFrame = (totalRotationAngle / caseRotateDuration) * Time.deltaTime;
             caseTransform.Rotate(Vector3.up * rotationAmountThisFrame);
             yield return null;
         }
 
-        // Proceed to shake the case after rotation.
-        StartCoroutine(CaseShakeAnimation());
+        yield return StartCoroutine(CaseShakeAnimation());
     }
 
-    // Animate the shaking of the gift case.
     IEnumerator CaseShakeAnimation()
     {
+        // Adds a shaking effect to the case.
         float elapsedTime = 0;
-        Vector3 startPosition = caseTransform.position; // Save the starting position.
+        Vector3 startPosition = caseTransform.position;
 
         while (elapsedTime < caseShakeDuration)
         {
             elapsedTime += Time.deltaTime;
 
-            // Apply random position changes to simulate shaking.
             float x = Random.Range(-shakeValue, shakeValue);
             float y = Random.Range(-shakeValue, shakeValue);
             float z = Random.Range(-shakeValue, shakeValue);
             caseTransform.localPosition += new Vector3(x, y, z) * Time.deltaTime;
 
-            // Start effects and lid open animation at the specified action time.
-            if (elapsedTime < actionTime)
+            if (elapsedTime > actionTime)
             {
-                StartCoroutine(EffectScaleAnimation());
+                HomeManager.Instance.PlaySound(effectSound); // Play the effect sound.
+
+                StartCoroutine(EffectScaleAnimation(starEffectTransform, Vector2.zero, starEndEffectScale, starEffectDuration));
                 StartCoroutine(CaseLidOpenAnimation());
-                StartCoroutine(CaseLightAnimation());
+                StartCoroutine(EffectScaleAnimation(redFireEffectTransform, Vector2.zero, redFireEndEffectScale, redFireEffectDuration));
+                break;
             }
 
             yield return null;
         }
 
-        giftCase.OpenGiftCase(); // Open the gift case after the animation ends.
+        giftCase.OpenGiftCase(); // Triggers the gift case opening logic.
     }
 
-    // Animate the scaling of the tropical effect.
-    IEnumerator EffectScaleAnimation()
+    IEnumerator EffectScaleAnimation(Transform targetTransform, Vector3 start, Vector3 end, float duration)
     {
+        // Smoothly scales the target effect transform over time.
         float elapsedTime = 0;
-        
-        while (elapsedTime < tropicEffectDuration)
+
+        while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
-            tropicEffectTransform.localScale = Vector3.Lerp(Vector3.zero, tropicEndEffectScale, elapsedTime / tropicEffectDuration);
+            targetTransform.localScale = Vector3.Lerp(start, end, elapsedTime / duration);
             yield return null;
         }
 
-        tropicEffectTransform.localScale = tropicEndEffectScale; // Ensure the final scale is set.
+        targetTransform.localScale = end;
     }
 
-    // Animate the case lid opening.
     IEnumerator CaseLidOpenAnimation()
     {
+        yield return new WaitForSeconds(1f);
+        
+        HomeManager.Instance.PlaySound(giftCaseOpenCloseSound); // Play the case open sound.
+
+        // Animates the case lid opening.
         float elapsedTime = 0;
-        Quaternion startRotation = caseLidTranform.localRotation; // Starting rotation of the lid.
-        Quaternion targetRotation = Quaternion.Euler(180, 0, 0); // Target rotation to open the lid.
+        Quaternion startRotation = caseLidTransform.localRotation;
+        Quaternion targetRotation = Quaternion.Euler(180, 0, 0);
 
         while (elapsedTime < caseLidOpenDuration)
         {
             elapsedTime += Time.deltaTime;
-
-            // Smoothly interpolate the lid rotation.
-            caseLidTranform.localRotation = Quaternion.Lerp(startRotation, targetRotation, elapsedTime / caseLidOpenDuration);
+            caseLidTransform.localRotation = Quaternion.Lerp(startRotation, targetRotation, elapsedTime / caseLidOpenDuration);
             yield return null;
         }
 
-        caseLidTranform.localRotation = targetRotation; // Ensure final target rotation.
+        caseLidTransform.localRotation = targetRotation;
     }
 
-    // Animate the scaling of the light effect.
-    IEnumerator CaseLightAnimation()
+    IEnumerator CaseLidCloseAnimation()
     {
-        float elapsedTime = 0;
+        yield return new WaitForSeconds(1f);
         
-        while (elapsedTime < lightEffectDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            ligthEffectTransform.localScale = Vector3.Lerp(Vector3.zero, ligthEndEffectScale, elapsedTime / lightEffectDuration);
-            yield return null;
-        }
+        HomeManager.Instance.PlaySound(giftCaseOpenCloseSound); // Play the case open sound.
 
-        ligthEffectTransform.localScale = ligthEndEffectScale; // Ensure final scale is set.
-    }
-
-    // Animate the case lid closing and disable effects.
-    IEnumerator CaseCloseAnimation()
-    {
+        // Animates the case lid closing and deactivates effects.
         float elapsedTime = 0;
-        Quaternion startRotation = caseLidTranform.localRotation; // Starting rotation of the lid.
-        Quaternion targetRotation = Quaternion.Euler(0, 0, 0); // Target rotation to close the lid.
-        
+        Quaternion startRotation = caseLidTransform.localRotation;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, 0);
+
+        StartCoroutine(EffectScaleAnimation(starEffectTransform, starEndEffectScale, Vector2.zero, starEffectDuration));
+        StartCoroutine(EffectScaleAnimation(redFireEffectTransform, redFireEndEffectScale, Vector2.zero, redFireEffectDuration));
+
         while (elapsedTime < caseLidClosedDuration)
         {
             elapsedTime += Time.deltaTime;
-            caseLidTranform.localRotation = Quaternion.Lerp(startRotation, targetRotation, elapsedTime / caseLidClosedDuration);
+            caseLidTransform.localRotation = Quaternion.Lerp(startRotation, targetRotation, elapsedTime / caseLidClosedDuration);
             yield return null;
         }
-        
-        caseLidTranform.localRotation = targetRotation; // Ensure the lid is fully closed.
 
-        // Disable all effect objects after animation ends.
-        tropicEffectTransform.gameObject.SetActive(false);
-        ligthEffectTransform.gameObject.SetActive(false);
+        caseLidTransform.localRotation = targetRotation;
+
         starEffectTransform.gameObject.SetActive(false);
-
-        isAnimating = false; // Set the animation flag to false.
-
-        IsAnimating();
+        redFireEffectTransform.gameObject.SetActive(false);
     }
 
-    // Check if the animation is currently running.
     public bool IsAnimating()
     {
-        // Return the current animation state.
+        // Returns whether the animation is currently active.
         return isAnimating;
     }
 }
