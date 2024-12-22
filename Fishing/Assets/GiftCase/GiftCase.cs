@@ -272,6 +272,8 @@ public class GiftCase : MonoBehaviour
         }
 
         playerProgressData.giftCaseItemDatas.Remove(giftCaseItemData);
+
+        Profile.Instance.ReadTheData();
     }
 
 

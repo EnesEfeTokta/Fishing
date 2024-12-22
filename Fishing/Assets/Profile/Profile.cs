@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Profile : MonoBehaviour
 {
+    // Singleton Pattern
+    public static Profile Instance;
+
     [Header("Data")]
     // Scriptable object where the data to be printed will be withdrawn.
     [SerializeField] private PlayerProgressData playerProgressData;
@@ -12,6 +15,18 @@ public class Profile : MonoBehaviour
     [SerializeField] private TMP_Text score;
     [SerializeField] private TMP_Text money;
     [SerializeField] private TMP_Text fish;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
