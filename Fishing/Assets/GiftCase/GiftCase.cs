@@ -229,6 +229,9 @@ public class GiftCase : MonoBehaviour
         CloseGiftPanel();
     }
 
+    /// <summary>
+    /// Saves the player's progress by updating their resources and inventory based on the collected gift items.
+    /// </summary>
     void SavePlayerProgress()
     {
         UpdateGiftCaseCount();
@@ -270,6 +273,7 @@ public class GiftCase : MonoBehaviour
 
         playerProgressData.giftCaseItemDatas.Remove(giftCaseItemData);
     }
+
 
     void CloseGiftPanel()
     {
