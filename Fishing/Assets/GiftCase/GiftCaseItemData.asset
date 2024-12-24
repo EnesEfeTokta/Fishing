@@ -13,23 +13,303 @@ MonoBehaviour:
   m_Name: GiftCaseItemData
   m_EditorClassIdentifier: 
   giftItems:
-  - name: Money1_1
+  - name: Money_BasicCoins_1
+    sprite: {fileID: 21300000, guid: 3cc08f6a5f18b164184b9854ffa642ba, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 0
+    giftCaseType: 0
+    giftCount: 1
+    moneyAmount: 30
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_BasicCoins_2
     sprite: {fileID: 21300000, guid: 3cc08f6a5f18b164184b9854ffa642ba, type: 3}
     giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
     giftCaseRarenessType: 0
     giftCaseType: 0
     giftCount: 2
-    moneyAmount: 1
+    moneyAmount: 30
     powerUpsData: {fileID: 0}
     spearCoatingMaterial: {fileID: 0}
     spearObject: {fileID: 0}
-  - name: Money1_2
-    sprite: {fileID: 21300000, guid: 3cc08f6a5f18b164184b9854ffa642ba, type: 3}
-    giftTypeIcon: {fileID: 21300040, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  - name: Money_RapeCoins_1
+    sprite: {fileID: 21300000, guid: c303a323048e00843bc7289e4c055843, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
     giftCaseRarenessType: 0
     giftCaseType: 0
     giftCount: 1
-    moneyAmount: 1
+    moneyAmount: 60
     powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_RapeCoins_2
+    sprite: {fileID: 21300000, guid: c303a323048e00843bc7289e4c055843, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 0
+    giftCaseType: 0
+    giftCount: 2
+    moneyAmount: 60
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_EpicCoins_1
+    sprite: {fileID: 21300000, guid: e0f7d847defdb3444bbfe9684523f555, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 0
+    giftCaseType: 0
+    giftCount: 1
+    moneyAmount: 120
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_EpicCoins_2
+    sprite: {fileID: 21300000, guid: e0f7d847defdb3444bbfe9684523f555, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 0
+    giftCaseType: 0
+    giftCount: 2
+    moneyAmount: 120
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_BagCoins_1
+    sprite: {fileID: 21300000, guid: 5f406b6599ab5a243ba1489dbe125fa2, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 1
+    giftCaseType: 0
+    giftCount: 1
+    moneyAmount: 250
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_BagCoins_2
+    sprite: {fileID: 21300000, guid: 5f406b6599ab5a243ba1489dbe125fa2, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 1
+    giftCaseType: 0
+    giftCount: 2
+    moneyAmount: 250
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_BagCoins_3
+    sprite: {fileID: 21300000, guid: 5f406b6599ab5a243ba1489dbe125fa2, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 1
+    giftCaseType: 0
+    giftCount: 3
+    moneyAmount: 250
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_BucketCoins_1
+    sprite: {fileID: 21300000, guid: 653b15dfe14a0af4c9be3437cd9b95e8, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 2
+    giftCaseType: 0
+    giftCount: 1
+    moneyAmount: 500
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_BucketCoins_2
+    sprite: {fileID: 21300000, guid: 653b15dfe14a0af4c9be3437cd9b95e8, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 2
+    giftCaseType: 0
+    giftCount: 2
+    moneyAmount: 500
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_BucketCoins_3
+    sprite: {fileID: 21300000, guid: 653b15dfe14a0af4c9be3437cd9b95e8, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 2
+    giftCaseType: 0
+    giftCount: 3
+    moneyAmount: 500
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_BarrelCoins_1
+    sprite: {fileID: 21300000, guid: 076da9882ade8da4888b07890e56a4d0, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 2
+    giftCaseType: 0
+    giftCount: 1
+    moneyAmount: 1700
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_BarrelCoins_2
+    sprite: {fileID: 21300000, guid: 076da9882ade8da4888b07890e56a4d0, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 2
+    giftCaseType: 0
+    giftCount: 2
+    moneyAmount: 1700
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_BarrelCoins_3
+    sprite: {fileID: 21300000, guid: 076da9882ade8da4888b07890e56a4d0, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 2
+    giftCaseType: 0
+    giftCount: 3
+    moneyAmount: 1700
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_ChestCoins_1
+    sprite: {fileID: 21300000, guid: 9a0dcebc10c84d645908217906deb19a, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 3
+    giftCaseType: 0
+    giftCount: 1
+    moneyAmount: 2500
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_ChestCoins_2
+    sprite: {fileID: 21300000, guid: 9a0dcebc10c84d645908217906deb19a, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 3
+    giftCaseType: 0
+    giftCount: 2
+    moneyAmount: 2500
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: Money_ChestCoins_3
+    sprite: {fileID: 21300000, guid: 9a0dcebc10c84d645908217906deb19a, type: 3}
+    giftTypeIcon: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    giftCaseRarenessType: 3
+    giftCaseType: 0
+    giftCount: 3
+    moneyAmount: 2500
+    powerUpsData: {fileID: 0}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: PowerUp_AddTime_1
+    sprite: {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
+    giftCaseRarenessType: 1
+    giftCaseType: 1
+    giftCount: 1
+    moneyAmount: 0
+    powerUpsData: {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: PowerUp_AddTime_2
+    sprite: {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
+    giftCaseRarenessType: 2
+    giftCaseType: 1
+    giftCount: 2
+    moneyAmount: 0
+    powerUpsData: {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: PowerUp_AddTime_3
+    sprite: {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
+    giftCaseRarenessType: 3
+    giftCaseType: 1
+    giftCount: 3
+    moneyAmount: 0
+    powerUpsData: {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: PowerUp_Speed_1
+    sprite: {fileID: 21300000, guid: 7e21a96659d702848b4be3abf510b664, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: 7e21a96659d702848b4be3abf510b664, type: 3}
+    giftCaseRarenessType: 1
+    giftCaseType: 1
+    giftCount: 1
+    moneyAmount: 0
+    powerUpsData: {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: PowerUp_Speed_2
+    sprite: {fileID: 21300000, guid: 7e21a96659d702848b4be3abf510b664, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: 7e21a96659d702848b4be3abf510b664, type: 3}
+    giftCaseRarenessType: 2
+    giftCaseType: 1
+    giftCount: 2
+    moneyAmount: 0
+    powerUpsData: {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: PowerUp_Speed_3
+    sprite: {fileID: 21300000, guid: 7e21a96659d702848b4be3abf510b664, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: 7e21a96659d702848b4be3abf510b664, type: 3}
+    giftCaseRarenessType: 3
+    giftCaseType: 1
+    giftCount: 3
+    moneyAmount: 0
+    powerUpsData: {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: PowerUp_HeavyAttack_1
+    sprite: {fileID: 21300000, guid: ffda078b771d92e4f890c7a3c4873b79, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: ffda078b771d92e4f890c7a3c4873b79, type: 3}
+    giftCaseRarenessType: 1
+    giftCaseType: 1
+    giftCount: 1
+    moneyAmount: 0
+    powerUpsData: {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: PowerUp_HeavyAttack_2
+    sprite: {fileID: 21300000, guid: ffda078b771d92e4f890c7a3c4873b79, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: ffda078b771d92e4f890c7a3c4873b79, type: 3}
+    giftCaseRarenessType: 2
+    giftCaseType: 1
+    giftCount: 2
+    moneyAmount: 0
+    powerUpsData: {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: PowerUp_HeavyAttack_3
+    sprite: {fileID: 21300000, guid: ffda078b771d92e4f890c7a3c4873b79, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: ffda078b771d92e4f890c7a3c4873b79, type: 3}
+    giftCaseRarenessType: 3
+    giftCaseType: 1
+    giftCount: 3
+    moneyAmount: 0
+    powerUpsData: {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: PowerUp_UnlimitedThrowing_1
+    sprite: {fileID: 21300000, guid: 25b3a4c3e2e19aa48aa34216fa1430dc, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: 25b3a4c3e2e19aa48aa34216fa1430dc, type: 3}
+    giftCaseRarenessType: 1
+    giftCaseType: 1
+    giftCount: 1
+    moneyAmount: 0
+    powerUpsData: {fileID: 11400000, guid: 7a9c7f0bbae42e94096e1f13d67f374b, type: 2}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: PowerUp_UnlimitedThrowing_2
+    sprite: {fileID: 21300000, guid: 25b3a4c3e2e19aa48aa34216fa1430dc, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: 25b3a4c3e2e19aa48aa34216fa1430dc, type: 3}
+    giftCaseRarenessType: 2
+    giftCaseType: 1
+    giftCount: 2
+    moneyAmount: 0
+    powerUpsData: {fileID: 11400000, guid: 7a9c7f0bbae42e94096e1f13d67f374b, type: 2}
+    spearCoatingMaterial: {fileID: 0}
+    spearObject: {fileID: 0}
+  - name: PowerUp_UnlimitedThrowing_3
+    sprite: {fileID: 21300000, guid: 25b3a4c3e2e19aa48aa34216fa1430dc, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: 25b3a4c3e2e19aa48aa34216fa1430dc, type: 3}
+    giftCaseRarenessType: 3
+    giftCaseType: 1
+    giftCount: 3
+    moneyAmount: 0
+    powerUpsData: {fileID: 11400000, guid: 7a9c7f0bbae42e94096e1f13d67f374b, type: 2}
     spearCoatingMaterial: {fileID: 0}
     spearObject: {fileID: 0}
