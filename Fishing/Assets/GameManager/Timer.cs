@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -7,13 +6,13 @@ public class Timer : MonoBehaviour
 {
     public static Timer Instance;
 
-    [SerializeField] private TMP_Text timer; // Oyun ekranındaki genel zamanlayıcı
-    [SerializeField] private TMP_Text numberTimer; // Animasyonlu geri sayım için metin
+    [SerializeField] private TMP_Text timer; // The general timer on the game screen.
+    [SerializeField] private TMP_Text numberTimer; // Text for the census with animated.
 
-    private float finishedTime = 0; // Oyunun bitiş zamanı
-    private bool isGameFinished = false; // Oyunun bitip bitmediğini kontrol eden bayrak
-    private bool countdownStarted = false; // Geri sayımın bir kez çalışmasını sağlamak için bayrak
-    private float time; // Geçen süre
+    private float finishedTime = 0; // The time of the game is the end.
+    private bool isGameFinished = false; // Flag that controls whether the game is over.
+    private bool countdownStarted = false; // Flag to ensure that the countdown counts once.
+    private float time; // Time time
 
     void Awake()
     {
@@ -36,24 +35,24 @@ public class Timer : MonoBehaviour
     {
         if (isGameFinished) return;
 
-        // Oyunun bitiş zamanına ulaşıldığında
+        // When the end of the game is reached.
         if (time >= finishedTime)
         {
             GameFinished();
             return;
         }
 
-        // Geçen süreyi artır
+        // Increase the passing time.
         time += Time.deltaTime;
 
-        // Son 3 saniye kaldığında animasyonu başlat
+        // Start the animation when the last 3 seconds remain.
         if (!countdownStarted && Mathf.FloorToInt(time) >= Mathf.FloorToInt(finishedTime) - 3)
         {
-            countdownStarted = true; // Geri sayımı bir kez başlatmak için
+            countdownStarted = true; // To start the countdown once.
             StartCoroutine(Countdown());
         }
 
-        // Timer'ı güncelle
+        // Update Timer
         timer.text = Mathf.FloorToInt(time).ToString();
     }
 
@@ -74,7 +73,7 @@ public class Timer : MonoBehaviour
     {
         numberTimer.gameObject.SetActive(true);
 
-        for (int i = 3; i > 0; i--) // 3'ten geri sayım
+        for (int i = 3; i > 0; i--) // Countdown from 3.
         {
             numberTimer.text = i.ToString();
             numberTimer.transform.localScale = Vector3.zero;

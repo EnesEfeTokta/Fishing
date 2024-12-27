@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9756b20e779450418abbb29add42a1b, type: 3}
   m_Name: PlayerProgressData
   m_EditorClassIdentifier: 
-  totalPlayerScore: 0
-  totalPlayerMoney: 130
-  totalPlayerFish: 0
-  powerUpsDatas: []
+  totalPlayerScore: 20
+  totalPlayerMoney: 29010
+  totalPlayerFish: 50
+  powerUpsDatas:
+  - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
+  - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
+  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
+  - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
+  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
+  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
   giftCaseItemDatas:
-  - {fileID: 11400000, guid: 3713b19d434e7ea4ebb07b01610cb7a9, type: 2}
-  - {fileID: 11400000, guid: 3713b19d434e7ea4ebb07b01610cb7a9, type: 2}
-  - {fileID: 11400000, guid: 3713b19d434e7ea4ebb07b01610cb7a9, type: 2}
-  - {fileID: 11400000, guid: 3713b19d434e7ea4ebb07b01610cb7a9, type: 2}
   - {fileID: 11400000, guid: 3713b19d434e7ea4ebb07b01610cb7a9, type: 2}
   materialDatas: []
   spearObjectDatas: []
