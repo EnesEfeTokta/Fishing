@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsSelected: 0
   levelName: Level 1
-  levelTime: 60
+  levelTime: 10
   LevelIndex: 1
   fishTypeAndNumbers:
   - fishData: {fileID: 11400000, guid: cc17f2beff67fc7459689acfaaf98f9b, type: 2}

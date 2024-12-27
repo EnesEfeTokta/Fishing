@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -6,15 +7,13 @@ public class Timer : MonoBehaviour
 {
     public static Timer Instance;
 
-    // Reference to the TextMeshPro text field that displays the timer value on the UI.
-    [SerializeField] private TMP_Text timer;
+    [SerializeField] private TMP_Text timer; // Oyun ekranındaki genel zamanlayıcı
+    [SerializeField] private TMP_Text numberTimer; // Animasyonlu geri sayım için metin
 
-    private float finishedTime = 0;
-
-    private bool isGameFinished = false;
-
-    // Stores the elapsed time in seconds.
-    private float time;
+    private float finishedTime = 0; // Oyunun bitiş zamanı
+    private bool isGameFinished = false; // Oyunun bitip bitmediğini kontrol eden bayrak
+    private bool countdownStarted = false; // Geri sayımın bir kez çalışmasını sağlamak için bayrak
+    private float time; // Geçen süre
 
     void Awake()
     {
@@ -33,29 +32,31 @@ public class Timer : MonoBehaviour
         finishedTime += time;
     }
 
-    // Update is called once per frame to keep track of the time and update the timer display.
     void Update()
     {
         if (isGameFinished) return;
 
-        if (finishedTime < time)
+        // Oyunun bitiş zamanına ulaşıldığında
+        if (time >= finishedTime)
         {
             GameFinished();
             return;
         }
 
-        // Increment the elapsed time by the time passed since the last frame (delta time).
+        // Geçen süreyi artır
         time += Time.deltaTime;
 
-        // Convert the elapsed time to an integer to display whole seconds.
-        // Update the timer text on the UI with the converted value.
-        timer.text = Convert.ToInt32(time).ToString();
+        // Son 3 saniye kaldığında animasyonu başlat
+        if (!countdownStarted && Mathf.FloorToInt(time) >= Mathf.FloorToInt(finishedTime) - 3)
+        {
+            countdownStarted = true; // Geri sayımı bir kez başlatmak için
+            StartCoroutine(Countdown());
+        }
+
+        // Timer'ı güncelle
+        timer.text = Mathf.FloorToInt(time).ToString();
     }
 
-    /// <summary>
-    /// Returns the current elapsed time as a float value.
-    /// </summary>
-    /// <returns>The elapsed time in seconds.</returns>
     public float InstantTime()
     {
         return time;
@@ -65,7 +66,38 @@ public class Timer : MonoBehaviour
     {
         isGameFinished = true;
         GameManager.Instance.IsLevelFinished();
-        timer.text = "Game Finished!";
+        timer.text = "-x-";
         time = 0;
+    }
+
+    IEnumerator Countdown()
+    {
+        numberTimer.gameObject.SetActive(true);
+
+        for (int i = 3; i > 0; i--) // 3'ten geri sayım
+        {
+            numberTimer.text = i.ToString();
+            numberTimer.transform.localScale = Vector3.zero;
+
+            CanvasGroup canvasGroup = numberTimer.GetComponent<CanvasGroup>();
+            if (canvasGroup == null)
+            {
+                canvasGroup = numberTimer.gameObject.AddComponent<CanvasGroup>();
+            }
+            canvasGroup.alpha = 1;
+
+            float elapsedTime = 0f;
+            float duration = 1f;
+
+            while (elapsedTime < duration)
+            {
+                elapsedTime += Time.deltaTime;
+                numberTimer.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, elapsedTime / duration);
+                canvasGroup.alpha = Mathf.Lerp(1, 0, elapsedTime / duration);
+                yield return null;
+            }
+        }
+
+        numberTimer.gameObject.SetActive(false);
     }
 }
