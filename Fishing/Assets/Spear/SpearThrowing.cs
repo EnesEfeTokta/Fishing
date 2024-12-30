@@ -9,8 +9,6 @@ public class SpearThrowing : MonoBehaviour
     public static SpearThrowing Instance; // Singleton instance
 
     [Header("Spear Throwing")]
-    [SerializeField] private Transform spearPrefab; // Prefab of the spear to be thrown
-    [SerializeField] private int poolSize = 10; // Size of the spear pool
     [SerializeField] private float speed = 10f; // Speed of the spear
     [SerializeField] private float throwingTime = 1; // Cooldown time between throws
     [SerializeField] private List<AudioClip> throwingClips = new List<AudioClip>(); // List of throwing sound effects
@@ -112,9 +110,13 @@ public class SpearThrowing : MonoBehaviour
         mainCamera = Camera.main;
         waiting = FindAnyObjectByType<Waiting>();
         cameraShake = GetComponent<CameraShake>();
-
-        InitializeSpearPool();
+        
         fishs = FindObjectsOfType<Emoji>().ToList();
+    }
+
+    public void SetSpearTranformPool(List<Transform> transforms)
+    {
+        spearPool = transforms;
     }
 
     /// <summary>
@@ -157,21 +159,6 @@ public class SpearThrowing : MonoBehaviour
                 throwing = true;
                 Invoke("ThrowingPreparation", throwingTime);
             }
-        }
-    }
-
-    /// <summary>
-    /// Initializes the spear pool by instantiating and deactivating spear objects.
-    /// </summary>
-    void InitializeSpearPool()
-    {
-        spearPool = new List<Transform>();
-
-        for (int i = 0; i < poolSize; i++)
-        {
-            Transform spear = Instantiate(spearPrefab);
-            spear.gameObject.SetActive(false);
-            spearPool.Add(spear);
         }
     }
 

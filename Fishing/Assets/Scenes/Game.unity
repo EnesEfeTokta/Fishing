@@ -4922,8 +4922,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c1549e9c94906346b27660d1dc24d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spearPrefab: {fileID: 3084001714824969123, guid: 4aa5b90a5048f734380c2d6d3981c5c5, type: 3}
-  poolSize: 5
   speed: 25
   throwingTime: 1
   throwingClips:
@@ -7211,6 +7209,7 @@ GameObject:
   - component: {fileID: 1328667946}
   - component: {fileID: 1328667947}
   - component: {fileID: 1328667948}
+  - component: {fileID: 1328667949}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -7534,6 +7533,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpCellPrefab: {fileID: 1869915769918284111, guid: b4baad4615c76fd44bfb411a00b99af3, type: 3}
   content: {fileID: 699300122}
+--- !u!114 &1328667949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328667934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62054fc32bacf0c49a67da58c61174ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spearPrefab: {fileID: 3084001714824969123, guid: 4aa5b90a5048f734380c2d6d3981c5c5, type: 3}
+  poolSize: 10
+  spearPool: []
 --- !u!1 &1328984269
 GameObject:
   m_ObjectHideFlags: 0
