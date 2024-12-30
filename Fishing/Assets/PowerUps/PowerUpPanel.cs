@@ -4,7 +4,7 @@ using UnityEngine;
 public class PowerUpPanel : MonoBehaviour
 {
     [Header("Datas")]
-    private List<PowerUpsData> powerUpsDatas = new List<PowerUpsData>(); // list of power ups datas.
+    private List<PowerUpsData> powerUpDataList = new List<PowerUpsData>(); // list of power ups datas.
 
     [Header("Prefabs")]
     [SerializeField] private GameObject powerUpCellPrefab; // prefab for power up.
@@ -22,7 +22,7 @@ public class PowerUpPanel : MonoBehaviour
     void SetPowerUpsDatas()
     {
         PlayerProgressData playerProgressData = GameManager.Instance.ReadPlayerProgressData();
-        powerUpsDatas = playerProgressData.powerUpsDatas;
+        powerUpDataList = playerProgressData.powerUpsDatas;
 
         CreatePowerUpCells();
     }
@@ -36,7 +36,7 @@ public class PowerUpPanel : MonoBehaviour
         List<PowerUpsData> powerUpsData_UnlimitedThrowing = new List<PowerUpsData>();
 
         // Categorize power-ups by type
-        foreach (PowerUpsData powerUpsData in powerUpsDatas)
+        foreach (PowerUpsData powerUpsData in powerUpDataList)
         {
             switch (powerUpsData.powerUpType)
             {
@@ -64,10 +64,13 @@ public class PowerUpPanel : MonoBehaviour
 
     void InstantiatePowerUpCells(List<PowerUpsData> powerUpsList)
     {
-        GameObject cell = Instantiate(powerUpCellPrefab, content);
-        powerUpCells.Add(cell);
-        PowerUpCell powerUpCell = cell.GetComponent<PowerUpCell>();
-        powerUpCell.SetPowerUpData(powerUpsList, powerUpsList[0].powerUpImage);
+        foreach (PowerUpsData powerUpData in powerUpsList)
+        {
+            GameObject cell = Instantiate(powerUpCellPrefab, content);
+            powerUpCells.Add(cell);
+            PowerUpCell powerUpCell = cell.GetComponent<PowerUpCell>();
+            powerUpCell.SetPowerUpData(new List<PowerUpsData> { powerUpData }, powerUpData.powerUpImage);
+        }
     }
 
     void OnApplicationQuit()
