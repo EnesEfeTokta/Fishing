@@ -114,22 +114,38 @@ public class SpearThrowing : MonoBehaviour
         fishs = FindObjectsOfType<Emoji>().ToList();
     }
 
+    /// <summary>
+    /// Sets the pool of spear transforms.
+    /// </summary>
+    /// <param name="transforms">List of spear transforms to set as the pool.</param>
     public void SetSpearTranformPool(List<Transform> transforms)
     {
         spearPool = transforms;
     }
 
     /// <summary>
-    /// Handles the spear throwing input action.
-    /// Casts a ray from the mouse position and throws a spear if valid.
+    /// Handles the input action for spear throwing.
     /// </summary>
-    /// <param name="context">The input action callback context.</param>
+    /// <param name="context">The context of the input action.</param>
     void SpearThrowingInput(InputAction.CallbackContext context)
     {
         if (mainCamera == null) return;
 
-        Vector3 mousePos = playerControls.Player.MousePosition.ReadValue<Vector2>();
-        Ray ray = mainCamera.ScreenPointToRay(mousePos);
+        Vector3 inputPosition = Vector3.zero;
+
+        // Check for mouse input
+        if (Mouse.current != null)
+        {
+            inputPosition = playerControls.Player.MousePosition.ReadValue<Vector2>();
+        }
+
+        // Check for touch input
+        if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
+        {
+            inputPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+        }
+
+        Ray ray = mainCamera.ScreenPointToRay(inputPosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit) && !throwing)
@@ -142,8 +158,8 @@ public class SpearThrowing : MonoBehaviour
             {
                 spear.gameObject.SetActive(true);
 
-                // Set spear position based on mouse position
-                if (mousePos.x < Screen.width / 2)
+                // Set spear position based on input position
+                if (inputPosition.x < Screen.width / 2)
                 {
                     spear.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
                 }
@@ -206,7 +222,7 @@ public class SpearThrowing : MonoBehaviour
     }
 
     /// <summary>
-    /// Resets the throwing flag after the cooldown period.
+    /// Resets the throwing flag to allow for the next throw.
     /// </summary>
     void ThrowingPreparation()
     {

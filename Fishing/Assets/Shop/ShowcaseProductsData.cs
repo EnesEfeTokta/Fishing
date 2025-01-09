@@ -18,7 +18,7 @@ public class ShowcaseProduct
     public int productId = 000;
 
     // It holds the type of product.
-    public ProductType productType = ProductType.Spear;
+    public ProductType productType = ProductType.Object;
 
     [Space]
 
@@ -33,6 +33,11 @@ public class ShowcaseProduct
 
     // Description of the product (TextArea allows multi-line input in the Inspector).
     [TextArea] public string productDescription;
+
+    [Space]
+
+    public Material material = null;
+    public GameObject spear = null;
 
     [Space]
 
@@ -59,6 +64,6 @@ public class ShowcaseProduct
 // The type options of the product. The types of the product can be determined.
 public enum ProductType
 {
-    Spear,
-    Coatings
+    Object,
+    Material
 }

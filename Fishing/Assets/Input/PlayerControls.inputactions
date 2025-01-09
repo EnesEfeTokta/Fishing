@@ -6,15 +6,6 @@
             "id": "8bc02a01-920a-40d2-b7b0-8549c632fda7",
             "actions": [
                 {
-                    "name": "SpearThrowing",
-                    "type": "Button",
-                    "id": "1f29c33f-6d39-4bd3-9bfc-0a8e3b123a70",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "MousePosition",
                     "type": "Value",
                     "id": "6fc90c62-1472-4da8-823b-22ee4bf49607",
@@ -22,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "SpearThrowing",
+                    "type": "Button",
+                    "id": "1f29c33f-6d39-4bd3-9bfc-0a8e3b123a70",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Look",
@@ -65,11 +65,33 @@
                 },
                 {
                     "name": "",
+                    "id": "27edbd29-c5f7-45cd-b667-8b278374d4e3",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Windows",
+                    "action": "SpearThrowing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "79324859-ad0d-4a46-8ab4-62fb069f3201",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Windows",
+                    "groups": ";Windows",
+                    "action": "MousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f082ceca-d66f-4fed-8c75-4f461b0431f8",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Windows",
                     "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false

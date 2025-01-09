@@ -28,15 +28,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""8bc02a01-920a-40d2-b7b0-8549c632fda7"",
             ""actions"": [
                 {
-                    ""name"": ""SpearThrowing"",
-                    ""type"": ""Button"",
-                    ""id"": ""1f29c33f-6d39-4bd3-9bfc-0a8e3b123a70"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""MousePosition"",
                     ""type"": ""Value"",
                     ""id"": ""6fc90c62-1472-4da8-823b-22ee4bf49607"",
@@ -44,6 +35,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SpearThrowing"",
+                    ""type"": ""Button"",
+                    ""id"": ""1f29c33f-6d39-4bd3-9bfc-0a8e3b123a70"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Look"",
@@ -87,11 +87,33 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""27edbd29-c5f7-45cd-b667-8b278374d4e3"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Windows"",
+                    ""action"": ""SpearThrowing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""79324859-ad0d-4a46-8ab4-62fb069f3201"",
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Windows"",
+                    ""groups"": "";Windows"",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f082ceca-d66f-4fed-8c75-4f461b0431f8"",
+                    ""path"": ""<Touchscreen>/primaryTouch/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Windows"",
                     ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -170,8 +192,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_SpearThrowing = m_Player.FindAction("SpearThrowing", throwIfNotFound: true);
         m_Player_MousePosition = m_Player.FindAction("MousePosition", throwIfNotFound: true);
+        m_Player_SpearThrowing = m_Player.FindAction("SpearThrowing", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Touch = m_Player.FindAction("Touch", throwIfNotFound: true);
         m_Player_Click = m_Player.FindAction("Click", throwIfNotFound: true);
@@ -241,8 +263,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_SpearThrowing;
     private readonly InputAction m_Player_MousePosition;
+    private readonly InputAction m_Player_SpearThrowing;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Touch;
     private readonly InputAction m_Player_Click;
@@ -250,8 +272,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         private @PlayerControls m_Wrapper;
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @SpearThrowing => m_Wrapper.m_Player_SpearThrowing;
         public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
+        public InputAction @SpearThrowing => m_Wrapper.m_Player_SpearThrowing;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Touch => m_Wrapper.m_Player_Touch;
         public InputAction @Click => m_Wrapper.m_Player_Click;
@@ -264,12 +286,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @SpearThrowing.started += instance.OnSpearThrowing;
-            @SpearThrowing.performed += instance.OnSpearThrowing;
-            @SpearThrowing.canceled += instance.OnSpearThrowing;
             @MousePosition.started += instance.OnMousePosition;
             @MousePosition.performed += instance.OnMousePosition;
             @MousePosition.canceled += instance.OnMousePosition;
+            @SpearThrowing.started += instance.OnSpearThrowing;
+            @SpearThrowing.performed += instance.OnSpearThrowing;
+            @SpearThrowing.canceled += instance.OnSpearThrowing;
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
@@ -283,12 +305,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @SpearThrowing.started -= instance.OnSpearThrowing;
-            @SpearThrowing.performed -= instance.OnSpearThrowing;
-            @SpearThrowing.canceled -= instance.OnSpearThrowing;
             @MousePosition.started -= instance.OnMousePosition;
             @MousePosition.performed -= instance.OnMousePosition;
             @MousePosition.canceled -= instance.OnMousePosition;
+            @SpearThrowing.started -= instance.OnSpearThrowing;
+            @SpearThrowing.performed -= instance.OnSpearThrowing;
+            @SpearThrowing.canceled -= instance.OnSpearThrowing;
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
@@ -326,8 +348,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnSpearThrowing(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
+        void OnSpearThrowing(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnTouch(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);

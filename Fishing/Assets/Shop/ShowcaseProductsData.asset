@@ -14,50 +14,222 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showcaseProducts:
   - productId: 0
-    productType: 1
-    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
-    productName: Deneme1
-    productPrice: 50
-    productDescription: "ourgggggggggggggggggh\u0131"
-    isPurchased: 1
-    productReceivedDate: 14.10.2024 23:46:57
-  - productId: 5
     productType: 0
-    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
-    productName: Deneme8
-    productPrice: 50
-    productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
-    isPurchased: 1
-    productReceivedDate: 14.10.2024 23:50:05
-  - productId: 2
-    productType: 1
-    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
     productName: Deneme1
-    productPrice: 50
-    productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
+    productPrice: 10
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 1
+    productType: 0
+    productImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    productName: Deneme2
+    productPrice: 20
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 5727867713577795372, guid: ce20a71bcebfe1749bd5b81a62dd3fdc, type: 3}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 2
+    productType: 0
+    productImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    productName: Deneme3
+    productPrice: 30
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
     isPurchased: 0
     productReceivedDate: 
   - productId: 3
     productType: 0
-    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
-    productName: Deneme1
-    productPrice: 89
-    productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
-    isPurchased: 1
-    productReceivedDate: 14.10.2024 23:20:05
-  - productId: 4
+    productImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 0
+    productImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 0
+    productImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 0
+    productImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 0
+    productImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 0
+    productImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 0
+    productImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
     productType: 1
     productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
-    productName: Deneme1
-    productPrice: 50
-    productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 2100000, guid: 0ea082acd3b46904580e2559be0245d9, type: 2}
+    spear: {fileID: 0}
     isPurchased: 0
-    productReceivedDate: 14.10.2024 23:03:48
-  - productId: 5
-    productType: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 1
     productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
-    productName: Deneme1
-    productPrice: 50
-    productDescription: "Bu bir Deneme oldu\u011Fu i\xE7in dikkate al\u0131nmas\u0131n. "
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
     isPurchased: 0
-    productReceivedDate: 14.10.2024 23:44:55
+    productReceivedDate: 
+  - productId: 3
+    productType: 1
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 1
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 1
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 1
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 1
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 1
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 1
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 1
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 1
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - productId: 3
+    productType: 1
+    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
+    productName: Deneme4
+    productPrice: 40
+    productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
+    material: {fileID: 0}
+    spear: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
