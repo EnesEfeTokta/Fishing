@@ -22,5 +22,6 @@ public class PlayerProgressData : ScriptableObject
     [Space]
     
     public GameObject selectSpearObject; // The player's selected spear asset.
-    public Material selectSpearMaterial; // The player's selected spear material.
+    //public Material selectSpearMaterial; // The player's selected spear material.
+    public SpearDress spearDress; // The player's selected spear dressing.
 }

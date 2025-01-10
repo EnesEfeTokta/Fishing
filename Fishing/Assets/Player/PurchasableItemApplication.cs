@@ -51,7 +51,7 @@ public class PurchasableItemApplication : MonoBehaviour
         }
 
         // Apply the selected material to all spears in the pool.
-        SpearMaterialChange(spearPool);
+        SpearDressing(spearPool);
 
         // Return the list of pooled spears.
         return spearPool;
@@ -60,14 +60,13 @@ public class PurchasableItemApplication : MonoBehaviour
     /// <summary>
     /// Applies the selected spear material to all spears in the pool.
     /// </summary>
-    /// <param name="renderers">The list of spear transforms.</param>
-    void SpearMaterialChange(List<Transform> renderers)
+    /// <param name="dresses">The list of spear transforms.</param>
+    void SpearDressing(List<Transform> dresses)
     {
         // Iterate through each spear in the list.
-        foreach (Transform spear in renderers)
+        foreach (Transform spear in dresses)
         {
-            // Get the Renderer component of the spear's child object (index 0) and apply the selected material.
-            spear.GetChild(0).gameObject.GetComponent<Renderer>().material = playerProgressData.selectSpearMaterial;
+            spear.GetComponent<SpearDressing>().StartSpearDressing(playerProgressData.spearDress.mesh, playerProgressData.spearDress.materials);
         }
     }
 }

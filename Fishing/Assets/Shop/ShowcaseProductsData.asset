@@ -40,7 +40,7 @@ MonoBehaviour:
     productPrice: 30
     productDescription: "Bu blrjvrkjvhrktvujrh\u015Fgbkjhnbs\u015Fkdjhbrtbjhrkubhj"
     material: {fileID: 0}
-    spear: {fileID: 0}
+    spear: {fileID: 5727867713577795372, guid: d21a5e4867c62134e9439e330c391a55, type: 3}
     isPurchased: 0
     productReceivedDate: 
   - productId: 3

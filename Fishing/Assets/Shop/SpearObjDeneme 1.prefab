@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8211970950869933023}
   - component: {fileID: 4462369634704798370}
   m_Layer: 0
-  m_Name: SpearObjDeneme
+  m_Name: SpearObjDeneme 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7993982598810627253, guid: 68f562c48f0f0ec4fbe9573c8c8d3dbd, type: 3}
+  - {fileID: -8274133419916619345, guid: 0c6c8b480ce8d8247b3d39cc98d473fe, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
