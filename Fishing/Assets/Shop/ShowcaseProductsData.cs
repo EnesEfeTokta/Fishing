@@ -35,9 +35,14 @@ public class ShowcaseProduct
     [TextArea] public string productDescription;
 
     [Space]
-
+/*
     public Material material = null;
     public GameObject spear = null;
+*/
+
+    public SpearDress spearDress = null;
+
+    public object additionalData;
 
     [Space]
 
@@ -48,8 +53,14 @@ public class ShowcaseProduct
     public string productReceivedDate;
 
     // Method to mark the product as purchased and set the received date to the current date.
-    public void StartPurchased()
+    public bool StartPurchased()
     {
+        // Check if the product is already purchased.
+        if (isPurchased)
+        {
+            return false;
+        }
+
         // Get the current date and time.
         DateTime now = DateTime.Now;
 
@@ -58,6 +69,8 @@ public class ShowcaseProduct
 
         // Mark the product as purchased.
         isPurchased = true;
+
+        return isPurchased;
     }
 }
 

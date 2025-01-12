@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -48,12 +49,13 @@ public class ShopPanel : MonoBehaviour
     [SerializeField] private TMP_Text productStatus; // UI element to show whether the product can be "Used" or "Bought".
     [SerializeField] private TMP_Text productReceivedDate; // UI element to display the date when the product was received.
     [SerializeField] private TMP_Text productSelectIndex; // UI element to display the index of the product selected.
+    [SerializeField] private Button productTransactionButton; // Button to initiate product transactions (use or buy).
 
     private List<GameObject> showingProducts = new List<GameObject>(); // List to keep track of displayed products.
     private int selectedProductIndex = 0; // Index of the currently selected product.
 
     [Header("Platform")]
-    [SerializeField] private Transform spearPlatformObjectTransform;
+    [SerializeField] private GameObject spearObj;
 
     void Start()
     {
@@ -157,6 +159,7 @@ public class ShopPanel : MonoBehaviour
         }
     }
 
+    // Method to show products of a specific type (e.g., Object or Material).
     void ShowProduct(ProductType productType)
     {
         // Pre-manufactured and listed products are cleaned.
@@ -183,6 +186,10 @@ public class ShopPanel : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Method to handle the action button click event.
+    /// </summary>
+    /// <param name="direction"></param>
     public void ActionButtonClick(bool direction)
     {
         showingProducts[selectedProductIndex].GetComponent<ProductCell>().ProductCellBackgroundColorChanged(Color.white);
@@ -201,11 +208,6 @@ public class ShopPanel : MonoBehaviour
         showingProducts[selectedProductIndex].GetComponent<ProductCell>().ProductCellBackgroundColorChanged(Color.green);
     }
 
-    void ProductBuy()
-    {
-        // The product is purchased.
-    }
-
     public void ProductSelect(ShowcaseProduct showcaseProduct, GameObject product)
     {
         showingProducts[selectedProductIndex].GetComponent<ProductCell>().ProductCellBackgroundColorChanged(Color.white);
@@ -222,6 +224,9 @@ public class ShopPanel : MonoBehaviour
         productStatus.text = showcaseProduct.isPurchased ? "Use" : "Buy";
         productReceivedDate.text = showcaseProduct.productReceivedDate != null ? showcaseProduct.productReceivedDate : "--.--.----";
 
+        // Add a listener to the transaction button that triggers the ProductBuy method when clicked.
+        productTransactionButton.onClick.AddListener(ProductBuy);
+
         PatformChanged(showcaseProduct.productType);
     }
 
@@ -230,33 +235,81 @@ public class ShopPanel : MonoBehaviour
         switch (productType)
         {
             case ProductType.Object:
-                ObjectChanged(showcaseProductsData.showcaseProducts[selectedProductIndex].spear);
+                SpearDressing(showcaseProductsData.showcaseProducts[selectedProductIndex].spearDress);
                 break;
             case ProductType.Material:
-                ObjectChanged(playerProgressData.selectSpearObject);
-                MaterialChanged(showcaseProductsData.showcaseProducts[selectedProductIndex].material);
+                SpearDressing(playerProgressData.spearDress);
                 break;
         }
     }
 
-    void ObjectChanged(GameObject gameObject)
+    void SpearDressing(SpearDress spearDress)
     {
-        if (showcaseProductsData.showcaseProducts[selectedProductIndex].spear == null) return;
-
-        foreach (Transform child in spearPlatformObjectTransform)
-        {
-            Destroy(child.gameObject);
-        }
-
-        Instantiate(gameObject, spearPlatformObjectTransform);
+        spearObj.GetComponent<SpearDressing>().StartSpearDressing(spearDress.mesh, spearDress.materials);
     }
 
-    void MaterialChanged(Material material)
-    {
-        // If there is no material, break the method.
-        if (showcaseProductsData.showcaseProducts[selectedProductIndex].material == null) return;
+    // TODO: Material System Adding Bell ...
 
-        spearPlatformObjectTransform.GetChild(0).GetComponent<Renderer>().material = material;
+    void ProductBuy()
+    {
+        // Check if the player has enough money to buy the product.
+        if (showcaseProductsData.showcaseProducts[selectedProductIndex].isPurchased)
+        {
+            // If the product has already been purchased, return.
+            return;
+        }
+
+        // Use the new method to check if the player has enough money to buy the product.
+        if (BalanceSufficient())
+        {
+            // If the player has enough money, buy the product.
+            showcaseProductsData.showcaseProducts[selectedProductIndex].StartPurchased();
+            playerProgressData.totalPlayerMoney -= showcaseProductsData.showcaseProducts[selectedProductIndex].productPrice;
+            UpdateEconomicData();
+
+            // Update the product status to "Use" after purchase.
+            productStatus.text = "Use";
+
+            // Update the product received date to the current date.
+            productReceivedDate.text = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss");
+
+            // Play a sound effect for the successful purchase.
+            AcceptItem();
+
+            // Notification is sent.
+            Message.Instance.NewMessage("Item Received", "The item was successfully retrieved.", MessageStatus.LessImportant, 5);
+        }
+        else
+        {
+            // Notification is sent.
+            Message.Instance.NewMessage("Item Not Available", "There was a problem retrieving the item. Not enough Balance.", MessageStatus.VeryImportant, 5);
+        }
+    }
+
+    // Method to check if the player has enough money to buy the product.
+    bool BalanceSufficient()
+    {
+        // Get the price of the selected product.
+        int productPrice = showcaseProductsData.showcaseProducts[selectedProductIndex].productPrice;
+        // Get the player's current money.
+        int playerPrice = playerProgressData.totalPlayerMoney;
+
+        // Check if the player has enough money.
+        if (playerPrice >= productPrice)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    // Method to accept an item.
+    void AcceptItem()
+    {
+        // The product is accepted.
+        playerProgressData.possessedSpearDresses.Add(showcaseProductsData.showcaseProducts[selectedProductIndex].spearDress);
     }
 
 
