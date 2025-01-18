@@ -13,16 +13,19 @@ MonoBehaviour:
   m_Name: PlayerProgressData
   m_EditorClassIdentifier: 
   totalPlayerScore: 20
-  totalPlayerMoney: 29010
+  totalPlayerMoney: 5600
   totalPlayerFish: 50
   powerUpsDatas:
-  - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
-  - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
-  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
-  - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
-  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
   - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
   giftCaseItemDatas:
   - {fileID: 11400000, guid: 3713b19d434e7ea4ebb07b01610cb7a9, type: 2}
   materialDatas: []
   spearObjectDatas: []
+  selectSpearObject: {fileID: 533312282937686050, guid: 4aa5b90a5048f734380c2d6d3981c5c5, type: 3}
+  PossessedSpearDresses: []
+  spearDress:
+    name: Default
+    mesh: {fileID: 4300128, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
+    materials:
+    - {fileID: 2100000, guid: accb120ac2bc7e7479d74b0b291179c8, type: 2}
+    - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}

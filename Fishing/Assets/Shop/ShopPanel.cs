@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,8 +33,8 @@ public class ShopPanel : MonoBehaviour
     private PlayerProgress playerProgress;
 
     [Header("Option Buttons")]
-    [SerializeField] private Button spearButton; // Button to display spear-related products.
-    [SerializeField] private Button coatingsButton; // Button to display coatings-related products.
+    [SerializeField] private Button objectButton; // Button to display spear-related products.
+    [SerializeField] private Button materialButton; // Button to display coatings-related products.
 
     [Header("Ads Panel")]
     [SerializeField] private Transform adsPanelParent;
@@ -41,7 +42,20 @@ public class ShopPanel : MonoBehaviour
     [SerializeField] private AdsProductsData adsProductsData;
     private List<Sprite> adsProducts = new List<Sprite>();
 
+    [Header("Product Showcase")]
+    [SerializeField] private TMP_Text productName; // UI element to display the product's name.
+    [SerializeField] private TMP_Text productPrice; // UI element to display the product's price.
+    [SerializeField] private TMP_Text productDescription; // UI element to display the product's description.
+    [SerializeField] private TMP_Text productStatus; // UI element to show whether the product can be "Used" or "Bought".
+    [SerializeField] private TMP_Text productReceivedDate; // UI element to display the date when the product was received.
+    [SerializeField] private TMP_Text productSelectIndex; // UI element to display the index of the product selected.
+    [SerializeField] private Button productTransactionButton; // Button to initiate product transactions (use or buy).
+
     private List<GameObject> showingProducts = new List<GameObject>(); // List to keep track of displayed products.
+    private int selectedProductIndex = 0; // Index of the currently selected product.
+
+    [Header("Platform")]
+    [SerializeField] private GameObject spearObj;
 
     void Start()
     {
@@ -49,9 +63,14 @@ public class ShopPanel : MonoBehaviour
         playerProgress = GetComponent<PlayerProgress>();
 
         StartCoroutine(ShowAdsProduct());
+
+        // Show all products by default when the game starts.
+        ShowAllProduct();
+
+        ProductSelect(showcaseProductsData.showcaseProducts[selectedProductIndex], showingProducts[selectedProductIndex]);
     }
 
-    public void OnSpearButtonClick()
+    public void OnObjectButtonClick()
     {
         // Destroy all currently displayed products to avoid duplication.
         foreach (GameObject product in showingProducts)
@@ -59,15 +78,15 @@ public class ShopPanel : MonoBehaviour
             Destroy(product);
         }
 
-        // Show only the products that are of type "Spear".
-        ShowProduct(ProductType.Spear);
+        // Show only the products that are of type "Object".
+        ShowProduct(ProductType.Object);
 
         // Set button interactability: Disable the spear button to prevent multiple clicks.
-        spearButton.interactable = false;
-        coatingsButton.interactable = true;
+        objectButton.interactable = false;
+        materialButton.interactable = true;
     }
 
-    public void OnCoatingsButtonClick()
+    public void OnMaterialButtonClick()
     {
         // Destroy all currently displayed products to avoid duplication.
         foreach (GameObject product in showingProducts)
@@ -75,12 +94,12 @@ public class ShopPanel : MonoBehaviour
             Destroy(product);
         }
 
-        // Show only the products that are of type "Coatings".
-        ShowProduct(ProductType.Coatings);
+        // Show only the products that are of type "Material".
+        ShowProduct(ProductType.Material);
 
         // Set button interactability: Disable the coatings button to prevent multiple clicks.
-        coatingsButton.interactable = false;
-        spearButton.interactable = true;
+        materialButton.interactable = false;
+        objectButton.interactable = true;
     }
 
     // Method to open or close the shop panel.
@@ -94,7 +113,7 @@ public class ShopPanel : MonoBehaviour
         if (isOpen)
         {
             // Display spear-related products by default when the panel opens.
-            OnSpearButtonClick();
+            OnObjectButtonClick();
         }
 
         StartCoroutine(ShowAdsProduct());
@@ -119,28 +138,182 @@ public class ShopPanel : MonoBehaviour
     }
 
     // Method to instantiate product UI elements and populate them with product data.
+    void ShowAllProduct()
+    {
+        // Pre-manufactured and listed products are cleaned.
+        showingProducts.Clear();
+
+        foreach (Transform oldProduct in parent)
+        {
+            Destroy(oldProduct.gameObject);
+        }
+
+        // Loop through all products defined in the showcaseProductsData.
+        foreach (ShowcaseProduct showcaseProduct in showcaseProductsData.showcaseProducts)
+        {
+            // Instantiate a new product UI element as a child of the specified parent.
+            GameObject newProduct = Instantiate(productPrefab, parent);
+
+            newProduct.GetComponent<ProductCell>().SetProductCell(showcaseProduct, this);
+            showingProducts.Add(newProduct);
+        }
+    }
+
+    // Method to show products of a specific type (e.g., Object or Material).
     void ShowProduct(ProductType productType)
     {
         // Pre-manufactured and listed products are cleaned.
         showingProducts.Clear();
 
+        // Destroy all currently displayed products to avoid duplication.
+        foreach (GameObject product in showingProducts)
+        {
+            Destroy(product);
+        }
+
         // Loop through all products defined in the showcaseProductsData.
         foreach (ShowcaseProduct showcaseProduct in showcaseProductsData.showcaseProducts)
         {
-            // Check if the product matches the selected product type.
+            // Check if the product type matches the specified productType.
             if (showcaseProduct.productType == productType)
             {
-                // Instantiate a product prefab as a child of the parent transform.
-                ProductCell productCell = Instantiate(productPrefab, parent).GetComponent<ProductCell>();
+                // Instantiate a new product UI element as a child of the specified parent.
+                GameObject newProduct = Instantiate(productPrefab, parent);
 
-                // Call the method on the product cell to populate the UI with product information.
-                productCell.ShowProductInformation(showcaseProduct, playerProgress);
-
-                // Produced products are listed.
-                showingProducts.Add(productCell.gameObject);
+                newProduct.GetComponent<ProductCell>().SetProductCell(showcaseProduct, this);
+                showingProducts.Add(newProduct);
             }
         }
     }
+
+    /// <summary>
+    /// Method to handle the action button click event.
+    /// </summary>
+    /// <param name="direction"></param>
+    public void ActionButtonClick(bool direction)
+    {
+        showingProducts[selectedProductIndex].GetComponent<ProductCell>().ProductCellBackgroundColorChanged(Color.white);
+
+        if (direction)
+        {
+            selectedProductIndex = (selectedProductIndex + 1) % showingProducts.Count;
+        }
+        else
+        {
+            selectedProductIndex = (selectedProductIndex - 1 + showingProducts.Count) % showingProducts.Count;
+        }
+
+        ProductSelect(showcaseProductsData.showcaseProducts[selectedProductIndex], showingProducts[selectedProductIndex]);
+
+        showingProducts[selectedProductIndex].GetComponent<ProductCell>().ProductCellBackgroundColorChanged(Color.green);
+    }
+
+    public void ProductSelect(ShowcaseProduct showcaseProduct, GameObject product)
+    {
+        showingProducts[selectedProductIndex].GetComponent<ProductCell>().ProductCellBackgroundColorChanged(Color.white);
+
+        // The product is selected.
+        selectedProductIndex = showingProducts.IndexOf(product);
+        productSelectIndex.text = $"Selected Index: {selectedProductIndex + 1}";
+        showingProducts[selectedProductIndex].GetComponent<ProductCell>().ProductCellBackgroundColorChanged(Color.green);
+
+        // Set product UI elements with the provided data.
+        productName.text = showcaseProduct.productName;
+        productPrice.text = $"{showcaseProduct.productPrice}$";
+        productDescription.text = showcaseProduct.productDescription;
+        productStatus.text = showcaseProduct.isPurchased ? "Use" : "Buy";
+        productReceivedDate.text = showcaseProduct.productReceivedDate != null ? showcaseProduct.productReceivedDate : "--.--.----";
+
+        // Add a listener to the transaction button that triggers the ProductBuy method when clicked.
+        productTransactionButton.onClick.AddListener(ProductBuy);
+
+        PatformChanged(showcaseProduct.productType);
+    }
+
+    void PatformChanged(ProductType productType)
+    {
+        switch (productType)
+        {
+            case ProductType.Object:
+                SpearDressing(showcaseProductsData.showcaseProducts[selectedProductIndex].spearDress);
+                break;
+            case ProductType.Material:
+                SpearDressing(playerProgressData.spearDress);
+                break;
+        }
+    }
+
+    void SpearDressing(SpearDress spearDress)
+    {
+        spearObj.GetComponent<SpearDressing>().StartSpearDressing(spearDress.mesh, spearDress.materials);
+    }
+
+    // TODO: Material System Adding Bell ...
+
+    void ProductBuy()
+    {
+        // Check if the player has enough money to buy the product.
+        if (showcaseProductsData.showcaseProducts[selectedProductIndex].isPurchased)
+        {
+            // If the product has already been purchased, return.
+            return;
+        }
+
+        // Use the new method to check if the player has enough money to buy the product.
+        if (BalanceSufficient())
+        {
+            // If the player has enough money, buy the product.
+            showcaseProductsData.showcaseProducts[selectedProductIndex].StartPurchased();
+            playerProgressData.totalPlayerMoney -= showcaseProductsData.showcaseProducts[selectedProductIndex].productPrice;
+            UpdateEconomicData();
+
+            // Update the product status to "Use" after purchase.
+            productStatus.text = "Use";
+
+            // Update the product received date to the current date.
+            productReceivedDate.text = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss");
+
+            // Play a sound effect for the successful purchase.
+            AcceptItem();
+
+            // Notification is sent.
+            Message.Instance.NewMessage("Item Received", "The item was successfully retrieved.", MessageStatus.LessImportant, 5);
+        }
+        else
+        {
+            // Notification is sent.
+            Message.Instance.NewMessage("Item Not Available", "There was a problem retrieving the item. Not enough Balance.", MessageStatus.VeryImportant, 5);
+        }
+    }
+
+    // Method to check if the player has enough money to buy the product.
+    bool BalanceSufficient()
+    {
+        // Get the price of the selected product.
+        int productPrice = showcaseProductsData.showcaseProducts[selectedProductIndex].productPrice;
+        // Get the player's current money.
+        int playerPrice = playerProgressData.totalPlayerMoney;
+
+        // Check if the player has enough money.
+        if (playerPrice >= productPrice)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    // Method to accept an item.
+    void AcceptItem()
+    {
+        // The product is accepted.
+        playerProgressData.possessedSpearDresses.Add(showcaseProductsData.showcaseProducts[selectedProductIndex].spearDress);
+    }
+
+
+
 
     // Coroutine to fade in the ad.
     IEnumerator ShowAdsProduct()

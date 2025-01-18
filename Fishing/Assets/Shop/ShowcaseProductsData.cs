@@ -18,7 +18,7 @@ public class ShowcaseProduct
     public int productId = 000;
 
     // It holds the type of product.
-    public ProductType productType = ProductType.Spear;
+    public ProductType productType = ProductType.Object;
 
     [Space]
 
@@ -35,6 +35,16 @@ public class ShowcaseProduct
     [TextArea] public string productDescription;
 
     [Space]
+/*
+    public Material material = null;
+    public GameObject spear = null;
+*/
+
+    public SpearDress spearDress = null;
+
+    public object additionalData;
+
+    [Space]
 
     // Boolean flag to indicate whether the product has been purchased.
     public bool isPurchased = false;
@@ -43,8 +53,14 @@ public class ShowcaseProduct
     public string productReceivedDate;
 
     // Method to mark the product as purchased and set the received date to the current date.
-    public void StartPurchased()
+    public bool StartPurchased()
     {
+        // Check if the product is already purchased.
+        if (isPurchased)
+        {
+            return false;
+        }
+
         // Get the current date and time.
         DateTime now = DateTime.Now;
 
@@ -53,12 +69,14 @@ public class ShowcaseProduct
 
         // Mark the product as purchased.
         isPurchased = true;
+
+        return isPurchased;
     }
 }
 
 // The type options of the product. The types of the product can be determined.
 public enum ProductType
 {
-    Spear,
-    Coatings
+    Object,
+    Material
 }

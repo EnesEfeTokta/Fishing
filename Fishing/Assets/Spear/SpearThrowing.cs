@@ -9,8 +9,6 @@ public class SpearThrowing : MonoBehaviour
     public static SpearThrowing Instance; // Singleton instance
 
     [Header("Spear Throwing")]
-    [SerializeField] private Transform spearPrefab; // Prefab of the spear to be thrown
-    [SerializeField] private int poolSize = 10; // Size of the spear pool
     [SerializeField] private float speed = 10f; // Speed of the spear
     [SerializeField] private float throwingTime = 1; // Cooldown time between throws
     [SerializeField] private List<AudioClip> throwingClips = new List<AudioClip>(); // List of throwing sound effects
@@ -112,22 +110,42 @@ public class SpearThrowing : MonoBehaviour
         mainCamera = Camera.main;
         waiting = FindAnyObjectByType<Waiting>();
         cameraShake = GetComponent<CameraShake>();
-
-        InitializeSpearPool();
+        
         fishs = FindObjectsOfType<Emoji>().ToList();
     }
 
     /// <summary>
-    /// Handles the spear throwing input action.
-    /// Casts a ray from the mouse position and throws a spear if valid.
+    /// Sets the pool of spear transforms.
     /// </summary>
-    /// <param name="context">The input action callback context.</param>
+    /// <param name="transforms">List of spear transforms to set as the pool.</param>
+    public void SetSpearTranformPool(List<Transform> transforms)
+    {
+        spearPool = transforms;
+    }
+
+    /// <summary>
+    /// Handles the input action for spear throwing.
+    /// </summary>
+    /// <param name="context">The context of the input action.</param>
     void SpearThrowingInput(InputAction.CallbackContext context)
     {
         if (mainCamera == null) return;
 
-        Vector3 mousePos = playerControls.Player.MousePosition.ReadValue<Vector2>();
-        Ray ray = mainCamera.ScreenPointToRay(mousePos);
+        Vector3 inputPosition = Vector3.zero;
+
+        // Check for mouse input
+        if (Mouse.current != null)
+        {
+            inputPosition = playerControls.Player.MousePosition.ReadValue<Vector2>();
+        }
+
+        // Check for touch input
+        if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
+        {
+            inputPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+        }
+
+        Ray ray = mainCamera.ScreenPointToRay(inputPosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit) && !throwing)
@@ -140,8 +158,8 @@ public class SpearThrowing : MonoBehaviour
             {
                 spear.gameObject.SetActive(true);
 
-                // Set spear position based on mouse position
-                if (mousePos.x < Screen.width / 2)
+                // Set spear position based on input position
+                if (inputPosition.x < Screen.width / 2)
                 {
                     spear.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
                 }
@@ -157,21 +175,6 @@ public class SpearThrowing : MonoBehaviour
                 throwing = true;
                 Invoke("ThrowingPreparation", throwingTime);
             }
-        }
-    }
-
-    /// <summary>
-    /// Initializes the spear pool by instantiating and deactivating spear objects.
-    /// </summary>
-    void InitializeSpearPool()
-    {
-        spearPool = new List<Transform>();
-
-        for (int i = 0; i < poolSize; i++)
-        {
-            Transform spear = Instantiate(spearPrefab);
-            spear.gameObject.SetActive(false);
-            spearPool.Add(spear);
         }
     }
 
@@ -219,7 +222,7 @@ public class SpearThrowing : MonoBehaviour
     }
 
     /// <summary>
-    /// Resets the throwing flag after the cooldown period.
+    /// Resets the throwing flag to allow for the next throw.
     /// </summary>
     void ThrowingPreparation()
     {

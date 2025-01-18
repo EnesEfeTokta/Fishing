@@ -28,15 +28,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""8bc02a01-920a-40d2-b7b0-8549c632fda7"",
             ""actions"": [
                 {
-                    ""name"": ""SpearThrowing"",
-                    ""type"": ""Button"",
-                    ""id"": ""1f29c33f-6d39-4bd3-9bfc-0a8e3b123a70"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""MousePosition"",
                     ""type"": ""Value"",
                     ""id"": ""6fc90c62-1472-4da8-823b-22ee4bf49607"",
@@ -44,6 +35,42 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SpearThrowing"",
+                    ""type"": ""Button"",
+                    ""id"": ""1f29c33f-6d39-4bd3-9bfc-0a8e3b123a70"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""c6d9a9f6-4a63-4c6b-b34c-25d04965f3a5"",
+                    ""expectedControlType"": ""Delta"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Touch"",
+                    ""type"": ""Value"",
+                    ""id"": ""3891bbda-84a3-4799-9437-0d3a915a3551"",
+                    ""expectedControlType"": ""Delta"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""a0bd49a0-25cc-47e5-81cf-0ea6e0519df4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -60,12 +87,89 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""27edbd29-c5f7-45cd-b667-8b278374d4e3"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Windows"",
+                    ""action"": ""SpearThrowing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""79324859-ad0d-4a46-8ab4-62fb069f3201"",
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Windows"",
+                    ""groups"": "";Windows"",
                     ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f082ceca-d66f-4fed-8c75-4f461b0431f8"",
+                    ""path"": ""<Touchscreen>/primaryTouch/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Windows"",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe9d9494-b387-425b-ac5d-579dc61e1267"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ddcb8007-cfa8-4349-90e7-96a46a2a7136"",
+                    ""path"": ""<Touchscreen>/primaryTouch/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""12c30a7d-1316-478b-a136-f9b902ebae40"",
+                    ""path"": ""<Touchscreen>/primaryTouch/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Touch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a3c8dd6e-9045-4f3f-b32c-19266e12d565"",
+                    ""path"": ""<VirtualMouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16182a9a-acd9-4998-a54f-d8c26677d6a5"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -88,8 +192,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_SpearThrowing = m_Player.FindAction("SpearThrowing", throwIfNotFound: true);
         m_Player_MousePosition = m_Player.FindAction("MousePosition", throwIfNotFound: true);
+        m_Player_SpearThrowing = m_Player.FindAction("SpearThrowing", throwIfNotFound: true);
+        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_Touch = m_Player.FindAction("Touch", throwIfNotFound: true);
+        m_Player_Click = m_Player.FindAction("Click", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -156,14 +263,20 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_SpearThrowing;
     private readonly InputAction m_Player_MousePosition;
+    private readonly InputAction m_Player_SpearThrowing;
+    private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_Touch;
+    private readonly InputAction m_Player_Click;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @SpearThrowing => m_Wrapper.m_Player_SpearThrowing;
         public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
+        public InputAction @SpearThrowing => m_Wrapper.m_Player_SpearThrowing;
+        public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @Touch => m_Wrapper.m_Player_Touch;
+        public InputAction @Click => m_Wrapper.m_Player_Click;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -173,22 +286,40 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @SpearThrowing.started += instance.OnSpearThrowing;
-            @SpearThrowing.performed += instance.OnSpearThrowing;
-            @SpearThrowing.canceled += instance.OnSpearThrowing;
             @MousePosition.started += instance.OnMousePosition;
             @MousePosition.performed += instance.OnMousePosition;
             @MousePosition.canceled += instance.OnMousePosition;
+            @SpearThrowing.started += instance.OnSpearThrowing;
+            @SpearThrowing.performed += instance.OnSpearThrowing;
+            @SpearThrowing.canceled += instance.OnSpearThrowing;
+            @Look.started += instance.OnLook;
+            @Look.performed += instance.OnLook;
+            @Look.canceled += instance.OnLook;
+            @Touch.started += instance.OnTouch;
+            @Touch.performed += instance.OnTouch;
+            @Touch.canceled += instance.OnTouch;
+            @Click.started += instance.OnClick;
+            @Click.performed += instance.OnClick;
+            @Click.canceled += instance.OnClick;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @SpearThrowing.started -= instance.OnSpearThrowing;
-            @SpearThrowing.performed -= instance.OnSpearThrowing;
-            @SpearThrowing.canceled -= instance.OnSpearThrowing;
             @MousePosition.started -= instance.OnMousePosition;
             @MousePosition.performed -= instance.OnMousePosition;
             @MousePosition.canceled -= instance.OnMousePosition;
+            @SpearThrowing.started -= instance.OnSpearThrowing;
+            @SpearThrowing.performed -= instance.OnSpearThrowing;
+            @SpearThrowing.canceled -= instance.OnSpearThrowing;
+            @Look.started -= instance.OnLook;
+            @Look.performed -= instance.OnLook;
+            @Look.canceled -= instance.OnLook;
+            @Touch.started -= instance.OnTouch;
+            @Touch.performed -= instance.OnTouch;
+            @Touch.canceled -= instance.OnTouch;
+            @Click.started -= instance.OnClick;
+            @Click.performed -= instance.OnClick;
+            @Click.canceled -= instance.OnClick;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -217,7 +348,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnSpearThrowing(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
+        void OnSpearThrowing(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
+        void OnTouch(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
     }
 }

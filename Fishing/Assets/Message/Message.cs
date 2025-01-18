@@ -42,22 +42,14 @@ public class Message : MonoBehaviour
         }
     }
 
-    void Start()
+    // Static method to show a new message globally.
+    public void NewMessage(string messageName, string messageDescription, MessageStatus messageStatus, float showTime)
     {
-        // Initially, the message panel is hidden.
-        messagePanel.SetActive(false);
         // Get the animator component from the message panel.
         animator = messagePanel.GetComponent<Animator>();
-    }
 
-    // Static method to show a new message globally.
-    public static void NewMessage(string messageName, string messageDescription, MessageStatus messageStatus, float showTime)
-    {
-        if (Instance != null)
-        {
-            // Call the non-static ShowMessage() method on the singleton instance.
-            Instance.ShowMessage(messageName, messageDescription, messageStatus, showTime);
-        }
+        // Start the coroutine to show the message with the specified timing.
+        Instance.ShowMessage(messageName, messageDescription, messageStatus, showTime);
     }
 
     // Method to handle displaying a message with the specified status and timing.
@@ -103,7 +95,6 @@ public class Message : MonoBehaviour
     // Coroutine to control how long the message is shown and handle the animation.
     IEnumerator MessageActivityStatus(float time)
     {
-        messagePanel.SetActive(true); // Show the message panel.
         animator.SetBool("isOpen", true); // Play open animation.
 
         // Wait for the specified time before hiding the message.
