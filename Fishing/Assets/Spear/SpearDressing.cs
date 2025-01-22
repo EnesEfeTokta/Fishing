@@ -14,4 +14,16 @@ public class SpearDressing : MonoBehaviour
         // Set the spear's materials.
         spearObj.GetComponent<MeshRenderer>().materials = materials.ToArray();
     }
+
+    public void StartSpearSpecialDressing(Mesh mesh, Material material)
+    {
+        // Set the spear's mesh.
+        spearObj.GetComponent<MeshFilter>().mesh = mesh;
+
+        //Get MeshRenderer component
+        MeshRenderer meshRenderer = spearObj.GetComponent<MeshRenderer>();
+        Material[] materials = meshRenderer.materials;
+        materials[0] = material;
+        meshRenderer.materials = materials;
+    }
 }

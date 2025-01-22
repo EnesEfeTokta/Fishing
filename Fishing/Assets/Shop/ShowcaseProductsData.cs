@@ -15,7 +15,7 @@ public class ShowcaseProductsData : ScriptableObject
 public class ShowcaseProduct
 {
     // Product ID for uniquely identifying each product.
-    public int productId = 000;
+    public string name;
 
     // It holds the type of product.
     public ProductType productType = ProductType.Object;
@@ -41,6 +41,10 @@ public class ShowcaseProduct
 */
 
     public SpearDress spearDress = null;
+
+    public Material material = null;
+
+    [Space]
 
     public object additionalData;
 

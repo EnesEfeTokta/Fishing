@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShowcaseProductsData
   m_EditorClassIdentifier: 
   showcaseProducts:
-  - productId: 0
+  - name: Deneme1
     productType: 0
     productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
     productName: Spear_v1
@@ -23,11 +23,12 @@ MonoBehaviour:
       name: Spear_v1
       mesh: {fileID: 4300128, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
       materials:
-      - {fileID: 2100000, guid: a0e3df03d2d58034f8c7aca0acbc81f6, type: 2}
+      - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
       - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
+    material: {fileID: 0}
     isPurchased: 0
-    productReceivedDate: 
-  - productId: 1
+    productReceivedDate: 19.01.2025 12:13:26
+  - name: Deneme2
     productType: 0
     productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
     productName: Spear_v2
@@ -37,11 +38,12 @@ MonoBehaviour:
       name: Spear_v1
       mesh: {fileID: 4300130, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
       materials:
-      - {fileID: 2100000, guid: a0e3df03d2d58034f8c7aca0acbc81f6, type: 2}
+      - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
       - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
+    material: {fileID: 0}
     isPurchased: 0
-    productReceivedDate: 
-  - productId: 2
+    productReceivedDate: 19.01.2025 12:12:58
+  - name: Deneme3
     productType: 0
     productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
     productName: Spear_v2
@@ -51,7 +53,38 @@ MonoBehaviour:
       name: Spear_v1
       mesh: {fileID: 4300122, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
       materials:
-      - {fileID: 2100000, guid: a0e3df03d2d58034f8c7aca0acbc81f6, type: 2}
+      - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
       - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
+    material: {fileID: 0}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: Deneme4
+    productType: 1
+    productImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    productName: Material_v1
+    productPrice: 3500
+    productDescription: "Daha g\xFC\xE7l\xFC bir g\xF6r\xFCn\xFCm i\xE7in idealdir."
+    spearDress:
+      name: Spear_v1
+      mesh: {fileID: 4300122, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
+      materials:
+      - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
+      - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
+    material: {fileID: 2100000, guid: accb120ac2bc7e7479d74b0b291179c8, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: Deneme5
+    productType: 1
+    productImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
+    productName: Material_v2
+    productPrice: 5000
+    productDescription: "Daha g\xFC\xE7l\xFC bir g\xF6r\xFCn\xFCm i\xE7in idealdir."
+    spearDress:
+      name: Spear_v1
+      mesh: {fileID: 4300122, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
+      materials:
+      - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
+      - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
+    material: {fileID: 2100000, guid: de02517b107827849bfabc4e29976ff4, type: 2}
     isPurchased: 0
     productReceivedDate: 

@@ -1,12 +1,12 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Message : MonoBehaviour
 {
-    // Singleton instance to allow global access to this class.
-    public static Message Instance;
+    public static Message Instance; // Singleton instance to allow global access to this class.
 
     [Header("UI")]
     [SerializeField] private Image messageIcon; // The icon displayed in the message.
@@ -27,7 +27,8 @@ public class Message : MonoBehaviour
     [SerializeField] private Color[] middleImportantColor; // Colors for moderately important messages.
     [SerializeField] private Color[] veryImportantColor; // Colors for very important messages.
 
-    private bool isMessageShow = false; // A flag to check if a message is already being displayed.
+    private Queue<(string name, string description, MessageStatus status, float time)> messageQueue = new Queue<(string, string, MessageStatus, float)>(); // Queue to hold messages
+    private bool isMessageShowing = false; // Flag to check if a message is currently being shown.
 
     void Awake()
     {
@@ -36,87 +37,75 @@ public class Message : MonoBehaviour
         {
             Instance = this;
         }
-        else
+        else if (Instance != this)
         {
-            Destroy(gameObject); // Destroy any extra instances.
-        }
-    }
-
-    // Static method to show a new message globally.
-    public void NewMessage(string messageName, string messageDescription, MessageStatus messageStatus, float showTime)
-    {
-        // Get the animator component from the message panel.
-        animator = messagePanel.GetComponent<Animator>();
-
-        // Start the coroutine to show the message with the specified timing.
-        Instance.ShowMessage(messageName, messageDescription, messageStatus, showTime);
-    }
-
-    // Method to handle displaying a message with the specified status and timing.
-    void ShowMessage(string messageName, string messageDescription, MessageStatus messageStatus, float showTime)
-    {
-        // Check if a message is already being displayed. If yes, return.
-        if (!isMessageShow)
-        {
-            isMessageShow = true; // Set the flag to indicate a message is being shown.
-        }
-        else
-        {
+            Destroy(gameObject);
             return;
         }
 
-        // Determine message appearance based on its importance status.
+        animator = messagePanel.GetComponent<Animator>(); // Get the animator component.
+    }
+
+    // Method to add a new message to the queue.
+    public void NewMessage(string messageName, string messageDescription, MessageStatus messageStatus, float showTime)
+    {
+        messageQueue.Enqueue((messageName, messageDescription, messageStatus, showTime)); // Add the message to the queue.
+        if (!isMessageShowing)
+        {
+            StartCoroutine(ShowMessageCoroutine()); // Start showing messages if not currently showing.
+        }
+    }
+
+    // Coroutine to manage the display of messages from the queue.
+    IEnumerator ShowMessageCoroutine()
+    {
+        isMessageShowing = true; // Set the flag indicating a message is being shown.
+
+        while (messageQueue.Count > 0)
+        {
+            var (name, description, status, time) = messageQueue.Dequeue(); // Get the next message from the queue.
+            yield return StartCoroutine(ShowMessage(name, description, status, time)); // Show the message.
+        }
+        isMessageShowing = false; // Reset the flag after processing all messages.
+    }
+
+    // Coroutine to display a message.
+    IEnumerator ShowMessage(string messageName, string messageDescription, MessageStatus messageStatus, float showTime)
+    {
+        messagePanel.SetActive(true); // Show the message panel.
         switch (messageStatus)
         {
             case MessageStatus.LessImportant:
-                this.messageIcon.sprite = lessImportantSprite; // Set appropriate icon.
+                this.messageIcon.sprite = lessImportantSprite; // Set the appropriate icon.
                 TextColorAdjusting(lessImportantColor[0], lessImportantColor[1]); // Adjust text colors.
                 break;
-
             case MessageStatus.MiddleImportant:
-                this.messageIcon.sprite = middleImportantSprite;
-                TextColorAdjusting(middleImportantColor[0], middleImportantColor[1]);
+                this.messageIcon.sprite = middleImportantSprite; // Set the appropriate icon.
+                TextColorAdjusting(middleImportantColor[0], middleImportantColor[1]); // Adjust text colors.
                 break;
-
             case MessageStatus.VeryImportant:
-                this.messageIcon.sprite = veryImportantSprite;
-                TextColorAdjusting(veryImportantColor[0], veryImportantColor[1]);
+                this.messageIcon.sprite = veryImportantSprite; // Set the appropriate icon.
+                TextColorAdjusting(veryImportantColor[0], veryImportantColor[1]); // Adjust text colors.
                 break;
         }
 
-        // Set the message title and description.
-        this.messageName.text = messageName;
-        this.messageDescription.text = messageDescription;
+        this.messageName.text = messageName; // Set the message title.
+        this.messageDescription.text = messageDescription; // Set the message description.
 
-        // Start the coroutine to handle the message display timing.
-        StartCoroutine(MessageActivityStatus(showTime));
-    }
+        animator.SetBool("isOpen", true); // Play the open animation.
+        yield return new WaitForSeconds(showTime); // Wait for the message display time.
 
-    // Coroutine to control how long the message is shown and handle the animation.
-    IEnumerator MessageActivityStatus(float time)
-    {
-        animator.SetBool("isOpen", true); // Play open animation.
-
-        // Wait for the specified time before hiding the message.
-        yield return new WaitForSeconds(time);
-
-        // Play close animation.
-        animator.SetBool("isOpen", false);
-
-        // Wait for the closing animation to finish before fully hiding the panel.
-        yield return new WaitForSeconds(2);
+        animator.SetBool("isOpen", false); // Play the close animation.
+        yield return new WaitForSeconds(1.5f); // Wait for a short time to ensure the animation is completed.
 
         messagePanel.SetActive(false); // Hide the message panel.
-
-        // Reset the flag so that new messages can be displayed.
-        isMessageShow = false;
     }
 
     // Helper function to adjust the colors of the message's name and description text.
     void TextColorAdjusting(Color color1, Color color2)
     {
-        messageName.color = color1;
-        messageDescription.color = color2;
+        messageName.color = color1; // Set the color of the message name.
+        messageDescription.color = color2; // Set the color of the message description.
     }
 }
 
@@ -125,8 +114,5 @@ public enum MessageStatus
 {
     LessImportant,
     MiddleImportant,
-    VeryImportant,
-    Error, // Optional: Can be used for error messages.
-    Warning, // Optional: Can be used for warning messages.
-    Positive // Optional: Can be used for positive confirmation messages.
+    VeryImportant
 }
