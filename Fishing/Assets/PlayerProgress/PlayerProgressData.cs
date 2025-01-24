@@ -27,4 +27,7 @@ public class PlayerProgressData : ScriptableObject
     [Space]
     public List<SpearDress> possessedSpearDresses = new List<SpearDress>(); // The player's in -game spear dressing assets are listed.
     public SpearDress spearDress; // The player's selected spear dressing.
+
+    //[Space]
+    // Buraya oyunda kullanılacak tüm ScriptableObject 'ler eklenebilir.
 }

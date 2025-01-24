@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 // Ensures the component "MoneyOptionDetails" is attached to the GameObject this script is attached to.
 [RequireComponent(typeof(MoneyOptionDetails))]
@@ -7,6 +8,8 @@ public class MoneyLoadingPanel : MonoBehaviour
 {
     [Header("Money Loading Data")]
     [SerializeField] private MoneyLoadingData moneyLoadingData; // Holds data related to available money options.
+    [SerializeField] private PlayerProgressData playerProgressData; // Holds player-related data.
+    [SerializeField] private TMP_Text money; // Displays the player's total money.
 
     [Header("Money Option Cell")]
     [SerializeField] private Transform parentMoneyOptionCell; // Parent transform where money option cells will be instantiated.
@@ -18,6 +21,8 @@ public class MoneyLoadingPanel : MonoBehaviour
     private MoneyOptionDetails moneyOptionDetails; // Stores a reference to the MoneyOptionDetails component.
 
     private List<MoneyOptionCell> showingMoneyOptionCells = new List<MoneyOptionCell>(); // Keeps track of instantiated money option cells.
+
+    private int totalPlayerMoney; // Stores the player's total money.
 
     void Start()
     {
@@ -34,7 +39,15 @@ public class MoneyLoadingPanel : MonoBehaviour
         if (isOpen)
         {
             SaleCorversAreProduced();
+            UpdateEconomicData();
         }
+    }
+
+    // Updates the player's economic data.
+    public void UpdateEconomicData()
+    {
+        totalPlayerMoney = playerProgressData.totalPlayerMoney;
+        money.text = totalPlayerMoney.ToString();
     }
 
     // Generates and displays money option cells dynamically.
@@ -55,5 +68,19 @@ public class MoneyLoadingPanel : MonoBehaviour
 
         // Automatically open the first product's details.
         showingMoneyOptionCells[0].OpenYourProductDetails();
+    }
+
+    void PaymentCompletion(int addMoney)
+    {
+        // The player's total money is updated.
+        playerProgressData.totalPlayerMoney += addMoney;
+        UpdateEconomicData();
+        
+        Message.Instance.NewMessage(
+            "SUCCESSFUL PAYMENT", 
+            "Your payment has been verified.", 
+            MessageStatus.LessImportant, 
+            5
+        );
     }
 }

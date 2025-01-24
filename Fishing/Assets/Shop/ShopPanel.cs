@@ -92,13 +92,15 @@ public class ShopPanel : MonoBehaviour
         }
         else
         {
+            if (adsCoroutine == null)
+                return;
             StopCoroutine(adsCoroutine);
         }
 
         UpdateEconomicData();
     }
 
-    public void UpdateEconomicData()
+    void UpdateEconomicData()
     {
         totalPlayerMoney = playerProgressData.totalPlayerMoney;
         money.text = totalPlayerMoney.ToString();
