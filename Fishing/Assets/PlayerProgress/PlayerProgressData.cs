@@ -7,6 +7,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerProgressData", menuName = "ScriptableObject/PlayerProgressData")]
 public class PlayerProgressData : ScriptableObject
 {
+    // todo: Burada ki gereksiz kullanımlar temizlenmeli. Materyaller ve mızraklara odaklanılsın.
+
     // Variables to hold player's total score, money, and fish count
     public int totalPlayerScore; // Total score accumulated by the player
     public int totalPlayerMoney; // Total money collected by the player
@@ -20,6 +22,8 @@ public class PlayerProgressData : ScriptableObject
     public List<GameObject> spearObjectDatas = new List<GameObject>(); // The player's in -game spear assets are listed.
 
     [Space]
+
+    [Space]
     
     public GameObject selectSpearObject; // The player's selected spear asset.
     //public Material selectSpearMaterial; // The player's selected spear material.
@@ -29,5 +33,5 @@ public class PlayerProgressData : ScriptableObject
     public SpearDress spearDress; // The player's selected spear dressing.
 
     //[Space]
-    // Buraya oyunda kullanılacak tüm ScriptableObject 'ler eklenebilir.
+    // todo: Buraya oyunda kullanılacak tüm ScriptableObject 'ler eklenebilir.
 }

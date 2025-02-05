@@ -39,15 +39,15 @@ public class SettingPanel : MonoBehaviour
     private bool isOpenPanel = false; // Tracks whether the settings panel is open or closed.
 
     // Function to open or close the settings panel.
-    public void PanelOpenClose(bool isOpen)
+    public void PanelOpenClose()
     {
-        isOpenPanel = isOpen; // Updates the internal flag based on the panel state (open/close).
+        isOpenPanel = !isOpenPanel; // Updates the internal flag based on the panel state (open/close).
 
-        settingsPanel.SetActive(isOpen); // Toggles the visibility of the settings panel.
+        settingsPanel.SetActive(isOpenPanel); // Toggles the visibility of the settings panel.
 
         AnimateSettingIcon(); // Animate the setting icon to rotate.
 
-        if (isOpen)
+        if (isOpenPanel)
         {
             // Load and display the current values of music and sound sliders from settingsData.
             SliderDataFilling(
