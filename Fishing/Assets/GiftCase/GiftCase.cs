@@ -79,6 +79,9 @@ public class GiftCase : MonoBehaviour
 
     void StartGiftCaseAnimation()
     {
+        // Hediye sandığı sayısını kontrol et
+        if (playerProgressData.giftCaseItemDatas.Count <= 0) return;
+
         ResetAnimationsAndCoroutines(); // Reset for a new start.
 
         UpdateSaveAndCloseButtonUI(accelerateSprite);
@@ -234,8 +237,6 @@ public class GiftCase : MonoBehaviour
     /// </summary>
     void SavePlayerProgress()
     {
-        UpdateGiftCaseCount();
-
         foreach (GiftItem giftItem in giftItems)
         {
             switch (giftItem.giftCaseType)
@@ -271,7 +272,13 @@ public class GiftCase : MonoBehaviour
             }
         }
 
-        playerProgressData.giftCaseItemDatas.Remove(giftCaseItemData);
+        // Hediye sandığı sayısını kontrol et
+        if (playerProgressData.giftCaseItemDatas.Count > 0)
+        {
+            playerProgressData.giftCaseItemDatas.Remove(giftCaseItemData);
+        }
+
+        UpdateGiftCaseCount();
 
         Profile.Instance.ReadTheData();
     }
@@ -301,6 +308,7 @@ public class GiftCase : MonoBehaviour
     void UpdateGiftCaseCount()
     {
         int giftCaseCount = playerProgressData.giftCaseItemDatas.Count;
+
         if (giftCaseCount > 0)
         {
             giftCaseCountText.text = giftCaseCount.ToString();

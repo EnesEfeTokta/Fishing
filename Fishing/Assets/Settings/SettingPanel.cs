@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class SettingPanel : MonoBehaviour
 {
@@ -32,15 +33,19 @@ public class SettingPanel : MonoBehaviour
     [Header("Settings Data")]
     [SerializeField] private SettingsData settingsData; // Stores user settings like sound volume, quality, language, etc.
 
-    [Header("Panel")]
+    [Header("GameObjects")]
     [SerializeField] private GameObject settingsPanel; // The settings panel GameObject to show/hide settings UI.
+    [SerializeField] private RectTransform settingIcon; // UI image representing the setting icon.
     private bool isOpenPanel = false; // Tracks whether the settings panel is open or closed.
 
     // Function to open or close the settings panel.
     public void PanelOpenClose(bool isOpen)
     {
-        settingsPanel.SetActive(isOpen); // Toggles the visibility of the settings panel.
         isOpenPanel = isOpen; // Updates the internal flag based on the panel state (open/close).
+
+        settingsPanel.SetActive(isOpen); // Toggles the visibility of the settings panel.
+
+        AnimateSettingIcon(); // Animate the setting icon to rotate.
 
         if (isOpen)
         {
@@ -50,6 +55,8 @@ public class SettingPanel : MonoBehaviour
                 new TMP_Text[] { ambientMusicPercentage, ambientSoundsPercentage }, 
                 new float[] { settingsData.musicValue, settingsData.soundValue }
             );
+
+            AnimatePanelOpen(); // Animate the panel opening.
             
             SetDropdowns(); // Initialize dropdowns for language and quality settings.
             SetPostProcessing(); // Apply the post-processing status to the UI.
@@ -59,6 +66,21 @@ public class SettingPanel : MonoBehaviour
             // Save the settings when the panel is closed.
             SaveSlidersData(); // Save the current slider values (music/sound) to the settingsData.
         }
+    }
+
+    // Method to animate the panel opening.
+    void AnimatePanelOpen()
+    {
+        RectTransform rectTransform = settingsPanel.GetComponent<RectTransform>();
+        rectTransform.pivot = new Vector2(1, 1); // Set pivot to top-left corner.
+        rectTransform.localScale = new Vector3(0, 0, 0); // Start from scale 0.
+        rectTransform.DOScale(new Vector3(1, 1, 1), 0.5f).SetEase(Ease.OutBack); // Animate to scale 1.
+    }
+
+    // Animate the setting icon to rotate.
+    void AnimateSettingIcon()
+    {
+        settingIcon.DOLocalRotate(new Vector3(0, 0, 360), 1f, RotateMode.LocalAxisAdd);
     }
 
     // Update is called once per frame. It's used here to continuously update the percentage texts for sliders.

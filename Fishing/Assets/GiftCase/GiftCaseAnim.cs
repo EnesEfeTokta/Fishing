@@ -7,6 +7,7 @@ public class GiftCaseAnim : MonoBehaviour
 
     [Header("GameObjects")]
     [SerializeField] private GameObject animationObject; // The parent object of the animation, activated during the animation.
+    [SerializeField] private GameObject __MainPanel__; // The main panel object, deactivated during the animation.
 
     [Header("Animation")]
     [SerializeField] private float animationTime = 5; // Total time the animation runs.
@@ -72,6 +73,8 @@ public class GiftCaseAnim : MonoBehaviour
         ResetAnimation(); // Reset transforms and effects to initial states.
         StartCoroutine(AnimationManager()); // Begin the animation sequence.
         this.giftCase = giftCase; // Assign the gift case reference.
+
+        __MainPanel__.SetActive(false); // Initial panel is disabled.
     }
 
     void ResetAnimation()
@@ -222,6 +225,8 @@ public class GiftCaseAnim : MonoBehaviour
 
         starEffectTransform.gameObject.SetActive(false);
         redFireEffectTransform.gameObject.SetActive(false);
+
+        __MainPanel__.SetActive(true);
     }
 
     public bool IsAnimating()

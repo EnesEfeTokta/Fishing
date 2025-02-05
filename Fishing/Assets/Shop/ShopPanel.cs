@@ -58,6 +58,7 @@ public class ShopPanel : MonoBehaviour
         UpdateEconomicData();
         ShowAllProducts();
         OnObjectButtonClick();
+        adsCoroutine = StartCoroutine(ShowAdsProduct());
     }
 
     public void OnObjectButtonClick()
@@ -87,8 +88,8 @@ public class ShopPanel : MonoBehaviour
 
         if (isOpen)
         {
-            OnObjectButtonClick();
             adsCoroutine = StartCoroutine(ShowAdsProduct());
+            OnObjectButtonClick();
         }
         else
         {
