@@ -256,7 +256,6 @@ public class ShopPanel : MonoBehaviour
         }
     }
 
-
     IEnumerator ShowAdsProduct()
     {
         adsProducts = adsProductsData.adsProductsDatas;

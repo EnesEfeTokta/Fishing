@@ -1,18 +1,26 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OwnedCostumesData : MonoBehaviour
+[CreateAssetMenu(fileName = "OwnedCostumesData", menuName = "ScriptableObject/OwnedCostumesData")]
+public class OwnedCostumesData : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<OwnedSpear> ownedSpears = new List<OwnedSpear>();
+    public List<OwnedMaterial> ownedMaterials = new List<OwnedMaterial>();
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[Serializable]
+public class OwnedSpear
+{
+    public string spearName;
+    public Sprite spearSprite;
+    public Mesh spearObject;
+}
+
+[Serializable]
+public class OwnedMaterial
+{
+    public string materialName;
+    public Sprite materialSprite;
+    public Material materialObject;
 }

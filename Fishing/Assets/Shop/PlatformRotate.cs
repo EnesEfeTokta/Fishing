@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlatformRotate : MonoBehaviour
 {
+    //todo: PlatformRotate kodu hali hazırda HomeManager 'da olduğu için aktiflik ve pasiflik değerleri da buradan kontrol edilsin.
     [SerializeField] private Transform platformTransform;
 
     private float rotationSpeed = 100f; // Rotation speed factor
@@ -12,6 +13,8 @@ public class PlatformRotate : MonoBehaviour
     private float rotationVelocity;
 
     private PlayerControls inputActions;
+
+    private bool IsShopPanelActive = false;
 
     private void Awake()
     {
@@ -23,12 +26,22 @@ public class PlatformRotate : MonoBehaviour
         inputActions.Enable();
     }
 
+    public void ChangeRotationState(bool state)
+    {
+        IsShopPanelActive = state;
+    }
+
     private void OnDisable()
     {
         inputActions.Disable();
     }
 
     void Update()
+    {
+        if (IsShopPanelActive) RotatePlatform();
+    }
+
+    void RotatePlatform()
     {
         float targetRotationSpeed = 0f;
 

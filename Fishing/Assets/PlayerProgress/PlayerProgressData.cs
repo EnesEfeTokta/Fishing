@@ -22,13 +22,12 @@ public class PlayerProgressData : ScriptableObject
     public List<GameObject> spearObjectDatas = new List<GameObject>(); // The player's in -game spear assets are listed.
 
     [Space]
-
-    [Space]
     
     public GameObject selectSpearObject; // The player's selected spear asset.
     //public Material selectSpearMaterial; // The player's selected spear material.
 
     [Space]
+
     public List<SpearDress> possessedSpearDresses = new List<SpearDress>(); // The player's in -game spear dressing assets are listed.
     public SpearDress spearDress; // The player's selected spear dressing.
 

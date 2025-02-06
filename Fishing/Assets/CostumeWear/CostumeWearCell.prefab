@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.25
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -225,8 +225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fed987db9b1634cb388aee01b3837b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 2710107404611002092}
   icon: {fileID: 7318552776122761727}
   nameText: {fileID: 3258251143328969013}
+  buttonText: {fileID: 2074491530650485697}
   button: {fileID: 1587587425459691729}
 --- !u!1 &6361678688842833054
 GameObject:
@@ -414,7 +416,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select
+  m_text: Choose
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
