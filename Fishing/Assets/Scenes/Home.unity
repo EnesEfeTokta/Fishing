@@ -2500,8 +2500,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 43fa39eb5b2a96f4392c4e81f2db8191, type: 2}
-  - {fileID: 2100000, guid: 1e0633ea89b186e44a0138e90e73d0e0, type: 2}
+  - {fileID: 2100000, guid: 8d0fcf3fd3d865543a310c0840394568, type: 2}
+  - {fileID: 2100000, guid: 8d0fcf3fd3d865543a310c0840394568, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3462,7 +3462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23380671, y: 0.23300001}
   m_AnchorMax: {x: 0.77500004, y: 0.767}
-  m_AnchoredPosition: {x: -0.49997902, y: 0.0000076293945}
+  m_AnchoredPosition: {x: -0.4999771, y: 0.0000076293945}
   m_SizeDelta: {x: -0.27159882, y: 0.535099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &207025363
@@ -9973,7 +9973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 1
+  priority: 0
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 9faef8027502d114097378ed90414b59, type: 2}
@@ -12674,7 +12674,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -23728,7 +23728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1774293167
 Transform:
   m_ObjectHideFlags: 0
@@ -24215,7 +24215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1794401895
 MonoBehaviour:
   m_ObjectHideFlags: 0
