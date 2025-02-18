@@ -22,8 +22,8 @@ public class PlayerProgressData : ScriptableObject
     public List<GameObject> spearObjectDatas = new List<GameObject>(); // The player's in -game spear assets are listed.
 
     [Space]
-    
-    public GameObject selectSpearObject; // The player's selected spear asset.
+
+    public GameObject selectSpearObject; //! Bu kullanıcının seçtiği mızrağı direk oluşturmada kullanılıyor. Onun yerine Mesh sistemi getir. Hali hazırdaki kodlarla.
     //public Material selectSpearMaterial; // The player's selected spear material.
 
     [Space]
@@ -31,6 +31,10 @@ public class PlayerProgressData : ScriptableObject
     public OwnedCostumesData ownedCostumesData; // The player's own costumes information in -game inventory is stored.
     public SpearDress spearDress; // The player's selected spear dressing. 
 
-    //[Space]
-    // todo: Buraya oyunda kullanılacak tüm ScriptableObject 'ler eklenebilir.
+    [Space]
+
+    [Header("Player Datas")]
+    public SettingsData settingsData; // The player's settings data is stored.
+    public List<LevelInformationData> levelInformationDatas = new List<LevelInformationData>();
+    public PastPlaysData pastPlaysData; // The player's past plays data is stored.
 }

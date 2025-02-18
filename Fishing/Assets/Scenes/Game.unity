@@ -7197,6 +7197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1328667936}
+  - component: {fileID: 1328667943}
   - component: {fileID: 1328667937}
   - component: {fileID: 1328667938}
   - component: {fileID: 1328667939}
@@ -7205,7 +7206,6 @@ GameObject:
   - component: {fileID: 1328667942}
   - component: {fileID: 1328667944}
   - component: {fileID: 1328667945}
-  - component: {fileID: 1328667943}
   - component: {fileID: 1328667946}
   - component: {fileID: 1328667947}
   - component: {fileID: 1328667948}
@@ -7304,8 +7304,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bae8e4d438bf84fb6a1e1b728e86a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settingsData: {fileID: 0}
   postProcessingObject: {fileID: 392545809}
-  musicAudioSource: {fileID: 0}
+  musicAudioSource:
+  - {fileID: 0}
   soundAudioSources: []
 --- !u!114 &1328667942
 MonoBehaviour:

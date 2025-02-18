@@ -19,11 +19,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     // Serialized fields to store references to data objects.
-    [SerializeField] private PastPlaysData pastPlaysData; // Data about past plays.
     [SerializeField] private PlayerProgressData playerProgressData; // Data about player progress.
-    [SerializeField] private LevelInformationData levelInformationData; // Level-related data.
-    [SerializeField] private List<LevelInformationData> levelInformationDatas = new List<LevelInformationData>(); // Level-related data.
-    [SerializeField] private SettingsData settingsData; // Game settings data.
+
+
+    private LevelInformationData levelInformationData; // Level-related data.
 
     // Lists to track fish objects and their states.
     public List<FishData> fishsDeath = new List<FishData>(); // List of data for fish that have died.
@@ -48,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
-        levelInformationData = LevelChanged(levelInformationDatas);
+        levelInformationData = LevelChanged(playerProgressData.levelInformationDatas);
 
         Debug.Log($"Starting level information data: {levelInformationData.levelName}");
 
@@ -73,34 +72,22 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Provides access to the past plays data.
     /// </summary>
-    public PastPlaysData ReadPastPlaysData(PastPlaysData pastPlaysData = null)
-    {
-        return pastPlaysData = this.pastPlaysData;
-    }
+    public PastPlaysData ReadPastPlaysData(PastPlaysData pastPlaysData = null) => pastPlaysData = playerProgressData.pastPlaysData;
 
     /// <summary>
     /// Provides access to the player progress data.
     /// </summary>
-    public PlayerProgressData ReadPlayerProgressData(PlayerProgressData playerProgressData = null)
-    {
-        return playerProgressData = this.playerProgressData;
-    }
+    public PlayerProgressData ReadPlayerProgressData(PlayerProgressData playerProgressData = null) => playerProgressData = this.playerProgressData;
 
     /// <summary>
     /// Provides access to the level information data.
     /// </summary>
-    public LevelInformationData ReadLevelInformationData(LevelInformationData levelInformationData = null)
-    {
-        return levelInformationData = this.levelInformationData;
-    }
+    public LevelInformationData ReadLevelInformationData(LevelInformationData levelInformationData = null) => levelInformationData = this.levelInformationData;
 
     /// <summary>
     /// Provides access to the settings data.
     /// </summary>
-    public SettingsData ReadSettingsData(SettingsData settingsData = null)
-    {
-        return settingsData = this.settingsData;
-    }
+    public SettingsData ReadSettingsData(SettingsData settingsData = null) => settingsData = playerProgressData.settingsData;
 
     /// <summary>
     /// Handles the death of a fish in the game.
@@ -199,10 +186,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Attempts to restart the game.
     /// </summary>
-    public void AgainButton()
-    {
-        Debug.LogError("The error, the game could not restart ..."); // Log an error if the restart fails.
-    }
+    public void AgainButton() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     /// <summary>
     /// Records the player's progress by updating their score, money, and fish count.
