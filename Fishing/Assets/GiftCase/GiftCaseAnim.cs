@@ -49,6 +49,7 @@ public class GiftCaseAnim : MonoBehaviour
     [SerializeField] private Vector3 redFireEndEffectScale = new Vector3(1.25f, 1.25f, 1.25f); // Final scale of the red fire effect.
 
     [Header("Audio")]
+    [SerializeField] private AudioSource audioSource; // The audio source component for playing sounds.
     [SerializeField] private AudioClip effectSound;
     [SerializeField] private AudioClip giftCaseOpenCloseSound;
 
@@ -150,7 +151,7 @@ public class GiftCaseAnim : MonoBehaviour
 
             if (elapsedTime > actionTime)
             {
-                HomeManager.Instance.PlaySound(effectSound); // Play the effect sound.
+                PlaySound(effectSound); // Play the effect sound.
 
                 StartCoroutine(EffectScaleAnimation(starEffectTransform, Vector2.zero, starEndEffectScale, starEffectDuration));
                 StartCoroutine(CaseLidOpenAnimation());
@@ -182,8 +183,8 @@ public class GiftCaseAnim : MonoBehaviour
     IEnumerator CaseLidOpenAnimation()
     {
         yield return new WaitForSeconds(1f);
-        
-        HomeManager.Instance.PlaySound(giftCaseOpenCloseSound); // Play the case open sound.
+
+        PlaySound(giftCaseOpenCloseSound); // Play the case open sound.
 
         // Animates the case lid opening.
         float elapsedTime = 0;
@@ -203,8 +204,8 @@ public class GiftCaseAnim : MonoBehaviour
     IEnumerator CaseLidCloseAnimation()
     {
         yield return new WaitForSeconds(1f);
-        
-        HomeManager.Instance.PlaySound(giftCaseOpenCloseSound); // Play the case open sound.
+
+        PlaySound(giftCaseOpenCloseSound); // Play the case open sound.
 
         // Animates the case lid closing and deactivates effects.
         float elapsedTime = 0;
@@ -233,5 +234,12 @@ public class GiftCaseAnim : MonoBehaviour
     {
         // Returns whether the animation is currently active.
         return isAnimating;
+    }
+
+    // Plays the specified audio clip.
+    void PlaySound(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 }

@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class SettingsFounder : MonoBehaviour
 {
+    // Singleton pattern for ensuring there is only one SettingsFounder object in the scene.
+    public static SettingsFounder Instance;
+
     // Holds the player's settings data (e.g., post-processing, renderer quality, audio settings).
-    private SettingsData settingsData;
+    public SettingsData settingsData;
 
     // Reference to the GameObject responsible for post-processing effects.
     [Header("Post-Processing")]
@@ -12,7 +15,7 @@ public class SettingsFounder : MonoBehaviour
 
     // Reference to the main music audio source to control its volume.
     [Header("Music Audio Source")]
-    [SerializeField] private AudioSource musicAudioSource;
+    [SerializeField] private List<AudioSource> musicAudioSource = new List<AudioSource>();
 
     // List of audio sources for sound effects to control their individual volumes.
     [Header("Sound Audio Source")]
@@ -21,15 +24,46 @@ public class SettingsFounder : MonoBehaviour
     // Reference to the GameManager to access and manage game-related data.
     private GameManager gameManager;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Start is called before the first frame update to initialize settings.
     void Start()
     {
-        // Get the GameManager component attached to the same GameObject.
-        gameManager = GetComponent<GameManager>();
+        // Find all audio sources in the scene and categorize them based on their tag.
+        AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource audioSource in audioSources)
+        {
+            if (audioSource.gameObject.tag.Contains("SoundObject"))
+            {
+                soundAudioSources.Add(audioSource);
+            }
+            else
+            {
+                musicAudioSource.Add(audioSource);
+            }
+        }
 
-        // Load the player's settings data from the GameManager.
-        SetSettingsDataData();
+        // Apply the player's settings data.
+        ApplySettings();
+    }
 
+    public void ResetSettings()
+    {
+        ApplySettings();
+    }
+
+    void ApplySettings()
+    {
         // Initialize post-processing settings based on player preferences.
         PostProcessing(settingsData.isPostProcessing);
 
@@ -39,7 +73,7 @@ public class SettingsFounder : MonoBehaviour
         // Adjust the volume of the music audio source, if available.
         if (musicAudioSource != null)
         {
-            MusicValueEditing(musicAudioSource, settingsData.musicValue / 100);
+            SoundValueEditing(musicAudioSource, settingsData.musicValue / 100);
         }
 
         // Adjust the volume of all sound effect audio sources, if available.
@@ -50,30 +84,12 @@ public class SettingsFounder : MonoBehaviour
     }
 
     /// <summary>
-    /// Reads and assigns the settings data from the GameManager.
-    /// </summary>
-    void SetSettingsDataData()
-    {
-        settingsData = gameManager.ReadSettingsData(settingsData);
-    }
-
-    /// <summary>
     /// Enables or disables post-processing effects based on player settings.
     /// </summary>
     /// <param name="isPostProcessing">Whether post-processing should be enabled.</param>
     void PostProcessing(bool isPostProcessing)
     {
         postProcessingObject.SetActive(isPostProcessing);
-    }
-
-    /// <summary>
-    /// Adjusts the volume of the music audio source.
-    /// </summary>
-    /// <param name="audioSource">The music audio source to modify.</param>
-    /// <param name="volume">The new volume value (0.0 to 1.0).</param>
-    void MusicValueEditing(AudioSource audioSource, float volume)
-    {
-        audioSource.volume = volume;
     }
 
     /// <summary>

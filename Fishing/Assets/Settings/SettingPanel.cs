@@ -65,6 +65,7 @@ public class SettingPanel : MonoBehaviour
         {
             // Save the settings when the panel is closed.
             SaveSlidersData(); // Save the current slider values (music/sound) to the settingsData.
+            SettingsFounder.Instance.ResetSettings(); // Reset the settings to apply the changes.
         }
     }
 

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Spear
   - Fish
+  - MusicObject
+  - SoundObject
   layers:
   - Default
   - TransparentFX

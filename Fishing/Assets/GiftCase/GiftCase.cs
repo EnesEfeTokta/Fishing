@@ -29,6 +29,7 @@ public class GiftCase : MonoBehaviour
     [SerializeField] private Sprite closeSprite;
 
     [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip giftCardAudio;
     [SerializeField] private AudioClip coinSound;
 
@@ -188,7 +189,7 @@ public class GiftCase : MonoBehaviour
     {
         yield return new WaitForSeconds(1f); // HomeManager.Instance.PlaySound() delay.
 
-        HomeManager.Instance.PlaySound(giftCardAudio);
+        PlaySound(giftCardAudio); // Play the gift card sound effect.
 
         float elapsedTime = 0f;
         while (elapsedTime < duration && !isQuickTransitionAnimation)
@@ -363,7 +364,7 @@ public class GiftCase : MonoBehaviour
                 yield return null;
             }
 
-            HomeManager.Instance.PlaySound(coinSound);
+            PlaySound(coinSound); // Play the coin sound effect.
 
             // Ensure the icon reaches the exact final position.
             newIcon.position = targetProfileTransform.position;
@@ -371,5 +372,12 @@ public class GiftCase : MonoBehaviour
             // Destroy the icon GameObject after it reaches the target.
             Destroy(newIcon.gameObject);
         }
+    }
+
+    // Plays the specified audio clip.
+    void PlaySound(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 }
