@@ -24,3 +24,11 @@ public class OwnedMaterial
     public Sprite materialSprite;
     public Material materialObject;
 }
+
+[Serializable]
+public class SpearDress
+{
+    public string name;
+    public Mesh mesh;
+    public List<Material> materials = new List<Material>();
+}

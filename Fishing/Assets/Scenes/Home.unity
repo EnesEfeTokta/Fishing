@@ -1927,10 +1927,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1794401898}
-        m_TargetAssemblyTypeName: ShopPanel, Assembly-CSharp
-        m_MethodName: PanelOpenClose
-        m_Mode: 6
+      - m_Target: {fileID: 1794401912}
+        m_TargetAssemblyTypeName: CostumeWearPanel, Assembly-CSharp
+        m_MethodName: OpenCloseCostumeWearPanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2500,7 +2500,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d0fcf3fd3d865543a310c0840394568, type: 2}
+  - {fileID: 2100000, guid: ccf628ad85575824384fce770c6a3a50, type: 2}
   - {fileID: 2100000, guid: 8d0fcf3fd3d865543a310c0840394568, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -2530,7 +2530,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158691389}
-  m_Mesh: {fileID: 4300130, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
+  m_Mesh: {fileID: 4300128, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
 --- !u!1001 &163887557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3462,7 +3462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23380671, y: 0.23300001}
   m_AnchorMax: {x: 0.77500004, y: 0.767}
-  m_AnchoredPosition: {x: -0.4999771, y: 0.0000076293945}
+  m_AnchoredPosition: {x: -0.49997902, y: 0.0000076293945}
   m_SizeDelta: {x: -0.27159882, y: 0.535099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &207025363
@@ -7379,7 +7379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &442021818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14926,6 +14926,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1794401912}
+        m_TargetAssemblyTypeName: CostumeWearPanel, Assembly-CSharp
+        m_MethodName: OpenCloseCostumeWearPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -23105,7 +23117,7 @@ GameObject:
   - component: {fileID: 1747924197}
   - component: {fileID: 1747924196}
   m_Layer: 5
-  m_Name: StatusButton
+  m_Name: SaveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23182,6 +23194,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1794401912}
+        m_TargetAssemblyTypeName: CostumeWearPanel, Assembly-CSharp
+        m_MethodName: SaveCostumeWear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -24215,7 +24239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1794401895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24644,6 +24668,8 @@ MonoBehaviour:
   material2SlotButton: {fileID: 597324758}
   spearDressing: {fileID: 158691391}
   gameObjectSpear: {fileID: 2037563211}
+  costumeWearPanel: {fileID: 1293180481}
+  mainPanel: {fileID: 1565300365}
 --- !u!1 &1800308606
 GameObject:
   m_ObjectHideFlags: 0
@@ -28253,14 +28279,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037563211}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 4.5, z: -4}
-  m_LocalScale: {x: 1.5, y: 0.74999994, z: 1.5}
+  m_LocalRotation: {x: 0.7071068, y: 0.7071068, z: 0, w: 0}
+  m_LocalPosition: {x: -0.43, y: -6.27, z: -4.77}
+  m_LocalScale: {x: 0.38, y: 0.18999998, z: 0.38}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 158691390}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 90}
 --- !u!1001 &2049666995
 PrefabInstance:
   m_ObjectHideFlags: 0

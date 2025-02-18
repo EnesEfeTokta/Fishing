@@ -244,7 +244,23 @@ public class ShopPanel : MonoBehaviour
     {
          if (showcaseProductsData.showcaseProducts[selectedProductIndex].productType == ProductType.Object)
         {
-             playerProgressData.possessedSpearDresses.Add(showcaseProductsData.showcaseProducts[selectedProductIndex].spearDress);
+             OwnedSpear ownedSpear = new OwnedSpear()
+             {
+                spearName = showcaseProductsData.showcaseProducts[selectedProductIndex].spearDress.name,
+                spearSprite = showcaseProductsData.showcaseProducts[selectedProductIndex].productImage,
+                spearObject = showcaseProductsData.showcaseProducts[selectedProductIndex].spearDress.mesh
+             };
+             playerProgressData.ownedCostumesData.ownedSpears.Add(ownedSpear);
+        }
+        else
+        {
+             OwnedMaterial ownedMaterial = new OwnedMaterial()
+             {
+                 materialName = showcaseProductsData.showcaseProducts[selectedProductIndex].material.name,
+                 materialSprite = showcaseProductsData.showcaseProducts[selectedProductIndex].productImage,
+                 materialObject = showcaseProductsData.showcaseProducts[selectedProductIndex].material
+             };
+             playerProgressData.ownedCostumesData.ownedMaterials.Add(ownedMaterial);
         }
     }
 

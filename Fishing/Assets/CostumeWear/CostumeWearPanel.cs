@@ -29,11 +29,16 @@ public class CostumeWearPanel : MonoBehaviour
     private OwnedMaterial selectedOwnedMaterial2Slot;
     private Material selectedMaterial1Slot;
     private Material selectedMaterial2Slot;
+
     private OwnedSpear selectedOwnedSpear;
 
     [Header("Spear")]
     public SpearDressing spearDressing;
     public GameObject gameObjectSpear;
+
+    [Header("Panels")]
+    public GameObject costumeWearPanel;
+    public GameObject mainPanel;
 
 
     private SpearDress newSpearDress;
@@ -115,6 +120,14 @@ public class CostumeWearPanel : MonoBehaviour
 
         material1SlotButton.onClick.AddListener(() => SetMaterialSlot(0));
         material2SlotButton.onClick.AddListener(() => SetMaterialSlot(1));
+    }
+
+    public void OpenCloseCostumeWearPanel()
+    {
+        IsCostumePanelActive =!IsCostumePanelActive;
+        gameObjectSpear.SetActive(IsCostumePanelActive);
+        costumeWearPanel.gameObject.SetActive(IsCostumePanelActive);
+        mainPanel.gameObject.SetActive(!IsCostumePanelActive);
     }
 
     void Update()
@@ -244,5 +257,12 @@ public class CostumeWearPanel : MonoBehaviour
 
         Material[] materials = { selectedOwnedMaterial1Slot.materialObject, selectedOwnedMaterial2Slot.materialObject };
         spearDressing.StartSpearDressing(newSpearDress.mesh, materials.ToList());
+        newSpearDress.materials = materials.ToList();
+    }
+
+    public void SaveCostumeWear()
+    {
+        Message.Instance.NewMessage("Successfully!" ,"Costume saved successfully!", MessageStatus.LessImportant, 5.0f);
+        playerProgressData.spearDress = newSpearDress;
     }
 }
