@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ public class Message : MonoBehaviour
     [SerializeField] private Image messageIcon; // The icon displayed in the message.
     [SerializeField] private TMP_Text messageName; // The title or name of the message.
     [SerializeField] private TMP_Text messageDescription; // The description or body text of the message.
+    [SerializeField] private Image messageBackground; // The background image of the message that contains the name and description text.
 
     [Header("Message Panel")]
     [SerializeField] private GameObject messagePanel; // The panel that contains the message UI elements.
@@ -26,6 +28,12 @@ public class Message : MonoBehaviour
     [SerializeField] private Color[] lessImportantColor; // Colors for less important messages (name and description text).
     [SerializeField] private Color[] middleImportantColor; // Colors for moderately important messages.
     [SerializeField] private Color[] veryImportantColor; // Colors for very important messages.
+
+    [Header("Sounds")]
+    [SerializeField] private AudioSource audioSource; // Audio source to play sounds.
+    [SerializeField] private AudioClip lessImportantSound; // Sound for less important messages.
+    [SerializeField] private AudioClip middleImportantSound; // Sound for moderately important messages.
+    [SerializeField] private AudioClip veryImportantSound; // Sound for very important messages.
 
     private Queue<(string name, string description, MessageStatus status, float time)> messageQueue = new Queue<(string, string, MessageStatus, float)>(); // Queue to hold messages
     private bool isMessageShowing = false; // Flag to check if a message is currently being shown.
@@ -44,6 +52,11 @@ public class Message : MonoBehaviour
         }
 
         animator = messagePanel.GetComponent<Animator>(); // Get the animator component.
+    }
+
+    void Start()
+    {
+        NewMessage("Welcome!", "Welcome to the game!", MessageStatus.VeryImportant, 10f); // Show a welcome message when the game starts.   
     }
 
     // Method to add a new message to the queue.
@@ -77,17 +90,19 @@ public class Message : MonoBehaviour
         {
             case MessageStatus.LessImportant:
                 this.messageIcon.sprite = lessImportantSprite; // Set the appropriate icon.
-                TextColorAdjusting(lessImportantColor[0], lessImportantColor[1]); // Adjust text colors.
                 break;
             case MessageStatus.MiddleImportant:
                 this.messageIcon.sprite = middleImportantSprite; // Set the appropriate icon.
-                TextColorAdjusting(middleImportantColor[0], middleImportantColor[1]); // Adjust text colors.
                 break;
             case MessageStatus.VeryImportant:
                 this.messageIcon.sprite = veryImportantSprite; // Set the appropriate icon.
-                TextColorAdjusting(veryImportantColor[0], veryImportantColor[1]); // Adjust text colors.
+                
                 break;
         }
+
+        ColorAdjusting(messageStatus); // Adjust colors.
+
+        PlaySound(messageStatus); // Play the appropriate sound.
 
         this.messageName.text = messageName; // Set the message title.
         this.messageDescription.text = messageDescription; // Set the message description.
@@ -101,11 +116,44 @@ public class Message : MonoBehaviour
         messagePanel.SetActive(false); // Hide the message panel.
     }
 
-    // Helper function to adjust the colors of the message's name and description text.
-    void TextColorAdjusting(Color color1, Color color2)
+    // Auxiliary function for setting the message name, description text and background colors.
+    void ColorAdjusting(MessageStatus messageStatus)
     {
-        messageName.color = color1; // Set the color of the message name.
-        messageDescription.color = color2; // Set the color of the message description.
+        switch (messageStatus)
+        {
+            case MessageStatus.LessImportant:
+                messageName.color = lessImportantColor[0]; // Set the less important name text color.
+                messageDescription.color = lessImportantColor[1]; // Set the less important description text color.
+                messageBackground.color = lessImportantColor[2]; // Set the less important background color.
+                break;
+            case MessageStatus.MiddleImportant:
+                messageName.color = middleImportantColor[0]; // Set the moderately important name text color.
+                messageDescription.color = middleImportantColor[1]; // Set the moderately important description text color.
+                messageBackground.color = middleImportantColor[2]; // Set the moderately important background color.
+                break;
+            case MessageStatus.VeryImportant:
+                messageName.color = veryImportantColor[0]; // Set the very important name text color.
+                messageDescription.color = veryImportantColor[1]; // Set the very important description text color.
+                messageBackground.color = veryImportantColor[2]; // Set the very important background color.
+                break;
+        }
+    }
+
+    // Method to play the appropriate sound based on the message's importance level.
+    void PlaySound(MessageStatus messageStatus)
+    {
+        switch (messageStatus)
+        {
+            case MessageStatus.LessImportant:
+                audioSource.PlayOneShot(lessImportantSound); // Play the less important sound.
+                break;
+            case MessageStatus.MiddleImportant:
+                audioSource.PlayOneShot(middleImportantSound); // Play the moderately important sound.
+                break;
+            case MessageStatus.VeryImportant:
+                audioSource.PlayOneShot(veryImportantSound); // Play the very important sound.
+                break;
+        }
     }
 }
 
