@@ -54,11 +54,6 @@ public class Message : MonoBehaviour
         animator = messagePanel.GetComponent<Animator>(); // Get the animator component.
     }
 
-    void Start()
-    {
-        NewMessage("Welcome!", "Welcome to the game!", MessageStatus.VeryImportant, 10f); // Show a welcome message when the game starts.   
-    }
-
     // Method to add a new message to the queue.
     public void NewMessage(string messageName, string messageDescription, MessageStatus messageStatus, float showTime)
     {

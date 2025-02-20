@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PowerUpPanel : MonoBehaviour
 {
@@ -12,13 +13,34 @@ public class PowerUpPanel : MonoBehaviour
     [Header("Content")]
     [SerializeField] private Transform content; // transform for content.
 
-    private List<GameObject> powerUpCells = new List<GameObject>(); // list of power up cells.
+    [Header("GameObjects")]
+    [SerializeField] private GameObject powerUpCellsPanel; // The power ups panel GameObject to show/hide power ups UI.
+    [SerializeField] private RectTransform openCloseIcon; // The open close icon for the power ups panel.
 
-    void Start()
+
+    private List<PowerUpCell> powerUpCells = new List<PowerUpCell>(); // list of power up cells.
+
+    private bool isPanelOpen = false; // Tracks whether the power ups panel is open or closed.
+
+    // Function to open or close the power ups panel.
+    public void PanelOpenClose()
     {
-        SetPowerUpsDatas();
+        isPanelOpen = !isPanelOpen;
+        powerUpCellsPanel.SetActive(isPanelOpen);
+
+        if (isPanelOpen) 
+        {
+            SetPowerUpsDatas();
+        }
+        else
+        {
+            UpdatePowerUpDatas();
+        }
+        
+        AnimatePanel();
     }
 
+    // Set power ups datas.
     void SetPowerUpsDatas()
     {
         PlayerProgressData playerProgressData = GameManager.Instance.ReadPlayerProgressData();
@@ -27,8 +49,11 @@ public class PowerUpPanel : MonoBehaviour
         CreatePowerUpCells();
     }
 
+    // Create power up cells.
     void CreatePowerUpCells()
     {
+        ClearPowerUpCells();
+
         // Create separate lists for each power-up type
         List<PowerUpsData> powerUpsData_Speeds = new List<PowerUpsData>();
         List<PowerUpsData> powerUpsData_HeavyAttacks = new List<PowerUpsData>();
@@ -62,31 +87,60 @@ public class PowerUpPanel : MonoBehaviour
         InstantiatePowerUpCells(powerUpsData_UnlimitedThrowing);
     }
 
+    // Instantiate power up cells for given list of power-up data.
     void InstantiatePowerUpCells(List<PowerUpsData> powerUpsList)
     {
-        foreach (PowerUpsData powerUpData in powerUpsList)
-        {
-            GameObject cell = Instantiate(powerUpCellPrefab, content);
-            powerUpCells.Add(cell);
-            PowerUpCell powerUpCell = cell.GetComponent<PowerUpCell>();
-            powerUpCell.SetPowerUpData(new List<PowerUpsData> { powerUpData }, powerUpData.powerUpImage);
-        }
+        PowerUpCell cell = Instantiate(powerUpCellPrefab, content).GetComponent<PowerUpCell>(); ;
+        powerUpCells.Add(cell);
+        cell.SetPowerUpData(powerUpsList);
     }
 
+    // Clear all power up cells and destroy them.
+    void ClearPowerUpCells()
+    {
+        foreach (PowerUpCell powerUpCell in powerUpCells)
+        {
+            Destroy(powerUpCell.gameObject);
+        }
+        powerUpCells.Clear(); // Reset the list.
+    }
+
+    // Save power up datas when the application quits.
     void OnApplicationQuit()
     {
         UpdatePowerUpDatas();
     }
 
+    // Update power up datas based on player progress.
     void UpdatePowerUpDatas()
     {
         // Update power-up datas based on player progress
         PlayerProgressData playerProgressData = GameManager.Instance.ReadPlayerProgressData();
         playerProgressData.powerUpsDatas.Clear();
 
-        foreach (GameObject powerUpsCell in powerUpCells)
+        foreach (PowerUpCell powerUpsCell in powerUpCells)
         {
-            playerProgressData.powerUpsDatas.AddRange(powerUpsCell.GetComponent<PowerUpCell>().ReadPowerUpDatas());
+            playerProgressData.powerUpsDatas.AddRange(powerUpsCell.ReadPowerUpDatas());
+        }
+    }
+
+    // Animate the power ups panel open and close.
+    void AnimatePanel()
+    {
+        openCloseIcon.DOLocalRotate(new Vector3(0, 0, 360), 1f, RotateMode.LocalAxisAdd);
+
+        RectTransform rectTransform = powerUpCellsPanel.GetComponent<RectTransform>();
+        rectTransform.pivot = new Vector2(1, 1); // Set pivot to top-left corner.
+
+        if (isPanelOpen)
+        {
+            rectTransform.localScale = new Vector3(0, 0, 0); // Start from scale 0.
+            rectTransform.DOScale(new Vector3(1, 1, 1), 0.5f).SetEase(Ease.OutBack); // Animate to scale 1.
+        }
+        else
+        {
+            rectTransform.localScale = new Vector3(1, 1, 1); // Start from scale 1.
+            rectTransform.DOScale(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.InBack); // Animate to scale 0.
         }
     }
 }

@@ -8,7 +8,7 @@ using DG.Tweening;
 public class PowerUpCell : MonoBehaviour
 {
     // List to store the data for each power-up associated with this cell.
-    private List<PowerUpsData> powerUpDatas = new List<PowerUpsData>();
+    public List<PowerUpsData> powerUpDatas = new List<PowerUpsData>();
 
     [Header("UI")]
     // Reference to the TextMeshPro component that displays the number of available power-ups.
@@ -30,15 +30,18 @@ public class PowerUpCell : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioClip powerUpSound;
 
+    // Dictionary to store default fish damages
+    private Dictionary<GameObject, float> defaultFishDamages = new Dictionary<GameObject, float>();
+
     /// <summary>
     /// Initializes the power-up cell with the provided data and sprite.
     /// </summary>
     /// <param name="powerUpDatas">List of PowerUpsData objects representing the power-ups.</param>
     /// <param name="sprite">The sprite to be displayed as the power-up icon.</param>
-    public void SetPowerUpData(List<PowerUpsData> powerUpDatas, Sprite sprite)
+    public void SetPowerUpData(List<PowerUpsData> powerUpDatas)
     {
         this.powerUpDatas = powerUpDatas;
-        StartCell(sprite);
+        StartCell(powerUpDatas[0].powerUpImage);
     }
 
     /// <summary>
@@ -68,7 +71,7 @@ public class PowerUpCell : MonoBehaviour
         if (powerUpDatas.Count > 0)
         {
             if (powerUpDatas[0].isAnimationEnabled)
-            { 
+            {
                 // Play the animation to move the power-up cell to a target position.
                 StartCoroutine(PowerUpAnimation());
             }
@@ -76,6 +79,7 @@ public class PowerUpCell : MonoBehaviour
             if (powerUpDatas.Count == 1)
             {
                 // If only one power-up is left, remove it, update the count, and deactivate the button.
+                ImplementPowerUp(powerUpDatas[0].powerUpType);
                 powerUpDatas.RemoveAt(0);
                 powerUpCountText.text = powerUpDatas.Count.ToString();
                 SetButtonInactive();
@@ -84,11 +88,12 @@ public class PowerUpCell : MonoBehaviour
             {
                 // If multiple power-ups are available, start the cooldown animation, remove a power-up,
                 // update the count, and implement the power-up effect.
+                ImplementPowerUp(powerUpDatas[0].powerUpType);
                 StartCoroutine(RefreshButtonActive(powerUpDatas[0].powerUpDuration));
-                powerUpDatas.RemoveAt(powerUpDatas.Count - 1); //Removes from the end of the List which is probably unintended.
+                powerUpDatas.RemoveAt(0);
                 powerUpCountText.text = powerUpDatas.Count.ToString();
 
-                ImplementPowerUp(powerUpDatas[0].powerUpType);
+
             }
         }
     }
@@ -102,14 +107,14 @@ public class PowerUpCell : MonoBehaviour
     {
         powerUpButton.interactable = false;
         powerUpLockIconImage.gameObject.SetActive(true);
-        powerUpLockIconImage.fillAmount = 0; 
+        powerUpLockIconImage.fillAmount = 0;
 
         float elapsedTime = 0;
 
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
-            powerUpLockIconImage.fillAmount = Mathf.Lerp(1, 0, elapsedTime / duration); // Animate the filling of the image, potentially backwards.
+            powerUpLockIconImage.fillAmount = Mathf.Lerp(0, 1, elapsedTime / duration); // Animate the filling of the image
             yield return null;
         }
 
@@ -117,7 +122,7 @@ public class PowerUpCell : MonoBehaviour
         if (powerUpDatas.Count > 0)
         {
             powerUpButton.interactable = true;
-            powerUpLockIconImage.gameObject.SetActive(false); 
+            powerUpLockIconImage.gameObject.SetActive(false);
         }
         else
         {
@@ -130,7 +135,7 @@ public class PowerUpCell : MonoBehaviour
     /// </summary>
     void SetButtonInactive()
     {
-        powerUpLockIconImage.fillAmount = 1; 
+        powerUpLockIconImage.fillAmount = 1;
         powerUpLockIconImage.gameObject.SetActive(true);
         powerUpButton.interactable = false;
     }
@@ -153,7 +158,7 @@ public class PowerUpCell : MonoBehaviour
         switch (powerUpType)
         {
             case PowerUpType.Speed:
-                StartCoroutine(SpearThrowingRaiseSpeed(powerUpDatas[0].powerUpValue, powerUpDatas[0].powerUpDuration));
+                StartCoroutine(SpearThrowingRaiseSpeed((int)powerUpDatas[0].powerUpValue, powerUpDatas[0].powerUpDuration));
                 break;
 
             case PowerUpType.HeavyAttack:
@@ -193,13 +198,19 @@ public class PowerUpCell : MonoBehaviour
         // Get the list of currently active fish.
         List<GameObject> fishsCreated = GameManager.Instance.ReadFishCreatAndDeadList().Item1;
 
-        //BUG: This assumes all fish have the same default damage.  It should read from each fish individually
-        float defaultDamage = fishsCreated[0].GetComponent<FishDamage>().GetDamage();
+        // Store default damages if not already stored
+        if (defaultFishDamages.Count == 0)
+        {
+            foreach (GameObject fish in fishsCreated)
+            {
+                defaultFishDamages[fish] = fish.GetComponent<FishDamage>().GetDamage();
+            }
+        }
 
         // Increase the damage of each fish by the power-up value.
         foreach (GameObject fish in fishsCreated)
         {
-            fish.GetComponent<FishDamage>().SetDamage(newDamage + defaultDamage);
+            fish.GetComponent<FishDamage>().SetDamage(newDamage + defaultFishDamages[fish]);
         }
 
         // Wait for the duration of the power-up.
@@ -208,7 +219,7 @@ public class PowerUpCell : MonoBehaviour
         // Reset the damage of each fish to its default value.
         foreach (GameObject fish in fishsCreated)
         {
-            fish.GetComponent<FishDamage>().SetDamage(defaultDamage);
+            fish.GetComponent<FishDamage>().SetDamage(defaultFishDamages[fish]);
         }
     }
 

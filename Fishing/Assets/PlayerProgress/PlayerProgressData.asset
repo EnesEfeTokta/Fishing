@@ -18,39 +18,21 @@ MonoBehaviour:
   powerUpsDatas:
   - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
   - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
-  - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
-  - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
-  - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
-  - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
   - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
   - {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
   - {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
   - {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
   - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
   - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
-  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
-  - {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
-  - {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
-  - {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
+  - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
   - {fileID: 11400000, guid: 7a9c7f0bbae42e94096e1f13d67f374b, type: 2}
-  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
-  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
-  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
-  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
-  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
-  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
-  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
-  - {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
-  - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
-  - {fileID: 11400000, guid: b4ffafc5ad35ab342b80b81dfc2549e6, type: 2}
-  - {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
-  - {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
+  - {fileID: 11400000, guid: 7a9c7f0bbae42e94096e1f13d67f374b, type: 2}
   - {fileID: 11400000, guid: 7a9c7f0bbae42e94096e1f13d67f374b, type: 2}
   giftCaseItemDatas: []
   materialDatas: []
   spearObjectDatas: []
   selectSpearObject: {fileID: 533312282937686050, guid: 4aa5b90a5048f734380c2d6d3981c5c5, type: 3}
-  ownedCostumesData: {fileID: 0}
+  ownedCostumesData: {fileID: 11400000, guid: 5ab46477d8705e742baab5204be63419, type: 2}
   spearDress:
     name: Default
     mesh: {fileID: 4300128, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
@@ -58,7 +40,6 @@ MonoBehaviour:
     - {fileID: 2100000, guid: accb120ac2bc7e7479d74b0b291179c8, type: 2}
     - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
   settingsData: {fileID: 11400000, guid: 5c9cf82b0d39b5a4cab31c4d723cbd53, type: 2}
-  levelInformationData: {fileID: 0}
   levelInformationDatas:
   - {fileID: 11400000, guid: 5f7b1ea3e8d5db645918c35bd87ddf26, type: 2}
   - {fileID: 11400000, guid: 789ba71aa9218b141ab3b7f07da5d862, type: 2}
