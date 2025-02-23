@@ -26,8 +26,8 @@ MonoBehaviour:
       - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
       - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
     material: {fileID: 0}
-    isPurchased: 0
-    productReceivedDate: 19.01.2025 12:13:26
+    isPurchased: 1
+    productReceivedDate: 23.02.2025 23:01:14
   - name: Deneme2
     productType: 0
     productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
@@ -41,8 +41,8 @@ MonoBehaviour:
       - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
       - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
     material: {fileID: 0}
-    isPurchased: 0
-    productReceivedDate: 19.01.2025 12:12:58
+    isPurchased: 1
+    productReceivedDate: 23.02.2025 23:01:18
   - name: Deneme3
     productType: 0
     productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
@@ -56,35 +56,148 @@ MonoBehaviour:
       - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
       - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
     material: {fileID: 0}
+    isPurchased: 1
+    productReceivedDate: 23.02.2025 23:01:20
+  - name: Ice_Material
+    productType: 1
+    productImage: {fileID: 21300000, guid: a1ba1668bed304348aef0fca17731ed6, type: 3}
+    productName: Ice
+    productPrice: 3500
+    productDescription: Ideal for an icy life.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: d1dd116ad40996941adfd546fbed4f8e, type: 2}
     isPurchased: 0
     productReceivedDate: 
-  - name: Deneme4
+  - name: Lava_Material
     productType: 1
-    productImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
-    productName: Material_v1
-    productPrice: 3500
-    productDescription: "Daha g\xFC\xE7l\xFC bir g\xF6r\xFCn\xFCm i\xE7in idealdir."
+    productImage: {fileID: 21300000, guid: 9fc8d23387aa95c46bbc39790f7976a1, type: 3}
+    productName: Lava
+    productPrice: 5500
+    productDescription: Let fire be your strong point.
     spearDress:
-      name: Spear_v1
-      mesh: {fileID: 4300122, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
-      materials:
-      - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
-      - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: ccf628ad85575824384fce770c6a3a50, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: Alien_Material
+    productType: 1
+    productImage: {fileID: 21300000, guid: 1523ce2d3cb0e9f4b817f8628458a457, type: 3}
+    productName: Alien
+    productPrice: 4500
+    productDescription: Reinforced by extraterrestrial forces.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
     material: {fileID: 2100000, guid: accb120ac2bc7e7479d74b0b291179c8, type: 2}
     isPurchased: 0
     productReceivedDate: 
-  - name: Deneme5
+  - name: Paper_Material
     productType: 1
-    productImage: {fileID: 21300000, guid: 4c0ad1052b8755a43a04d49fbdff6442, type: 3}
-    productName: Material_v2
+    productImage: {fileID: 21300000, guid: 7dd5c26a5742ba94599e2e58e024edd5, type: 3}
+    productName: Paper
     productPrice: 5000
-    productDescription: "Daha g\xFC\xE7l\xFC bir g\xF6r\xFCn\xFCm i\xE7in idealdir."
+    productDescription: Classic Northern European theme.
     spearDress:
-      name: Spear_v1
-      mesh: {fileID: 4300122, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
-      materials:
-      - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
-      - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
+      name: 
+      mesh: {fileID: 0}
+      materials: []
     material: {fileID: 2100000, guid: de02517b107827849bfabc4e29976ff4, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: AnimalFurRed_Material
+    productType: 1
+    productImage: {fileID: 21300000, guid: c9b0f2af07ee3fd4a9c6ee85b187a5bb, type: 3}
+    productName: Animal Fur
+    productPrice: 3000
+    productDescription: It's time to draw strength from nature.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: 1e0633ea89b186e44a0138e90e73d0e0, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: Grass_Material
+    productType: 1
+    productImage: {fileID: 21300000, guid: 8eb09ab2476ea204c9671f1a7908812b, type: 3}
+    productName: Grass
+    productPrice: 4500
+    productDescription: Power up and launch with green nature.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: 1e377b5d287fbc24390c08edee9cecae, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: DiamondsBlue_Material
+    productType: 1
+    productImage: {fileID: 21300120, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    productName: Diamonds Blue
+    productPrice: 3500
+    productDescription: Get stronger with the blue diamond.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: 0aef366063def0b49acfa73828de5f8b, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: DiamondsPink_Material
+    productType: 1
+    productImage: {fileID: 21300120, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    productName: Diamonds Pink
+    productPrice: 3500
+    productDescription: Get stronger with the pink diamond.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: f045f622abacc574d8680710d25906d2, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: DiamondsYellow_Material
+    productType: 1
+    productImage: {fileID: 21300120, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    productName: Diamonds Yellow
+    productPrice: 3500
+    productDescription: Get stronger with the Yellow diamond.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: b2a9e676e3e6f81458857009f2502d10, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: BluePinkHaloCrazy_Material
+    productType: 1
+    productImage: {fileID: 21300120, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    productName: Blue Pink Halo Crazy
+    productPrice: 4500
+    productDescription: Let the power of blue and pink come out of you.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: 8d0fcf3fd3d865543a310c0840394568, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: RedYellowHaloCrazy_Material
+    productType: 1
+    productImage: {fileID: 21300120, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    productName: Red Yellow Halo Crazy
+    productPrice: 4500
+    productDescription: Let the power of red and yellow come out of you.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
     isPurchased: 0
     productReceivedDate: 

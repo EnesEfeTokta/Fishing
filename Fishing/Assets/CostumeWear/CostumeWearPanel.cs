@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -128,11 +127,23 @@ public class CostumeWearPanel : MonoBehaviour
         gameObjectSpear.SetActive(IsCostumePanelActive);
         costumeWearPanel.gameObject.SetActive(IsCostumePanelActive);
         mainPanel.gameObject.SetActive(!IsCostumePanelActive);
+
+        if (IsCostumePanelActive)
+        {
+            CreateOptionsCell();
+            SpearDress defaultSpearDress = playerProgressData.spearDress;
+            spearDressing.StartSpearDressing(defaultSpearDress.mesh, defaultSpearDress.materials);
+            selectedMaterial1Slot = defaultSpearDress.materials[0];
+            selectedMaterial2Slot = defaultSpearDress.materials[1];
+            material1SlotImage.material = selectedMaterial1Slot;
+            material2SlotImage.material = selectedMaterial2Slot;
+            SetMaterialSlot(0);
+        }
     }
 
     void Update()
     {
-        //if (IsCostumePanelActive) SpearRotateXYZ();
+        if (IsCostumePanelActive) SpearRotateXYZ();
     }
 
     void CreateOptionsCell()

@@ -263,7 +263,7 @@ public class ShopPanel : MonoBehaviour
              playerProgressData.ownedCostumesData.ownedMaterials.Add(ownedMaterial);
         }
     }
-
+    
     private void SelectFirstProduct()
     {
         if (showingProducts.Count > 0)
@@ -272,6 +272,7 @@ public class ShopPanel : MonoBehaviour
         }
     }
 
+#region Ads Panel
     IEnumerator ShowAdsProduct()
     {
         adsProducts = adsProductsData.adsProductsDatas;
@@ -336,4 +337,5 @@ public class ShopPanel : MonoBehaviour
         }
         canvasGroup.alpha = 0;
     }
+#endregion
 }

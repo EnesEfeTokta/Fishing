@@ -12,47 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b27a6657222ad943b23923e2768a2f1, type: 3}
   m_Name: OwnedCostumesData
   m_EditorClassIdentifier: 
-  ownedSpears:
-  - spearName: Deneme1
-    spearSprite: {fileID: 21300000, guid: 5f406b6599ab5a243ba1489dbe125fa2, type: 3}
-    spearObject: {fileID: 4300126, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
-  - spearName: Deneme2
-    spearSprite: {fileID: 21300000, guid: 5f406b6599ab5a243ba1489dbe125fa2, type: 3}
-    spearObject: {fileID: 4300128, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
-  - spearName: Deneme3
-    spearSprite: {fileID: 21300000, guid: 5f406b6599ab5a243ba1489dbe125fa2, type: 3}
-    spearObject: {fileID: 4300130, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
-  - spearName: Deneme4
-    spearSprite: {fileID: 21300000, guid: 5f406b6599ab5a243ba1489dbe125fa2, type: 3}
-    spearObject: {fileID: 4300090, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
-  - spearName: Deneme4
-    spearSprite: {fileID: 21300000, guid: 5f406b6599ab5a243ba1489dbe125fa2, type: 3}
-    spearObject: {fileID: 655444009181732940, guid: 7d9d7c0c96d829746b91e881dcc8f019, type: 3}
-  - spearName: Deneme4
-    spearSprite: {fileID: 21300000, guid: 5f406b6599ab5a243ba1489dbe125fa2, type: 3}
-    spearObject: {fileID: 655444009181732940, guid: 7d9d7c0c96d829746b91e881dcc8f019, type: 3}
-  - spearName: Deneme4
-    spearSprite: {fileID: 21300000, guid: 5f406b6599ab5a243ba1489dbe125fa2, type: 3}
-    spearObject: {fileID: 655444009181732940, guid: 7d9d7c0c96d829746b91e881dcc8f019, type: 3}
-  ownedMaterials:
-  - materialName: Deneme1
-    materialSprite: {fileID: 21300000, guid: 076da9882ade8da4888b07890e56a4d0, type: 3}
-    materialObject: {fileID: 2100000, guid: 1e0633ea89b186e44a0138e90e73d0e0, type: 2}
-  - materialName: Deneme2
-    materialSprite: {fileID: 21300000, guid: 076da9882ade8da4888b07890e56a4d0, type: 3}
-    materialObject: {fileID: 2100000, guid: ccf628ad85575824384fce770c6a3a50, type: 2}
-  - materialName: Deneme3
-    materialSprite: {fileID: 21300000, guid: 076da9882ade8da4888b07890e56a4d0, type: 3}
-    materialObject: {fileID: 2100000, guid: 1e377b5d287fbc24390c08edee9cecae, type: 2}
-  - materialName: Deneme4
-    materialSprite: {fileID: 21300000, guid: 076da9882ade8da4888b07890e56a4d0, type: 3}
-    materialObject: {fileID: 9019668823829765845, guid: b9542212fc1492d4281773556de62678, type: 3}
-  - materialName: Deneme4
-    materialSprite: {fileID: 21300000, guid: 076da9882ade8da4888b07890e56a4d0, type: 3}
-    materialObject: {fileID: 2100000, guid: 1e0633ea89b186e44a0138e90e73d0e0, type: 2}
-  - materialName: Deneme4
-    materialSprite: {fileID: 21300000, guid: 076da9882ade8da4888b07890e56a4d0, type: 3}
-    materialObject: {fileID: 2100000, guid: 1e0633ea89b186e44a0138e90e73d0e0, type: 2}
-  - materialName: Deneme4
-    materialSprite: {fileID: 21300000, guid: 076da9882ade8da4888b07890e56a4d0, type: 3}
-    materialObject: {fileID: 2100000, guid: 1e0633ea89b186e44a0138e90e73d0e0, type: 2}
+  ownedSpears: []
+  ownedMaterials: []

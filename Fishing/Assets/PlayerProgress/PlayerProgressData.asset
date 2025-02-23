@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerProgressData
   m_EditorClassIdentifier: 
   totalPlayerScore: 20
-  totalPlayerMoney: 33570
+  totalPlayerMoney: 67000
   totalPlayerFish: 50
   powerUpsDatas:
   - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
@@ -39,8 +39,8 @@ MonoBehaviour:
     name: Default
     mesh: {fileID: 4300126, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
     materials:
-    - {fileID: 2100000, guid: ccf628ad85575824384fce770c6a3a50, type: 2}
-    - {fileID: 2100000, guid: ccf628ad85575824384fce770c6a3a50, type: 2}
+    - {fileID: 2100000, guid: de02517b107827849bfabc4e29976ff4, type: 2}
+    - {fileID: 2100000, guid: d1dd116ad40996941adfd546fbed4f8e, type: 2}
   settingsData: {fileID: 11400000, guid: 5c9cf82b0d39b5a4cab31c4d723cbd53, type: 2}
   levelInformationDatas:
   - {fileID: 11400000, guid: 5f7b1ea3e8d5db645918c35bd87ddf26, type: 2}
