@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: PowerUpsData_Heavy
   m_EditorClassIdentifier: 
   powerUpName: Heavy
-  powerUpImage: {fileID: 21300000, guid: ffda078b771d92e4f890c7a3c4873b79, type: 3}
+  powerUpImage: {fileID: 21300000, guid: b4651d7abbaadf94b996b299f2ee908a, type: 3}
   powerUpType: 1
   powerUpDuration: 30
   powerUpValue: 50
   powerUpPrice: 90
+  isAnimationEnabled: 1

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: PowerUpsData_UnlitmitedThrowing
   m_EditorClassIdentifier: 
   powerUpName: UnlitmitedThrowing
-  powerUpImage: {fileID: 21300000, guid: 25b3a4c3e2e19aa48aa34216fa1430dc, type: 3}
+  powerUpImage: {fileID: 21300000, guid: 0eaf624191adf5f479dfdcda373ff2b6, type: 3}
   powerUpType: 3
   powerUpDuration: 30
   powerUpValue: 0
   powerUpPrice: 25
+  isAnimationEnabled: 1

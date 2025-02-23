@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PowerUpsData_AddTime
   m_EditorClassIdentifier: 
   powerUpName: AddTime
-  powerUpImage: {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
+  powerUpImage: {fileID: 21300000, guid: 2a2ea8a91cea7224f9e7cc7db541d052, type: 3}
   powerUpType: 2
   powerUpDuration: 0
   powerUpValue: 20

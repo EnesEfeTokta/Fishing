@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: AdsProductsData
   m_EditorClassIdentifier: 
   adsProductsDatas:
-  - {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
-  - {fileID: 21300000, guid: a5fd1d31c7504cd4083d950f36ed7511, type: 3}
-  - {fileID: 21300000, guid: 7a8232e4b7e592044aea0c6b669f0e36, type: 3}
-  - {fileID: 21300008, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  - {fileID: 21300000, guid: 8e773b1c09ddd844d8065b6846721200, type: 3}
+  - {fileID: 21300000, guid: 0b522ac82c2d4984ab388b13e568476f, type: 3}
+  - {fileID: 21300000, guid: 6aa96b65e8b6afb41aaa8c14f5874170, type: 3}
+  - {fileID: 21300000, guid: 1bb51406b66110e4c9a0f1670bfdbf61, type: 3}
+  - {fileID: 21300000, guid: f8703f5c226eb7b4391ca49dac228755, type: 3}
