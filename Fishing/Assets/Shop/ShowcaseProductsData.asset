@@ -20,8 +20,8 @@ MonoBehaviour:
     productPrice: 500
     productDescription: Ideal for beginners.
     spearDress:
-      name: Spear_v1
-      mesh: {fileID: 4300128, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
+      name: Classic
+      mesh: {fileID: 5958948472769238976, guid: 6c3ad7f927ea6c645975a33812561fc8, type: 3}
       materials:
       - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
       - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
@@ -35,8 +35,8 @@ MonoBehaviour:
     productPrice: 750
     productDescription: Decide to get stronger.
     spearDress:
-      name: Spear_v1
-      mesh: {fileID: 4300130, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
+      name: Stone
+      mesh: {fileID: 6991765767627372287, guid: 6c3ad7f927ea6c645975a33812561fc8, type: 3}
       materials:
       - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
       - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
@@ -50,8 +50,8 @@ MonoBehaviour:
     productPrice: 1500
     productDescription: You are strong now and start hunting.
     spearDress:
-      name: Spear_v1
-      mesh: {fileID: 4300122, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
+      name: Rough
+      mesh: {fileID: 9114035681842541416, guid: 6c3ad7f927ea6c645975a33812561fc8, type: 3}
       materials:
       - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
       - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
@@ -65,10 +65,12 @@ MonoBehaviour:
     productPrice: 1800
     productDescription: Now you are both strong and elegant.
     spearDress:
-      name: 
-      mesh: {fileID: 0}
-      materials: []
-    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
+      name: Traditional
+      mesh: {fileID: 8388874815910215118, guid: 6c3ad7f927ea6c645975a33812561fc8, type: 3}
+      materials:
+      - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
+      - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
+    material: {fileID: 0}
     isPurchased: 0
     productReceivedDate: 
   - name: Attacker_Object
@@ -78,10 +80,12 @@ MonoBehaviour:
     productPrice: 2500
     productDescription: He's good at attacking.
     spearDress:
-      name: 
-      mesh: {fileID: 0}
-      materials: []
-    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
+      name: Attacker
+      mesh: {fileID: 8314571269056883277, guid: 6c3ad7f927ea6c645975a33812561fc8, type: 3}
+      materials:
+      - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
+      - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
+    material: {fileID: 0}
     isPurchased: 0
     productReceivedDate: 
   - name: Clamp_Object
@@ -91,10 +95,12 @@ MonoBehaviour:
     productPrice: 3500
     productDescription: He won't let go of his prey.
     spearDress:
-      name: 
-      mesh: {fileID: 0}
-      materials: []
-    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
+      name: Clamp
+      mesh: {fileID: 1657815052840635275, guid: 6c3ad7f927ea6c645975a33812561fc8, type: 3}
+      materials:
+      - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
+      - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
+    material: {fileID: 0}
     isPurchased: 0
     productReceivedDate: 
   - name: Noble_Object
@@ -104,10 +110,12 @@ MonoBehaviour:
     productPrice: 5000
     productDescription: A spear used by noble warriors.
     spearDress:
-      name: 
-      mesh: {fileID: 0}
-      materials: []
-    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
+      name: Noble
+      mesh: {fileID: -2124705421725058983, guid: 6c3ad7f927ea6c645975a33812561fc8, type: 3}
+      materials:
+      - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
+      - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
+    material: {fileID: 0}
     isPurchased: 0
     productReceivedDate: 
   - name: Wild_Object
@@ -117,10 +125,12 @@ MonoBehaviour:
     productPrice: 8500
     productDescription: With its sharpness, it is the terror of its prey.
     spearDress:
-      name: 
-      mesh: {fileID: 0}
-      materials: []
-    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
+      name: Wild
+      mesh: {fileID: -6857689473578963052, guid: 6c3ad7f927ea6c645975a33812561fc8, type: 3}
+      materials:
+      - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
+      - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
+    material: {fileID: 0}
     isPurchased: 0
     productReceivedDate: 
   - name: Axe_Object
@@ -130,12 +140,14 @@ MonoBehaviour:
     productPrice: 15000
     productDescription: There is no salvation for your prey.
     spearDress:
-      name: 
-      mesh: {fileID: 0}
-      materials: []
-    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
-    isPurchased: 0
-    productReceivedDate: 
+      name: Axe
+      mesh: {fileID: 8999911773206952699, guid: 6c3ad7f927ea6c645975a33812561fc8, type: 3}
+      materials:
+      - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
+      - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
+    material: {fileID: 0}
+    isPurchased: 1
+    productReceivedDate: 6.03.2025 15:44:19
   - name: TripleEnded_Object
     productType: 0
     productImage: {fileID: 21300000, guid: fe3d6c53502ae554b81887547046fa39, type: 3}
@@ -143,10 +155,12 @@ MonoBehaviour:
     productPrice: 30000
     productDescription: You will be the strongest hunter.
     spearDress:
-      name: 
-      mesh: {fileID: 0}
-      materials: []
-    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
+      name: Triple Ended
+      mesh: {fileID: 8792586484180348971, guid: 6c3ad7f927ea6c645975a33812561fc8, type: 3}
+      materials:
+      - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
+      - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
+    material: {fileID: 0}
     isPurchased: 0
     productReceivedDate: 
   - name: Ice_Material

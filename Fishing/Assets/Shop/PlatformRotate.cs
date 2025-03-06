@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlatformRotate : MonoBehaviour
 {
@@ -16,25 +15,13 @@ public class PlatformRotate : MonoBehaviour
 
     private bool IsShopPanelActive = false;
 
-    private void Awake()
-    {
-        inputActions = new PlayerControls();
-    }
+    private void Awake() => inputActions = new PlayerControls();
 
-    private void OnEnable()
-    {
-        inputActions.Enable();
-    }
+    private void OnEnable() => inputActions.Enable();
 
-    public void ChangeRotationState(bool state)
-    {
-        IsShopPanelActive = state;
-    }
+    public void ChangeRotationState(bool state) => IsShopPanelActive = state;
 
-    private void OnDisable()
-    {
-        inputActions.Disable();
-    }
+    private void OnDisable() => inputActions.Disable();
 
     void Update()
     {

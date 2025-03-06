@@ -86,6 +86,9 @@ public class ShopPanel : MonoBehaviour
         settingsPanel.SetActive(isOpen);
         isOpenPanel = isOpen;
 
+        PlatformRotate platformRotate = GetComponent<PlatformRotate>();
+        platformRotate.ChangeRotationState(isOpen);
+
         if (isOpen)
         {
             adsCoroutine = StartCoroutine(ShowAdsProduct());
@@ -201,7 +204,7 @@ public class ShopPanel : MonoBehaviour
 
     void ProductBuy()
     {
-         if (showcaseProductsData.showcaseProducts[selectedProductIndex].isPurchased) return;
+        if (showcaseProductsData.showcaseProducts[selectedProductIndex].isPurchased) return;
 
         if (BalanceSufficient())
         {
@@ -242,37 +245,37 @@ public class ShopPanel : MonoBehaviour
 
     void AcceptItem()
     {
-         if (showcaseProductsData.showcaseProducts[selectedProductIndex].productType == ProductType.Object)
+        if (showcaseProductsData.showcaseProducts[selectedProductIndex].productType == ProductType.Object)
         {
-             OwnedSpear ownedSpear = new OwnedSpear()
-             {
+            OwnedSpear ownedSpear = new OwnedSpear()
+            {
                 spearName = showcaseProductsData.showcaseProducts[selectedProductIndex].spearDress.name,
                 spearSprite = showcaseProductsData.showcaseProducts[selectedProductIndex].productImage,
                 spearObject = showcaseProductsData.showcaseProducts[selectedProductIndex].spearDress.mesh
-             };
-             playerProgressData.ownedCostumesData.ownedSpears.Add(ownedSpear);
+            };
+            playerProgressData.ownedCostumesData.ownedSpears.Add(ownedSpear);
         }
         else
         {
-             OwnedMaterial ownedMaterial = new OwnedMaterial()
-             {
-                 materialName = showcaseProductsData.showcaseProducts[selectedProductIndex].material.name,
-                 materialSprite = showcaseProductsData.showcaseProducts[selectedProductIndex].productImage,
-                 materialObject = showcaseProductsData.showcaseProducts[selectedProductIndex].material
-             };
-             playerProgressData.ownedCostumesData.ownedMaterials.Add(ownedMaterial);
+            OwnedMaterial ownedMaterial = new OwnedMaterial()
+            {
+                materialName = showcaseProductsData.showcaseProducts[selectedProductIndex].material.name,
+                materialSprite = showcaseProductsData.showcaseProducts[selectedProductIndex].productImage,
+                materialObject = showcaseProductsData.showcaseProducts[selectedProductIndex].material
+            };
+            playerProgressData.ownedCostumesData.ownedMaterials.Add(ownedMaterial);
         }
     }
-    
+
     private void SelectFirstProduct()
     {
         if (showingProducts.Count > 0)
         {
-             SelectProduct(showcaseProductsData.showcaseProducts[0], showingProducts[0]);
+            SelectProduct(showcaseProductsData.showcaseProducts[0], showingProducts[0]);
         }
     }
 
-#region Ads Panel
+    #region Ads Panel
     IEnumerator ShowAdsProduct()
     {
         adsProducts = adsProductsData.adsProductsDatas;
@@ -337,5 +340,5 @@ public class ShopPanel : MonoBehaviour
         }
         canvasGroup.alpha = 0;
     }
-#endregion
+    #endregion
 }
