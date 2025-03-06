@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: ShowcaseProductsData
   m_EditorClassIdentifier: 
   showcaseProducts:
-  - name: Deneme1
+  - name: Classic_Object
     productType: 0
-    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
-    productName: Spear_v1
-    productPrice: 1800
-    productDescription: "G\xFC\xE7l\xFC bir g\xF6r\xFCn\xFCm i\xE7in idealdir."
+    productImage: {fileID: 21300000, guid: 242df35d6a31dc14ea572638dcbdb292, type: 3}
+    productName: Classic
+    productPrice: 500
+    productDescription: Ideal for beginners.
     spearDress:
       name: Spear_v1
       mesh: {fileID: 4300128, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
@@ -26,14 +26,14 @@ MonoBehaviour:
       - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
       - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
     material: {fileID: 0}
-    isPurchased: 1
-    productReceivedDate: 23.02.2025 23:01:14
-  - name: Deneme2
+    isPurchased: 0
+    productReceivedDate: 
+  - name: Stone_Object
     productType: 0
-    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
-    productName: Spear_v2
-    productPrice: 2600
-    productDescription: "Daha g\xFC\xE7l\xFC bir g\xF6r\xFCn\xFCm i\xE7in idealdir."
+    productImage: {fileID: 21300000, guid: 92cf1a085bb5c7647b1fa269cf185a18, type: 3}
+    productName: Stone
+    productPrice: 750
+    productDescription: Decide to get stronger.
     spearDress:
       name: Spear_v1
       mesh: {fileID: 4300130, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
@@ -41,14 +41,14 @@ MonoBehaviour:
       - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
       - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
     material: {fileID: 0}
-    isPurchased: 1
-    productReceivedDate: 23.02.2025 23:01:18
-  - name: Deneme3
+    isPurchased: 0
+    productReceivedDate: 
+  - name: Rough_Object
     productType: 0
-    productImage: {fileID: 21300000, guid: 0624d8d957852014f8e5e3acb88564ff, type: 3}
-    productName: Spear_v2
-    productPrice: 3500
-    productDescription: "Daha g\xFC\xE7l\xFC bir g\xF6r\xFCn\xFCm i\xE7in idealdir."
+    productImage: {fileID: 21300000, guid: c73384245d112df47abe13bbf9a5ebd9, type: 3}
+    productName: Rough
+    productPrice: 1500
+    productDescription: You are strong now and start hunting.
     spearDress:
       name: Spear_v1
       mesh: {fileID: 4300122, guid: 4f4f10efa710393478afa047990dfb5f, type: 3}
@@ -56,8 +56,99 @@ MonoBehaviour:
       - {fileID: 2100000, guid: ecec3ed6ddcd88846927d6ae36b51507, type: 2}
       - {fileID: 2100000, guid: b89a89e85edf6804aa5fb685a5ec4419, type: 2}
     material: {fileID: 0}
-    isPurchased: 1
-    productReceivedDate: 23.02.2025 23:01:20
+    isPurchased: 0
+    productReceivedDate: 
+  - name: Traditional_Object
+    productType: 0
+    productImage: {fileID: 21300000, guid: 7307808b36c645647a824de76fbbedfc, type: 3}
+    productName: Traditional
+    productPrice: 1800
+    productDescription: Now you are both strong and elegant.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: Attacker_Object
+    productType: 0
+    productImage: {fileID: 21300000, guid: 63dd3f4d8b8729542ae91bcde9698836, type: 3}
+    productName: Attacker
+    productPrice: 2500
+    productDescription: He's good at attacking.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: Clamp_Object
+    productType: 0
+    productImage: {fileID: 21300000, guid: c6df2f5a4917be549bf65629dc906446, type: 3}
+    productName: Clamp
+    productPrice: 3500
+    productDescription: He won't let go of his prey.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: Noble_Object
+    productType: 0
+    productImage: {fileID: 21300000, guid: e64d663ecd8b4de4ea50402bdc7991f8, type: 3}
+    productName: Noble
+    productPrice: 5000
+    productDescription: A spear used by noble warriors.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: Wild_Object
+    productType: 0
+    productImage: {fileID: 21300000, guid: 51fe554730a93a041ad27a2d49abecee, type: 3}
+    productName: Wild
+    productPrice: 8500
+    productDescription: With its sharpness, it is the terror of its prey.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: Axe_Object
+    productType: 0
+    productImage: {fileID: 21300000, guid: 8e0ae9a33e21a0d46bce79849acfc681, type: 3}
+    productName: Axe
+    productPrice: 15000
+    productDescription: There is no salvation for your prey.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
+  - name: TripleEnded_Object
+    productType: 0
+    productImage: {fileID: 21300000, guid: fe3d6c53502ae554b81887547046fa39, type: 3}
+    productName: Triple Ended
+    productPrice: 30000
+    productDescription: You will be the strongest hunter.
+    spearDress:
+      name: 
+      mesh: {fileID: 0}
+      materials: []
+    material: {fileID: 2100000, guid: 4530931f647a7064aa4f03949e85345c, type: 2}
+    isPurchased: 0
+    productReceivedDate: 
   - name: Ice_Material
     productType: 1
     productImage: {fileID: 21300000, guid: a1ba1668bed304348aef0fca17731ed6, type: 3}
