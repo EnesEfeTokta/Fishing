@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour
     private bool countdownStarted = false; // Flag to ensure that the countdown counts once.
     private float time; // Time time
 
-    void Awake()
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -26,12 +26,9 @@ public class Timer : MonoBehaviour
         }
     }
 
-    public void SetFinishTime(float time)
-    {
-        finishedTime += time;
-    }
+    public void SetFinishTime(float time) => finishedTime += time;
 
-    void Update()
+    private void Update()
     {
         if (isGameFinished) return;
 
@@ -53,13 +50,10 @@ public class Timer : MonoBehaviour
         }
 
         // Update Timer
-        timer.text = Mathf.FloorToInt(time).ToString();
+        timer.text = $"{Mathf.FloorToInt(time)}/{finishedTime}";
     }
 
-    public float InstantTime()
-    {
-        return time;
-    }
+    public float InstantTime() => time;
 
     public void GameFinished()
     {
@@ -69,7 +63,7 @@ public class Timer : MonoBehaviour
         time = 0;
     }
 
-    IEnumerator Countdown()
+    private IEnumerator Countdown()
     {
         numberTimer.gameObject.SetActive(true);
 

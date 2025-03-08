@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEditor.SceneManagement;
 
 // Ensures that all required components are attached to the GameObject.
 [RequireComponent(typeof(PastPlayRecorder))] // Handles the recording of past plays.
@@ -22,11 +23,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerProgressData playerProgressData; // Data about player progress.
 
 
-    private LevelInformationData levelInformationData; // Level-related data.
+    [HideInInspector] public LevelInformationData levelInformationData; // Level-related data.
 
     // Lists to track fish objects and their states.
-    public List<FishData> fishsDeath = new List<FishData>(); // List of data for fish that have died.
-    public List<GameObject> fishsCreated = new List<GameObject>(); // List of created fish GameObjects.
+    [HideInInspector] public List<FishData> fishsDeath = new List<FishData>(); // List of data for fish that have died.
+    [HideInInspector] public List<GameObject> fishsCreated = new List<GameObject>(); // List of created fish GameObjects.
 
     private AudioSource audioSource; // Getting the AudioSource component attached to this GameObject.
 
@@ -48,8 +49,6 @@ public class GameManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         levelInformationData = LevelChanged(playerProgressData.levelInformationDatas);
-
-        Debug.Log($"Starting level information data: {levelInformationData.levelName}");
 
         LevelInformationController.Instance.StartLevelInformationController();
 
@@ -122,27 +121,23 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public bool IsLevelFinished()
     {
-        // Get the total number of fish in the level and the elapsed time.
-        int totalFishs = ReadLevelInformationData().fishTypeAndNumbers.Count;
         float time = Timer.Instance.InstantTime();
 
-        if (time >= ReadLevelInformationData().levelTime)
+        if (time >= levelInformationData.levelTime)
         {
-            // !!!!! Here, a separate screen should be designed according to time. !!!!!
-            Debug.Log("You have no time ...");
-            AchievementScreen.Instance.StartAchievementScreen();
-            levelInformationData.IsSelected = false;
-
-            RegisterTheLevel();
-
+            Timer.Instance.GameFinished(); // Stop the timer.
+            GameEndStatus.Instance.EndGame(ValueCalculationType.Failed);
             return true;
         }
 
         // Check if all fish are dead or the level time has expired.
-        if (totalFishs == fishsDeath.Count)
+        if (levelInformationData.totalFishCount == fishsDeath.Count)
         {
-            AchievementScreen.Instance.StartAchievementScreen(); // Trigger the achievement screen.
+            //Timer.Instance.GameFinished(); // Stop the timer.
+            GameEndStatus.Instance.EndGame(ValueCalculationType.Success); // Trigger the achievement screen.
             levelInformationData.IsSelected = false;
+
+            Debug.Log($"Level {levelInformationData.levelName} completed!");
 
             RegisterTheLevel();
 
@@ -154,7 +149,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void RegisterTheLevel()
+    private void RegisterTheLevel()
     {
         LevelInformationData nextLevelInformationData = levelInformationData.nextLevelInformationData;
         nextLevelInformationData.IsLevelOver = true;
@@ -173,12 +168,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void AddPastPlayData()
+    private void AddPastPlayData()
     {
         // Calculate the player's score, fish value, and money value.
-        float scoreValue = AchievementScreen.Instance.ValueCalculation().Item2;
-        float fishValue = AchievementScreen.Instance.ValueCalculation().Item3;
-        float moneyValue = AchievementScreen.Instance.ValueCalculation().Item4;
+        float scoreValue = GameEndStatus.Instance.levelResults["TotalScore"];
+        float fishValue = GameEndStatus.Instance.levelResults["TotalFish"];
+        float moneyValue = GameEndStatus.Instance.levelResults["TotalMoney"];
 
         PastPlayRecorder.Instance.AddPastPlayData(scoreValue, fishValue, moneyValue, ReadLevelInformationData());
     }
@@ -198,9 +193,9 @@ public class GameManager : MonoBehaviour
     {
         try
         {
-            int score = AchievementScreen.Instance.ValueCalculation().Item2;
-            int money = AchievementScreen.Instance.ValueCalculation().Item4;
-            int fish = AchievementScreen.Instance.ValueCalculation().Item3;
+            int score = GameEndStatus.Instance.levelResults["TotalScore"];
+            int money = GameEndStatus.Instance.levelResults["TotalMoney"];
+            int fish = GameEndStatus.Instance.levelResults["TotalFish"];
 
             PlayerProgress.Instance.AddFish(fish);
             PlayerProgress.Instance.AddMoney(money);
@@ -233,4 +228,10 @@ public class GameManager : MonoBehaviour
 
         audioSource.Play();
     }
+
+    public void ResetGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+    public void QuitGame() => Application.Quit();
+
+    public void GoToHomeScreen() => SceneManager.LoadScene("Home");
 }

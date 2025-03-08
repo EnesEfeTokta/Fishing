@@ -7,7 +7,8 @@ public class SettingsFounder : MonoBehaviour
     public static SettingsFounder Instance;
 
     // Holds the player's settings data (e.g., post-processing, renderer quality, audio settings).
-    public SettingsData settingsData;
+    [SerializeField] private PlayerProgressData playerProgress;
+    private SettingsData settingsData;
 
     // Reference to the GameObject responsible for post-processing effects.
     [Header("Post-Processing")]
@@ -39,6 +40,9 @@ public class SettingsFounder : MonoBehaviour
     // Start is called before the first frame update to initialize settings.
     void Start()
     {
+        // Load the player's settings data.
+        settingsData = playerProgress.settingsData;
+
         // Find all audio sources in the scene and categorize them based on their tag.
         AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource audioSource in audioSources)

@@ -13,7 +13,7 @@ public class Score : MonoBehaviour
     void Start()
     {
         // Set the initial score text to "0".
-        score.text = "0";
+        score.text = "0/~";
     }
 
     /// <summary>
@@ -26,6 +26,6 @@ public class Score : MonoBehaviour
         scoreCount += score;
 
         // Update the score UI text to reflect the new score count.
-        this.score.text = scoreCount.ToString();
+        this.score.text = $"{scoreCount}/{GameManager.Instance.levelInformationData.totalFishCount}";
     }
 }
