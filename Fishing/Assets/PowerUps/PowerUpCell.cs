@@ -41,6 +41,7 @@ public class PowerUpCell : MonoBehaviour
     public void SetPowerUpData(List<PowerUpsData> powerUpDatas)
     {
         this.powerUpDatas = powerUpDatas;
+        Debug.Log(powerUpDatas[0].powerUpImage.name);
         StartCell(powerUpDatas[0].powerUpImage);
     }
 
@@ -48,7 +49,7 @@ public class PowerUpCell : MonoBehaviour
     /// Sets up the initial state of the power-up cell UI.
     /// </summary>
     /// <param name="sprite">The sprite to display for the power-up.</param>
-    void StartCell(Sprite sprite)
+    private void StartCell(Sprite sprite)
     {
         // Display the number of available power-ups.
         powerUpCountText.text = powerUpDatas.Count.ToString();
@@ -76,24 +77,24 @@ public class PowerUpCell : MonoBehaviour
                 StartCoroutine(PowerUpAnimation());
             }
 
-            if (powerUpDatas.Count == 1)
+            // Implement the power-up effect.
+            ImplementPowerUp(powerUpDatas[0].powerUpType);
+
+            // Remove the used power-up from the list.
+            powerUpDatas.RemoveAt(0);
+
+            // Update the power-up count text.
+            powerUpCountText.text = powerUpDatas.Count.ToString();
+
+            // If no power-ups are left, deactivate the button.
+            if (powerUpDatas.Count == 0)
             {
-                // If only one power-up is left, remove it, update the count, and deactivate the button.
-                ImplementPowerUp(powerUpDatas[0].powerUpType);
-                powerUpDatas.RemoveAt(0);
-                powerUpCountText.text = powerUpDatas.Count.ToString();
                 SetButtonInactive();
             }
             else
             {
-                // If multiple power-ups are available, start the cooldown animation, remove a power-up,
-                // update the count, and implement the power-up effect.
-                ImplementPowerUp(powerUpDatas[0].powerUpType);
+                // Start the cooldown animation if there are more power-ups available.
                 StartCoroutine(RefreshButtonActive(powerUpDatas[0].powerUpDuration));
-                powerUpDatas.RemoveAt(0);
-                powerUpCountText.text = powerUpDatas.Count.ToString();
-
-
             }
         }
     }
@@ -103,7 +104,7 @@ public class PowerUpCell : MonoBehaviour
     /// </summary>
     /// <param name="duration">The duration of the cooldown.</param>
     /// <returns>IEnumerator for the coroutine.</returns>
-    IEnumerator RefreshButtonActive(float duration)
+    private IEnumerator RefreshButtonActive(float duration)
     {
         powerUpButton.interactable = false;
         powerUpLockIconImage.gameObject.SetActive(true);
@@ -132,8 +133,7 @@ public class PowerUpCell : MonoBehaviour
 
     /// <summary>
     /// Deactivates the power-up button and displays the lock icon.
-    /// </summary>
-    void SetButtonInactive()
+    private void SetButtonInactive()
     {
         powerUpLockIconImage.fillAmount = 1;
         powerUpLockIconImage.gameObject.SetActive(true);
@@ -153,7 +153,7 @@ public class PowerUpCell : MonoBehaviour
     /// Implements the effect of the power-up based on its type.
     /// </summary>
     /// <param name="powerUpType">The type of power-up to be implemented.</param>
-    void ImplementPowerUp(PowerUpType powerUpType)
+    private void ImplementPowerUp(PowerUpType powerUpType)
     {
         switch (powerUpType)
         {
@@ -178,7 +178,7 @@ public class PowerUpCell : MonoBehaviour
         }
     }
 
-    IEnumerator SpearThrowingRaiseSpeed(int newSpeed, float time)
+    private IEnumerator SpearThrowingRaiseSpeed(int newSpeed, float time)
     {
         // Get the default spear speed.
         float defaultSpeed = SpearThrowing.Instance.ReadSpearSpeed();
@@ -193,7 +193,7 @@ public class PowerUpCell : MonoBehaviour
         SpearThrowing.Instance.SetSpearSpeed(defaultSpeed);
     }
 
-    IEnumerator IncreasingFishDamage(float newDamage, float time)
+    private IEnumerator IncreasingFishDamage(float newDamage, float time)
     {
         // Get the list of currently active fish.
         List<GameObject> fishsCreated = GameManager.Instance.ReadFishCreatAndDeadList().Item1;
@@ -223,7 +223,7 @@ public class PowerUpCell : MonoBehaviour
         }
     }
 
-    IEnumerator ReducingThrowingWaitTime(float newWaitTime, float time)
+    private IEnumerator ReducingThrowingWaitTime(float newWaitTime, float time)
     {
         // Get the default throwing wait time.
         float defaultWaitTime = SpearThrowing.Instance.ReadThrowingTime();
@@ -238,7 +238,7 @@ public class PowerUpCell : MonoBehaviour
         SpearThrowing.Instance.SetThrowingTime(defaultWaitTime);
     }
 
-    IEnumerator PowerUpAnimation()
+    private IEnumerator PowerUpAnimation()
     {
         // Instantiate the power-up animation prefab at the cell's position.
         GameObject animation = Instantiate(animationPrefab, startPosition, Quaternion.identity);

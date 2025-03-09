@@ -194,7 +194,7 @@ MonoBehaviour:
     spearCoatingMaterial: {fileID: 0}
     spearObject: {fileID: 0}
   - name: PowerUp_AddTime_1
-    sprite: {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
+    sprite: {fileID: 21300000, guid: 2a2ea8a91cea7224f9e7cc7db541d052, type: 3}
     giftTypeIcon: {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
     giftCaseRarenessType: 1
     giftCaseType: 1
@@ -204,8 +204,8 @@ MonoBehaviour:
     spearCoatingMaterial: {fileID: 0}
     spearObject: {fileID: 0}
   - name: PowerUp_AddTime_2
-    sprite: {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
-    giftTypeIcon: {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
+    sprite: {fileID: 21300000, guid: 2a2ea8a91cea7224f9e7cc7db541d052, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: 2a2ea8a91cea7224f9e7cc7db541d052, type: 3}
     giftCaseRarenessType: 2
     giftCaseType: 1
     giftCount: 2
@@ -214,7 +214,7 @@ MonoBehaviour:
     spearCoatingMaterial: {fileID: 0}
     spearObject: {fileID: 0}
   - name: PowerUp_AddTime_3
-    sprite: {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
+    sprite: {fileID: 21300000, guid: 2a2ea8a91cea7224f9e7cc7db541d052, type: 3}
     giftTypeIcon: {fileID: 21300000, guid: 9edde670745c34d40a46b3c79bd7dbdb, type: 3}
     giftCaseRarenessType: 3
     giftCaseType: 1
@@ -254,8 +254,8 @@ MonoBehaviour:
     spearCoatingMaterial: {fileID: 0}
     spearObject: {fileID: 0}
   - name: PowerUp_HeavyAttack_1
-    sprite: {fileID: 21300000, guid: ffda078b771d92e4f890c7a3c4873b79, type: 3}
-    giftTypeIcon: {fileID: 21300000, guid: ffda078b771d92e4f890c7a3c4873b79, type: 3}
+    sprite: {fileID: 21300000, guid: b4651d7abbaadf94b996b299f2ee908a, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: b4651d7abbaadf94b996b299f2ee908a, type: 3}
     giftCaseRarenessType: 1
     giftCaseType: 1
     giftCount: 1
@@ -264,8 +264,8 @@ MonoBehaviour:
     spearCoatingMaterial: {fileID: 0}
     spearObject: {fileID: 0}
   - name: PowerUp_HeavyAttack_2
-    sprite: {fileID: 21300000, guid: ffda078b771d92e4f890c7a3c4873b79, type: 3}
-    giftTypeIcon: {fileID: 21300000, guid: ffda078b771d92e4f890c7a3c4873b79, type: 3}
+    sprite: {fileID: 21300000, guid: b4651d7abbaadf94b996b299f2ee908a, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: b4651d7abbaadf94b996b299f2ee908a, type: 3}
     giftCaseRarenessType: 2
     giftCaseType: 1
     giftCount: 2
@@ -274,7 +274,7 @@ MonoBehaviour:
     spearCoatingMaterial: {fileID: 0}
     spearObject: {fileID: 0}
   - name: PowerUp_HeavyAttack_3
-    sprite: {fileID: 21300000, guid: ffda078b771d92e4f890c7a3c4873b79, type: 3}
+    sprite: {fileID: 21300000, guid: b4651d7abbaadf94b996b299f2ee908a, type: 3}
     giftTypeIcon: {fileID: 21300000, guid: ffda078b771d92e4f890c7a3c4873b79, type: 3}
     giftCaseRarenessType: 3
     giftCaseType: 1
@@ -284,8 +284,8 @@ MonoBehaviour:
     spearCoatingMaterial: {fileID: 0}
     spearObject: {fileID: 0}
   - name: PowerUp_UnlimitedThrowing_1
-    sprite: {fileID: 21300000, guid: 25b3a4c3e2e19aa48aa34216fa1430dc, type: 3}
-    giftTypeIcon: {fileID: 21300000, guid: 25b3a4c3e2e19aa48aa34216fa1430dc, type: 3}
+    sprite: {fileID: 21300000, guid: 0eaf624191adf5f479dfdcda373ff2b6, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: 0eaf624191adf5f479dfdcda373ff2b6, type: 3}
     giftCaseRarenessType: 1
     giftCaseType: 1
     giftCount: 1
@@ -294,8 +294,8 @@ MonoBehaviour:
     spearCoatingMaterial: {fileID: 0}
     spearObject: {fileID: 0}
   - name: PowerUp_UnlimitedThrowing_2
-    sprite: {fileID: 21300000, guid: 25b3a4c3e2e19aa48aa34216fa1430dc, type: 3}
-    giftTypeIcon: {fileID: 21300000, guid: 25b3a4c3e2e19aa48aa34216fa1430dc, type: 3}
+    sprite: {fileID: 21300000, guid: 0eaf624191adf5f479dfdcda373ff2b6, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: 0eaf624191adf5f479dfdcda373ff2b6, type: 3}
     giftCaseRarenessType: 2
     giftCaseType: 1
     giftCount: 2
@@ -304,8 +304,8 @@ MonoBehaviour:
     spearCoatingMaterial: {fileID: 0}
     spearObject: {fileID: 0}
   - name: PowerUp_UnlimitedThrowing_3
-    sprite: {fileID: 21300000, guid: 25b3a4c3e2e19aa48aa34216fa1430dc, type: 3}
-    giftTypeIcon: {fileID: 21300000, guid: 25b3a4c3e2e19aa48aa34216fa1430dc, type: 3}
+    sprite: {fileID: 21300000, guid: 0eaf624191adf5f479dfdcda373ff2b6, type: 3}
+    giftTypeIcon: {fileID: 21300000, guid: 0eaf624191adf5f479dfdcda373ff2b6, type: 3}
     giftCaseRarenessType: 3
     giftCaseType: 1
     giftCount: 3

@@ -7290,8 +7290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerProgress: {fileID: 11400000, guid: 82bc52d9f3b1a674dac17c31ef72344a, type: 2}
   postProcessingObject: {fileID: 392545809}
-  musicAudioSource:
-  - {fileID: 0}
+  musicAudioSource: []
   soundAudioSources: []
 --- !u!114 &1328667942
 MonoBehaviour:

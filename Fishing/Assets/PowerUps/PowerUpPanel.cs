@@ -28,7 +28,7 @@ public class PowerUpPanel : MonoBehaviour
         isPanelOpen = !isPanelOpen;
         powerUpCellsPanel.SetActive(isPanelOpen);
 
-        if (isPanelOpen) 
+        if (isPanelOpen)
         {
             SetPowerUpsDatas();
         }
@@ -36,12 +36,12 @@ public class PowerUpPanel : MonoBehaviour
         {
             UpdatePowerUpDatas();
         }
-        
+
         AnimatePanel();
     }
 
     // Set power ups datas.
-    void SetPowerUpsDatas()
+    private void SetPowerUpsDatas()
     {
         PlayerProgressData playerProgressData = GameManager.Instance.ReadPlayerProgressData();
         powerUpDataList = playerProgressData.powerUpsDatas;
@@ -50,7 +50,7 @@ public class PowerUpPanel : MonoBehaviour
     }
 
     // Create power up cells.
-    void CreatePowerUpCells()
+    private void CreatePowerUpCells()
     {
         ClearPowerUpCells();
 
@@ -81,22 +81,26 @@ public class PowerUpPanel : MonoBehaviour
         }
 
         // Instantiate cells for each category
-        InstantiatePowerUpCells(powerUpsData_Speeds);
-        InstantiatePowerUpCells(powerUpsData_HeavyAttacks);
-        InstantiatePowerUpCells(powerUpsData_AddTime);
-        InstantiatePowerUpCells(powerUpsData_UnlimitedThrowing);
+        if (powerUpsData_Speeds.Count > 0)
+            InstantiatePowerUpCells(powerUpsData_Speeds);
+        if (powerUpsData_HeavyAttacks.Count > 0)
+            InstantiatePowerUpCells(powerUpsData_HeavyAttacks);
+        if (powerUpsData_AddTime.Count > 0)
+            InstantiatePowerUpCells(powerUpsData_AddTime);
+        if (powerUpsData_UnlimitedThrowing.Count > 0)
+            InstantiatePowerUpCells(powerUpsData_UnlimitedThrowing);
     }
 
     // Instantiate power up cells for given list of power-up data.
-    void InstantiatePowerUpCells(List<PowerUpsData> powerUpsList)
+    private void InstantiatePowerUpCells(List<PowerUpsData> powerUpsList)
     {
-        PowerUpCell cell = Instantiate(powerUpCellPrefab, content).GetComponent<PowerUpCell>(); ;
+        PowerUpCell cell = Instantiate(powerUpCellPrefab, content).GetComponent<PowerUpCell>();
         powerUpCells.Add(cell);
         cell.SetPowerUpData(powerUpsList);
     }
 
     // Clear all power up cells and destroy them.
-    void ClearPowerUpCells()
+    private void ClearPowerUpCells()
     {
         foreach (PowerUpCell powerUpCell in powerUpCells)
         {
@@ -106,13 +110,13 @@ public class PowerUpPanel : MonoBehaviour
     }
 
     // Save power up datas when the application quits.
-    void OnApplicationQuit()
+    private void OnApplicationQuit()
     {
         UpdatePowerUpDatas();
     }
 
     // Update power up datas based on player progress.
-    void UpdatePowerUpDatas()
+    private void UpdatePowerUpDatas()
     {
         // Update power-up datas based on player progress
         PlayerProgressData playerProgressData = GameManager.Instance.ReadPlayerProgressData();
@@ -125,7 +129,7 @@ public class PowerUpPanel : MonoBehaviour
     }
 
     // Animate the power ups panel open and close.
-    void AnimatePanel()
+    private void AnimatePanel()
     {
         openCloseIcon.DOLocalRotate(new Vector3(0, 0, 360), 1f, RotateMode.LocalAxisAdd);
 
