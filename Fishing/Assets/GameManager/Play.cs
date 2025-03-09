@@ -8,9 +8,9 @@ using System.Collections;
 public class Play : MonoBehaviour
 {
     [Header("UI")]
-    [SerializeField] private Image playIcon;
-    [SerializeField] private TMP_Text playText;
-    [SerializeField] private Button playButton;
+    [SerializeField] private Image playIcon; // Play icon.
+    [SerializeField] private TMP_Text playText; // Play text.
+    [SerializeField] private Button playButton; // Play button.
 
     [Header("Animation Settings")]
     [SerializeField] private float waveSpeed = 2f; // It controls the wave speed.
@@ -18,31 +18,43 @@ public class Play : MonoBehaviour
     [SerializeField] private Color startColor = Color.red; // Initial color.
     [SerializeField] private Color endColor = Color.blue; // Finish color.
 
+    [SerializeField] private PlayerProgressData playerProgressData; // The player's progress data.
+    private LevelInformationData levelInformationData; // The player's level information data.
+
     void Start()
     {
         playButton.onClick.AddListener(PlayButtonClicked);
 
-        string levelName = PlayerPrefs.GetString("UnmashedLevel");
-        playText.text = $"Play with {levelName}...";
+        foreach (LevelInformationData item in playerProgressData.levelInformationDatas)
+        {
+            if (item.IsLevelOver && !(item.IsLevelFinished))
+            {
+                this.levelInformationData = item;
+                break;
+            }
+        }
+
+        playText.text = $"Play with {levelInformationData.levelName}...";
 
         PlayButtonAnimation(1.05f, 0.5f, Color.green);
 
         StartCoroutine(AnimateTextColors());
     }
 
-    void PlayButtonClicked()
+    // Function to load the game scene when the play button is clicked.
+    private void PlayButtonClicked()
     {
+        levelInformationData.IsSelected = true; 
         SceneManager.LoadScene("Game");
     }
 
-    void PlayButtonAnimation(float scale, float duration, Color color)
+    private void PlayButtonAnimation(float scale, float duration, Color color)
     {
         playButton.transform.DOScale(scale, duration).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutQuad);
         playIcon.DOColor(color, duration).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutQuad);
-        //playText.DOColor(color, duration).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutQuad);
     }
 
-    IEnumerator AnimateTextColors()
+    private IEnumerator AnimateTextColors()
     {
         // Settings to update TMP's character information.
         playText.ForceMeshUpdate();

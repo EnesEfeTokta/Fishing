@@ -24600,6 +24600,7 @@ MonoBehaviour:
   waveAmplitude: 57
   startColor: {r: 1, g: 1, b: 1, a: 1}
   endColor: {r: 0, g: 1, b: 0.038098097, a: 1}
+  playerProgressData: {fileID: 11400000, guid: 82bc52d9f3b1a674dac17c31ef72344a, type: 2}
 --- !u!114 &1794401908
 MonoBehaviour:
   m_ObjectHideFlags: 0
