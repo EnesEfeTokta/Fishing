@@ -1,20 +1,22 @@
 ![Jet Demo Image](https://github.com/EnesEfeTokta/Fishing/blob/main/FishingLogo1.png)
 
 # Fishing
-> *Bir gölde balık avlamayı konu alan eğlenceli bir mızrak atma oyunu.*
+> * A fun spear throwing game about fishing in a lake
 
-## Genel 🙌
-Fishing, 15/08/2024 tarihinde Unity v2022.3.25f1 kullanılarak başlatılan bir oyun projesidir. Oynanış, oyuncunun bir gölde görünen balıklara mızrak atmasını içerir. Temel mekanikler arasında mızrak atma, balık yumurtlama, XP sistemi ve ses ayarları bulunur. Kullanılan varlıklar arasında taş devri hayvanlarının ve silahlarının 3D modelleri, gündelik müzik, ses efektleri ve kullanıcı ara yüzü bulunur. Projenin bir GitHub deposu var, itch.io 'da yayınlanacak ve Android, Web ve Windows platformları için belirtilmemiş bazı sistem gereksinimleri var. Sayfada ayrıca geliştiricinin iletişim bilgileri, ekran görüntüleri, görev listesi, kullanılan kod ve geliştirici notları da yer alıyor.
+## General 🙌
+Fishing is a game project launched on 15/08/2024 using Unity v2022.3.25f1. Gameplay involves the player throwing spears at fish that appear in a lake. Basic mechanics include spear throwing, fish spawning, XP system and sound settings. Assets used include 3D models of stone age animals and weapons, casual music, sound effects and user interface. The project has a GitHub repository, will be released on itch.io and has some unspecified system requirements for Android, Web and Windows platforms. The page also includes developer contact information, screenshots, task list, code used, and developer notes.
 
-## Oynanış 🎮
-Gölde çıkan balıkları oyuncu ekranda tıkladığı noktaya mızrak fırlatıyor.
+Translated with DeepL.com (free version)
 
-## Dinamikler & Mekanikler 🔥
-- Mızrak fırlatma.
-- Balıkların gölden çıkmaları.
-- Mızrak ile vurulan balıkların kırmızı hasar görmeleri.
-- Ses açma/kapatma ve ayarlama seçeneklerinin olması.
-- Öldürülen her balık için XP kazanılıyor. Arından da XP yazılı obje animasyonlu şekilde XP barına hareket ediyor.
+## Gameplay 🎮
+The fish in the lake shoot spears at the point where the player clicks on the screen.
+
+## Dynamics & Mechanics 🔥
+- Throwing a spear.
+- Fish coming out of the lake.
+- Red damage to fish when hit with a spear.
+- Sound on/off and adjustment options.
+- XP is earned for each fish killed. Then the XP written object animatedly moves to the XP bar.
 
 ## Varlıklar 💎
 - 3D
@@ -50,44 +52,20 @@ Itchio özel HTML indirme düğmesi;
 - [Linkedin](https://www.linkedin.com/in/enes-efe-tokta-6567151b5/)
 - [GitHub](https://github.com/EnesEfeTokta)
 
-## Oyun kontrolleri 🛂
+## Game controls 🛂
 - Android
-	- Mızrak Fırlatma: Parmak ile dokunuş.
-
-- Web
-	- Mızrak Fırlatma: Farenin sol  tuşu.
-
-- Windows
-	- Mızrak Fırlatma: Farenin sol tuşu.
+	- Spear Throwing: Finger touch.
 
 ## Oynanış 🚀
 Bu Alan Daha Doldurulmadı !!!
 
-## Gereksinimler ⚠️
+## Requirements ⚠️
 - Android
-	- Sürüm: 7
-	- Depolama: 1 GB
-	- Ram: 4 GB
+	- Version 7
+	- Storage 1 GB
+	- Ram: 2 GB
 
-- Web
-	- Sürüm: HTML5
-	- Depolama: 1 GB
-	- Ram: 4 GB
-
-- Windows
-	- Sürüm: Windows 8
-	- Depolama: 1 GB
-	- Ram: 4 GB
-
-## Görseller 🖼️
-### Logo ve Banner 'lar
-null
-### Geliştirme Süreci
-null
-### Ekran Görüntüleri
-null
-
-## Görevler 📝
+## Images 🖼️
 null
 
 ## Kullanılan Kodlar 👩‍💻

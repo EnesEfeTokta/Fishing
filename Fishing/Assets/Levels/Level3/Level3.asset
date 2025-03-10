@@ -33,5 +33,5 @@ MonoBehaviour:
   ToPassMinScore: 225
   formerLevelInformationData: {fileID: 11400000, guid: 789ba71aa9218b141ab3b7f07da5d862, type: 2}
   nextLevelInformationData: {fileID: 11400000, guid: 021a47d009ed9454d897d1cea4a7bef8, type: 2}
-  IsLevelOver: 0
+  IsLevelOver: 1
   IsLevelFinished: 0

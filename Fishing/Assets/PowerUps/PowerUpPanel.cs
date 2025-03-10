@@ -126,6 +126,8 @@ public class PowerUpPanel : MonoBehaviour
         {
             playerProgressData.powerUpsDatas.AddRange(powerUpsCell.ReadPowerUpDatas());
         }
+
+        new DBSave(playerProgressData); // Save the updated data.
     }
 
     // Animate the power ups panel open and close.

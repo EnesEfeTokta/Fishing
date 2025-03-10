@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9756b20e779450418abbb29add42a1b, type: 3}
   m_Name: PlayerProgressData
   m_EditorClassIdentifier: 
-  totalPlayerScore: 20
-  totalPlayerMoney: 52370
-  totalPlayerFish: 50
+  totalPlayerScore: 545
+  totalPlayerMoney: 42157
+  totalPlayerFish: 89
   powerUpsDatas:
-  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
   - {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
+  - {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
+  - {fileID: 11400000, guid: 64e1898e747088044a89d463f50d9766, type: 2}
+  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
+  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
+  - {fileID: 11400000, guid: de0ea7540b09b3c468b29802bffe2a19, type: 2}
   giftCaseItemDatas:
   - {fileID: 11400000, guid: 3713b19d434e7ea4ebb07b01610cb7a9, type: 2}
   - {fileID: 11400000, guid: 3713b19d434e7ea4ebb07b01610cb7a9, type: 2}
@@ -34,7 +38,7 @@ MonoBehaviour:
   ownedCostumesData: {fileID: 11400000, guid: 5ab46477d8705e742baab5204be63419, type: 2}
   spearDress:
     name: Default
-    mesh: {fileID: 8999911773206952699, guid: 6c3ad7f927ea6c645975a33812561fc8, type: 3}
+    mesh: {fileID: 8388874815910215118, guid: 6c3ad7f927ea6c645975a33812561fc8, type: 3}
     materials:
     - {fileID: 2100000, guid: de02517b107827849bfabc4e29976ff4, type: 2}
     - {fileID: 2100000, guid: d1dd116ad40996941adfd546fbed4f8e, type: 2}

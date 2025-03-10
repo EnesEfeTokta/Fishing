@@ -273,6 +273,8 @@ public class GiftCase : MonoBehaviour
             }
         }
 
+        new DBSave(playerProgressData); // Save the updated data.
+
         // Hediye sandığı sayısını kontrol et
         if (playerProgressData.giftCaseItemDatas.Count > 0)
         {

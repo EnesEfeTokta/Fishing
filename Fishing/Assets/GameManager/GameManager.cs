@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
-using UnityEditor.SceneManagement;
 
 // Ensures that all required components are attached to the GameObject.
 [RequireComponent(typeof(PastPlayRecorder))] // Handles the recording of past plays.
@@ -152,8 +151,12 @@ public class GameManager : MonoBehaviour
     private void RegisterTheLevel()
     {
         LevelInformationData nextLevelInformationData = levelInformationData.nextLevelInformationData;
+        Debug.Log(levelInformationData.nextLevelInformationData.levelName);
         nextLevelInformationData.IsLevelOver = true;
         levelInformationData.IsLevelFinished = true;
+
+        new DBSave(nextLevelInformationData); // Save the updated data.
+        new DBSave(levelInformationData); // Save the updated data.
     }
 
     /// <summary>
@@ -230,8 +233,4 @@ public class GameManager : MonoBehaviour
     }
 
     public void ResetGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-    public void QuitGame() => Application.Quit();
-
-    public void GoToHomeScreen() => SceneManager.LoadScene("Home");
 }

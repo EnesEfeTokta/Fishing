@@ -74,6 +74,8 @@ public class PastPlayRecorder : MonoBehaviour
 
         // Add the new past play data to the list.
         pastPlaysData.pastPlayDatas.Add(newPastPlay);
+
+        new DBSave(pastPlaysData); // Save the updated data.
     }
 
     /// <summary>

@@ -66,5 +66,7 @@ public class PastPlayManager : MonoBehaviour
     void OnApplicationQuit()
     {
         pastPlayDatas.Reverse(); // Reverse the list back to its original order before the application quits.
+
+        new DBSave(pastPlaysData);
     }
 }
