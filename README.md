@@ -1,7 +1,7 @@
 ![Jet Demo Image](https://github.com/EnesEfeTokta/Fishing/blob/main/FishingLogo1.png)
 
 # Fishing
-> * A fun spear throwing game about fishing in a lake
+> * A fun spear throwing game about fishing in a lake.
 
 ## General 🙌
 Fishing is a game project launched on 15/08/2024 using Unity v2022.3.25f1. Gameplay involves the player throwing spears at fish that appear in a lake. Basic mechanics include spear throwing, fish spawning, XP system and sound settings. Assets used include 3D models of stone age animals and weapons, casual music, sound effects and user interface. The project has a GitHub repository, will be released on itch.io and has some unspecified system requirements for Android, Web and Windows platforms. The page also includes developer contact information, screenshots, task list, code used, and developer notes.
@@ -66,116 +66,104 @@ Bu Alan Daha Doldurulmadı !!!
 	- Ram: 2 GB
 
 ## Images 🖼️
-null
+<img src="/Screenshots/i1-min.png"/>
+<img src="/Screenshots/i2-min.png"/>
+<img src="/Screenshots/i3-min.png"/>
+<img src="/Screenshots/i4-min.png"/>
+<img src="/Screenshots/i5-min.png"/>
+<img src="/Screenshots/i6-min.png"/>
+<img src="/Screenshots/i7-min.png"/>
+<img src="/Screenshots/i8-min.png"/>
+<img src="/Screenshots/i9-min.png"/>
 
-## Kullanılan Kodlar 👩‍💻
-### Balık Yönetimi
-[Fish](https://github.com/EnesEfeTokta/Fishing/blob/main/Fishing/Assets/Fish/Fish.cs) - [FishData](https://github.com/EnesEfeTokta/Fishing/blob/main/Fishing/Assets/Fish/FishData.cs) - [HealthFish](https://github.com/EnesEfeTokta/Fishing/blob/main/Fishing/Assets/Fish/HealthFish.cs)
-### Oyuncu Kontrolleri
-[SpearThrowing](https://github.com/EnesEfeTokta/Fishing/blob/main/Fishing/Assets/Fish/HealthFish.cs)
-### Oyun Yönetimi
-[GameManager](https://github.com/EnesEfeTokta/Fishing/blob/main/Fishing/Assets/GameManager/GameManager.cs) - 
-[FishIconMovement](https://github.com/EnesEfeTokta/Fishing/blob/main/Fishing/Assets/Fish/FishIconMovement.cs) - [Timer](https://github.com/EnesEfeTokta/Fishing/blob/main/Fishing/Assets/GameManager/Timer.cs)
+## Fish Species and Characteristics ✨
+| Name | Level | Health | Money | Point | Speed | Damage |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|Fish1|Beginning|80|20|40|Slow|60|
+|Fish2|Beginning|100|33|50|Slow|50|
+|Fish3|Midile|120|40|60|Midile|45|
+|Fish4k4|Midile|140|46|70|Midile|40|
+|Fish5|Midile|160|53|80|Midile|35|
+|Fish6|Midile|180|60|90|Midile|30|
+|Fish7|Hard|200|66|100|Fast|25|
+|Fish8|Hard|250|83|125|Fast|20|
 
-**BURASI OYUNUN KARARLI SÜRÜMÜ YAYINLANDIĞINDA DOLDURULACAK**
+## In-game Missions/Levels List and Details 📒
 
-## Balık Türleri ve Özellikleri ✨
-| İsim | Seviye | Sağlık | Money | Puan | Hız | Hasar | Görseller |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|Balık1|Başlangıç|80|20|40|Yavaş|60|Null|
-|Balık2|Başlangıç|100|33|50|Yavaş|50|Null|
-|Balık3|Orta|120|40|60|Yavaş|45|Null|
-|Balık4|Orta|140|46|70|Orta|40|Null|
-|Balık5|Orta|160|53|80|Orta|35|Null|
-|Balık6|Orta|180|60|90|Orta|30|Null|
-|Balık7|Zor|200|66|100|Hızlı|25|Null|
-|Balık8|Zor|250|83|125|Hızlı|20|Null|
-
-## Oyun İçi Görevler/Seviyeler Listesi ve Detayları 📒
-
-| Seviye | Zorluk | Balık Türleri ve Sayısı                    | Bitirme Süresi | Puan | Balık | Money | Göl             | Açıklama                                                                 |
+| Level | Zorluk | Fish Species and Number                    | Completion Time | Point | Fish | Money | Lake Dimensions             | Description                                                                |
 |:------:|:------:|:-----------------------------------------:|:--------------:|:----:|:-----:|:-----:|:---------------:|:------------------------------------------------------------------------:|
-| Seviye 1 | Kolay  | (1 x Balık 1)                            | 60             | 40   | 1     | 26    | W(-5, 5) & H(-5, 5) | Temel mekanikleri öğrenme, rahat oyun akışı.                            |
-| Seviye 2 | Kolay  | (5 x Balık 1), (1 x Balık 2)            | 90             | 250  | 6     | 163   | W(-5, 5) & H(-5, 5) | Balıklarla tanışma, biraz daha dikkat gerektirir.                        |
-| Seviye 3 | Kolay  | (5 x Balık 1), (2 x Balık 2)            | 90             | 450  | 10    | 295   | W(-5, 5) & H(-5, 5) | Balıklarla tanışma, biraz daha dikkat gerektirir.                        |
-| Seviye 4 | Kolay  | (5 x Balık 1), (3 x Balık 2)            | 90             | 510  | 11    | 335   | W(-5, 5) & H(-5, 5) | Balıklarla tanışma, biraz daha dikkat gerektirir.                        |
-| Seviye 5 | Kolay  | (5 x Balık 1), (5 x Balık 2)            | 100            | 750  | 15    | 495   | W(-5, 5) & H(-5, 5) | Oyuncu bir çok balığı kaçırmamaya çalışacak.                             |
-| Seviye 6 | Kolay  | (7 x Balık 1), (5 x Balık 2), (3 x Balık 3) | 110         | 880  | 18    | 580   | W(-5, 5) & H(-5, 5) | Balık sayısı arttıkça oyuncuda oyuna bağlılık artırılması hedefleniyor.  |
-| Seviye 7 | Kolay  | (7 x Balık 1), (6 x Balık 2), (5 x Balık 3) | 110         | 1050 | 21    | 693   | W(-5, 5) & H(-5, 5) | Kısa sürede çok fazla balığın avlanması bekleniliyor oyuncunun.          |
-| Seviye 8 | Orta   | (4 x Balık 1), (5 x Balık 2), (5 x Balık 3), (1 x Balık 4) | 110 | 780  | 15    | 515   | W(-5, 5) & H(-5, 5) | Oyuncu artık orta seviyelerdeki balıklar ile etkileşime girebilecek.     |
-| Seviye 9 | Orta   | (4 x Balık 1), (5 x Balık 2), (5 x Balık 3), (3 x Balık 4) | 110 | 920  | 17    | 607   | W(-5, 5) & H(-5, 5) | Oyuncuya ek zorluklar çıkarılıyor.                                       |
-| Seviye 10 | Orta  | (3 x Balık 1), (5 x Balık 2), (7 x Balık 3), (5 x Balık 4) | 130 | 1120 | 20    | 739   | W(-5, 5) & H(-5, 5) | Artık balık sayısı arttı ve oyuncu stres altında tutuluyor.              |
-| Seviye 11 | Orta  | (4 x Balık 1), (5 x Balık 2), (7 x Balık 3), (5 x Balık 4) | 130 | 1170 | 21    | 772   | W(-5, 5) & H(-5, 5) | Kısa sürede çok fazla balığı avlaması bekleniliyor oyuncunun.            |
-| Seviye 12 | Orta  | (4 x Balık 1), (5 x Balık 2), (7 x Balık 3), (5 x Balık 4) | 130 | 1180 | 21    | 779   | W(-5, 5) & H(-5, 5) | Kısa sürede fazla balığı avlaması bekleniyor oyuncunun.                  |
-| Seviye 13 | Orta  | (4 x Balık 1), (5 x Balık 2), (5 x Balık 3), (1 x Balık 4), (1 x Balık 5) | 140 | 1260 | 22 | 832 | W(-5, 5) & H(-5, 5) | Balık sayısının artışı oyuncuyu zorlama amaçlıdır.                       |
-| Seviye 14 | Orta  | (4 x Balık 1), (5 x Balık 2), (5 x Balık 3), (3 x Balık 4), (5 x Balık 5) | 160 | 1580 | 26 | 1044  | W(-5, 5) & H(-5, 5) | Yeni balık sayısının artışı oyuncuyu strese sokacak.                     |
-| Seviye 15 | Orta  | (4 x Balık 1), (5 x Balık 2), (5 x Balık 3), (5 x Balık 4), (1 x Balık 6) | 160 | 1700 | 26 | 1124  | W(-5, 5) & H(-5, 5) | Balık sayısının artışı oyuncuyu zorlama amaçlıdır.                       |
-| Seviye 16 | Zor   | (2 x Balık 1), (3 x Balık 2), (5 x Balık 3), (5 x Balık 4), (5 x Balık 5) | 170 | 1530 | 23 | 1012  | W(-5, 5) & H(-5, 5) | Oyuncuya artık zor seviyede ki balıklar çıkarılıyor.                     |
-| Seviye 17 | Zor   | (2 x Balık 1), (3 x Balık 2), (5 x Balık 3), (5 x Balık 4), (7 x Balık 5), (1 x Balık 6) | 170 | 1710 | 24 | 1132  | W(-5, 5) & H(-5, 5) | Oyuncuya fazla balık sunarak onu zorlanıyor.                             |
-| Seviye 18 | Zor   | (2 x Balık 1), (3 x Balık 2), (5 x Balık 3), (5 x Balık 4), (7 x Balık 5), (5 x Balık 6), (1 x Balık 7) | 180 | 1990 | 28 | 1318  | W(-5, 5) & H(-5, 5) | Oyuncuya artık zor seviyede ki balıklar çıkarılıyor.                     |
-| Seviye 19 | Zor   | (2 x Balık 1), (3 x Balık 2), (5 x Balık 3), (5 x Balık 4), (7 x Balık 5), (5 x Balık 6), (5 x Balık 7) | 170 | 2390 | 32 | 1582  | W(-5, 5) & H(-5, 5) | Süreyi düşürerek oyuncuya ekstra zorluk çıkartıyor.                      |
-| Seviye 20 | Zor   | (2 x Balık 1), (3 x Balık 2), (5 x Balık 3), (5 x Balık 4), (7 x Balık 5), (5 x Balık 6), (5 x Balık 7), (5 x Balık 8) | 170 | 3015 | 37 | 1997 | W(-5, 5) & H(-5, 5) | Oyuncunun en zorlandığı seviyedir.                                      |
+| Level 1  | Easy   | (1 x Fish 1)                            | 60             | 40   | 1     | 26    | W(-5, 5) & H(-5, 5) | Learn basic mechanics, smooth gameplay.                                  |
+| Level 2  | Easy   | (5 x Fish 1), (1 x Fish 2)              | 90             | 250  | 6     | 163   | W(-5, 5) & H(-5, 5) | Introduction to fish, requires a bit more attention.                     |
+| Level 3  | Easy   | (5 x Fish 1), (2 x Fish 2)              | 90             | 450  | 10    | 295   | W(-5, 5) & H(-5, 5) | Introduction to fish, requires a bit more attention.                     |
+| Level 4  | Easy   | (5 x Fish 1), (3 x Fish 2)              | 90             | 510  | 11    | 335   | W(-5, 5) & H(-5, 5) | Introduction to fish, requires a bit more attention.                     |
+| Level 5  | Easy   | (5 x Fish 1), (5 x Fish 2)              | 100            | 750  | 15    | 495   | W(-5, 5) & H(-5, 5) | Player tries not to miss many fish.                                      |
+| Level 6  | Easy   | (7 x Fish 1), (5 x Fish 2), (3 x Fish 3) | 110           | 880  | 18    | 580   | W(-5, 5) & H(-5, 5) | Increasing fish count aims to enhance player engagement.                |
+| Level 7  | Easy   | (7 x Fish 1), (6 x Fish 2), (5 x Fish 3) | 110           | 1050 | 21    | 693   | W(-5, 5) & H(-5, 5) | Player is expected to catch many fish in a short time.                  |
+| Level 8  | Medium | (4 x Fish 1), (5 x Fish 2), (5 x Fish 3), (1 x Fish 4) | 110 | 780  | 15    | 515   | W(-5, 5) & H(-5, 5) | Player can now interact with medium-level fish.                         |
+| Level 9  | Medium | (4 x Fish 1), (5 x Fish 2), (5 x Fish 3), (3 x Fish 4) | 110 | 920  | 17    | 607   | W(-5, 5) & H(-5, 5) | Additional challenges are introduced to the player.                     |
+| Level 10 | Medium | (3 x Fish 1), (5 x Fish 2), (7 x Fish 3), (5 x Fish 4) | 130 | 1120 | 20    | 739   | W(-5, 5) & H(-5, 5) | Increased fish count puts the player under stress.                      |
+| Level 11 | Medium | (4 x Fish 1), (5 x Fish 2), (7 x Fish 3), (5 x Fish 4) | 130 | 1170 | 21    | 772   | W(-5, 5) & H(-5, 5) | Player is expected to catch many fish in a short time.                  |
+| Level 12 | Medium | (4 x Fish 1), (5 x Fish 2), (7 x Fish 3), (5 x Fish 4) | 130 | 1180 | 21    | 779   | W(-5, 5) & H(-5, 5) | Player is expected to catch many fish in a short time.                  |
+| Level 13 | Medium | (4 x Fish 1), (5 x Fish 2), (5 x Fish 3), (1 x Fish 4), (1 x Fish 5) | 140 | 1260 | 22 | 832 | W(-5, 5) & H(-5, 5) | Increased fish count aims to challenge the player.                      |
+| Level 14 | Medium | (4 x Fish 1), (5 x Fish 2), (5 x Fish 3), (3 x Fish 4), (5 x Fish 5) | 160 | 1580 | 26 | 1044  | W(-5, 5) & H(-5, 5) | New fish count increase will stress the player.                         |
+| Level 15 | Medium | (4 x Fish 1), (5 x Fish 2), (5 x Fish 3), (5 x Fish 4), (1 x Fish 6) | 160 | 1700 | 26 | 1124  | W(-5, 5) & H(-5, 5) | Increased fish count aims to challenge the player.                      |
+| Level 16 | Hard   | (2 x Fish 1), (3 x Fish 2), (5 x Fish 3), (5 x Fish 4), (5 x Fish 5) | 170 | 1530 | 23 | 1012  | W(-5, 5) & H(-5, 5) | Player now faces hard-level fish.                                       |
+| Level 17 | Hard   | (2 x Fish 1), (3 x Fish 2), (5 x Fish 3), (5 x Fish 4), (7 x Fish 5), (1 x Fish 6) | 170 | 1710 | 24 | 1132  | W(-5, 5) & H(-5, 5) | Player is challenged with many fish.                                    |
+| Level 18 | Hard   | (2 x Fish 1), (3 x Fish 2), (5 x Fish 3), (5 x Fish 4), (7 x Fish 5), (5 x Fish 6), (1 x Fish 7) | 180 | 1990 | 28 | 1318  | W(-5, 5) & H(-5, 5) | Player now faces hard-level fish.                                       |
+| Level 19 | Hard   | (2 x Fish 1), (3 x Fish 2), (5 x Fish 3), (5 x Fish 4), (7 x Fish 5), (5 x Fish 6), (5 x Fish 7) | 170 | 2390 | 32 | 1582  | W(-5, 5) & H(-5, 5) | Reduced time adds extra difficulty for the player.                      |
+| Level 20 | Hard   | (2 x Fish 1), (3 x Fish 2), (5 x Fish 3), (5 x Fish 4), (7 x Fish 5), (5 x Fish 6), (5 x Fish 7), (5 x Fish 8) | 170 | 3015 | 37 | 1997 | W(-5, 5) & H(-5, 5) | The most challenging level for the player.                              |
 
 
-## Başarı Hesaplamaları 🌟
-Başarı hesaplama algoritması, oyuncunun seviyeyi tamamlama süresine ve her bir balık için tanımlı olan puan ve para değerine dayalı olarak iki ana faktör üzerinden hesaplanmaktadır. Her bir balığın önceden belirlenmiş sabit puan (P) ve para (M) değeri bulunmaktadır. Bu değerler, oyuncunun seviyeyi ne kadar sürede tamamladığına göre değişkenlik göstermektedir. Hesaplama süresi, seviye süresi (S) baz alınarak dört bölüme ayrılmakta ve buna göre kazanç oranları belirlenmektedir.
-
+## Success Calculations 🌟
+The achievement calculation algorithm is based on two main factors: the time it takes the player to complete the level and the value of points and money defined for each fish. Each fish has a predefined fixed value of points (P) and money (M). These values vary depending on how long it takes the player to complete the level. The calculation time is divided into four parts based on the level duration (S) and the earning rates are determined accordingly.
 Bu hesaplama modelinin matematiksel tanımı aşağıdaki gibidir:
 
-- **S:** Seviye süresi
-- **T:** Oyuncunun tamamladığı süre
-- **P:** Balık başına verilen sabit puan değeri
-- **M:** Balık başına verilen sabit para değeri
+- **S:** Level duration
+- **T:** Time completed by the player
+- **P:** Fixed point value awarded per fish
+- **M:** Fixed monetary value per fish
 
-**Kazanç Oranları:**
+**Earnings Ratios:**
 
-1. **T ≤ S/4:** Tam P & M kazanılır.
-2. **S/4 < T ≤ S/2:** P & M ’in yarısı verilir (P/2 & M/2).
-3. **S/2 < T ≤ 3S/4:** P & M ’in çeyreği verilir (P/4 & M/4).
-4. **T > 3S/4:** P’nin çeyreği, M ’in ise sabit çeyrek oranı verilir (P/4 & M/4).
+1. **T ≤ S/4:** Full P & M is earned.
+2. **S/4 < T ≤ S/2:** Half of P & M is awarded (P/2 & M/2).
+3. **S/2 < T ≤ 3S/4:** A quarter of P & M is awarded (P/4 & M/4).
+4. **T > 3S/4:** a quarter of P and a constant quarter of M (P/4 & M/4).
 
-**Toplam Kazançlı Puan & Para:**
+**Total Earned Points & Money:**
 
-Toplam kazanılan puan ve para, yukarıdaki kurallar çerçevesinde her bir balık için hesaplanıp toplanarak elde edilir.
+Total earned points and money are calculated and totaled for each fish according to the above rules.
 
-Bu algoritma, oyuncunun tamamladığı süreye göre esnek bir ödüllendirme sağlar ve başarı seviyesini doğrudan oyuncunun performansına göre ölçmeye olanak tanır.
+This algorithm provides a flexible rewarding based on the time completed by the player and allows to measure the level of success directly based on the player's performance.
 
-## Yasak ve Hukuki Uyarılar ⚠️
-* Logo, Banner ve arka plan görseller OpenAI LLC araştırma şirketinin üretken yapay zeka aracı olan ChatGPT-4o ürünü kullanılarak üretilmiştir. OpenAI kullanıcı sözleşmesi gereği üretilen içeriklerin mülkü şahsımıza aittir.
+## Prohibited and Legal Warnings ⚠️
+* The logo, banner, and background images were generated using OpenAI LLC's generative AI tool, ChatGPT-4. According to OpenAI's user agreement, the generated content is owned by us.
 
 	*Subject to the Content Policy and Terms, you own the output you create with ChatGPT, including the right to reprint, sell, and merchandise – regardless of whether output was generated through a free or paid plan.*
 	**What is ChatGPT? | OpenAI Help Center**
 
-* VCS (Version Control System) olarak kullanılan *Git* ‘in kullanım şartları gereği açık kaynaklı oluşundan dolayı mülkiyetsiz bir yapıdır.
+* The *Git* used as the Version Control System (VCS) is open-source and therefore has no ownership structure.
 
-* Kodların depolandığı *GitHub* platformu ise ücretsiz sürümü kullanılıyor ve her hangi bir mülkiyet sorunu teşkil etmiyor.
+* The *GitHub* platform where the code is stored uses the free version and does not pose any ownership issues.
 
-* Projenin lisansı *GPL-3.0*  ‘dır. Bu lisans ile proje açık kaynaklı olup öğretici ve kar amacı gütmeyen her amaçla kullanılabilir. Ancak gelir elde etme amacıyla hiç bir kod proje sahibinden izin alınmadan kullanılamaz.
+* The project's license is *GPL-3.0*. With this license, the project is open-source and can be used for educational and non-profit purposes. However, no code can be used for profit without the project owner's permission.
 
-* Oyunun motoru olarak kullanılan Unity Engine ‘nın Personal lisansı kullanılmıştır. Bundan dolayısıyla Personal lisansında değinilen kullanım politikasına uyuluyor.
+* The Unity Engine used as the game's engine is under the Personal license. Therefore, the usage policy mentioned in the Personal license is followed.
 
 	*This license applies to the Visual Studio Code product. Source code for Visual Studio Code is available at https://github.com/Microsoft/vscode under the MIT license agreement. The software is licensed, not sold. This agreement only gives you some rights to use the software. Microsoft reserves all other rights. Unless applicable law gives you more rights despite this limitation, you may use the software only as expressly permitted in this agreement. In doing so, you must comply with any technical limitations in the software that only allow you to use it in certain ways.*
 	**code.visualstudio.com**
 
-* Oyun yapımında kullanılan tüm araçlar ve varlıklar Unity Asset Store ‘dan temin edilmiştir. Bu süreçte Asset Store ‘un *Unity Asset Store Terms of Service and EULA* lisansına tabi tutuluyoruz.
+* All tools and assets used in game development were obtained from the Unity Asset Store. During this process, we are subject to the *Unity Asset Store Terms of Service and EULA* license.
 
-## Pazarlama & Tanıtım Stratejileri 🖊️
-### Hedef Kitle Analizi
-Bir grup katılımcıyla gerçekleştirilen anket ve soru-cevap oturumları sonucunda hedef kitlenin ihtiyaçları tespit edilmiştir. Belirlenen bu kriterler, oyunun geliştirme sürecinde dikkate alınmış ve oyunun şekillendirilmesinde önemli bir rol oynamıştır.
-### Sosyal Medya ve Topluluk
-Oyun LinkedIn ve Tik Tok ‘ta oynanış videoları paylaşılacaktır. Bu süreç oyun yayınlandıktan sadece üç aya kadar sürecektir. Üç aydan sonra paylaşımlar ve destek sona erecek.
-### PR ve Medya Çalışmaları
-null
-### Beta Testi ve Erken Erişim
-null
-### Platformlara Özgü Startejiler
-null
-### Kullanıcı Geri Bildirimlerine Dayalı İyileştirmeler
-Kullanıcılar, **E-Posta**, **LinkedIn** ve **GitHub Issues** aracılığıyla geri bildirim sağlayabileceklerdir. Bu geri bildirimler, hem oyunun kendisinin hem de geliştirme sürecinin iyileştirilmesine katkıda bulunacaktır.
+## Marketing & Promotion Strategies 🖊️
+### Target Audience Analysis
+The needs of the target audience were identified through surveys and Q&A sessions conducted with a group of participants. These criteria were considered during the game's development process and played an important role in shaping the game.
+### Social Media and Community
+Gameplay videos will be shared on LinkedIn and TikTok. This process will only last for three months after the game is released. After three months, the posts and support will end.
+### Improvements Based on User Feedback
+Users will be able to provide feedback via **Email**, **LinkedIn**, and **GitHub Issues**. This feedback will contribute to the improvement of both the game itself and the development process.
 
-🚨 Proje, uzun vadeli bir hedef taşımadığından, geri bildirimler yalnızca oyunun yayınlanmasından sonraki beş ay boyunca kabul edilecektir. Ancak, projenin açık kaynaklı olması nedeniyle **GitHub Issues** üzerinden uzun süre geri bildirimde bulunmak mümkün olacaktır. Proje sahibi tarafından tam destek sağlanmasa da, projeye katkıda bulunan diğer gönüllü geliştiriciler bu geri bildirimlere yanıt verebilir ve gerekli aksiyonları alabilirler.
-### Lokalizasyon
-Oyunun birincil dil ayarı _İngilizcedir_ ve tüm sosyal medya iletişimleri İngilizce olarak yürütülecektir. Oyun içindeki diğer dil seçenekleri arasında _Türkçe_, _Fransızca_, _İspanyolca_ ve _Almanca_ yer almaktadır. Teknik bir sorun yaşanmaması halinde _Arapça_, _Rusça_ ve _Korece_ desteği de gelecek güncellemelerde sunulacaktır.
+🚨 Since the project does not have a long-term goal, feedback will only be accepted for five months after the game is released. However, since the project is open-source, it will be possible to provide feedback through **GitHub Issues** for a long time. Although full support will not be provided by the project owner, other volunteer developers contributing to the project may respond to this feedback and take necessary actions.
 
 ## Lisans 🔐
 [Lisans](https://github.com/EnesEfeTokta/Fishing/blob/main/LICENSE "Lisans")
